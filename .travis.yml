@@ -22,6 +22,9 @@ php:
   - 7.3
   - 7.2
 
+node_js:
+  - lts/*
+
 # Test against the latest version of WordPress and one version back.
 env:
   - WP_VERSION=latest
@@ -29,7 +32,6 @@ env:
   - WP_VERSION=5.2
   - WP_VERSION=5.1
   - WP_VERSION=5.0
-  - NODE_RELEASE=12.x
 
 # Customize the build matrix.
 matrix:
