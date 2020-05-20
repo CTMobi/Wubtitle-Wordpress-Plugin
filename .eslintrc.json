@@ -1,3 +1,10 @@
 {
-    "extends": [ "plugin:@wordpress/eslint-plugin/recommended" ]
+    "extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "Stripe": true,
+        "WP_GLOBALS": true
+    }
 }

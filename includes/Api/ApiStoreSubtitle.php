@@ -22,6 +22,7 @@ class ApiStoreSubtitle {
 	 */
 	public function run() {
 		add_action( 'rest_api_init', array( $this, 'register_store_subtitle_route' ) );
+		add_action( 'rest_api_init', array( $this, 'register_error_jobs_route' ) );
 	}
 
 	/**
@@ -69,19 +70,21 @@ class ApiStoreSubtitle {
 	}
 
 	/**
-	 * Ottiene.
+	 * Ottiene il file dei sottotitoli e lo salva, inoltre aggiunge dei post meta al video.
 	 *
 	 * @param array $params parametri del file.
 	 */
 	public function get_subtitle( $params ) {
-		// If the function it's not available, require it.
 		if ( ! function_exists( 'download_url' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 		}
-		$url           = $params['url'];
-		$file_name     = explode( '?', basename( $url ) )[0];
-		$id_attachment = $params['attachmentId'];
-		$temp_file     = download_url( $url );
+		$url            = $params['url'];
+		$transcript_url = $params['transcript'];
+		$file_name      = explode( '?', basename( $url ) )[0];
+		$id_attachment  = $params['attachmentId'];
+		$temp_file      = download_url( $url );
+		update_option( 'ear2words_seconds_done', $params['duration'] );
+		update_option( 'ear2words_jobs_done', $params['jobs'] );
 
 		if ( is_wp_error( $temp_file ) ) {
 			$error = array(
@@ -130,8 +133,14 @@ class ApiStoreSubtitle {
 		}
 
 		update_post_meta( $id_attachment, 'ear2words_subtitle', $id_file_vtt );
-		update_post_meta( $id_attachment, 'ear2words_status', 'done' );
+		update_post_meta( $id_attachment, 'ear2words_status', 'draft' );
 		update_post_meta( $id_file_vtt, 'is_subtitle', 'true' );
+
+		$transcript_response = wp_remote_get( $transcript_url );
+
+		$transcript = wp_remote_retrieve_body( $transcript_response );
+
+		$this->add_post_trascript( $transcript, $id_attachment );
 
 		$message = array(
 			'message' => array(
@@ -147,8 +156,79 @@ class ApiStoreSubtitle {
 
 		return $response;
 	}
+
+	/**
+	 * Genera post trascrizione.
+	 *
+	 * @param string $transcript testo della trascrizione.
+	 * @param string $id_attachment id del video.
+	 */
+	public function add_post_trascript( $transcript, $id_attachment ) {
+		$related_attachment = get_post( $id_attachment );
+		$trascript_post     = array(
+			'post_title'   => $related_attachment->post_title,
+			'post_content' => $transcript,
+			'post_status'  => 'publish',
+			'post_type'    => 'transcript',
+			'meta_input'   => array(
+				'ear2words_transcript' => $id_attachment,
+			),
+		);
+		wp_insert_post( $trascript_post );
+	}
+
+	/**
+	 * Crea un nuovo endpoint per ricevere i jobs andati in errori.
+	 */
+	public function register_error_jobs_route() {
+		register_rest_route(
+			'ear2words/v1',
+			'/error-jobs',
+			array(
+				'methods'  => 'POST',
+				'callback' => array( $this, 'get_jobs_failed' ),
+			)
+		);
+	}
+	/**
+	 * Recupera i job falliti.
+	 *
+	 * @param array $request valori della richiesta.
+	 */
+	public function get_jobs_failed( $request ) {
+		$params   = $request->get_param( 'data' );
+		$job_id   = $params['jobId'];
+		$args     = array(
+			'post_type'      => 'attachment',
+			'posts_per_page' => 1,
+			'meta_key'       => 'ear2words_job_uuid',
+			'meta_value'     => $job_id,
+		);
+		$job_meta = get_posts( $args );
+		if ( empty( $job_meta[0] ) ) {
+			$response = new WP_REST_Response(
+				array(
+					'errors' => array(
+						'status' => '404',
+						'title'  => 'Invalid Job uuid',
+					),
+				)
+			);
+
+			$response->set_status( 404 );
+
+			return $response;
+		}
+
+		$id_attachment = $job_meta[0]->ID;
+		update_post_meta( $id_attachment, 'ear2words_status', 'error' );
+		$message = array(
+			'data' => array(
+				'status' => '200',
+				'title'  => 'Success',
+			),
+		);
+
+		return $message;
+	}
 }
-
-
-
-

@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Ear2Words plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ear2Words 0.1.0\n"
+"Project-Id-Version: Ear2Words 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-ear2words\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-09T16:22:12+02:00\n"
+"POT-Creation-Date: 2020-05-06T15:05:39+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: ear2words\n"
@@ -34,139 +34,565 @@ msgstr ""
 msgid "YOUR SITE HERE"
 msgstr ""
 
+#: includes/Api/ApiCancelSubscription.php:30
+msgid "No Nonce"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:32
+msgid "No Cancel"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:34
+msgid "Invalid"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:54
+msgid "Deleted successfully"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:55
+msgid "Bad Request. Please try again in a few minutes"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:56
+msgid "Unauthorized"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:57
+msgid "Forbidden"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:58
+msgid "Not Found"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:59
+msgid "Internal server error"
+msgstr ""
+
+#: includes/Api/ApiCancelSubscription.php:60
+msgid "Bad gateway"
+msgstr ""
+
+#: includes/Api/ApiPricingPlan.php:32
+#: includes/Api/ApiPricingPlan.php:94
+#: includes/Api/ApiPricingPlan.php:152
+#: includes/Api/ApiPricingPlan.php:195
+msgid "An error occurred. Please try again in a few minutes."
+msgstr ""
+
+#: includes/Api/ApiPricingPlan.php:44
+#: includes/Api/ApiPricingPlan.php:104
+#: includes/Api/ApiPricingPlan.php:158
+#: includes/Api/ApiRequest.php:96
+msgid "Unable to create subtitles. The product license key is missing."
+msgstr ""
+
+#: includes/Api/ApiPricingPlan.php:59
+#: includes/Api/ApiPricingPlan.php:60
+#: includes/Api/ApiPricingPlan.php:125
+#: includes/Api/ApiPricingPlan.php:126
+#: includes/Api/ApiPricingPlan.php:176
+#: includes/Api/ApiPricingPlan.php:177
+#: includes/Api/ApiPricingPlan.php:217
+msgid "An error occurred. Please try again in a few minutes"
+msgstr ""
+
+#: includes/Api/ApiPricingPlan.php:61
+#: includes/Api/ApiPricingPlan.php:127
+#: includes/Api/ApiPricingPlan.php:178
+#: includes/Api/ApiPricingPlan.php:218
+msgid "Access denied"
+msgstr ""
+
+#: includes/Api/ApiPricingPlan.php:62
+#: includes/Api/ApiPricingPlan.php:63
+#: includes/Api/ApiPricingPlan.php:128
+#: includes/Api/ApiPricingPlan.php:129
+#: includes/Api/ApiPricingPlan.php:179
+#: includes/Api/ApiPricingPlan.php:180
+#: includes/Api/ApiPricingPlan.php:219
+#: includes/Api/ApiRequest.php:115
+msgid "Could not contact the server"
+msgstr ""
+
 #: includes/Api/ApiRequest.php:62
 msgid "Error, invalid language selected"
 msgstr ""
 
 #: includes/Api/ApiRequest.php:87
-#: includes/Api/ApiRequest.php:95
-#: includes/Api/ApiRequest.php:102
+#: includes/Api/ApiRequest.php:93
+#: includes/Api/ApiRequest.php:100
 msgid "An error occurred while creating the subtitles. Please try again in a few minutes."
 msgstr ""
 
-#: includes/Api/ApiRequest.php:91
-msgid "Error, invalid request"
-msgstr ""
-
-#: includes/Api/ApiRequest.php:98
-msgid "Unable to create subtitles. The product license key is missing."
-msgstr ""
-
-#: includes/Api/ApiRequest.php:119
-#: includes/Api/ApiRequest.php:120
+#: includes/Api/ApiRequest.php:112
+#: includes/Api/ApiRequest.php:113
 msgid "An error occurred while creating the subtitles. Please try again in a few minutes"
 msgstr ""
 
-#: includes/Api/ApiRequest.php:121
+#: includes/Api/ApiRequest.php:114
 msgid "Unable to create subtitles. Invalid product license"
 msgstr ""
 
-#: includes/Api/ApiRequest.php:122
-msgid "Could not contact the server"
+#: includes/Api/ApiRequest.php:208
+msgid "Error, no more video left for your subscription plan"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:31
-msgid "Ear2words Settings"
+#: includes/Api/ApiRequest.php:209
+msgid "Error, language not supported for your subscription plan"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:31
-msgid "Ear2words"
+#: includes/Api/ApiRequest.php:210
+#: includes/MediaLibrary/MediaLibraryExtented.php:96
+#: includes/MediaLibrary/MediaLibraryExtented.php:192
+#: build/index.js:349
+#: src/block/Ear2WordPanel.js:88
+msgid "Unsupported video format for free plan"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:77
-msgid "Unable to update. Expired product license."
+#: includes/Api/ApiRequest.php:215
+msgid "Error, video length is longer than minutes available for your subscription plan (minutes left "
+msgstr ""
+
+#: includes/Api/ApiRequest.php:215
+msgid ", video left "
+msgstr ""
+
+#: includes/Dashboard/Settings.php:36
+msgid "Wubtitle Settings"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:36
+msgid "Wubtitle"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:51
+msgid "Free Plan"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:52
+msgid "Standard Plan"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:53
+msgid "Elite Plan"
 msgstr ""
 
 #: includes/Dashboard/Settings.php:78
-msgid "Unable to update. Invalid product license."
+msgid "Licensing"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:79
-msgid "An error occurred while updating licence. Please try again in a few minutes."
-msgstr ""
-
-#: includes/Dashboard/Settings.php:80
-msgid "Could not contact the server."
-msgstr ""
-
-#: includes/Dashboard/Settings.php:81
-msgid "An error occurred."
+#: includes/Dashboard/Settings.php:90
+msgid "Generated video subtitles: "
 msgstr ""
 
 #: includes/Dashboard/Settings.php:96
+msgid "Video time spent: "
+msgstr ""
+
+#: includes/Dashboard/Settings.php:98
+msgid " hours"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:127
+msgid "Payment successful"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:130
+msgid "Payment information updated"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:133
+msgid "License key sent, check your email!"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:136
+msgid "Unsubscription successful"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:160
+msgid "Automatic renewal: "
+msgstr ""
+
+#: includes/Dashboard/Settings.php:162
+msgid "You requested the subscription cancellation. Your plan will be valid until  "
+msgstr ""
+
+#: includes/Dashboard/Settings.php:175
+msgid "Unsubscribe"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:178
+msgid "Update email or payment detail"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:181
+msgid "Modify plan"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:212
+msgid "Unable to update. Expired product license."
+msgstr ""
+
+#: includes/Dashboard/Settings.php:213
+msgid "Unable to update. Invalid product license."
+msgstr ""
+
+#: includes/Dashboard/Settings.php:214
+msgid "An error occurred while updating licence. Please try again in a few minutes."
+msgstr ""
+
+#: includes/Dashboard/Settings.php:215
+msgid "Could not contact the server."
+msgstr ""
+
+#: includes/Dashboard/Settings.php:216
+msgid "An error occurred."
+msgstr ""
+
+#: includes/Dashboard/Settings.php:231
 msgid "Valid product license. Subscription plan updated."
 msgstr ""
 
-#: includes/Dashboard/Settings.php:152
-msgid "License settings"
+#: includes/Dashboard/Settings.php:290
+msgid "Unlock more features!"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:155
-#: includes/Dashboard/Settings.php:162
+#: includes/Dashboard/Settings.php:295
+msgid "Upgrade"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:302
+msgid "License Number"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:309
 msgid "License key"
 msgstr ""
 
+#: includes/Dashboard/Settings.php:311
+msgid "Please enter the license key you received after successful checkout"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:332
+msgid "Reset license key"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:350
+msgid "now!"
+msgstr ""
+
+#: includes/Dashboard/Templates/cancel_template.php:33
+msgid "Are you sure you want to unsubscribe?"
+msgstr ""
+
+#: includes/Dashboard/Templates/cancel_template.php:34
+msgid "Are you sure you want to cancel your subscription? If you choose to continue, when the subscription expires your plan will return to free version and you will lose all the additional features"
+msgstr ""
+
+#: includes/Dashboard/Templates/cancel_template.php:36
+msgid "Return to free version"
+msgstr ""
+
+#: includes/Dashboard/Templates/cancel_template.php:37
+#: includes/Dashboard/Templates/downgrade_plan_template.php:54
+#: includes/Dashboard/Templates/upgrade_plan_template.php:54
+msgid "Forget it"
+msgstr ""
+
+#: includes/Dashboard/Templates/cancel_template.php:43
+msgid "Or choose another plan"
+msgstr ""
+
+#: includes/Dashboard/Templates/cancel_template.php:57
+#: includes/Dashboard/Templates/payment_template.php:43
+msgid "Per month"
+msgstr ""
+
+#: includes/Dashboard/Templates/downgrade_plan_template.php:34
+msgid "Subscription plan downgrade"
+msgstr ""
+
+#: includes/Dashboard/Templates/downgrade_plan_template.php:35
+msgid "Downgrading now, you will earn a credit that will be billed to you at the next charge"
+msgstr ""
+
+#: includes/Dashboard/Templates/downgrade_plan_template.php:42
+msgid " credit earnings"
+msgstr ""
+
+#: includes/Dashboard/Templates/downgrade_plan_template.php:51
+msgid "The subtitles already created and the minutes already used will be counted on the new subscription plan"
+msgstr ""
+
+#: includes/Dashboard/Templates/downgrade_plan_template.php:53
+msgid "Downgrade Now"
+msgstr ""
+
+#: includes/Dashboard/Templates/payment_template.php:29
+msgid "Choose the right plan for your project"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:16
+msgid "Free"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:19
+#: includes/Dashboard/Templates/plans_array.php:37
+#: includes/Dashboard/Templates/plans_array.php:55
+msgid "Number of video"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:19
+msgid "3"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:20
+#: includes/Dashboard/Templates/plans_array.php:38
+#: includes/Dashboard/Templates/plans_array.php:56
+msgid "Total length of videos"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:20
+msgid "30 min"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:23
+msgid "Mp4 Video format allowed"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:24
+msgid "Recognized languages: English and Italian"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:30
+#: includes/Dashboard/Templates/plans_array.php:48
+#: includes/Dashboard/Templates/plans_array.php:66
+msgid "Choose this plan"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:34
+msgid "Standard"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:37
+msgid "10"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:38
+msgid "3 hours"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:41
+#: includes/Dashboard/Templates/plans_array.php:59
+msgid "All wordpress formats supported by wordpress"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:42
+#: includes/Dashboard/Templates/plans_array.php:60
+msgid "Recognized languuages: English, Italian, German, French, Spanish and Chinese"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:52
+msgid "Elite"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:55
+msgid "30"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:56
+msgid "10 hours"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:70
+msgid "Unable this select this plan during the first month of subscription for current plan"
+msgstr ""
+
+#: includes/Dashboard/Templates/plans_array.php:74
+#: includes/Dashboard/Templates/plans_array.php:82
+#: includes/Dashboard/Templates/plans_array.php:92
+msgid "Your plan"
+msgstr ""
+
+#: includes/Dashboard/Templates/upgrade_plan_template.php:35
+msgid "Subscription plan upgrade"
+msgstr ""
+
+#: includes/Dashboard/Templates/upgrade_plan_template.php:36
+msgid "Upgrading now, for the first month you are entired to a partial refund of previous monthly subscription plan"
+msgstr ""
+
+#: includes/Dashboard/Templates/upgrade_plan_template.php:45
+msgid "Only for first month (Until "
+msgstr ""
+
+#: includes/Dashboard/Templates/upgrade_plan_template.php:55
+msgid "Upgrade Now"
+msgstr ""
+
 #: includes/MediaLibrary/ListingSubtitles.php:42
-msgid "Creating"
+#: includes/MediaLibrary/MediaLibraryExtented.php:80
+#: includes/MediaLibrary/MediaLibraryExtented.php:180
+#: build/index.js:584
+#: src/block/labels.js:13
+msgid "Generating"
 msgstr ""
 
 #: includes/MediaLibrary/ListingSubtitles.php:43
+#: includes/MediaLibrary/MediaLibraryExtented.php:81
+#: includes/MediaLibrary/MediaLibraryExtented.php:156
+#: includes/MediaLibrary/MediaLibraryExtented.php:181
+#: includes/MediaLibrary/MediaLibraryExtented.php:249
+#: build/index.js:585
+#: src/block/labels.js:14
 msgid "Draft"
 msgstr ""
 
 #: includes/MediaLibrary/ListingSubtitles.php:44
-msgid "Enabled"
+#: includes/MediaLibrary/MediaLibraryExtented.php:82
+#: includes/MediaLibrary/MediaLibraryExtented.php:155
+#: includes/MediaLibrary/MediaLibraryExtented.php:182
+#: includes/MediaLibrary/MediaLibraryExtented.php:248
+#: build/index.js:505
+#: src/block/SubtitleControl.js:41
+msgid "Published"
 msgstr ""
 
-#: includes/MediaLibrary/ListingSubtitles.php:45
-msgid "Disabled"
+#: includes/MediaLibrary/ListingSubtitles.php:46
+#: includes/MediaLibrary/MediaLibraryExtented.php:83
+#: includes/MediaLibrary/MediaLibraryExtented.php:183
+#: build/index.js:587
+#: src/block/labels.js:16
+msgid "None"
 msgstr ""
 
-#: includes/MediaLibrary/ListingSubtitles.php:47
-msgid "No subtitles"
+#: includes/MediaLibrary/MediaLibraryExtented.php:104
+#: includes/MediaLibrary/MediaLibraryExtented.php:146
+msgid "Subtitle"
 msgstr ""
 
-#: build/index.js:315
-#: src/block/Ear2WordPanel.js:50
-msgid "Subtitle creation successfully started"
+#: includes/MediaLibrary/MediaLibraryExtented.php:113
+#: includes/MediaLibrary/MediaLibraryExtented.php:163
+#: includes/MediaLibrary/MediaLibraryExtented.php:223
+#: includes/MediaLibrary/MediaLibraryExtented.php:264
+msgid "Language"
 msgstr ""
 
-#: build/index.js:330
-#: src/block/Ear2WordPanel.js:67
-msgid "Select the video language"
-msgstr ""
-
-#: build/index.js:338
-#: src/block/Ear2WordPanel.js:73
+#: includes/MediaLibrary/MediaLibraryExtented.php:122
+#: includes/MediaLibrary/MediaLibraryExtented.php:273
+#: includes/MediaLibrary/MediaLibraryExtented.php:359
+#: build/index.js:576
+#: build/index.js:591
+#: build/index.js:610
+#: src/block/labels.js:4
+#: src/block/labels.js:22
+#: src/block/labels.js:49
 msgid "Italian"
 msgstr ""
 
-#: build/index.js:341
-#: src/block/Ear2WordPanel.js:74
+#: includes/MediaLibrary/MediaLibraryExtented.php:123
+#: includes/MediaLibrary/MediaLibraryExtented.php:274
+#: includes/MediaLibrary/MediaLibraryExtented.php:360
+#: build/index.js:577
+#: build/index.js:594
+#: build/index.js:613
+#: src/block/labels.js:5
+#: src/block/labels.js:26
+#: src/block/labels.js:53
 msgid "English"
 msgstr ""
 
-#: build/index.js:344
-#: src/block/Ear2WordPanel.js:75
+#: includes/MediaLibrary/MediaLibraryExtented.php:127
+#: includes/MediaLibrary/MediaLibraryExtented.php:278
+#: includes/MediaLibrary/MediaLibraryExtented.php:361
+#: build/index.js:578
+#: build/index.js:597
+#: src/block/labels.js:6
+#: src/block/labels.js:30
 msgid "Spanish"
 msgstr ""
 
-#: build/index.js:347
-#: src/block/Ear2WordPanel.js:76
-msgid "German "
+#: includes/MediaLibrary/MediaLibraryExtented.php:128
+#: includes/MediaLibrary/MediaLibraryExtented.php:279
+msgid "German"
 msgstr ""
 
-#: build/index.js:350
-#: src/block/Ear2WordPanel.js:77
+#: includes/MediaLibrary/MediaLibraryExtented.php:129
+#: includes/MediaLibrary/MediaLibraryExtented.php:280
+#: includes/MediaLibrary/MediaLibraryExtented.php:363
+#: build/index.js:580
+#: build/index.js:603
+#: src/block/labels.js:8
+#: src/block/labels.js:38
 msgid "Chinese"
 msgstr ""
 
-#: build/index.js:353
-#: src/block/Ear2WordPanel.js:78
+#: includes/MediaLibrary/MediaLibraryExtented.php:130
+#: includes/MediaLibrary/MediaLibraryExtented.php:281
+#: includes/MediaLibrary/MediaLibraryExtented.php:364
+#: build/index.js:581
+#: build/index.js:606
+#: src/block/labels.js:9
+#: src/block/labels.js:42
 msgid "French"
 msgstr ""
 
-#: build/index.js:361
-#: src/block/Ear2WordPanel.js:88
+#: includes/MediaLibrary/MediaLibraryExtented.php:137
+#: includes/MediaLibrary/MediaLibraryExtented.php:287
+#: build/index.js:345
+#: src/block/Ear2WordPanel.js:79
 msgid "GENERATE SUBTITLES"
+msgstr ""
+
+#: includes/MediaLibrary/MediaLibraryExtented.php:205
+msgid "Subtitles"
+msgstr ""
+
+#: includes/MediaLibrary/MediaLibraryExtented.php:209
+msgid "Status"
+msgstr ""
+
+#: includes/MediaLibrary/MediaLibraryExtented.php:229
+msgid "Wait while subtitles are created. Subtitles will be available as soon as possible"
+msgstr ""
+
+#: includes/MediaLibrary/MediaLibraryExtented.php:362
+#: build/index.js:579
+#: build/index.js:600
+#: src/block/labels.js:7
+#: src/block/labels.js:34
+msgid "German "
+msgstr ""
+
+#: build/index.js:332
+#: build/index.js:437
+#: build/index.js:500
+#: src/block/Ear2WordPanel.js:63
+#: src/block/PendingSubtitle.js:7
+#: src/block/SubtitleControl.js:35
+msgid "Status: "
+msgstr ""
+
+#: build/index.js:333
+#: src/block/Ear2WordPanel.js:65
+msgid "Select the video language"
+msgstr ""
+
+#: build/index.js:364
+#: src/block/Ear2WordPanel.js:108
+msgid "Subtitle creation successfully started"
+msgstr ""
+
+#: build/index.js:437
+#: build/index.js:504
+#: src/block/PendingSubtitle.js:8
+#: src/block/SubtitleControl.js:38
+msgid "Language: "
+msgstr ""
+
+#: build/index.js:586
+#: src/block/labels.js:15
+msgid "Enabled"
 msgstr ""

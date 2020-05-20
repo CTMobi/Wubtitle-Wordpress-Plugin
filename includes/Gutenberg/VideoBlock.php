@@ -9,6 +9,8 @@
 
 namespace Ear2Words\Gutenberg;
 
+use Ear2Words\Loader;
+
 /**
  * This class describes The Gutenberg video block.
  */
@@ -33,6 +35,7 @@ class VideoBlock {
 				'ajax_url'  => admin_url( 'admin-ajax.php' ),
 				'ajaxnonce' => wp_create_nonce( 'itr_ajax_nonce' ),
 				'lang'      => explode( '_', get_locale(), 2 )[0],
+				'isFree'    => get_option( 'ear2words_free' ),
 			)
 		);
 	}
@@ -54,17 +57,23 @@ class VideoBlock {
 	 * @param string $content html generato da wordress per il blocco video standard.
 	 */
 	public function video_dynamic_block_render_callback( $attributes, $content ) {
+		wp_enqueue_style( 'ear2words_test', EAR2WORDS_URL . '/src/css/subtitles.css', null, true );
+		if ( empty( $attributes['id'] ) ) {
+			return $content;
+		}
 		$subtitle     = get_post_meta( $attributes['id'], 'ear2words_subtitle', true );
 		$subtitle_src = wp_get_attachment_url( $subtitle );
 		$video_src    = wp_get_attachment_url( $attributes['id'] );
-		if ( '' === $subtitle ) {
+		$lang         = Loader::get( 'extented_media_library' )->get_video_language( $attributes['id'] );
+		$status       = get_post_meta( $attributes['id'], 'ear2words_status', true );
+		if ( '' === $subtitle || 'enabled' !== $status ) {
 			return $content;
 		}
 		ob_start();
 		?>
 		<figure class="wp-block-video">
 			<video controls src= "<?php echo esc_html( $video_src ); ?>">
-			<track label="Italian" kind="subtitles" srclang="it" src=" <?php echo esc_html( $subtitle_src ); ?>" default>
+			<track label="<?php echo esc_attr( $lang ); ?>" kind="subtitles" src=" <?php echo esc_html( $subtitle_src ); ?>" default>
 			</video>
 		</figure>
 		<?php

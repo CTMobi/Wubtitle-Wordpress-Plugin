@@ -1,0 +1,290 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: transparent linear-gradient(254deg, #D500F9 0%, #2962FF 99%) 0% 0% no-repeat padding-box;
+    min-height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    margin: auto;
+    padding: 0 5px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    color: #FFFFFF;
+    text-align: center;
+    padding: 30px 0;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 32px;
+    font-family: 'Days One', sans-serif;
+}
+
+.row {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    margin: 7px 16px;
+    flex: 1 1 0;
+}
+
+.one-quarter {
+    flex: none;
+	width: calc(100% * 1/4);
+}
+
+.paragraph-center{
+  color:#FFFFFF;
+  text-align:center;
+}
+
+.card {
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    border-radius: 20px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0px 6px 24px rgba(0, 0, 0, .29);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: scale(1.15);
+    z-index: 100;
+    box-shadow: 0px 8px 26px rgba(0, 0, 0, .25);
+}
+
+.zoom {
+    transform: scale(1.1);
+    z-index: 99;
+    box-shadow: 0px 8px 26px rgba(0, 0, 0, .25);
+}
+
+
+.card__title {
+    color: #304FFE;
+    letter-spacing: 0px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Days One', sans-serif;
+    display: inline;
+}
+
+.card__logo {
+    height: 23px;
+    float: right;
+}
+
+.card__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0px;
+    color: #A2ACB2;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+
+.card__price .price {
+    color: #00112F;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.card__features {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    letter-spacing: 0px;
+    color: #23282D;
+    font-size: 8px;
+    line-height: 11px;
+    letter-spacing: 0px;
+}
+
+.card__features:last-of-type {
+    margin-bottom: 30px;
+}
+
+.button-choose-plan {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background: transparent linear-gradient(265deg, #D500F9 0%, #2962FF 99%) 0% 0% no-repeat padding-box;
+    border-radius: 16px;
+    cursor: pointer;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 12px;
+    font-family: 'Days One', sans-serif;
+    margin-top: auto;
+}
+
+.current-plan {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background: #90A4AE 0% 0% no-repeat padding-box;
+    border-radius: 16px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 12px;
+    font-family: 'Days One', sans-serif;
+    margin-top: auto;
+}
+
+.disable-downgrade {
+    color: #FF1744;
+    font-size: 10px;
+    text-align: left;
+    font-family: 'Open Sans Semibold';
+    margin-top: auto;
+    height: 37px;
+    display: flex;
+    align-items: center;
+}
+
+
+.features-list {
+    padding: 30px 5px;
+    color: #f9f9f9;
+    margin-left: 20px;
+    list-style: none;
+}
+
+.features-list li::before {
+    content: "\2022";
+    color: #FFFF00;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.features-list li {
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    margin: 5px 0;
+}
+
+.unsubscribe-section {
+    color: #FFFFFF;
+}
+.confirm-change-section {
+  width: 100%;
+}
+
+.unsubscribe-section .buttons , .confirm-change-section .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unsubscribe-section .buttons .button , .confirm-change-section .buttons .button {
+    width: 20%;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background: #FFFF00;
+    border-radius: 16px;
+    cursor: pointer;
+    letter-spacing: 0px;
+    color: #00112F;
+    font-size: 12px;
+    line-height: 12px;
+    font-family: 'Days One', sans-serif;
+}
+
+.unsubscribe-section .buttons .unsubscribe, .confirm-change-section .buttons .unsubscribe {
+    border: 2px #FFFF00 ;
+    border-style: solid;
+    background: none;
+    color: #FFFF00;
+}
+
+#message {
+    text-align: center;
+    color: #ffffff;
+    height: 30px;
+}
+
+.card_plan {
+  display: block;
+  margin: 0 auto;
+  height: 72px;
+}
+
+.margin_medium {
+  margin-top: 68px;
+}
+.old_price {
+  font-size: 45px;
+  color: rgba( 255, 255, 255, 0.6 );
+  position: relative;
+  display: inline-block;
+}
+.old_price::before {
+  content: '';
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  border-bottom: 3px solid #FFFF00;
+  -webkit-transform: skewY(-20deg);
+  --transform: skewY(-20deg);
+}
+.new_price {
+  margin-left: 16px;
+  font-size: 56px;
+  color: #FFFF00;
+}
+.refund{
+  font-size: 24px;
+  color: #FFFF00;
+}
+.confirm-paragraph{
+  color:#FFFFFF;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.arrowup{
+  margin-top: 30px;
+}
+
+.arrowup,
+.arrowdown{
+  width: 100%;
+}

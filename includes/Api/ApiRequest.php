@@ -54,7 +54,7 @@ class ApiRequest {
 			'it' => 'it-IT',
 			'de' => 'de-DE',
 			'fr' => 'fr-FR',
-			'zn' => 'zh-CN',
+			'zh' => 'zh-CN',
 			'es' => 'es-ES',
 		);
 		$lang       = $data['lang'];
@@ -67,7 +67,8 @@ class ApiRequest {
 			return false;
 		}
 		$body = array(
-			'data' => array(
+			'source' => 'INTERNAL',
+			'data'   => array(
 				'attachmentId' => $id_attachment,
 				'url'          => $data['src_attachment'],
 				'size'         => $video_data['filesize'],
@@ -87,9 +88,7 @@ class ApiRequest {
 			wp_send_json_error( __( 'An error occurred while creating the subtitles. Please try again in a few minutes.', 'ear2words' ) );
 		}
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
-		if ( ! check_ajax_referer( 'itr_ajax_nonce', $nonce ) ) {
-			wp_send_json_error( __( 'Error, invalid request', 'ear2words' ) );
-		}
+		check_ajax_referer( 'itr_ajax_nonce', $nonce );
 		$data_attachment = $this->sanitize_input( $_POST );
 		if ( ! $data_attachment ) {
 			wp_send_json_error( __( 'An error occurred while creating the subtitles. Please try again in a few minutes.', 'ear2words' ) );
@@ -105,6 +104,11 @@ class ApiRequest {
 
 			$code_response = $this->is_successful_response( $response ) ? wp_remote_retrieve_response_code( $response ) : '500';
 
+		if ( 429 === $code_response ) {
+			$message_error = $this->get_error_message( $response );
+			wp_send_json_error( $message_error );
+		}
+
 			$message = array(
 				'400' => __( 'An error occurred while creating the subtitles. Please try again in a few minutes', 'ear2words' ),
 				'401' => __( 'An error occurred while creating the subtitles. Please try again in a few minutes', 'ear2words' ),
@@ -115,7 +119,7 @@ class ApiRequest {
 				wp_send_json_error( $message[ $code_response ] );
 			}
 			$response_body = json_decode( wp_remote_retrieve_body( $response ) );
-			$this->update_uuid_and_status( $data_attachment['id_attachment'], $response_body->data->jobId );
+			$this->update_uuid_status_and_lang( $data_attachment['id_attachment'], $data_attachment['lang'], $response_body->data->jobId );
 			wp_send_json_success( $code_response );
 	}
 	/**
@@ -141,6 +145,18 @@ class ApiRequest {
 		register_post_meta(
 			'attachment',
 			'ear2words_status',
+			array(
+				'show_in_rest'  => true,
+				'type'          => 'string',
+				'single'        => true,
+				'auth_callback' => function() {
+					return current_user_can( 'edit_posts' );
+				},
+			)
+		);
+		register_post_meta(
+			'attachment',
+			'ear2words_lang_video',
 			array(
 				'show_in_rest' => true,
 				'type'         => 'string',
@@ -172,10 +188,34 @@ class ApiRequest {
 	 * Aggiorna o aggiunge l'uuid e lo stato
 	 *
 	 * @param int    $id_attachment id dell'attachment.
+	 * @param string $lang lingua del video.
 	 * @param string $job_id uuid ricevuto dall'endpoint.
 	 */
-	public function update_uuid_and_status( $id_attachment, $job_id ) {
+	public function update_uuid_status_and_lang( $id_attachment, $lang, $job_id ) {
+		update_post_meta( $id_attachment, 'ear2words_lang_video', $lang );
 		update_post_meta( $id_attachment, 'ear2words_job_uuid', $job_id );
 		update_post_meta( $id_attachment, 'ear2words_status', 'pending' );
+	}
+	/**
+	 * Crea un messaggio errore per l'errore 429 e lo ritorna.
+	 *
+	 * @param array $response risposta dell'endpoint aws.
+	 */
+	public function get_error_message( $response ) {
+		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
+		$title_error   = json_decode( $response_body->errors->title );
+		$reason        = $title_error->reason;
+		$error_message = array(
+			'NO_AVAILABLE_JOBS'     => __( 'Error, no more video left for your subscription plan', 'ear2words' ),
+			'NO_AVAILABLE_LANGUAGE' => __( 'Error, language not supported for your subscription plan', 'ear2words' ),
+			'NO_AVAILABLE_FORMAT'   => __( 'Unsupported video format for free plan', 'ear2words' ),
+		);
+		if ( 'NO_AVAILABLE_MINUTES' === $reason ) {
+			// phpcs:disable
+			// camelcase object
+			$error_message['NO_AVAILABLE_MINUTES'] = __( 'Error, video length is longer than minutes available for your subscription plan (minutes left ', 'ear2words' ) . date_i18n( 'i:s', $title_error->videoTimeLeft ) . __( ', video left ', 'ear2words' ) . $title_error->jobsLeft . ')';
+			// phpcs:enable
+		}
+		return $error_message[ $reason ];
 	}
 }
