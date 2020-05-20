@@ -49,7 +49,7 @@ matrix:
     # Run PHP_CodeSniffer
     - name: Coding standards
       php: 7.4
-      env: WP_VERSION=latest WP_TRAVISCI=phpcs
+      env: WP_VERSION=latest
 
 
     # Nightly versions of PHP and WordPress.
