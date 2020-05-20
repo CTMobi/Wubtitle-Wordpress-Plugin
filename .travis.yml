@@ -22,8 +22,6 @@ php:
   - 7.3
   - 7.2
 
-node_js:
-  - lts/*
 
 # Test against the latest version of WordPress and one version back.
 env:
@@ -48,6 +46,9 @@ matrix:
     - php: 7.3
       env: WP_VERSION=5.0
   include:
+    - language: node.js
+      node_js: "lts/*"
+
     # Run PHP_CodeSniffer
     - name: Coding standards
       php: 7.4
