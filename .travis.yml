@@ -29,14 +29,11 @@ env:
   - WP_VERSION=5.2
   - WP_VERSION=5.1
   - WP_VERSION=5.0
-  - WP_VERSION=4.9
 
 # Customize the build matrix.
 matrix:
   fast_finish: true
   exclude:
-    - php: 7.4
-      env: WP_VERSION=4.9
     - php: 7.4
       env: WP_VERSION=5.0
     - php: 7.4
@@ -45,8 +42,6 @@ matrix:
       env: WP_VERSION=5.2
     - php: 7.4
       env: WP_VERSION=5.3
-    - php: 7.3
-      env: WP_VERSION=4.9
     - php: 7.3
       env: WP_VERSION=5.0
   include:
