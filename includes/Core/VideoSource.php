@@ -35,4 +35,13 @@ interface VideoSource {
 	 * @param string $from post type dal quale viene fatta la richiesta.
 	 */
 	public function send_job_and_get_transcription( $url_video, $from );
+
+	/**
+	 * Interfaccia metodo per recuperare la trascrizione.
+	 *
+	 * @param string $url_subtitle url sottotitoli youtube.
+	 * @param string $id_video id video.
+	 * @param string $title_video titolo video.
+	 */
+	public function get_subtitle_to_url( $url_subtitle, $id_video, $title_video );
 }

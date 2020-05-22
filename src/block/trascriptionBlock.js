@@ -5,7 +5,7 @@ import TranscriptionEditBlock from "./TranscriptionEditBlock";
 registerBlockType("wubtitle/transcription", {
 	title: __("Trascription", "ear2words"),
 	icon: "megaphone",
-	description: __("Enter the transcript of your video"),
+	description: __("Enter the transcript of your video", "ear2words"),
 	category: "embed",
 	attributes: {
 		contentId: {

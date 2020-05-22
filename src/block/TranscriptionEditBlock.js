@@ -4,7 +4,7 @@ import { useState, useEffect } from "@wordpress/element";
 import { useDebounce } from "../helper/utils.js";
 import { __ } from "@wordpress/i18n";
 
-const TranscriptionEditBlock = ({ attributes, setAttributes }) => {
+const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 	const [currentValue, setValue] = useState("");
 	const [textSearch, setTextSearch] = useState("");
 	const [tokens, setTokens] = useState([]);
@@ -66,6 +66,7 @@ const TranscriptionEditBlock = ({ attributes, setAttributes }) => {
 	};
 	return (
 		<FormTokenField
+			className={className}
 			label={__("Wubtitle transcriptions", "ear2words")}
 			value={tokens}
 			suggestions={suggestions}

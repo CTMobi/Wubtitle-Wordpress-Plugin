@@ -160,7 +160,21 @@ class Transcript {
 		}
 
 		$content = $video_source->get_subtitle( sanitize_text_field( wp_unslash( $_POST['url'] ) ), 'transcript_post_type' );
+
+		$this->has_content( $content );
+
 		return $content;
+	}
+
+	/**
+	 * Check content.
+	 *
+	 *  @param string $content id del post.
+	 */
+	public function has_content( $content ) {
+		if ( ! $content ) {
+			return '<p style="color:red">' . __( 'Transcript not avaiable for this video.', 'ear2words' ) . '</p>';
+		}
 	}
 
 	/**
@@ -230,17 +244,20 @@ class Transcript {
 		);
 
 		$args = array(
-			'label'         => __( 'Transcripts', 'ear2words' ),
-			'labels'        => $labels,
-			'description'   => __( 'Video Transcripts', 'ear2words' ),
-			'show_ui'       => true,
-			'show_in_rest'  => true,
-			'map_meta_cap'  => true,
-			'hierarchical'  => false,
-			'menu_position' => 83,
-			'menu_icon'     => 'dashicons-format-chat',
-			'supports'      => array( 'title', 'editor', 'revisions' ),
+			'label'        => __( 'Transcripts', 'ear2words' ),
+			'labels'       => $labels,
+			'description'  => __( 'Video Transcripts', 'ear2words' ),
+			'show_in_rest' => true,
+			'map_meta_cap' => true,
+			'hierarchical' => false,
+			'supports'     => array( 'title', 'editor', 'revisions' ),
 		);
+
+		if ( WP_DEBUG ) {
+			$args['show_ui']       = true;
+			$args['menu_position'] = 83;
+			$args['menu_icon']     = 'dashicons-format-chat';
+		}
 
 		register_post_type( 'transcript', $args );
 	}

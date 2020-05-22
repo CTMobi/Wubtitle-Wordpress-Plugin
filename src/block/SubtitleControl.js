@@ -1,10 +1,12 @@
-import { ToggleControl } from "@wordpress/components";
-import { Fragment } from "@wordpress/element";
+/*  global ear2words_button_object  */
+import { ToggleControl, Button } from "@wordpress/components";
+import { Fragment, useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { langExten, statusExten } from "./labels.js";
 import { useDispatch } from "@wordpress/data";
 
 const SubtitleControl = ({ statusText, langText, isPublished, postId }) => {
+	const [message, setMessage] = useState("");
 	const entityDispatcher = useDispatch("core");
 	const updateStatus = published => {
 		published = !published;
@@ -21,6 +23,28 @@ const SubtitleControl = ({ statusText, langText, isPublished, postId }) => {
 			"attachment",
 			postId
 		);
+	};
+
+	const onClick = () => {
+		setMessage(__("Getting transcript...", "ear2words"));
+		wp.ajax
+			.send("get_transcript_internal_video", {
+				type: "POST",
+				data: {
+					id: postId,
+					_ajax_nonce: ear2words_button_object.ajaxnonce
+				}
+			})
+			.then(response => {
+				setMessage("Done");
+				const block = wp.blocks.createBlock("wubtitle/transcription", {
+					contentId: response
+				});
+				wp.data.dispatch("core/block-editor").insertBlocks(block);
+			})
+			.fail(response => {
+				setMessage(response);
+			});
 	};
 
 	const editStatus = statusToEdit => {
@@ -44,6 +68,10 @@ const SubtitleControl = ({ statusText, langText, isPublished, postId }) => {
 					updateStatus(isPublished);
 				}}
 			/>
+			<Button name="sottotitoli" id={postId} isPrimary onClick={onClick}>
+				{__("Get Transcribe", "ear2words")}
+			</Button>
+			<p>{message}</p>
 		</Fragment>
 	);
 };

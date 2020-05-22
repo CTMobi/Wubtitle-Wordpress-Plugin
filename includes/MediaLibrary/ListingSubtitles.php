@@ -28,7 +28,7 @@ class ListingSubtitles {
 	 * @param array $cols colonne media library.
 	 */
 	public function ear2words_status_column( $cols ) {
-		$cols['ear2words_status'] = 'Subtitle';
+		$cols['ear2words_status'] = __( 'Subtitle', 'ear2words' );
 		return $cols;
 	}
 	/**
