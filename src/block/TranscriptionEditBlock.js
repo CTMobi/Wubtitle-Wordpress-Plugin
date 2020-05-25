@@ -27,6 +27,10 @@ const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 			);
 			if (resultPost !== null) {
 				setTokens([resultPost[0].title.rendered]);
+				let text = resultPost[0].content.rendered;
+				text = text.replace("<p>", "");
+				text = text.replace("</p>", "");
+				replaceBlock(text);
 			}
 		}
 	});
@@ -51,19 +55,42 @@ const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 	const suggestions = [];
 	for (let i = 0; i < postsCurrent.length; i++) {
 		options.set(postsCurrent[i].title.rendered, postsCurrent[i].id);
+		options.set(
+			`${postsCurrent[i].title.rendered} content`,
+			postsCurrent[i].content.rendered
+		);
 		suggestions[i] = postsCurrent[i].title.rendered;
 	}
 
+	let contentText = "";
 	const setTokenFunction = token => {
 		if (token.length === 0) {
 			setAttributes({ contentId: null });
 			setTokens(token);
 		} else if (suggestions.includes(token[0])) {
 			const contentId = options.get(token[0]);
+			const contentKey = `${token[0]} content`;
+			contentText = options.get(contentKey);
+			contentText = contentText.replace("<p>", "");
+			contentText = contentText.replace("</p>", "");
 			setTokens(token);
 			setAttributes({ contentId });
+			replaceBlock(contentText);
 		}
 	};
+
+	const replaceBlock = content => {
+		const Paragraph = wp.blocks.createBlock("core/paragraph", {
+			content
+		});
+		const selectedBlock = wp.data
+			.select("core/block-editor")
+			.getSelectedBlock().clientId;
+		wp.data
+			.dispatch("core/block-editor")
+			.replaceBlocks(selectedBlock, Paragraph);
+	};
+
 	return (
 		<FormTokenField
 			className={className}

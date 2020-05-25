@@ -8,7 +8,7 @@ import { useState } from "@wordpress/element";
 const YoutubeControlPanel = props => {
 	const [message, setMessage] = useState("");
 	const isDisabled = props.url === undefined;
-	let status = __("None", "ear2words");
+	const [status, setStatus] = useState(__("None", "ear2words"));
 
 	useSelect(select => {
 		if (props.url === undefined) {
@@ -22,8 +22,9 @@ const YoutubeControlPanel = props => {
 				metaValue: props.url
 			}
 		);
-		if (transcript.length > 0) {
-			status = __("Created", "ear2words");
+		const createdStatus = __("Created", "ear2words");
+		if (transcript && transcript.length > 0 && status !== createdStatus) {
+			setStatus(createdStatus);
 		}
 	});
 
@@ -43,6 +44,8 @@ const YoutubeControlPanel = props => {
 					contentId: response
 				});
 				wp.data.dispatch("core/block-editor").insertBlocks(block);
+				setMessage("");
+				setStatus(__("Created", "ear2words"));
 			})
 			.fail(response => {
 				setMessage(response);
