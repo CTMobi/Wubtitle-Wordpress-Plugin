@@ -37,7 +37,7 @@
     "csslint": "node_modules/.bin/csslint src/ || return 0"
   },
   "dependencies": {
-    "@wordpress/api-fetch": "^3.17.0",
+    "@wordpress/api-fetch": "^3.18.0",
     "@wordpress/i18n": "^3.13.0"
   }
 }
