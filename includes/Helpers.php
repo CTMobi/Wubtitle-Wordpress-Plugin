@@ -56,4 +56,27 @@ class Helpers {
 		return is_plugin_active( 'classic-editor/classic-editor.php' );
 	}
 
+	/**
+	 * Return an error code.
+	 *
+	 * @param int|string $status error status code.
+	 * @param bool       $verified state of retrived data.
+	 * @param int        $error_type api call message.
+	 * @return int|string|false
+	 */
+	public function check_has_error( $status, $verified, $error_type ) {
+
+		// xxx handles a generic error, 4xx and 5xx handles all 400 or 500 errors.
+		$error = false;
+		if ( 200 === $status && ! $verified ) {
+			$error = $error_type;
+		} elseif ( 500 <= $status && 600 > $status ) {
+			$error = '5xx';
+		} elseif ( 400 <= $status && 500 > $status ) {
+			$error = '4xx';
+		}
+
+		return $error;
+	}
+
 }
