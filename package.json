@@ -7,7 +7,7 @@
     "@wordpress/plugins": "^2.20.1",
     "@wordpress/scripts": "^12.1.1",
     "csslint": "^1.0.5",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
     "stylelint-config-wordpress": "^17.0.0"
