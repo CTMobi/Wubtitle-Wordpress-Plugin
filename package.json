@@ -43,7 +43,7 @@
     "@stripe/stripe-js": "^1.8.0",
     "@wordpress/api-fetch": "^3.18.0",
     "@wordpress/i18n": "^3.14.0",
-    "formik": "^2.1.4",
+    "formik": "^2.1.5",
     "yup": "^0.29.1"
   }
 }
