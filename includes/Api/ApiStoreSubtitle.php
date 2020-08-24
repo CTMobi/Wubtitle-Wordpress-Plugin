@@ -38,43 +38,15 @@ class ApiStoreSubtitle {
 			'/store-subtitle',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( $this, 'auth_and_get_subtitle' ),
-				'permission_callback' => function() {
-					return current_user_can( 'edit_posts' );
+				'callback'            => array( $this, 'get_subtitle' ),
+				'permission_callback' => function( $request ) {
+					$headers        = $request->get_headers();
+					$jwt            = $headers['jwt'][0];
+					$db_license_key = get_option( 'wubtitle_license_key' );
+					return JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
 				},
 			)
 		);
-	}
-
-	/**
-	 * JWT authentication.
-	 *
-	 * @param \WP_REST_Request $request request values.
-	 * @return WP_REST_Response
-	 */
-	public function auth_and_get_subtitle( $request ) {
-		$headers        = $request->get_headers();
-		$jwt            = $headers['jwt'][0];
-		$params         = $request->get_param( 'data' );
-		$db_license_key = get_option( 'wubtitle_license_key' );
-		try {
-			JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
-		} catch ( \Exception $e ) {
-			$error = array(
-				'errors' => array(
-					'status' => '403',
-					'title'  => 'Authentication Failed',
-					'source' => $e->getMessage(),
-				),
-			);
-
-			$response = new WP_REST_Response( $error );
-
-			$response->set_status( 403 );
-
-			return $response;
-		}
-		return $this->get_subtitle( $params );
 	}
 
 	/**
@@ -202,9 +174,7 @@ class ApiStoreSubtitle {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'get_jobs_failed' ),
-				'permission_callback' => function() {
-					return current_user_can( 'edit_posts' );
-				},
+				'permission_callback' => '__return_true',
 			)
 		);
 	}
