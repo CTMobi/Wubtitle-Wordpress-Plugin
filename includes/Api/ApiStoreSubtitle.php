@@ -37,8 +37,11 @@ class ApiStoreSubtitle {
 			'wubtitle/v1',
 			'/store-subtitle',
 			array(
-				'methods'  => 'POST',
-				'callback' => array( $this, 'auth_and_get_subtitle' ),
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'auth_and_get_subtitle' ),
+				'permission_callback' => function() {
+					return current_user_can( 'manage_options' );
+				},
 			)
 		);
 	}
@@ -197,8 +200,11 @@ class ApiStoreSubtitle {
 			'wubtitle/v1',
 			'/error-jobs',
 			array(
-				'methods'  => 'POST',
-				'callback' => array( $this, 'get_jobs_failed' ),
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'get_jobs_failed' ),
+				'permission_callback' => function() {
+					return current_user_can( 'manage_options' );
+				},
 			)
 		);
 	}

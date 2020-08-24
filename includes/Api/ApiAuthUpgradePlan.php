@@ -36,8 +36,11 @@ class ApiAuthUpgradePlan {
 			'wubtitle/v1',
 			'/auth-plan',
 			array(
-				'methods'  => 'POST',
-				'callback' => array( $this, 'auth_and_get_plan' ),
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'auth_and_get_plan' ),
+				'permission_callback' => function() {
+					return current_user_can( 'manage_options' );
+				},
 			)
 		);
 	}
@@ -51,8 +54,11 @@ class ApiAuthUpgradePlan {
 			'wubtitle/v1',
 			'/reactivate-plan',
 			array(
-				'methods'  => 'POST',
-				'callback' => array( $this, 'reactivate_plan' ),
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'reactivate_plan' ),
+				'permission_callback' => function() {
+					return current_user_can( 'manage_options' );
+				},
 			)
 		);
 	}

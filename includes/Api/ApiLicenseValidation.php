@@ -37,8 +37,11 @@ class ApiLicenseValidation {
 			'wubtitle/v1',
 			'/job-list',
 			array(
-				'methods'  => 'GET',
-				'callback' => array( $this, 'auth_and_get_job_list' ),
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'auth_and_get_job_list' ),
+				'permission_callback' => function() {
+					return current_user_can( 'manage_options' );
+				},
 			)
 		);
 	}
@@ -53,8 +56,11 @@ class ApiLicenseValidation {
 			'wubtitle/v1',
 			'/reset-user',
 			array(
-				'methods'  => 'POST',
-				'callback' => array( $this, 'get_init_data' ),
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'get_init_data' ),
+				'permission_callback' => function() {
+					return current_user_can( 'manage_options' );
+				},
 			)
 		);
 	}
