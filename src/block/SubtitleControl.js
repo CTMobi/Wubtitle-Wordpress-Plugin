@@ -37,10 +37,18 @@ const SubtitleControl = ({ statusText, langText, isPublished, postId }) => {
 			})
 			.then((response) => {
 				setMessage('Done');
+				const selectedBlockIndex = wp.data
+					.select('core/block-editor')
+					.getBlockIndex(
+						wp.data.select('core/block-editor').getSelectedBlock()
+							.clientId
+					);
 				const block = wp.blocks.createBlock('wubtitle/transcription', {
 					contentId: response,
 				});
-				wp.data.dispatch('core/block-editor').insertBlocks(block);
+				wp.data
+					.dispatch('core/block-editor')
+					.insertBlocks(block, selectedBlockIndex + 1);
 			})
 			.fail((response) => {
 				setMessage(response);
