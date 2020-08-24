@@ -12,6 +12,7 @@ namespace Wubtitle\Api;
 use WP_Error;
 use WP_REST_Response;
 use \Firebase\JWT\JWT;
+use Wubtitle\Helpers;
 
 /**
  * This class manages the endpoint for the license key validation.
@@ -40,10 +41,8 @@ class ApiLicenseValidation {
 				'methods'             => 'GET',
 				'callback'            => array( $this, 'get_job_list' ),
 				'permission_callback' => function( $request ) {
-					$headers        = $request->get_headers();
-					$jwt            = $headers['jwt'][0];
-					$db_license_key = get_option( 'wubtitle_license_key' );
-					return JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
+					$helpers = new Helpers();
+					return $helpers->authorizer( $request );
 				},
 			)
 		);

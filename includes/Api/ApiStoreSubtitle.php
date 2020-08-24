@@ -10,8 +10,8 @@
 namespace Wubtitle\Api;
 
 use WP_REST_Response;
-use \Firebase\JWT\JWT;
 use \download_url;
+use Wubtitle\Helpers;
 
 /**
  * This class manages file storage.
@@ -40,10 +40,8 @@ class ApiStoreSubtitle {
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'get_subtitle' ),
 				'permission_callback' => function( $request ) {
-					$headers        = $request->get_headers();
-					$jwt            = $headers['jwt'][0];
-					$db_license_key = get_option( 'wubtitle_license_key' );
-					return JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
+					$helpers = new Helpers();
+					return $helpers->authorizer( $request );
 				},
 			)
 		);

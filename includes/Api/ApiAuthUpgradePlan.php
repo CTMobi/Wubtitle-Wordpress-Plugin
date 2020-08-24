@@ -10,7 +10,7 @@
 namespace Wubtitle\Api;
 
 use WP_REST_Response;
-use \Firebase\JWT\JWT;
+use Wubtitle\Helpers;
 
 /**
  * This class manages authorization to change plans.
@@ -39,10 +39,8 @@ class ApiAuthUpgradePlan {
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'return_plan' ),
 				'permission_callback' => function( $request ) {
-					$headers        = $request->get_headers();
-					$jwt            = $headers['jwt'][0];
-					$db_license_key = get_option( 'wubtitle_license_key' );
-					return JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
+					$helpers = new Helpers();
+					return $helpers->authorizer( $request );
 				},
 			)
 		);
@@ -60,10 +58,8 @@ class ApiAuthUpgradePlan {
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'reactivate_plan' ),
 				'permission_callback' => function( $request ) {
-					$headers        = $request->get_headers();
-					$jwt            = $headers['jwt'][0];
-					$db_license_key = get_option( 'wubtitle_license_key' );
-					return JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
+					$helpers = new Helpers();
+					return $helpers->authorizer( $request );
 				},
 			)
 		);
