@@ -40,7 +40,7 @@ class ApiLicenseValidation {
 				'methods'             => 'GET',
 				'callback'            => array( $this, 'auth_and_get_job_list' ),
 				'permission_callback' => function() {
-					return current_user_can( 'manage_options' );
+					return current_user_can( 'edit_posts' );
 				},
 			)
 		);
