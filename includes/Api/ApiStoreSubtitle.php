@@ -18,6 +18,13 @@ use Wubtitle\Helpers;
  */
 class ApiStoreSubtitle {
 	/**
+	 * Instance of class helpers.
+	 *
+	 * @var mixed
+	 */
+	private $helpers;
+
+	/**
 	 * Init class action.
 	 *
 	 * @return void
@@ -25,6 +32,7 @@ class ApiStoreSubtitle {
 	public function run() {
 		add_action( 'rest_api_init', array( $this, 'register_store_subtitle_route' ) );
 		add_action( 'rest_api_init', array( $this, 'register_error_jobs_route' ) );
+		$this->helpers = new Helpers();
 	}
 
 	/**
@@ -40,8 +48,7 @@ class ApiStoreSubtitle {
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'get_subtitle' ),
 				'permission_callback' => function( $request ) {
-					$helpers = new Helpers();
-					return $helpers->authorizer( $request );
+					return $this->helpers->authorizer( $request );
 				},
 			)
 		);

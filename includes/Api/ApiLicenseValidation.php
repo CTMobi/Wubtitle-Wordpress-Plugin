@@ -19,6 +19,13 @@ use Wubtitle\Helpers;
  */
 class ApiLicenseValidation {
 	/**
+	 * Instance of class helpers.
+	 *
+	 * @var mixed
+	 */
+	private $helpers;
+
+	/**
 	 * Init class action.
 	 *
 	 * @return void
@@ -26,6 +33,7 @@ class ApiLicenseValidation {
 	public function run() {
 		add_action( 'rest_api_init', array( $this, 'register_license_validation_route' ) );
 		add_action( 'rest_api_init', array( $this, 'register_reset_invalid_license_route' ) );
+		$this->helpers = new Helpers();
 	}
 
 	/**
@@ -41,8 +49,7 @@ class ApiLicenseValidation {
 				'methods'             => 'GET',
 				'callback'            => array( $this, 'get_job_list' ),
 				'permission_callback' => function( $request ) {
-					$helpers = new Helpers();
-					return $helpers->authorizer( $request );
+					return $this->helpers->authorizer( $request );
 				},
 			)
 		);

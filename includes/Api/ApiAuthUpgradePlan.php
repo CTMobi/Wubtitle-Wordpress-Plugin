@@ -16,6 +16,14 @@ use Wubtitle\Helpers;
  * This class manages authorization to change plans.
  */
 class ApiAuthUpgradePlan {
+
+	/**
+	 * Instance of class helpers.
+	 *
+	 * @var mixed
+	 */
+	private $helpers;
+
 	/**
 	 * Init class action.
 	 *
@@ -24,6 +32,7 @@ class ApiAuthUpgradePlan {
 	public function run() {
 		add_action( 'rest_api_init', array( $this, 'register_auth_plan_route' ) );
 		add_action( 'rest_api_init', array( $this, 'register_reactivate_plan_route' ) );
+		$this->helpers = new Helpers();
 	}
 
 	/**
@@ -39,8 +48,7 @@ class ApiAuthUpgradePlan {
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'return_plan' ),
 				'permission_callback' => function( $request ) {
-					$helpers = new Helpers();
-					return $helpers->authorizer( $request );
+					return $this->helpers->authorizer( $request );
 				},
 			)
 		);
@@ -58,8 +66,7 @@ class ApiAuthUpgradePlan {
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'reactivate_plan' ),
 				'permission_callback' => function( $request ) {
-					$helpers = new Helpers();
-					return $helpers->authorizer( $request );
+					return $this->helpers->authorizer( $request );
 				},
 			)
 		);
