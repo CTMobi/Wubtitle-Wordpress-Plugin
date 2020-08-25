@@ -176,7 +176,7 @@ export default function CheckoutForm(props) {
 								className="error-message-container"
 								role="alert"
 							>
-								<p className="error-message">{error}</p>
+								<p className="error-message-notice">{error}</p>
 							</div>
 						) : (
 							''
@@ -208,12 +208,12 @@ export default function CheckoutForm(props) {
 							</div>
 						) : null}
 						<div className="button-bar">
-							<button
+							<input
+								type="button"
 								className="cancel"
 								onClick={() => backFunction()}
-							>
-								{__('Back', 'wubtitle')}
-							</button>
+								value={__('Back', 'wubtitle')}
+							/>
 							<button
 								disabled={!stripe || loading}
 								className={loading ? 'disabled' : ''}

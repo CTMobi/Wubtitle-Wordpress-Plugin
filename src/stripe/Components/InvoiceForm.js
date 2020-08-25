@@ -154,7 +154,7 @@ export default function CheckoutForm(props) {
 								className="error-message-container"
 								role="alert"
 							>
-								<p className="error-message">{error}</p>
+								<p className="error-message-notice">{error}</p>
 							</div>
 						) : (
 							''
@@ -361,12 +361,12 @@ export default function CheckoutForm(props) {
 						</div>
 
 						<div className="button-bar">
-							<button
+							<input
+								type="button"
 								className="cancel"
 								onClick={() => cancelFunction()}
-							>
-								{__('Cancel', 'wubtitle')}
-							</button>
+								value={__('Cancel', 'wubtitle')}
+							/>
 							<button>
 								{loading && (
 									<i className="fa fa-refresh fa-spin loading-margin" />
