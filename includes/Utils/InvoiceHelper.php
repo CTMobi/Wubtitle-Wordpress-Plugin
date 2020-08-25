@@ -9,8 +9,6 @@
 
 namespace Wubtitle\Utils;
 
-use Wubtitle\Loader;
-
 /**
  * Class helper for invoice
  */
@@ -291,7 +289,7 @@ class InvoiceHelper {
 				'body'    => wp_json_encode( $body ),
 			)
 		);
-		$code_response = Loader::get( 'send_pricing_plan' )->is_successful_response( $response ) ? wp_remote_retrieve_response_code( $response ) : '500';
+		$code_response = ! is_wp_error( $response ) ? wp_remote_retrieve_response_code( $response ) : '500';
 		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
 		$message       = array(
 			'400' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
