@@ -9,6 +9,8 @@
 
 namespace Wubtitle;
 
+use \Firebase\JWT\JWT;
+
 /**
  * This class handles some helper methods used throughout the plugin.
  */
@@ -77,6 +79,22 @@ class Helpers {
 		}
 
 		return $error;
+	}
+
+	/**
+	 * JWT authentication
+	 *
+	 * @param \WP_REST_Request $request request value.
+	 * @return bool|object
+	 */
+	public function authorizer( $request ) {
+		$headers = $request->get_headers();
+		if ( ! isset( $headers['jwt'] ) ) {
+			return false;
+		}
+		$jwt            = $headers['jwt'][0];
+		$db_license_key = get_option( 'wubtitle_license_key' );
+		return JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
 	}
 
 }
