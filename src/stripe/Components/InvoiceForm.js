@@ -71,19 +71,7 @@ export default function CheckoutForm(props) {
 						__('Vat Code must be exactly 11 characters', 'wubtitle')
 					)
 					.matches('^[0-9]*$', __('Only numbers', 'wubtitle'));
-				yupObject.fiscal_code = Yup.string()
-					.length(
-						16,
-						__(
-							'Fiscal Code must be exactly 16 characters',
-							'wubtitle'
-						)
-					)
-					.test(
-						'is-valid-fiscalcode',
-						__('Invalid Fiscal Code', 'wubtitle'),
-						async (value) => await checkFiscalCode(value)
-					);
+				yupObject.fiscal_code = Yup.string();
 			}
 		} else if (values.country === 'IT') {
 			yupObject.fiscal_code = Yup.string()
