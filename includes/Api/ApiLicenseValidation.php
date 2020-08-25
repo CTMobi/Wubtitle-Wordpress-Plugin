@@ -12,11 +12,19 @@ namespace Wubtitle\Api;
 use WP_Error;
 use WP_REST_Response;
 use \Firebase\JWT\JWT;
+use Wubtitle\Helpers;
 
 /**
  * This class manages the endpoint for the license key validation.
  */
 class ApiLicenseValidation {
+	/**
+	 * Instance of class helpers.
+	 *
+	 * @var mixed
+	 */
+	private $helpers;
+
 	/**
 	 * Init class action.
 	 *
@@ -25,6 +33,7 @@ class ApiLicenseValidation {
 	public function run() {
 		add_action( 'rest_api_init', array( $this, 'register_license_validation_route' ) );
 		add_action( 'rest_api_init', array( $this, 'register_reset_invalid_license_route' ) );
+		$this->helpers = new Helpers();
 	}
 
 	/**
@@ -38,9 +47,9 @@ class ApiLicenseValidation {
 			'/job-list',
 			array(
 				'methods'             => 'GET',
-				'callback'            => array( $this, 'auth_and_get_job_list' ),
-				'permission_callback' => function() {
-					return current_user_can( 'edit_posts' );
+				'callback'            => array( $this, 'get_job_list' ),
+				'permission_callback' => function( $request ) {
+					return $this->helpers->authorizer( $request );
 				},
 			)
 		);
@@ -58,8 +67,14 @@ class ApiLicenseValidation {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'get_init_data' ),
-				'permission_callback' => function() {
-					return current_user_can( 'manage_options' );
+				'permission_callback' => function( $request ) {
+					$headers          = $request->get_headers();
+					$token            = $headers['token'][0];
+					$current_token    = get_option( 'wubtitle_token' );
+					$token_expiration = get_option( 'wubtitle_token_time' );
+					if ( $token !== $current_token && time() > $token_expiration ) {
+						return false;
+					}
 				},
 			)
 		);
@@ -67,27 +82,12 @@ class ApiLicenseValidation {
 
 
 	/**
-	 * JWT Authentication and reset user data.
+	 * Reset user data.
 	 *
 	 * @param \WP_REST_Request $request valori della richiesta.
 	 * @return WP_REST_Response|array<mixed>
 	 */
 	public function get_init_data( $request ) {
-		$headers          = $request->get_headers();
-		$token            = $headers['token'][0];
-		$current_token    = get_option( 'wubtitle_token' );
-		$token_expiration = get_option( 'wubtitle_token_time' );
-		if ( $token !== $current_token && time() > $token_expiration ) {
-			$error    = array(
-				'errors' => array(
-					'status' => '403',
-					'title'  => 'Authentication Failed',
-				),
-			);
-			$response = new WP_REST_Response( $error );
-			$response->set_status( 403 );
-			return $response;
-		}
 		$params = json_decode( $request->get_body() )->data;
 		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		// warning camel case.
@@ -109,40 +109,6 @@ class ApiLicenseValidation {
 		delete_option( 'wubtitle_token_time' );
 
 		return $message;
-	}
-
-	/**
-	 * JWT Authentication.
-	 *
-	 * @param \WP_REST_Request $request valori della richiesta.
-	 * @return WP_REST_Response|array<string,array<string,array<int,mixed>>>
-	 */
-	public function auth_and_get_job_list( $request ) {
-		$headers = $request->get_headers();
-		$error   = array(
-			'errors' => array(
-				'status' => '403',
-				'title'  => 'Authentication Failed',
-			),
-		);
-		if ( ! isset( $headers['jwt'] ) ) {
-			$response = new WP_REST_Response( $error );
-			$response->set_status( 403 );
-			return $response;
-		}
-		$jwt            = $headers['jwt'][0];
-		$db_license_key = get_option( 'wubtitle_license_key' );
-		try {
-			JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
-		} catch ( \Exception $e ) {
-			$error['source'] = $e->getMessage();
-			$response        = new WP_REST_Response( $error );
-
-			$response->set_status( 403 );
-
-			return $response;
-		}
-		return $this->get_job_list();
 	}
 
 	/**

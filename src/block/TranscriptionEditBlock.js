@@ -26,6 +26,7 @@ const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 		wp.data
 			.dispatch('core/block-editor')
 			.replaceBlocks(selectedBlock, Paragraph);
+		wp.data.dispatch('core/block-editor').clearSelectedBlock();
 	};
 
 	useEffect(() => {
