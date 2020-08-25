@@ -373,12 +373,12 @@ export default function CheckoutForm(props) {
 						</div>
 
 						<div className="button-bar">
-							<button
+							<input
+								type="button"
 								className="cancel"
 								onClick={() => cancelFunction()}
-							>
-								{__('Cancel', 'wubtitle')}
-							</button>
+								value={__('Cancel', 'wubtitle')}
+							/>
 							<button>
 								{loading && (
 									<i className="fa fa-refresh fa-spin loading-margin" />

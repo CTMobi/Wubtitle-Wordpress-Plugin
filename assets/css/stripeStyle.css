@@ -24,7 +24,8 @@ h2 {
 }
 
 .button-bar button,
-.coupon-button {
+.coupon-button,
+input.cancel {
 	background: transparent linear-gradient(257deg, #d500f9 0%, #2962ff 99%) 0% 0% no-repeat padding-box;
 	border-radius: 16px;
 	color: #fff;
@@ -41,6 +42,18 @@ button:hover:enabled {
 	color: #fff;
 	cursor: pointer;
 	background-color: #7795f8;
+	transform: translateY(-1px);
+	box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.button-bar input.cancel {
+	background: none;
+	color: #616161;
+	width: auto;
+}
+
+input.cancel:hover:enabled {
+	cursor: pointer;
 	transform: translateY(-1px);
 	box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
@@ -254,11 +267,6 @@ table tr {
 .coupon-button:disabled {
 	background: #bfbfbf;
 	cursor: auto;
-}
-
-.button-bar button.cancel {
-	background: none;
-	color: #616161;
 }
 
 .summary {
