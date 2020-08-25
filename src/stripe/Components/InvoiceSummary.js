@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { __ } from '@wordpress/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import euCountries from '../data/europeanCountries.json';
 
 export default function InvoiceSummary(props) {
 	const { invoiceValues } = props;
@@ -43,7 +44,7 @@ export default function InvoiceSummary(props) {
 						<strong>{__('Country', 'wubtitle')}: </strong>
 						{invoiceValues.country}
 					</p>
-					{invoiceValues.cap ? (
+					{invoiceValues.cap && invoiceValues.country === 'IT' ? (
 						<p>
 							<strong>{__('Postal Code', 'wubtitle')}: </strong>
 							{invoiceValues.cap}
@@ -56,7 +57,18 @@ export default function InvoiceSummary(props) {
 						{invoiceValues.address}
 					</p>
 
-					{invoiceValues.vat_code ? (
+					{invoiceValues.telephone ? (
+						<p>
+							<strong>{__('Telephone', 'wubtitle')}: </strong>
+							{`${invoiceValues.prefix} ${invoiceValues.telephone}`}
+						</p>
+					) : (
+						''
+					)}
+
+					{invoiceValues.vat_code &&
+					invoiceValues.company_name &&
+					euCountries.includes(invoiceValues.country) ? (
 						<p>
 							<strong>{__('VAT Code', 'wubtitle')}: </strong>
 							{invoiceValues.vat_code}
@@ -75,7 +87,8 @@ export default function InvoiceSummary(props) {
 						<strong>{__('Company Name', 'wubtitle')}: </strong>
 						{invoiceValues.company_name}
 					</p>
-					{invoiceValues.province ? (
+					{invoiceValues.province &&
+					invoiceValues.country === 'IT' ? (
 						<p>
 							<strong>{__('Province', 'wubtitle')}: </strong>
 							{invoiceValues.province}
@@ -88,7 +101,8 @@ export default function InvoiceSummary(props) {
 						<strong>{__('City', 'wubtitle')}: </strong>
 						{invoiceValues.city}
 					</p>
-					{invoiceValues.fiscal_code ? (
+					{invoiceValues.fiscal_code &&
+					invoiceValues.country === 'IT' ? (
 						<p>
 							<strong>{__('Fiscal Code', 'wubtitle')}: </strong>
 							{invoiceValues.fiscal_code}
@@ -96,7 +110,8 @@ export default function InvoiceSummary(props) {
 					) : (
 						''
 					)}
-					{invoiceValues.destination_code !== '0000000' ? (
+					{invoiceValues.destination_code !== '0000000' &&
+					invoiceValues.country === 'IT' ? (
 						<p>
 							<strong>
 								{__('Destination Code', 'wubtitle')}:{' '}
