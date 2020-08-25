@@ -176,7 +176,7 @@ export default function CheckoutForm(props) {
 								className="error-message-container"
 								role="alert"
 							>
-								<p className="error-message">{error}</p>
+								<p className="error-message-notice">{error}</p>
 							</div>
 						) : (
 							''

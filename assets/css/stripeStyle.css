@@ -563,6 +563,12 @@ table tr {
 	margin: 0;
 }
 
+.error-message-notice {
+	color: #d32f2f;
+	height: 8px;
+	padding: 0 1rem;
+}
+
 .cut-vat {
 	margin-right: 1rem;
 }
