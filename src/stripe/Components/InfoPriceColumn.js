@@ -20,13 +20,24 @@ const InfoPriceColumn = (props) => {
 		discountedPrice,
 	} = props;
 	let messagePrice = ` ${__('per month', 'wubtitle')}`;
+	let infoMessage = null;
 	if (discountedPrice && discountedPrice.duration === 'once') {
-		messagePrice = ` ${__('for this month', 'wubtitle')}`;
+		messagePrice = ` ${__('for this month*', 'wubtitle')}`;
+		infoMessage = `${__(
+			'After the first month the price is',
+			'wubtitle'
+		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
 	}
 	if (discountedPrice && discountedPrice.duration === 'repeating') {
 		messagePrice = ` ${__('for the first', 'wubtitle')} ${
 			discountedPrice.durationInMonths
-		} ${__('months', 'wubtitle')}`;
+		} ${__('months*', 'wubtitle')}`;
+		infoMessage = `${__('After the first', 'wubtitle')} ${
+			discountedPrice.durationInMonths
+		} ${__(
+			'months the price is',
+			'wubtitle'
+		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
 	}
 	let total = parseFloat(price);
 	if (taxable) {
@@ -82,7 +93,7 @@ const InfoPriceColumn = (props) => {
 					/>
 				)}
 			</div>
-			<Disclaimer />
+			<Disclaimer infoMessage={infoMessage} />
 			<div
 				className={
 					isOpen ? 'mobile-price-view opened' : 'mobile-price-view'
@@ -110,7 +121,7 @@ const InfoPriceColumn = (props) => {
 						messagePrice={messagePrice}
 					/>
 				</div>
-				<Disclaimer />
+				<Disclaimer infoMessage={infoMessage} />
 			</div>
 		</div>
 	);
