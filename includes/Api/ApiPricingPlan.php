@@ -38,7 +38,7 @@ class ApiPricingPlan {
 		$wanted_plan       = $all_plans[ $wanted_plan_rank ]['stripe_code'];
 		$current_plan_rank = get_option( 'wubtitle_plan_rank' );
 		$is_upgrade        = $wanted_plan_rank > $current_plan_rank;
-		if ( ! isset( $_POST['_ajax_nonce'] ) || empty( $wanted_plan ) ) {
+		if ( ! isset( $_POST['_ajax_nonce'] ) || empty( $wanted_plan ) || ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( __( 'An error occurred. Please try again in a few minutes.', 'wubtitle' ) );
 		}
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
@@ -95,7 +95,7 @@ class ApiPricingPlan {
 	 * @return void
 	 */
 	public function reactivate_plan() {
-		if ( ! isset( $_POST['_ajax_nonce'] ) ) {
+		if ( ! isset( $_POST['_ajax_nonce'] ) || ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( __( 'An error occurred. Please try again in a few minutes.', 'wubtitle' ) );
 		}
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
@@ -242,7 +242,7 @@ class ApiPricingPlan {
 	 * @return void
 	 */
 	public function create_subscription() {
-		if ( ! isset( $_POST['_ajax_nonce'], $_POST['invoiceObject'], $_POST['email'], $_POST['actionCheckout'] ) ) {
+		if ( ! isset( $_POST['_ajax_nonce'], $_POST['invoiceObject'], $_POST['email'], $_POST['actionCheckout'] ) || ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( __( 'An error occurred. Please try again in a few minutes.', 'wubtitle' ) );
 		}
 		$action         = sanitize_text_field( wp_unslash( $_POST['actionCheckout'] ) );
