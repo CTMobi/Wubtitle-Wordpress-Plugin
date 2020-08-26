@@ -976,7 +976,7 @@ msgstr "modalità modifica attivata"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:126
 msgid "editing disabled"
-msgstr "modalità mopdifica disattivata"
+msgstr "modalità modifica disattivata"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:144
 #: src/stripe/Components/InvoiceSummary.js:40
