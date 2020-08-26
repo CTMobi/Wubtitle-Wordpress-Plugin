@@ -19,6 +19,26 @@ const InfoPriceColumn = (props) => {
 		expirationDate,
 		discountedPrice,
 	} = props;
+	let messagePrice = ` ${__('per month', 'wubtitle')}`;
+	let infoMessage = null;
+	if (discountedPrice && discountedPrice.duration === 'once') {
+		messagePrice = ` ${__('for this month*', 'wubtitle')}`;
+		infoMessage = `${__(
+			'After the first month the price is',
+			'wubtitle'
+		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
+	}
+	if (discountedPrice && discountedPrice.duration === 'repeating') {
+		messagePrice = ` ${__('for the first', 'wubtitle')} ${
+			discountedPrice.durationInMonths
+		} ${__('months*', 'wubtitle')}`;
+		infoMessage = `${__('After the first', 'wubtitle')} ${
+			discountedPrice.durationInMonths
+		} ${__(
+			'months the price is',
+			'wubtitle'
+		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
+	}
 	let total = parseFloat(price);
 	if (taxable) {
 		total = parseFloat(price) + parseFloat(taxAmount);
@@ -44,9 +64,7 @@ const InfoPriceColumn = (props) => {
 						) : (
 							<span className="total">{total} &euro; </span>
 						)}
-						<span className="valxm">
-							{__('per month', 'wubtitle')}
-						</span>
+						<span className="valxm">{messagePrice}</span>
 						<InfoIcon
 							className="info-icon"
 							onClick={() => setIsOpen(!isOpen)}
@@ -71,10 +89,11 @@ const InfoPriceColumn = (props) => {
 						taxable={taxable}
 						total={total}
 						discountedPrice={discountedPrice}
+						messagePrice={messagePrice}
 					/>
 				)}
 			</div>
-			<Disclaimer />
+			<Disclaimer infoMessage={infoMessage} />
 			<div
 				className={
 					isOpen ? 'mobile-price-view opened' : 'mobile-price-view'
@@ -99,9 +118,10 @@ const InfoPriceColumn = (props) => {
 						taxable={taxable}
 						total={total}
 						discountedPrice={discountedPrice}
+						messagePrice={messagePrice}
 					/>
 				</div>
-				<Disclaimer />
+				<Disclaimer infoMessage={infoMessage} />
 			</div>
 		</div>
 	);

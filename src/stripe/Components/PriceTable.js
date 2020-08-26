@@ -9,6 +9,7 @@ const PriceTable = (props) => {
 		total,
 		taxable,
 		discountedPrice,
+		messagePrice,
 	} = props;
 	if (discountedPrice) {
 		total = taxable ? discountedPrice.newTotal : discountedPrice.price;
@@ -50,9 +51,7 @@ const PriceTable = (props) => {
 					<td>{__('Total', 'wubtitle')}</td>
 					<td className="val">
 						{total} &euro;
-						<span className="valxm">
-							{__(' per month', 'wubtitle')}
-						</span>
+						<span className="valxm">{messagePrice}</span>
 					</td>
 				</tr>
 			</table>

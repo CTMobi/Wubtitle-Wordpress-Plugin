@@ -20,12 +20,13 @@ export default function CheckoutForm(props) {
 		coupon,
 		setCoupon,
 		planId,
+		couponMessage,
+		setCouponMessage,
 	} = props;
 	const { ajaxUrl, ajaxNonce } = WP_GLOBALS;
 	const stripe = useStripe();
 	const elements = useElements();
 	const [changeOn, setChangeOn] = useState(false);
-	const [couponMessage, setCouponMessage] = useState(null);
 	const [loadingCoupon, setLoadingCoupon] = useState(false);
 	const requiredMessage = __('Required', 'wubtitle');
 	const DisplayingErrorMessagesSchema = Yup.lazy(() => {
