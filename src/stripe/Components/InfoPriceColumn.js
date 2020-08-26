@@ -23,19 +23,19 @@ const InfoPriceColumn = (props) => {
 	let infoMessage = null;
 	if (discountedPrice && discountedPrice.duration === 'once') {
 		messagePrice = ` ${__('for this month*', 'wubtitle')}`;
-		infoMessage = `${__(
-			'After the first month the price is',
+		infoMessage = `*${__(
+			'After the first month the monthly price will be',
 			'wubtitle'
 		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
 	}
 	if (discountedPrice && discountedPrice.duration === 'repeating') {
-		messagePrice = ` ${__('for the first', 'wubtitle')} ${
+		messagePrice = ` ${__('for the firsts', 'wubtitle')} ${
 			discountedPrice.durationInMonths
 		} ${__('months*', 'wubtitle')}`;
-		infoMessage = `${__('After the first', 'wubtitle')} ${
+		infoMessage = `*${__('After the firsts', 'wubtitle')} ${
 			discountedPrice.durationInMonths
 		} ${__(
-			'months the price is',
+			'months the monthly price will be',
 			'wubtitle'
 		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
 	}
