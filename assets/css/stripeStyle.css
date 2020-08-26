@@ -591,6 +591,10 @@ table tr {
 		overflow: hidden;
 	}
 
+	.columns {
+		padding-top: 0;
+	}
+
 	.summary .columns {
 		display: block;
 	}
@@ -612,6 +616,8 @@ table tr {
 		display: flex;
 		left: 1rem;
 		align-items: center;
+		position: initial;
+		margin-top: 16px;
 	}
 
 	.switch-container p {
@@ -623,4 +629,13 @@ table tr {
 		position: absolute;
 		right: 1rem;
 	}
+
+	.title-section {
+		padding-bottom: 0;
+	}
+
+	.summary p {
+		margin-top: 16px;
+	}
 }
+
