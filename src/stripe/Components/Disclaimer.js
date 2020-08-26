@@ -1,9 +1,11 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 
-const Disclaimer = () => {
+const Disclaimer = (props) => {
+	const { infoMessage } = props;
 	return (
 		<div className="disclaimer">
+			{infoMessage && <p>{infoMessage}</p>}
 			<p>
 				{__(
 					'When ordering within the EU an order may be exempt to VAT if a valid VAT registration number is provided.',

@@ -24,7 +24,6 @@ class ApiPricingPlan {
 		add_action( 'wp_ajax_reactivate_plan', array( $this, 'reactivate_plan' ) );
 		add_action( 'wp_ajax_change_plan', array( $this, 'change_plan' ) );
 		add_action( 'wp_ajax_create_subscription', array( $this, 'create_subscription' ) );
-		add_action( 'wp_ajax_check_coupon', array( $this, 'check_coupon' ) );
 		add_action( 'wp_ajax_confirm_subscription', array( $this, 'confirm_subscription' ) );
 		add_action( 'wp_ajax_check_plan_change', array( $this, 'check_plan_change' ) );
 	}
@@ -348,17 +347,10 @@ class ApiPricingPlan {
 			)
 		);
 		$code_response = $this->is_successful_response( $response ) ? wp_remote_retrieve_response_code( $response ) : '500';
-		$message       = array(
-			'400' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
-			'401' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
-			'403' => __( 'Access denied', 'wubtitle' ),
-			'500' => __( 'Could not contact the server', 'wubtitle' ),
-			''    => __( 'Could not contact the server', 'wubtitle' ),
-		);
 		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
 		if ( 200 !== $code_response ) {
-			$message = 402 === $code_response ? $response_body->errors->title : $message[ $code_response ];
-			wp_send_json_error( $message );
+			$data = $this->error_confirm_manager( $code_response, $response_body );
+			wp_send_json_error( $data );
 		}
 		$data = array(
 			'status'       => $response_body->data->status,
@@ -369,65 +361,36 @@ class ApiPricingPlan {
 		}
 		wp_send_json_success( $data );
 	}
-
 	/**
-	 * Check coupon code.
+	 * Manager of confirm error.
 	 *
-	 * @return void
+	 * @param int|string $code_response code response.
+	 * @param mixed      $response_body body of response.
+	 *
+	 * @return string|array<mixed>
 	 */
-	public function check_coupon() {
-		if ( ! isset( $_POST['_ajax_nonce'], $_POST['coupon'], $_POST['planId'] ) ) {
-			wp_send_json_error( __( 'An error occurred. Please try again in a few minutes.', 'wubtitle' ) );
-		}
-		$coupon  = sanitize_text_field( wp_unslash( $_POST['coupon'] ) );
-		$nonce   = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
-		$plan_id = sanitize_text_field( wp_unslash( $_POST['planId'] ) );
-		check_ajax_referer( 'itr_ajax_nonce', $nonce );
-
-		$body = array(
-			'data' => array(
-				'coupon' => $coupon,
-				'planId' => $plan_id,
-			),
-		);
-
-		$license_key   = get_option( 'wubtitle_license_key' );
-		$response      = wp_remote_post(
-			WUBTITLE_ENDPOINT . 'stripe/customer/create/preview',
-			array(
-				'method'  => 'POST',
-				'timeout' => 10,
-				'headers' => array(
-					'Content-Type' => 'application/json; charset=utf-8',
-					'licenseKey'   => $license_key,
-					'domainUrl'    => get_site_url(),
-				),
-				'body'    => wp_json_encode( $body ),
-			)
-		);
-		$code_response = $this->is_successful_response( $response ) ? wp_remote_retrieve_response_code( $response ) : '500';
-		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
-		$message       = array(
+	private function error_confirm_manager( $code_response, $response_body ) {
+		$message = array(
 			'400' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
 			'401' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
 			'403' => __( 'Access denied', 'wubtitle' ),
 			'500' => __( 'Could not contact the server', 'wubtitle' ),
 			''    => __( 'Could not contact the server', 'wubtitle' ),
 		);
-		if ( 200 !== $code_response ) {
-			$message['402'] = $response_body->errors->title;
-			$message        = $message[ $code_response ];
-			if ( 400 === $code_response && 'INVALID_COUPON' === $response_body->errors->title ) {
-				$message = __( 'Invalid Coupon', 'wubtitle' );
-			}
-			wp_send_json_error( $message );
+		if ( 400 !== $code_response || ! isset( $response_body->errors->title ) ) {
+			return 402 === $code_response ? $response_body->errors->title : $message[ $code_response ];
 		}
-		$data = array(
-			'price'    => $response_body->data->netAmount,
-			'newTax'   => $response_body->data->taxAmount,
-			'newTotal' => $response_body->data->totalAmount,
+		$error         = $response_body->errors->title;
+		$error_message = array(
+			'WRONG_CUSTOMER'    => __( 'Unable to apply discount. You are not authorized to use this coupon', 'wubtitle' ),
+			'FIRST_TRANSACTION' => __( 'Unable to apply discount. This coupon can only be used on the first purchase', 'wubtitle' ),
+			'GENERIC_ERROR'     => __( 'Unable to apply discount. Please try again later or enter a different discount code', 'wubtitle' ),
 		);
-		wp_send_json_success( $data );
+		$data          = array(
+			'couponError' => true,
+			'message'     => $error_message[ $error ],
+		);
+		return $data;
 	}
 }
 

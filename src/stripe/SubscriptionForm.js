@@ -25,6 +25,7 @@ function App() {
 	const [invoiceValues, setInvoiceValues] = useState(null);
 	const [isBack, setIsBack] = useState(false);
 	const [discountedPrice, setDiscountedPrice] = useState(false);
+	const [couponMessage, setCouponMessage] = useState(null);
 
 	const handleSubmit = (values) => {
 		setLoading(true);
@@ -109,6 +110,10 @@ function App() {
 						window.opener.thankYouPage('upgrade');
 					}
 				} else {
+					if (result.data.couponError) {
+						setCouponMessage(result.data.message);
+						return;
+					}
 					setLoading(false);
 					setError(result.data);
 				}
@@ -200,6 +205,8 @@ function App() {
 							coupon={coupon}
 							setCoupon={setCoupon}
 							planId={planId}
+							couponMessage={couponMessage}
+							setCouponMessage={setCouponMessage}
 						/>
 					</div>
 				) : (
