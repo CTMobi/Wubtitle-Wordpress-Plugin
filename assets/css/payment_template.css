@@ -364,4 +364,6 @@ html {
 	padding: 10px;
 	text-align: center;
 	border-color: #2962ff;
+	border-style: solid;
+	outline: none;
 }

@@ -24,7 +24,8 @@ h2 {
 }
 
 .button-bar button,
-.coupon-button {
+.coupon-button,
+input.cancel {
 	background: transparent linear-gradient(257deg, #d500f9 0%, #2962ff 99%) 0% 0% no-repeat padding-box;
 	border-radius: 16px;
 	color: #fff;
@@ -45,6 +46,18 @@ button:hover:enabled {
 	box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
+.button-bar input.cancel {
+	background: none;
+	color: #616161;
+	width: auto;
+}
+
+input.cancel:hover:enabled {
+	cursor: pointer;
+	transform: translateY(-1px);
+	box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
 .disabled {
 	background-color: #7795f8;
 }
@@ -58,7 +71,7 @@ select,
 	display: block;
 	padding: 10px 14px;
 	font-size: 1em;
-	font-family: "Source Code Pro", monospace;
+	font-family: "Open Sans", sans-serif;
 	box-shadow:
 		rgba(50, 50, 93, 0.14902) 0 1px 3px,
 		rgba(0, 0, 0, 0.0196078) 0 1px 0;
@@ -256,11 +269,6 @@ table tr {
 	cursor: auto;
 }
 
-.button-bar button.cancel {
-	background: none;
-	color: #616161;
-}
-
 .summary {
 	padding: 1rem;
 	color: #616161;
@@ -403,56 +411,6 @@ table tr {
 	}
 }
 
-
-/* Smartphone */
-@media screen and (max-width: 767px) {
-
-	.accordion-bar {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.accordion {
-		width: 20px;
-		height: 20px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.accordion.opened {
-		transform: rotate(180deg);
-	}
-
-	.form-field-container {
-		width: 100%;
-	}
-
-	.summary {
-		border-bottom: 1px rgb(201, 201, 201) solid;
-		overflow: hidden;
-	}
-
-	.summary .columns {
-		display: block;
-	}
-
-	.summary .column {
-		width: 100%;
-	}
-
-
-	.summary.closed {
-		height: 80px;
-	}
-
-	.summary.opened {
-		height: auto;
-	}
-}
-
 .switch {
 	position: relative;
 	display: inline-block;
@@ -552,6 +510,13 @@ table tr {
 	color: #d32f2f;
 	height: 8px;
 	padding: 0 1rem;
+	margin: 0;
+}
+
+.error-message-notice {
+	color: #d32f2f;
+	height: 8px;
+	padding: 0 1rem;
 }
 
 .cut-vat {
@@ -578,6 +543,7 @@ table tr {
 
 .coupon-message {
 	height: 8px;
+	color: #d32f2f;
 }
 
 .coupon-notice {
@@ -586,4 +552,69 @@ table tr {
 
 .description {
 	font: 400 14px/19px "Open Sans", sans-serif;
+}
+
+/* Smartphone */
+@media screen and (max-width: 767px) {
+
+	.accordion-bar {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.accordion {
+		width: 20px;
+		height: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.accordion.opened {
+		transform: rotate(180deg);
+	}
+
+	.form-field-container {
+		width: 100%;
+	}
+
+	.summary {
+		border-bottom: 1px rgb(201, 201, 201) solid;
+		overflow: hidden;
+	}
+
+	.summary .columns {
+		display: block;
+	}
+
+	.summary .column {
+		width: 100%;
+	}
+
+
+	.summary.closed {
+		height: 80px;
+	}
+
+	.summary.opened {
+		height: auto;
+	}
+
+	.switch-container {
+		display: flex;
+		left: 1rem;
+		align-items: center;
+	}
+
+	.switch-container p {
+		left: 0;
+		margin: auto 0;
+	}
+
+	.switch {
+		position: absolute;
+		right: 1rem;
+	}
 }

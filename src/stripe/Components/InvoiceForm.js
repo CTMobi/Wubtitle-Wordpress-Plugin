@@ -71,19 +71,7 @@ export default function CheckoutForm(props) {
 						__('Vat Code must be exactly 11 characters', 'wubtitle')
 					)
 					.matches('^[0-9]*$', __('Only numbers', 'wubtitle'));
-				yupObject.fiscal_code = Yup.string()
-					.length(
-						16,
-						__(
-							'Fiscal Code must be exactly 16 characters',
-							'wubtitle'
-						)
-					)
-					.test(
-						'is-valid-fiscalcode',
-						__('Invalid Fiscal Code', 'wubtitle'),
-						async (value) => await checkFiscalCode(value)
-					);
+				yupObject.fiscal_code = Yup.string();
 			}
 		} else if (values.country === 'IT') {
 			yupObject.fiscal_code = Yup.string()
@@ -166,7 +154,7 @@ export default function CheckoutForm(props) {
 								className="error-message-container"
 								role="alert"
 							>
-								<p className="error-message">{error}</p>
+								<p className="error-message-notice">{error}</p>
 							</div>
 						) : (
 							''
@@ -373,12 +361,12 @@ export default function CheckoutForm(props) {
 						</div>
 
 						<div className="button-bar">
-							<button
+							<input
+								type="button"
 								className="cancel"
 								onClick={() => cancelFunction()}
-							>
-								{__('Cancel', 'wubtitle')}
-							</button>
+								value={__('Cancel', 'wubtitle')}
+							/>
 							<button>
 								{loading && (
 									<i className="fa fa-refresh fa-spin loading-margin" />
