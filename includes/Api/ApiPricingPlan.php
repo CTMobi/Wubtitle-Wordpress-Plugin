@@ -347,17 +347,10 @@ class ApiPricingPlan {
 			)
 		);
 		$code_response = $this->is_successful_response( $response ) ? wp_remote_retrieve_response_code( $response ) : '500';
-		$message       = array(
-			'400' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
-			'401' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
-			'403' => __( 'Access denied', 'wubtitle' ),
-			'500' => __( 'Could not contact the server', 'wubtitle' ),
-			''    => __( 'Could not contact the server', 'wubtitle' ),
-		);
 		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
 		if ( 200 !== $code_response ) {
-			$message = 402 === $code_response ? $response_body->errors->title : $message[ $code_response ];
-			wp_send_json_error( $message );
+			$data = $this->error_confirm_manager( $code_response, $response_body );
+			wp_send_json_error( $data );
 		}
 		$data = array(
 			'status'       => $response_body->data->status,
@@ -367,6 +360,37 @@ class ApiPricingPlan {
 			wp_send_json_success();
 		}
 		wp_send_json_success( $data );
+	}
+	/**
+	 * Manager of confirm error.
+	 *
+	 * @param int|string $code_response code response.
+	 * @param mixed      $response_body body of response.
+	 *
+	 * @return string|array<mixed>
+	 */
+	private function error_confirm_manager( $code_response, $response_body ) {
+		$message = array(
+			'400' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
+			'401' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
+			'403' => __( 'Access denied', 'wubtitle' ),
+			'500' => __( 'Could not contact the server', 'wubtitle' ),
+			''    => __( 'Could not contact the server', 'wubtitle' ),
+		);
+		if ( 400 !== $code_response || ! isset( $response_body->errors->title ) ) {
+			return 402 === $code_response ? $response_body->errors->title : $message[ $code_response ];
+		}
+		$error         = $response_body->errors->title;
+		$error_message = array(
+			'WRONG_CUSTOMER'    => __( 'Error temp', 'wubtitle' ),
+			'FIRST_TRANSACTION' => __( 'Error temp', 'wubtitle' ),
+			'GENERIC_ERROR'     => __( 'Error temp', 'wubtitle' ),
+		);
+		$data          = array(
+			'couponError' => true,
+			'message'     => $error_message[ $error ],
+		);
+		return $data;
 	}
 }
 
