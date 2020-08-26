@@ -382,9 +382,9 @@ class ApiPricingPlan {
 		}
 		$error         = $response_body->errors->title;
 		$error_message = array(
-			'WRONG_CUSTOMER'    => __( 'Error temp', 'wubtitle' ),
-			'FIRST_TRANSACTION' => __( 'Error temp', 'wubtitle' ),
-			'GENERIC_ERROR'     => __( 'Error temp', 'wubtitle' ),
+			'WRONG_CUSTOMER'    => __( 'Unable to apply discount. You are not authorized to use this coupon', 'wubtitle' ),
+			'FIRST_TRANSACTION' => __( 'Unable to apply discount. This coupon can only be used on the first purchase', 'wubtitle' ),
+			'GENERIC_ERROR'     => __( 'Unable to apply discount. Please try again later or enter a different discount code', 'wubtitle' ),
 		);
 		$data          = array(
 			'couponError' => true,
