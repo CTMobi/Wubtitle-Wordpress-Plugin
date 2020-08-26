@@ -137,11 +137,11 @@ class InvoiceHelper {
 	public function build_invoice_array( $invoice_object ) {
 		$eu_countries_file = wp_remote_get( WUBTITLE_URL . 'build_form/europeanCountries.json' );
 		$eu_countries      = json_decode( wp_remote_retrieve_body( $eu_countries_file ) );
-		if ( ! isset( $invoice_object->invoice_name, $invoice_object->invoice_lastname, $invoice_object->invoice_email, $invoice_object->telephone, $invoice_object->prefix, $invoice_object->address, $invoice_object->city, $invoice_object->country ) ) {
+		if ( ! isset( $invoice_object->invoice_firstname, $invoice_object->invoice_lastname, $invoice_object->invoice_email, $invoice_object->telephone, $invoice_object->prefix, $invoice_object->address, $invoice_object->city, $invoice_object->country ) ) {
 			return false;
 		}
 		$invoice_details = array(
-			'Name'            => $invoice_object->invoice_name,
+			'Name'            => $invoice_object->invoice_firstname,
 			'LastName'        => $invoice_object->invoice_lastname,
 			'Email'           => $invoice_object->invoice_email,
 			'Telephone'       => $invoice_object->telephone,
@@ -225,20 +225,20 @@ class InvoiceHelper {
 		$payment_details = $response_body->data->paymentDetails;
 		$is_taxable      = $response_body->data->taxable;
 		$invoice_data    = array(
-			'invoice_name'     => $invoice_details->Name,
-			'invoice_email'    => $invoice_details->Email,
-			'invoice_lastname' => $invoice_details->LastName,
-			'telephone'        => $invoice_details->Telephone,
-			'prefix'           => $invoice_details->TelephonePrefix,
-			'company_name'     => $invoice_details->CompanyName,
-			'address'          => $invoice_details->Address,
-			'cap'              => $invoice_details->PostCode,
-			'city'             => $invoice_details->City,
-			'province'         => $invoice_details->Province,
-			'country'          => $invoice_details->Country,
-			'vat_code'         => $invoice_details->VatCode,
-			'fiscal_code'      => $invoice_details->FiscalCode,
-			'destination_code' => $invoice_details->DestinationCode,
+			'invoice_firstname' => $invoice_details->Name,
+			'invoice_email'     => $invoice_details->Email,
+			'invoice_lastname'  => $invoice_details->LastName,
+			'telephone'         => $invoice_details->Telephone,
+			'prefix'            => $invoice_details->TelephonePrefix,
+			'company_name'      => $invoice_details->CompanyName,
+			'address'           => $invoice_details->Address,
+			'cap'               => $invoice_details->PostCode,
+			'city'              => $invoice_details->City,
+			'province'          => $invoice_details->Province,
+			'country'           => $invoice_details->Country,
+			'vat_code'          => $invoice_details->VatCode,
+			'fiscal_code'       => $invoice_details->FiscalCode,
+			'destination_code'  => $invoice_details->DestinationCode,
 		);
 		$payment_data    = array(
 			'name'       => $payment_details->name,
