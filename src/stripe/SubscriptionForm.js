@@ -112,6 +112,9 @@ function App() {
 				} else {
 					if (result.data.couponError) {
 						setCouponMessage(result.data.message);
+						setCoupon(null);
+						updatePrice(false);
+						setLoading(false);
 						return;
 					}
 					setLoading(false);
