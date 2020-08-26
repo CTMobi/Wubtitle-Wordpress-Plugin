@@ -183,9 +183,9 @@ class Settings {
 	 */
 	private function render_plan_renewal( $plan, $cancelling, $date ) {
 		if ( '0' !== $plan && ! $cancelling ) {
-			echo esc_html( __( 'Automatic renewal:', 'wubtitle' ) . $date ) . ' ';
+			echo esc_html( __( 'Automatic renewal:', 'wubtitle' ) . ' ' . $date );
 		} elseif ( '0' !== $plan && $cancelling ) {
-			echo esc_html( __( 'You requested the subscription cancellation. Your plan will be valid until', 'wubtitle' ) . $date );
+			echo esc_html( __( 'You requested the subscription cancellation. Your plan will be valid until', 'wubtitle' ) . ' ' . $date );
 		}
 	}
 
