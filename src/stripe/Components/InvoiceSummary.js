@@ -34,7 +34,7 @@ export default function InvoiceSummary(props) {
 				<div className="column">
 					<p>
 						<strong>{__('Name', 'wubtitle')}: </strong>
-						{invoiceValues.invoice_name}
+						{invoiceValues.invoice_firstname}
 					</p>
 					<p>
 						<strong>{__('Email', 'wubtitle')}: </strong>
@@ -65,17 +65,6 @@ export default function InvoiceSummary(props) {
 					) : (
 						''
 					)}
-
-					{invoiceValues.vat_code &&
-					invoiceValues.company_name &&
-					euCountries.includes(invoiceValues.country) ? (
-						<p>
-							<strong>{__('VAT Code', 'wubtitle')}: </strong>
-							{invoiceValues.vat_code}
-						</p>
-					) : (
-						''
-					)}
 				</div>
 
 				<div className="column">
@@ -83,10 +72,14 @@ export default function InvoiceSummary(props) {
 						<strong>{__('Lastname', 'wubtitle')}: </strong>
 						{invoiceValues.invoice_lastname}
 					</p>
-					<p>
-						<strong>{__('Company Name', 'wubtitle')}: </strong>
-						{invoiceValues.company_name}
-					</p>
+					{invoiceValues.company_name ? (
+						<p>
+							<strong>{__('Company Name', 'wubtitle')}: </strong>
+							{invoiceValues.company_name}
+						</p>
+					) : (
+						''
+					)}
 					{invoiceValues.province &&
 					invoiceValues.country === 'IT' ? (
 						<p>
@@ -106,6 +99,16 @@ export default function InvoiceSummary(props) {
 						<p>
 							<strong>{__('Fiscal Code', 'wubtitle')}: </strong>
 							{invoiceValues.fiscal_code}
+						</p>
+					) : (
+						''
+					)}
+					{invoiceValues.vat_code &&
+					invoiceValues.company_name &&
+					euCountries.includes(invoiceValues.country) ? (
+						<p>
+							<strong>{__('VAT Code', 'wubtitle')}: </strong>
+							{invoiceValues.vat_code}
 						</p>
 					) : (
 						''

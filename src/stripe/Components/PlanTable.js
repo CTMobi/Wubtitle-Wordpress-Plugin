@@ -19,9 +19,7 @@ const PlanTable = (props) => {
 				<td className="val">{currentPlan}</td>
 			</tr>
 			<tr>
-				<td>
-					<td>{__('Price', 'wubtitle')}</td>
-				</td>
+				<td>{__('Price', 'wubtitle')}</td>
 				<td className="val">{price} &euro;</td>
 			</tr>
 			<tr>

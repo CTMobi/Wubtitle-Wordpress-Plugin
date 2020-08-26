@@ -39,7 +39,7 @@ export default function CheckoutForm(props) {
 
 	const DisplayingErrorMessagesSchema = Yup.lazy((values) => {
 		const yupObject = {
-			invoice_name: Yup.string().required(requiredMessage),
+			invoice_firstname: Yup.string().required(requiredMessage),
 			invoice_email: Yup.string()
 				.email(__('Invalid email', 'wubtitle'))
 				.required(requiredMessage),
@@ -103,7 +103,7 @@ export default function CheckoutForm(props) {
 		return Yup.object().shape(yupObject);
 	});
 	let initValues = {
-		invoice_name: '',
+		invoice_firstname: '',
 		invoice_email: '',
 		invoice_lastname: '',
 		prefix: '',
@@ -163,9 +163,13 @@ export default function CheckoutForm(props) {
 							<label htmlFor="invoiceName">
 								{__('Name', 'wubtitle')}
 							</label>
-							<Field name="invoice_name" placeholder="Name" />
+							<Field
+								name="invoice_firstname"
+								placeholder="Name"
+							/>
 							<p className="error-message">
-								{touched.invoice_name && errors.invoice_name}
+								{touched.invoice_firstname &&
+									errors.invoice_firstname}
 							</p>
 						</div>
 						<div className="form-field-container">
