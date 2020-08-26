@@ -80,12 +80,14 @@ select,
 	border-radius: 4px;
 	background: #fff;
 	width: 100%;
+	margin-top: 1rem;
 }
 
 .prefix-input {
 	width: 20%;
 	float: left;
 	background-color: #e9ecef;
+	margin: 0;
 }
 
 .input-with-prefix {
