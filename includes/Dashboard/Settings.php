@@ -183,9 +183,9 @@ class Settings {
 	 */
 	private function render_plan_renewal( $plan, $cancelling, $date ) {
 		if ( '0' !== $plan && ! $cancelling ) {
-			echo esc_html( __( 'Automatic renewal:', 'wubtitle' ) . $date ) . ' ';
+			echo esc_html( __( 'Automatic renewal:', 'wubtitle' ) . ' ' . $date );
 		} elseif ( '0' !== $plan && $cancelling ) {
-			echo esc_html( __( 'You requested the subscription cancellation. Your plan will be valid until', 'wubtitle' ) . $date );
+			echo esc_html( __( 'You requested the subscription cancellation. Your plan will be valid until', 'wubtitle' ) . ' ' . $date );
 		}
 	}
 
@@ -202,7 +202,7 @@ class Settings {
 				<?php esc_html_e( 'Unsubscribe', 'wubtitle' ); ?>
 			</a>
 			<a href="#" id="update-plan-button" style="text-decoration: underline" >
-				<?php esc_html_e( 'Update email or payment detail', 'wubtitle' ); ?>
+				<?php esc_html_e( 'Update billing or payment details', 'wubtitle' ); ?>
 			</a>
 			<a href="#" id="modify-plan" style="text-decoration: underline; margin-left: 10px;" >
 				<?php esc_html_e( 'Modify plan', 'wubtitle' ); ?>

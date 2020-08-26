@@ -323,6 +323,12 @@ table tr {
 	margin-top: auto;
 }
 
+.switch-container p {
+	color: #616161;
+	font-weight: 600;
+	font-size: 12px;
+}
+
 /* Desktop */
 @media screen and (min-width: 1024px) {
 
@@ -495,6 +501,10 @@ table tr {
 .fields-container {
 	width: 100%;
 	display: contents;
+}
+
+.fields-container.flex-container {
+	padding: 0.5rem;
 }
 
 .switch-container {
