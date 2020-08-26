@@ -34,7 +34,7 @@ export default function InvoiceSummary(props) {
 				<div className="column">
 					<p>
 						<strong>{__('Name', 'wubtitle')}: </strong>
-						{invoiceValues.invoice_name}
+						{invoiceValues.invoice_firstname}
 					</p>
 					<p>
 						<strong>{__('Email', 'wubtitle')}: </strong>
