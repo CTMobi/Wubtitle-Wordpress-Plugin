@@ -5,7 +5,7 @@ const Disclaimer = (props) => {
 	const { infoMessage } = props;
 	return (
 		<div className="disclaimer">
-			{infoMessage ? <p>{infoMessage}</p> : ''}
+			{infoMessage && <p>{infoMessage}</p>}
 			<p>
 				{__(
 					'When ordering within the EU an order may be exempt to VAT if a valid VAT registration number is provided.',
