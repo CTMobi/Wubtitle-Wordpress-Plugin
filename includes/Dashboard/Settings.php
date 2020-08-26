@@ -202,7 +202,7 @@ class Settings {
 				<?php esc_html_e( 'Unsubscribe', 'wubtitle' ); ?>
 			</a>
 			<a href="#" id="update-plan-button" style="text-decoration: underline" >
-				<?php esc_html_e( 'Update email or payment detail', 'wubtitle' ); ?>
+				<?php esc_html_e( 'Update billing or payment details', 'wubtitle' ); ?>
 			</a>
 			<a href="#" id="modify-plan" style="text-decoration: underline; margin-left: 10px;" >
 				<?php esc_html_e( 'Modify plan', 'wubtitle' ); ?>
