@@ -94,6 +94,18 @@ No, currently we do not offer annual subscriptions.
 
 == Changelog ==
 
+=1.0.4=
+Release Date: Unreleased
+
+Enhancements:
+
+* Wordpress 5.5 support
+
+Bugfixes:
+
+* Permit plan upgrade only to Administrator
+* Stability improvements
+
 = 1.0.3 =
 Release Date: August 7th, 2020
 
