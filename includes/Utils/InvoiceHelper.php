@@ -31,7 +31,7 @@ class InvoiceHelper {
 	 * @return void
 	 */
 	public function check_vat_code() {
-		if ( ! isset( $_POST['_ajax_nonce'], $_POST['price_plan'], $_POST['vat_code'], $_POST['country'] ) ) {
+		if ( ! isset( $_POST['_ajax_nonce'], $_POST['price_plan'], $_POST['vat_code'], $_POST['country'] ) || ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( __( 'An error occurred. Please try again in a few minutes.', 'wubtitle' ) );
 		}
 		$nonce        = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
@@ -91,7 +91,7 @@ class InvoiceHelper {
 	 * @return void
 	 */
 	public function check_fiscal_code() {
-		if ( ! isset( $_POST['_ajax_nonce'], $_POST['fiscalCode'] ) ) {
+		if ( ! isset( $_POST['_ajax_nonce'], $_POST['fiscalCode'] ) || ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( __( 'An error occurred. Please try again in a few minutes.', 'wubtitle' ) );
 		}
 		$nonce       = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
@@ -260,7 +260,7 @@ class InvoiceHelper {
 	 * @return void
 	 */
 	public function check_coupon() {
-		if ( ! isset( $_POST['_ajax_nonce'], $_POST['coupon'], $_POST['planId'] ) ) {
+		if ( ! isset( $_POST['_ajax_nonce'], $_POST['coupon'], $_POST['planId'] ) || ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( __( 'An error occurred. Please try again in a few minutes.', 'wubtitle' ) );
 		}
 		$coupon  = sanitize_text_field( wp_unslash( $_POST['coupon'] ) );
