@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
-import { useSelect, useDispatch } from '@wordpress/data';
+import { dispatch } from '@wordpress/data';
 import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 
 const YoutubeControlPanel = (props) => {
+	const { withSelect } = wp.data;
 	const [message, setMessage] = useState('');
 	const [status, setStatus] = useState(__('None', 'wubtitle'));
 	const [languageSelected, setLanguage] = useState('');
@@ -14,9 +15,9 @@ const YoutubeControlPanel = (props) => {
 	const [options, setOptions] = useState([]);
 	const [title, setTitle] = useState('');
 	const [disabled, setDisabled] = useState(true);
-	const noticeDispatcher = useDispatch('core/notices');
+	const noticeDispatcher = dispatch('core/notices');
 
-	useSelect((select) => {
+	withSelect((select) => {
 		if (props.url === undefined) {
 			return;
 		}

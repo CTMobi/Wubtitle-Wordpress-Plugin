@@ -1,15 +1,19 @@
-import { useSelect } from '@wordpress/data';
+import { withSelect } from '@wordpress/data';
 import { FormTokenField } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { useDebounce } from '../helper/utils.js';
 import { __ } from '@wordpress/i18n';
 
-const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
+const TranscriptionEditBlock = ({
+	setAttributes,
+	className,
+	transcriptPost,
+	selectCore,
+}) => {
 	const [currentValue, setValue] = useState('');
 	const [textSearch, setTextSearch] = useState('');
 	const [tokens, setTokens] = useState([]);
 	const debouncedCurrentValue = useDebounce(currentValue, 500);
-
 	const decodeHtmlEntities = (str) => {
 		return str.replace(/&#(\d+);/g, (_match, dec) => {
 			return String.fromCharCode(dec);
@@ -21,67 +25,48 @@ const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 			content,
 		});
 		const selectedBlock = wp.data
-			.select('core/block-editor')
-			.getSelectedBlock().clientId;
-		wp.data
-			.dispatch('core/block-editor')
-			.replaceBlocks(selectedBlock, Paragraph);
-		wp.data.dispatch('core/block-editor').clearSelectedBlock();
+			.select('core/editor')
+			.getSelectedBlockClientId();
+		wp.data.dispatch('core/editor').replaceBlocks(selectedBlock, Paragraph);
+		wp.data.dispatch('core/editor').clearSelectedBlock();
 	};
-
 	useEffect(() => {
 		setTextSearch(debouncedCurrentValue);
 	}, [debouncedCurrentValue]);
 
-	useSelect((select) => {
-		if (attributes.contentId && tokens.length === 0) {
-			const queryPost = {
-				per_page: 1,
-				include: attributes.contentId,
-			};
-			const resultPost = select('core').getEntityRecords(
-				'postType',
-				'transcript',
-				queryPost
-			);
-			if (resultPost !== null) {
-				setTokens([resultPost[0].title.rendered]);
-				let text = resultPost[0].content.rendered;
-				text = text.replace('<p>', '');
-				text = text.replace('</p>', '');
-				replaceBlock(text);
-			}
-		}
-	});
-
-	const postsCurrent = useSelect((select) => {
-		if (textSearch.length > 2) {
-			const query = {
-				per_page: 10,
-				search: textSearch,
-			};
-			const suggestions = select('core').getEntityRecords(
-				'postType',
-				'transcript',
-				query
-			);
-			return suggestions !== null ? suggestions : [];
-		}
-		return [];
-	});
-
+	if (transcriptPost && tokens.length === 0) {
+		setTokens([transcriptPost[0].title.rendered]);
+		let text = transcriptPost[0].content.rendered;
+		text = text.replace('<p>', '');
+		text = text.replace('</p>', '');
+		replaceBlock(text);
+	}
+	let postsCurrent = [];
+	const query = {
+		per_page: 10,
+		search: textSearch,
+	};
+	let suggestions = [];
 	const options = new Map();
-	const suggestions = [];
-	for (let i = 0; i < postsCurrent.length; i++) {
-		options.set(
-			decodeHtmlEntities(postsCurrent[i].title.rendered),
-			postsCurrent[i].id
+	if (textSearch.length > 2) {
+		suggestions = selectCore.getEntityRecords(
+			'postType',
+			'transcript',
+			query
 		);
-		options.set(
-			decodeHtmlEntities(`${postsCurrent[i].title.rendered} content`),
-			postsCurrent[i].content.rendered
-		);
-		suggestions[i] = decodeHtmlEntities(postsCurrent[i].title.rendered);
+		postsCurrent = suggestions !== null ? suggestions : [];
+		suggestions = [];
+		for (let i = 0; i < postsCurrent.length; i++) {
+			options.set(
+				decodeHtmlEntities(postsCurrent[i].title.rendered),
+				postsCurrent[i].id
+			);
+			options.set(
+				decodeHtmlEntities(`${postsCurrent[i].title.rendered} content`),
+				postsCurrent[i].content.rendered
+			);
+			suggestions[i] = decodeHtmlEntities(postsCurrent[i].title.rendered);
+		}
 	}
 
 	let contentText = '';
@@ -123,4 +108,20 @@ const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 	);
 };
 
-export default TranscriptionEditBlock;
+export default withSelect((select, attributes) => {
+	const object = { selectCore: select('core') };
+	// TOKEN ?
+	if (attributes.attributes.contentId) {
+		const queryPost = {
+			per_page: 1,
+			include: attributes.attributes.contentId,
+		};
+		const transcriptPost = select('core').getEntityRecords(
+			'postType',
+			'transcript',
+			queryPost
+		);
+		object.transcriptPost = transcriptPost;
+	}
+	return object;
+})(TranscriptionEditBlock);

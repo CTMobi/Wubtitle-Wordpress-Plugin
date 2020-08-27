@@ -3,11 +3,11 @@ import { ToggleControl, Button } from '@wordpress/components';
 import { Fragment, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { langExten, statusExten } from './labels.js';
-import { useDispatch } from '@wordpress/data';
+import { dispatch } from '@wordpress/data';
 
 const SubtitleControl = ({ statusText, langText, isPublished, postId }) => {
 	const [message, setMessage] = useState('');
-	const entityDispatcher = useDispatch('core');
+	const entityDispatcher = dispatch('core');
 	const updateStatus = (published) => {
 		published = !published;
 

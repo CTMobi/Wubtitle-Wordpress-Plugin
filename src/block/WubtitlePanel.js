@@ -1,5 +1,5 @@
 /*  global wubtitle_button_object  */
-import { useSelect, useDispatch } from '@wordpress/data';
+import { withSelect, dispatch } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -10,6 +10,7 @@ import SubtitleControl from './SubtitleControl';
 import { selectOptions, selectOptionsFreePlan } from './labels';
 
 const WubtitlePanel = (props) => {
+	const { metaValues } = props;
 	const extensionsFile =
 		props.id !== undefined
 			? props.src.substring(props.src.lastIndexOf('.') + 1)
@@ -21,26 +22,6 @@ const WubtitlePanel = (props) => {
 	const lang = languages.includes(wubtitle_button_object.lang)
 		? wubtitle_button_object.lang
 		: 'en';
-	const metaValues = useSelect((select) => {
-		let attachment;
-		if (props.id !== undefined) {
-			attachment = select('core').getEntityRecord(
-				'postType',
-				'attachment',
-				props.id
-			);
-		}
-		let meta = '';
-		if (attachment !== undefined) {
-			meta = select('core').getEditedEntityRecord(
-				'postType',
-				'attachment',
-				props.id
-			).meta;
-		}
-
-		return meta;
-	});
 
 	let languageSaved;
 	let status;
@@ -48,8 +29,8 @@ const WubtitlePanel = (props) => {
 		languageSaved = metaValues.wubtitle_lang_video;
 		status = metaValues.wubtitle_status;
 	}
-	const noticeDispatcher = useDispatch('core/notices');
-	const entityDispatcher = useDispatch('core');
+	const noticeDispatcher = dispatch('core/notices');
+	const entityDispatcher = dispatch('core');
 	const [languageSelected, setLanguage] = useState(lang);
 	const isDisabled = status === 'pending' || props.id === undefined;
 	const isPublished = status === 'enabled';
@@ -167,4 +148,22 @@ const WubtitlePanel = (props) => {
 	);
 };
 
-export default WubtitlePanel;
+export default withSelect((select, props) => {
+	let attachment;
+	if (props.id !== undefined) {
+		attachment = select('core').getEntityRecord(
+			'postType',
+			'attachment',
+			props.id
+		);
+	}
+	let meta = '';
+	if (attachment !== undefined) {
+		meta = select('core').getEditedEntityRecord(
+			'postType',
+			'attachment',
+			props.id
+		).meta;
+	}
+	return { metaValues: meta };
+})(WubtitlePanel);

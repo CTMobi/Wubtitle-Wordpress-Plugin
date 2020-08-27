@@ -12,5 +12,8 @@ registerBlockType('wubtitle/transcription', {
 			type: 'int',
 		},
 	},
+	save: () => {
+		return null;
+	},
 	edit: TranscriptionEditBlock,
 });
