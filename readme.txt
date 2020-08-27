@@ -103,7 +103,7 @@ Enhancements:
 
 Bugfixes:
 
-* Permit plan upgrade only to Administrato
+* Permit plan upgrade only to Administrator
 * Stability improvements
 
 = 1.0.3 =
