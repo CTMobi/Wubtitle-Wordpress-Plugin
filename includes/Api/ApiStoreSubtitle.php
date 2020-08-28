@@ -57,10 +57,11 @@ class ApiStoreSubtitle {
 	/**
 	 * Gets the subtitle file, save it and add video posts meta.
 	 *
-	 * @param array<mixed> $params file parameters.
+	 * @param \WP_REST_Request $request request values.
 	 * @return WP_REST_Response
 	 */
-	public function get_subtitle( $params ) {
+	public function get_subtitle( $request ) {
+		$params = $request->get_param( 'data' );
 		if ( ! function_exists( 'download_url' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 		}
