@@ -29,10 +29,13 @@ class Activation {
 	 */
 	public function wubtitle_activation_license_key() {
 		$site_url      = get_site_url();
+		$wubtitle_data = get_plugin_data( WUBTITLE_FILE_URL );
 		$body          = array(
 			'data' => array(
-				'domainUrl' => $site_url,
-				'siteLang'  => explode( '_', get_locale(), 2 )[0],
+				'domainUrl'     => $site_url,
+				'siteLang'      => explode( '_', get_locale(), 2 )[0],
+				'wpVersion'     => $GLOBALS['wp_version'],
+				'pluginVersion' => $wubtitle_data['Version'],
 			),
 		);
 		$response      = wp_remote_post(
