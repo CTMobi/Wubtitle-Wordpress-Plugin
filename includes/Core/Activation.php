@@ -20,19 +20,25 @@ class Activation {
 	 */
 	public function run() {
 		register_activation_hook( WUBTITLE_FILE_URL, array( $this, 'wubtitle_activation_license_key' ) );
+		add_action( '_core_updated_successfully', array( $this, 'wubtitle_activation_license_key' ), 10, 1 );
 	}
 
 	/**
 	 * When the plugin is activated calls the endpoint to receive the license key.
 	 *
+	 * @param string $wp_version WordPress version.
+	 *
 	 * @return void
 	 */
-	public function wubtitle_activation_license_key() {
+	public function wubtitle_activation_license_key( $wp_version = '' ) {
 		$site_url      = get_site_url();
+		$wubtitle_data = get_plugin_data( WUBTITLE_FILE_URL );
 		$body          = array(
 			'data' => array(
-				'domainUrl' => $site_url,
-				'siteLang'  => explode( '_', get_locale(), 2 )[0],
+				'domainUrl'     => $site_url,
+				'siteLang'      => explode( '_', get_locale(), 2 )[0],
+				'wpVersion'     => empty( $wp_version ) ? $GLOBALS['wp_version'] : $wp_version,
+				'pluginVersion' => $wubtitle_data['Version'],
 			),
 		);
 		$response      = wp_remote_post(
