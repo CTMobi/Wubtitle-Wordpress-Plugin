@@ -36,17 +36,11 @@ env:
   - WP_VERSION=latest
   - WP_VERSION=5.4
   - WP_VERSION=5.3
-  - WP_VERSION=5.2
-  - WP_VERSION=5.1
 
 # Customize the build matrix.
 matrix:
   fast_finish: true
   exclude:
-    - php: 7.4
-      env: WP_VERSION=5.1
-    - php: 7.4
-      env: WP_VERSION=5.2
     - php: 7.4
       env: WP_VERSION=5.3
 
@@ -87,4 +81,3 @@ script:
   - npm run lint:js:src
   - npm run csslint
   - npm run build
-

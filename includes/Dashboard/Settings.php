@@ -44,7 +44,7 @@ class Settings {
 	 */
 	public function create_settings_menu() {
 		// TODO: Cambiare $icon_url e $position (attualmente subito dopo "Impostazioni") quando verranno date indicazioni UX.
-		add_menu_page( __( 'Wubtitle Settings', 'wubtitle' ), __( 'Wubtitle', 'wubtitle' ), 'manage_options', 'wubtitle_settings', array( $this, 'render_settings_page' ), 'dashicons-format-status', 81 );
+		add_menu_page( __( 'Wubtitle Settings', 'wubtitle' ), __( 'Wubtitle', 'wubtitle' ), 'edit_posts', 'wubtitle_settings', array( $this, 'render_settings_page' ), 'dashicons-format-status', 81 );
 	}
 
 	/**
@@ -183,9 +183,9 @@ class Settings {
 	 */
 	private function render_plan_renewal( $plan, $cancelling, $date ) {
 		if ( '0' !== $plan && ! $cancelling ) {
-			echo esc_html( __( 'Automatic renewal:', 'wubtitle' ) . $date ) . ' ';
+			echo esc_html( __( 'Automatic renewal:', 'wubtitle' ) . ' ' . $date );
 		} elseif ( '0' !== $plan && $cancelling ) {
-			echo esc_html( __( 'You requested the subscription cancellation. Your plan will be valid until', 'wubtitle' ) . $date );
+			echo esc_html( __( 'You requested the subscription cancellation. Your plan will be valid until', 'wubtitle' ) . ' ' . $date );
 		}
 	}
 
@@ -196,13 +196,13 @@ class Settings {
 	 * @return void
 	 */
 	private function render_plan_update( $cancelling ) {
-		if ( ! $cancelling && ! get_option( 'wubtitle_free' ) && $this->price_info_plans ) {
+		if ( ! $cancelling && ! get_option( 'wubtitle_free' ) && $this->price_info_plans && current_user_can( 'manage_options' ) ) {
 			?>
 			<a href="#" id="cancel-license-button" style="text-decoration: underline; color:red; margin-right:10px;" >
 				<?php esc_html_e( 'Unsubscribe', 'wubtitle' ); ?>
 			</a>
 			<a href="#" id="update-plan-button" style="text-decoration: underline" >
-				<?php esc_html_e( 'Update email or payment detail', 'wubtitle' ); ?>
+				<?php esc_html_e( 'Update billing or payment details', 'wubtitle' ); ?>
 			</a>
 			<a href="#" id="modify-plan" style="text-decoration: underline; margin-left: 10px;" >
 				<?php esc_html_e( 'Modify plan', 'wubtitle' ); ?>
@@ -320,8 +320,16 @@ class Settings {
 		add_settings_section( 'wubtitle-main-settings', '', function(){}, 'wubtitle-settings' );
 
 		$plans    = get_option( 'wubtitle_all_plans', array() );
-		$disabled = count( $plans ) === 0 ? 'disabled' : '';
-		$message  = count( $plans ) === 0 ? __( 'Upgrade feature temporarily disabled due to error loading the page. Please refresh the page and try again.', 'wubtitle' ) : '';
+		$disabled = '';
+		$message  = '';
+		if ( count( $plans ) === 0 ) {
+			$disabled = 'disabled';
+			$message  = __( 'Upgrade feature temporarily disabled due to error loading the page. Please refresh the page and try again.', 'wubtitle' );
+		}
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$disabled = 'disabled';
+			$message  = __( 'Upgrading and plan changes can only be done by the administrator', 'wubtitle' );
+		}
 		if ( count( $plans ) === 0 || ( get_option( 'wubtitle_plan_rank' ) < count( $plans ) - 1 && $this->price_info_plans ) ) {
 			add_settings_field(
 				'buy-license-button',
@@ -337,20 +345,22 @@ class Settings {
 				)
 			);
 		}
-		add_settings_field(
-			'wubtitle-license-key',
-			__( 'License Number', 'wubtitle' ),
-			array( $this, 'input_field' ),
-			'wubtitle-settings',
-			'wubtitle-main-settings',
-			array(
-				'type'        => 'text',
-				'name'        => 'wubtitle_license_key',
-				'placeholder' => __( 'License key', 'wubtitle' ),
-				'class'       => 'input-license-key',
-				'description' => __( 'Please enter the license key you received after successful checkout', 'wubtitle' ),
-			)
-		);
+		if ( current_user_can( 'manage_options' ) ) {
+			add_settings_field(
+				'wubtitle-license-key',
+				__( 'License Number', 'wubtitle' ),
+				array( $this, 'input_field' ),
+				'wubtitle-settings',
+				'wubtitle-main-settings',
+				array(
+					'type'        => 'text',
+					'name'        => 'wubtitle_license_key',
+					'placeholder' => __( 'License key', 'wubtitle' ),
+					'class'       => 'input-license-key',
+					'description' => __( 'Please enter the license key you received after successful checkout', 'wubtitle' ),
+				)
+			);
+		}
 	}
 
 	/**

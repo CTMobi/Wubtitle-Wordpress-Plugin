@@ -2,7 +2,7 @@
 Contributors: giuseppectmobi
 Donate link: https://www.wubtitle.com/
 Tags: subtitle, subtitles, video, Transcription, SEO, speech-to-text, video to text, youtube to text
-Requires at least: 5.0
+Requires at least: 5.3
 Tested up to: 5.5
 Stable tag: trunk
 Requires PHP: 7.2
@@ -93,6 +93,18 @@ No, currently we do not offer annual subscriptions.
 
 
 == Changelog ==
+
+=1.0.4=
+Release Date: Unreleased
+
+Enhancements:
+
+* Wordpress 5.5 support
+
+Bugfixes:
+
+* Permit plan upgrade only to Administrator
+* Stability improvements
 
 = 1.0.3 =
 Release Date: August 7th, 2020
