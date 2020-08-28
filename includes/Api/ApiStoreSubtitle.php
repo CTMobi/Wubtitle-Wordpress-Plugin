@@ -57,7 +57,7 @@ class ApiStoreSubtitle {
 	/**
 	 * Gets the subtitle file, save it and add video posts meta.
 	 *
-	 * @param array<mixed> $params file parameters.
+	 * @param \WP_REST_Request $request request values.
 	 * @return WP_REST_Response
 	 */
 	public function get_subtitle( $request ) {
