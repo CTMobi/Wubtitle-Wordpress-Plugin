@@ -95,7 +95,7 @@ No, currently we do not offer annual subscriptions.
 == Changelog ==
 
 =1.0.4=
-Release Date: Unreleased
+Release Date: August 28th, 2020
 
 Enhancements:
 
