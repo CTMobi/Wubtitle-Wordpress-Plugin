@@ -21,6 +21,20 @@ class Activation {
 	public function run() {
 		register_activation_hook( WUBTITLE_FILE_URL, array( $this, 'wubtitle_activation_license_key' ) );
 		add_action( '_core_updated_successfully', array( $this, 'wubtitle_activation_license_key' ), 10, 1 );
+		add_filter( 'upgrader_post_install', array( $this, 'post_install' ), 10, 3 );
+	}
+
+	/**
+	 * After upgrade run plugin activation.
+	 *
+	 * @param array<mixed> ...$args installation result data.
+	 * @return void
+	 */
+	public function post_install( ...$args ) {
+		$name_plugin = $args[1]['plugin'];
+		if ( WUBTITLE_NAME . '/wubtitle.php' === $name_plugin ) {
+			$this->wubtitle_activation_license_key();
+		}
 	}
 
 	/**
