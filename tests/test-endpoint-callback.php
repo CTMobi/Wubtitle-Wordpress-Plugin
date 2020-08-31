@@ -81,7 +81,7 @@ class TestEndpointCallback extends WP_UnitTestCase {
 				'source' => 'URL not found',
 			),
 		);
-		//verifico che la chiamata è andata a buon fine.
+		//Check callback response
 		$this->assertEqualSets($expected_response, $response_data);
 	 }
 
