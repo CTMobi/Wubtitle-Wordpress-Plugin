@@ -69,13 +69,12 @@ class ApiLicenseValidation {
 				'callback'            => array( $this, 'get_init_data' ),
 				'permission_callback' => function( $request ) {
 					$headers          = $request->get_headers();
-					$token            = $headers['token'][0];
+					$token            = $headers['token'][0] ?? '';
 					if ( ! defined( 'WP_ADMIN' ) ) {
 						define( 'WP_ADMIN', true );
 					}
 					wp_cache_delete( 'wubtitle_token', 'options' );
 					wp_cache_delete( 'wubtitle_token_time', 'options' );
-					$token            = isset( $headers['token'][0] ) ? $headers['token'][0] : '';
 					$current_token    = get_option( 'wubtitle_token' );
 					$token_expiration = get_option( 'wubtitle_token_time' );
 					if ( $token !== $current_token && time() > $token_expiration ) {
