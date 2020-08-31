@@ -192,7 +192,7 @@ class ApiStoreSubtitle {
 	 */
 	public function get_jobs_failed( $request ) {
 		$params   = $request->get_param( 'data' );
-		$job_id   = $params['jobId'];
+		$job_id   = isset( $params['jobId'] ) ? $params['jobId'] : '';
 		$args     = array(
 			'post_type'      => 'attachment',
 			'posts_per_page' => 1,
