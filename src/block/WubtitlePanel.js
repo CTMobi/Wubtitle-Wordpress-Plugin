@@ -51,7 +51,9 @@ const WubtitlePanel = (props) => {
 	const noticeDispatcher = useDispatch('core/notices');
 	const entityDispatcher = useDispatch('core');
 	const [languageSelected, setLanguage] = useState(lang);
-	const isDisabled = status === 'pending' || props.id === undefined;
+	const [isLoading, setIsLoading] = useState(false);
+	const isDisabled =
+		status === 'pending' || props.id === undefined || isLoading;
 	const isPublished = status === 'enabled';
 	const optionLanguage =
 		wubtitle_button_object.isFree === '1'
@@ -97,6 +99,7 @@ const WubtitlePanel = (props) => {
 	function onClick() {
 		const idAttachment = props.id;
 		const srcAttachment = props.src;
+		setIsLoading(true);
 		apiFetch({
 			url: wubtitle_button_object.ajax_url,
 			method: 'POST',
@@ -106,6 +109,7 @@ const WubtitlePanel = (props) => {
 			},
 			body: `action=submitVideo&_ajax_nonce=${wubtitle_button_object.ajaxnonce}&id_attachment=${idAttachment}&src_attachment=${srcAttachment}&lang=${languageSelected}&`,
 		}).then((res) => {
+			setIsLoading(false);
 			if (res.data === 201) {
 				noticeDispatcher.createNotice(
 					'success',
