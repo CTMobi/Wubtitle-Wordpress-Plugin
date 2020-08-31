@@ -75,6 +75,7 @@ class ApiLicenseValidation {
 					if ( $token !== $current_token && time() > $token_expiration ) {
 						return false;
 					}
+					return true;
 				},
 			)
 		);
