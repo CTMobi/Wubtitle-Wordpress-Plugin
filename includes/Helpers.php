@@ -94,7 +94,12 @@ class Helpers {
 		}
 		$jwt            = $headers['jwt'][0];
 		$db_license_key = get_option( 'wubtitle_license_key' );
-		return JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
+		try {
+			JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
+		} catch ( \Exception $e ) {
+			return false;
+		}
+		return true;
 	}
 
 }
