@@ -69,7 +69,7 @@ class ApiLicenseValidation {
 				'callback'            => array( $this, 'get_init_data' ),
 				'permission_callback' => function( $request ) {
 					$headers          = $request->get_headers();
-					$token            = $headers['token'][0];
+					$token            = $headers['token'][0] ?? '';
 					if ( ! defined( 'WP_ADMIN' ) ) {
 						define( 'WP_ADMIN', true );
 					}

@@ -192,7 +192,7 @@ class ApiStoreSubtitle {
 	 */
 	public function get_jobs_failed( $request ) {
 		$params   = $request->get_param( 'data' );
-		$job_id   = $params['jobId'];
+		$job_id   = $params['jobId'] ?? '';
 		$args     = array(
 			'post_type'      => 'attachment',
 			'posts_per_page' => 1,
@@ -200,7 +200,7 @@ class ApiStoreSubtitle {
 			'meta_value'     => $job_id,
 		);
 		$job_meta = get_posts( $args );
-		if ( empty( $job_meta[0] ) ) {
+		if ( empty( $job_meta[0] ) || empty( $job_id ) ) {
 			$response = new WP_REST_Response(
 				array(
 					'errors' => array(
