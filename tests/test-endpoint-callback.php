@@ -56,5 +56,33 @@ class TestEndpointCallback extends WP_UnitTestCase {
 		//verifico che lo stato dell'attachment è passato da pending a error.
 		$this->assertEquals($expected_status, $result_status);
 	 }
+	/**
+	 * Test endpoint callback store subtitle, subtitle not found
+	 */
+	public function test_negative_get_subtitle(){
+		$jobId = "provauuid";
+		$request_data    = array(
+			'data' => array(
+				'url'          => 'https://test?file_name',
+				'transcript'   => 'https://test',
+				'attachmentId' => 1,
+				'duration'     => 90,
+				'jobs'         => 2,
+			),
+		);
+		$request = new WP_REST_Request;
+		$request->set_default_params( $request_data );
+		$response = $this->instance->get_subtitle($request);
+		$response_data = $response->data;
+		$expected_response = array(
+			'errors' => array(
+				'status' => '404',
+				'title'  => 'Invalid URL',
+				'source' => 'URL not found',
+			),
+		);
+		//Check callback response
+		$this->assertEqualSets($expected_response, $response_data);
+	 }
 
 }
