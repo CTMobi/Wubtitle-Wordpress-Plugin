@@ -128,4 +128,67 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
           $result = $this->instance->set_body_request($data);
           $this->assertFalse($result);
         }
+        /**
+         * Test update post meta 
+         */
+        public function test_update_post_meta() {
+          $id_attachment   = 1;
+          $expected_lang   = 'IT';
+          $expected_uuid   = '1234';
+          $expected_status = 'pending';
+          $this->instance->update_uuid_status_and_lang( $id_attachment, $expected_lang, $expected_uuid );
+          
+          $result_lang   = get_post_meta( $id_attachment, 'wubtitle_lang_video', true );
+          $result_uuid   = get_post_meta( $id_attachment, 'wubtitle_job_uuid', true );
+          $result_status = get_post_meta( $id_attachment, 'wubtitle_status', true );
+
+          $this->assertEqualSets( $expected_lang, $result_lang );
+          $this->assertEqualSets( $expected_uuid, $result_uuid );
+          $this->assertEqualSets( $expected_status, $result_status );
+        }
+
+        /**
+         * Test get error message
+         */
+        public function test_get_error_message() {
+          $reason = array(
+            'reason' => 'NO_AVAILABLE_JOBS'
+          );
+          $body = array(
+            'errors' => array(
+              'title'  => wp_json_encode($reason),
+              'status' => 429
+            )
+          );
+          $response = array(
+            'body' => wp_json_encode($body)
+          );
+          $expected_response = 'Error, no more video left for your subscription plan';
+          $result_response   = $this->instance->get_error_message($response);
+          $this->assertEqualSets( $expected_response, $result_response );
+        }
+        /**
+         * get error message for minutes error
+         */
+        public function test_get_minutes_error_message() {
+          $time_left    = 5;
+          $jobs_left    = 2;
+          $object_error = array(
+            'reason'        => 'NO_AVAILABLE_MINUTES',
+            'videoTimeLeft' => $time_left,
+            'jobsLeft'      => $jobs_left,
+          );
+          $body = array(
+            'errors' => array(
+              'title'  => wp_json_encode($object_error),
+              'status' => 429
+            )
+          );
+          $response = array(
+            'body' => wp_json_encode($body)
+          );
+          $expected_response = 'Error, video length is longer than minutes available for your subscription plan (minutes left ' . date_i18n( 'i:s', $time_left ) . ', video left ' . $jobs_left . ')';
+          $result_response   = $this->instance->get_error_message($response);
+          $this->assertEqualSets( $expected_response, $result_response );
+        }
 }

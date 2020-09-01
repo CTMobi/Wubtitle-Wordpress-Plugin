@@ -75,4 +75,159 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
     		 );
          $this->assertEqualSets($expected_body,$result);
        }
+
+      /**
+       * Test no license change plan
+       */
+      public function test_no_license_change_plan(){
+        $this->_setRole( 'administrator' );
+        update_option( 'wubtitle_wanted_plan_rank', 2 );
+        $all_plans = array(
+          array(
+            'stripe_code' => 'free'
+          ),
+          array(
+            'stripe_code' => 'standard'
+          ),
+          array(
+            'stripe_code' => 'elite'
+          ),
+        );
+        update_option( 'wubtitle_all_plans', $all_plans );
+        update_option( 'wubtitle_plan_rank', 1 );
+        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
+        try {
+            $this->_handleAjax( 'change_plan' );
+        } catch ( WPAjaxDieContinueException $e ) {}
+  
+        // Check that the exception was thrown
+        $this->assertTrue( isset( $e ) );
+        $response = json_decode( $this->_last_response );
+        $expected = 'Unable to create subtitles. The product license key is missing.';
+        $this->assertFalse( $response->success);
+        $this->assertEqualSets($expected, $response->data);
+      }
+
+
+      /**
+       * Test no administrator change plan
+       */
+      public function test_no_administrator_change_plan(){
+        update_option( 'wubtitle_wanted_plan_rank', 2 );
+        $all_plans = array(
+          array(
+            'stripe_code' => 'free'
+          ),
+          array(
+            'stripe_code' => 'standard'
+          ),
+          array(
+            'stripe_code' => 'elite'
+          ),
+        );
+        update_option( 'wubtitle_all_plans', $all_plans );
+        update_option( 'wubtitle_plan_rank', 1 );
+        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
+        try {
+            $this->_handleAjax( 'change_plan' );
+        } catch ( WPAjaxDieContinueException $e ) {}
+  
+        // Check that the exception was thrown
+        $this->assertTrue( isset( $e ) );
+        $response = json_decode( $this->_last_response );
+        $expected = 'An error occurred. Please try again in a few minutes.';
+        $this->assertFalse( $response->success);
+        $this->assertEqualSets($expected, $response->data);
+      }
+
+
+      /**
+       * Test no license reactivate plan
+       */
+      public function test_no_license_reactivate_plan(){
+        $this->_setRole( 'administrator' );
+        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
+        try {
+            $this->_handleAjax( 'reactivate_plan' );
+        } catch ( WPAjaxDieContinueException $e ) {}
+  
+        // Check that the exception was thrown
+        $this->assertTrue( isset( $e ) );
+        $response = json_decode( $this->_last_response );
+        $expected = 'Unable to create subtitles. The product license key is missing.';
+        $this->assertFalse( $response->success);
+        $this->assertEqualSets($expected, $response->data);
+      }
+
+      /**
+       * Test no administrator reactivate plan
+       */
+      public function test_no_administrator_reactivate_plan(){
+        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
+        try {
+            $this->_handleAjax( 'reactivate_plan' );
+        } catch ( WPAjaxDieContinueException $e ) {}
+  
+        // Check that the exception was thrown
+        $this->assertTrue( isset( $e ) );
+        $response = json_decode( $this->_last_response );
+        $expected = 'An error occurred. Please try again in a few minutes.';
+        $this->assertFalse( $response->success);
+        $this->assertEqualSets($expected, $response->data);
+      }
+      /**
+       * Test no administrator create subscription
+       */
+      public function test_no_administrator_create_subscription(){
+        $_POST['_ajax_nonce']    = wp_create_nonce( 'itr_ajax_nonce' );
+        $_POST['invoiceObject']  = (object) array();
+        $_POST['email']          = 'alessio@test.com';
+        $_POST['actionCheckout'] = 'actiontest';
+        try {
+            $this->_handleAjax( 'create_subscription' );
+        } catch ( WPAjaxDieContinueException $e ) {}
+  
+        // Check that the exception was thrown
+        $this->assertTrue( isset( $e ) );
+        $response = json_decode( $this->_last_response );
+        $expected = 'An error occurred. Please try again in a few minutes.';
+        $this->assertFalse( $response->success);
+        $this->assertEqualSets($expected, $response->data);
+      }
+      /**
+       * Test confirm new subscription without plan id
+       */
+      public function test_no_planid_confirm_first_subscription(){
+        $_POST['_ajax_nonce']   = wp_create_nonce( 'itr_ajax_nonce' );
+        $_POST['setupIntent']   = wp_json_encode ( array( 'setupIntent' => 'test_setup') );
+        $_POST['email']         = 'alessio@test.com';
+        $_POST['name']          = 'alessio';
+        // set action = create for first subscription
+        $_POST['actionCheckout'] = 'create';
+        try {
+            $this->_handleAjax( 'confirm_subscription' );
+        } catch ( WPAjaxDieContinueException $e ) {}
+  
+        // Check that the exception was thrown
+        $this->assertTrue( isset( $e ) );
+        $response = json_decode( $this->_last_response );
+        $expected = 'An error occurred. Please try again in a few minutes.';
+        $this->assertFalse( $response->success);
+        $this->assertEqualSets($expected, $response->data);
+      }
+
+        /**
+         * get error message 
+         */
+        public function test_error_manager() {
+          $body = (object) array(
+            'errors' => (object) array(
+              'title'  => 'WRONG_CUSTOMER',
+              'status' => 400
+            )
+          );
+          $result_response   = $this->instance->error_confirm_manager(400, $body);
+
+          $this->assertTrue( $result_response['couponError'] );
+        }
 }

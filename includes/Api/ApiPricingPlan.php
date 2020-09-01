@@ -369,7 +369,7 @@ class ApiPricingPlan {
 	 *
 	 * @return string|array<mixed>
 	 */
-	private function error_confirm_manager( $code_response, $response_body ) {
+	public function error_confirm_manager( $code_response, $response_body ) {
 		$message = array(
 			'400' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
 			'401' => __( 'An error occurred. Please try again in a few minutes', 'wubtitle' ),
