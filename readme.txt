@@ -94,21 +94,21 @@ No, currently we do not offer annual subscriptions.
 
 == Changelog ==
 
-=1.0.6=
+= 1.0.6 =
 Release Date: August 28th, 2020
 
 Bugfixes:
 
 * Stability improvements
 
-=1.0.5=
+= 1.0.5 =
 Release Date: August 28th, 2020
 
 Bugfixes:
 
 * Stability improvements
 
-=1.0.4=
+= 1.0.4 =
 Release Date: August 28th, 2020
 
 Enhancements:
