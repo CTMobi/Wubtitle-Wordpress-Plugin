@@ -166,7 +166,7 @@ const showUpdatePlanWindow = () => {
 				);
 				UpdatePlanWindow.document.write(response);
 			});
-	} else {
+	} else if (UpdatePlanWindow) {
 		UpdatePlanWindow.focus();
 		return UpdatePlanWindow;
 	}
@@ -204,7 +204,7 @@ const showBuyLicenseWindow = () => {
 				BuyLicenseWindow.document.write(response);
 				wait = false;
 			});
-	} else {
+	} else if (BuyLicenseWindow) {
 		BuyLicenseWindow.focus();
 		return BuyLicenseWindow;
 	}
@@ -267,7 +267,7 @@ const showCancelSubscriptionWindow = () => {
 				CancelSubscriptionWindow.document.write(response);
 				wait = false;
 			});
-	} else {
+	} else if (CancelSubscriptionWindow) {
 		CancelSubscriptionWindow.focus();
 	}
 };
