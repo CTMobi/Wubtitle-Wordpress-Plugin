@@ -6,7 +6,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 
-const YoutubeControlPanel = (props) => {
+const EmbedControlPanel = (props) => {
 	const [message, setMessage] = useState('');
 	const [status, setStatus] = useState(__('None', 'wubtitle'));
 	const [languageSelected, setLanguage] = useState('');
@@ -140,4 +140,4 @@ const YoutubeControlPanel = (props) => {
 	);
 };
 
-export default YoutubeControlPanel;
+export default EmbedControlPanel;
