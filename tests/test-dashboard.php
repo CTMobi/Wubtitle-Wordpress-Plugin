@@ -15,18 +15,17 @@ class TestDashboard extends WP_Ajax_UnitTestCase {
      */
     public function SetUp() {
         parent::setUp();
-        $this->price_info_object    = array(
-            (object) array(
-                'price'         => 5,
-                'taxAmount'     => 1,
-                'taxPercentage' => 10,
-            ),
-            (object) array(
-                'price'         => 4,
-                'taxAmount'     => 2,
-                'taxPercentage' => 20,
-            ),
-        );
+        $price_object = new stdClass();
+        $this->price_info_object     = array();
+        $price_object->price         = 5;
+        $price_object->taxAmount     = 1;
+        $price_object->taxPercentage = 10;
+        $this->price_info_object[0]  = $price_object;
+        $price_object->price         = 4;
+        $price_object->taxAmount     = 2;
+        $price_object->taxPercentage = 20;
+        $this->price_info_object[1]  = $price_object;
+
         $this->all_plans = array(
             array(
                 'totalSeconds' => 2000,
