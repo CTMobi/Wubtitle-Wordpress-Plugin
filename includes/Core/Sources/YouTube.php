@@ -232,4 +232,43 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 
 		return $response;
 	}
+
+	/**
+	 * Get youtube video info
+	 *
+	 * @param array<string> $url_parts parts of url.
+	 *
+	 * @return array<mixed>|false
+	 */
+	public function get_video_info( $url_parts ) {
+		$query_params = array();
+		parse_str( $url_parts['query'], $query_params );
+		if ( ! array_key_exists( 'v', $query_params ) ) {
+			return false;
+		}
+		$id_video     = $query_params['v'];
+		$get_info_url = "https://www.youtube.com/get_video_info?video_id=$id_video";
+
+		$file_info = array();
+
+		$response = wp_remote_get(
+			$get_info_url,
+			array(
+				'headers' => array( 'Accept-Language' => get_locale() ),
+			)
+		);
+		$file     = wp_remote_retrieve_body( $response );
+
+		parse_str( $file, $file_info );
+		if ( 'fail' === $file_info['status'] ) {
+			return false;
+		}
+		$title_video = json_decode( $file_info['player_response'] )->videoDetails->title;
+		$languages   = json_decode( $file_info['player_response'] )->captions->playerCaptionsTracklistRenderer->captionTracks;
+		$video_info  = array(
+			'languages' => $languages,
+			'title'     => $title_video,
+		);
+		return $video_info;
+	}
 }

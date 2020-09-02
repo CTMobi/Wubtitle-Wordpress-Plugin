@@ -48,4 +48,13 @@ interface VideoSource {
 	 * @return bool|string|int
 	 */
 	public function get_subtitle_to_url( $url_subtitle, $id_video, $title_video );
+
+	/**
+	 * Interface method for get video info
+	 *
+	 * @param array<string> $url_parts parts of url.
+	 *
+	 * @return array<mixed>|false
+	 */
+	public function get_video_info( $url_parts );
 }

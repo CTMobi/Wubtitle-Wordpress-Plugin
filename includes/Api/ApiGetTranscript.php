@@ -111,35 +111,12 @@ class ApiGetTranscript {
 		if ( ! array_key_exists( 'host', $url_parts ) || ! in_array( $url_parts['host'], $allowed_urls, true ) ) {
 			wp_send_json_error( __( 'Url not a valid youtube url', 'wubtitle' ) );
 		}
-		$query_params = array();
-		parse_str( $url_parts['query'], $query_params );
-		if ( ! array_key_exists( 'v', $query_params ) ) {
+		$video_source = new Youtube();
+		$response     = $video_source->get_video_info( $url_parts );
+		if ( ! $response ) {
 			wp_send_json_error( __( 'Url not a valid youtube url', 'wubtitle' ) );
 		}
-		$id_video     = $query_params['v'];
-		$get_info_url = "https://www.youtube.com/get_video_info?video_id=$id_video";
-
-		$file_info = array();
-
-		$response = wp_remote_get(
-			$get_info_url,
-			array(
-				'headers' => array( 'Accept-Language' => get_locale() ),
-			)
-		);
-		$file     = wp_remote_retrieve_body( $response );
-
-		parse_str( $file, $file_info );
-		if ( 'fail' === $file_info['status'] ) {
-			wp_send_json_error( __( 'Url not a valid youtube url', 'wubtitle' ) );
-		}
-		$title_video = json_decode( $file_info['player_response'] )->videoDetails->title;
-		$languages   = json_decode( $file_info['player_response'] )->captions->playerCaptionsTracklistRenderer->captionTracks;
-		$video_info  = array(
-			'languages' => $languages,
-			'title'     => $title_video,
-		);
-		wp_send_json_success( $video_info );
+		wp_send_json_success( $response );
 	}
 	/**
 	 * Gets internal video transcriptions and returns it.
