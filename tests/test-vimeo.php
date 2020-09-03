@@ -43,7 +43,7 @@ class TestVimeoTranscript extends WP_UnitTestCase {
           $vimeo_source     = $this->getMockBuilder( Vimeo::class )->setMethods( array( 'send_job_to_backend' ) )->getMock();
           $body             = array(
               'data' => array(
-                  'text' => $content,
+                  'transcription' => $content,
               ),
           );
           $response_backend = array(
@@ -54,7 +54,7 @@ class TestVimeoTranscript extends WP_UnitTestCase {
           );
 
           $vimeo_source->expects( $this->once() )->method( 'send_job_to_backend' )->will( $this->returnValue( $response_backend ) );
-          $response = $vimeo_source->get_transcript( $id_video, 'test title', 'default_post_type' );
+          $response = $vimeo_source->get_transcript( $id_video, 'test title', 'default_post_type', 'it' );
           $args     = array(
             'post_type'      => 'transcript',
             'posts_per_page' => 1,
