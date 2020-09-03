@@ -25,7 +25,7 @@ const EmbedControlPanel = (props) => {
 
 		setMessage(__('Getting transcript…', 'ear2words'));
 		wp.ajax
-			.send('get_transcript_yt', {
+			.send('get_transcript_embed', {
 				type: 'POST',
 				data: {
 					urlVideo: props.url,

@@ -13,14 +13,6 @@ namespace Wubtitle\Core;
  * This class handle subtitles.
  */
 interface VideoSource {
-	/**
-	 * Interface method.
-	 *
-	 * @param string $id_video id del del video.
-	 * @param string $from post type dal quale viene fatta la richiesta.
-	 * @return bool|string|int
-	 */
-	public function get_subtitle( $id_video, $from );
 
 	/**
 	 * Interface method send job to backend.
@@ -33,11 +25,14 @@ interface VideoSource {
 	/**
 	 * Interface method for calling and retrieving transcripts.
 	 *
-	 * @param string $url_video youtube video url.
-	 * @param string $from where the request starts.
-	 * @return array<string,int|bool|string|\WP_Error>
+	 * @param string $id_video embed video id.
+	 * @param string $url_subtitle url video embed subtitle.
+	 * @param string $video_title video title.
+	 * @param string $from where the request comes from.
+	 *
+	 * @return array<mixed>
 	 */
-	public function send_job_and_get_transcription( $url_video, $from );
+	public function get_transcript( $id_video, $url_subtitle, $video_title, $from );
 
 	/**
 	 * Interface method for retrieving transcripts from url.

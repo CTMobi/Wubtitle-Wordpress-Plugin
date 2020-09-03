@@ -24,7 +24,7 @@ class ApiGetTranscript {
 	 */
 	public function run() {
 		add_action( 'wp_ajax_get_transcript', array( $this, 'get_transcript' ) );
-		add_action( 'wp_ajax_get_transcript_yt', array( $this, 'get_transcript_yt' ) );
+		add_action( 'wp_ajax_get_transcript_embed', array( $this, 'get_transcript_embed' ) );
 		add_action( 'wp_ajax_get_transcript_internal_video', array( $this, 'get_transcript_internal_video' ) );
 		add_action( 'wp_ajax_get_video_info', array( $this, 'get_video_info' ) );
 	}
@@ -34,7 +34,7 @@ class ApiGetTranscript {
 	 *
 	 * @return void
 	 */
-	public function get_transcript_yt() {
+	public function get_transcript_embed() {
 		if ( ! isset( $_POST['urlVideo'], $_POST['urlSubtitle'], $_POST['_ajax_nonce'], $_POST['videoTitle'] ) ) {
 			wp_send_json_error( __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ) );
 		}
@@ -53,10 +53,12 @@ class ApiGetTranscript {
 		$allowed_urls = array(
 			'www.youtube.com',
 			'www.youtu.be',
+			'vimeo.com',
 		);
 		if ( ! in_array( $url_parts['host'], $allowed_urls, true ) ) {
-			wp_send_json_error( __( 'Url not a valid youtube url', 'wubtitle' ) );
+			wp_send_json_error( __( 'Url not a valid youtube or vimeo url', 'wubtitle' ) );
 		}
+
 		$url_subtitle_parts    = wp_parse_url( $url_subtitle );
 		$query_subtitle_params = array();
 		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
@@ -70,25 +72,13 @@ class ApiGetTranscript {
 		if ( $data_posts ) {
 			wp_send_json_success( $data_posts );
 		}
-		$video_source  = new YouTube();
-		$response      = $video_source->send_job_to_backend( $id_video );
-		$response_code = wp_remote_retrieve_response_code( $response );
 
-		$message = array(
-			'400' => __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ),
-			'401' => __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ),
-			'403' => __( 'Unable to create transcriptions. Invalid product license', 'wubtitle' ),
-			'500' => __( 'Could not contact the server', 'wubtitle' ),
-			'429' => __( 'Error, no more video left for your subscription plan', 'wubtitle' ),
-		);
-		if ( 201 !== $response_code ) {
-			wp_send_json_error( $message[ $response_code ] );
+		$video_source = new YouTube();
+		$transcript   = $video_source->get_transcript( $id_video, $url_subtitle, $video_title, $from );
+		if ( ! $transcript['success'] ) {
+			wp_send_json_error( $transcript['message'] );
 		}
-		$transcript = $video_source->get_subtitle_to_url( $url_subtitle, $id_video, $video_title, $from );
-		if ( ! $transcript ) {
-			wp_send_json_error( __( 'Transcript not avaiable for this video.', 'wubtitle' ) );
-		}
-		wp_send_json_success( $transcript );
+		wp_send_json_success( $transcript['data'] );
 	}
 
 

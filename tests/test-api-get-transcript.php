@@ -26,7 +26,7 @@ class TestApiGetTranscript extends WP_Ajax_UnitTestCase {
    /**
     * test get transcript yt
     */
-    public function test_get_transcript_yt(){
+    public function test_get_transcript_embed(){
         $id_video = 'testId';
         $lang     = 'testLang';
         $trascript_post = array(
@@ -43,7 +43,7 @@ class TestApiGetTranscript extends WP_Ajax_UnitTestCase {
         $_POST['videoTitle']  = 'Video test';
         $_POST['from']        = 'default_post_type';
         try {
-            $this->_handleAjax( 'get_transcript_yt' );
+            $this->_handleAjax( 'get_transcript_embed' );
         } catch ( WPAjaxDieContinueException $e ) {}
         // Check exception
         $this->assertTrue( isset( $e ) );

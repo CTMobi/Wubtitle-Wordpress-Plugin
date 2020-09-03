@@ -272,4 +272,44 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		);
 		return $video_info;
 	}
+
+	/**
+	 * Get transcript video.
+	 *
+	 * @param string $id_video id video.
+	 * @param string $url_subtitle url video youtube subtitle.
+	 * @param string $video_title video title.
+	 * @param string $from where the request comes from.
+	 *
+	 * @return array<mixed>
+	 */
+	public function get_transcript( $id_video, $url_subtitle, $video_title, $from ) {
+		$response      = $this->send_job_to_backend( $id_video );
+		$response_code = wp_remote_retrieve_response_code( $response );
+
+		$message = array(
+			'400' => __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ),
+			'401' => __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ),
+			'403' => __( 'Unable to create transcriptions. Invalid product license', 'wubtitle' ),
+			'500' => __( 'Could not contact the server', 'wubtitle' ),
+			'429' => __( 'Error, no more video left for your subscription plan', 'wubtitle' ),
+		);
+		if ( 201 !== $response_code ) {
+			return array(
+				'success' => false,
+				'message' => $message[ $response_code ],
+			);
+		}
+		$transcript = $this->get_subtitle_to_url( $url_subtitle, $id_video, $video_title, $from );
+		if ( ! $transcript ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
+			);
+		}
+		return array(
+			'success' => true,
+			'data'    => $transcript,
+		);
+	}
 }
