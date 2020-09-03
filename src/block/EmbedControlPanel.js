@@ -13,22 +13,27 @@ const EmbedControlPanel = (props) => {
 	const [langReady, setReady] = useState(false);
 	const [options, setOptions] = useState([]);
 	const [title, setTitle] = useState('');
+	const [videoUrl, setVideoUrl] = useState('');
 	const [disabled, setDisabled] = useState(true);
 	const noticeDispatcher = useDispatch('core/notices');
-	const disabledGetInfo = langReady || !props.url;
+	const disabledGetInfo = langReady || !videoUrl;
+	if (videoUrl !== props.url) {
+		setVideoUrl(props.url);
+		setReady(false);
+		setMessage('');
+	}
 	const handleClick = () => {
 		const selectedBlockIndex = wp.data
 			.select('core/block-editor')
 			.getBlockIndex(
 				wp.data.select('core/block-editor').getSelectedBlock().clientId
 			);
-
 		setMessage(__('Getting transcript…', 'ear2words'));
 		wp.ajax
 			.send('get_transcript_embed', {
 				type: 'POST',
 				data: {
-					urlVideo: props.url,
+					urlVideo: videoUrl,
 					subtitle: languageSelected,
 					videoTitle: title,
 					from: 'default_post_type',
@@ -54,11 +59,12 @@ const EmbedControlPanel = (props) => {
 
 	const getLang = () => {
 		setReady(true);
+		setOptions([]);
 		wp.ajax
 			.send('get_video_info', {
 				type: 'POST',
 				data: {
-					url: props.url,
+					url: videoUrl,
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
 				},
 			})
@@ -91,7 +97,7 @@ const EmbedControlPanel = (props) => {
 			});
 	};
 
-	if (!langReady && props.url && 'core-embed/youtube' === props.block) {
+	if (!langReady && videoUrl && 'core-embed/youtube' === props.block) {
 		getLang();
 	}
 
@@ -113,7 +119,7 @@ const EmbedControlPanel = (props) => {
 				) : (
 					''
 				)}
-				{props.url && langReady ? (
+				{videoUrl && langReady ? (
 					<SelectControl
 						label={__('Select the video language', 'wubtitle')}
 						value={languageSelected}
