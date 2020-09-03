@@ -260,13 +260,13 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 	 * Get transcript video.
 	 *
 	 * @param string $id_video id video.
-	 * @param string $url_subtitle url video youtube subtitle.
 	 * @param string $video_title video title.
 	 * @param string $from where the request comes from.
+	 * @param string $url_subtitle url video youtube subtitle.
 	 *
 	 * @return array<mixed>
 	 */
-	public function get_transcript( $id_video, $url_subtitle, $video_title, $from ) {
+	public function get_transcript( $id_video, $video_title, $from, $url_subtitle = '' ) {
 		$response      = $this->send_job_to_backend( $id_video );
 		$response_code = wp_remote_retrieve_response_code( $response );
 
