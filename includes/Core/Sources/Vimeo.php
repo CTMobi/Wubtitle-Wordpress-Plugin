@@ -20,11 +20,12 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 	 * Sends job to backend endpoint.
 	 *
 	 * @param string $id_video id video youtube.
+	 * @param string $language_subtitle code languages subtitle.
 	 * @return array<mixed>|\WP_Error
 	 */
-	public function send_job_to_backend( $id_video ) {
+	public function send_job_to_backend( $id_video, $language_subtitle = '' ) {
 		$response = wp_remote_post(
-			WUBTITLE_ENDPOINT . 'vimeo/create',
+			WUBTITLE_ENDPOINT . 'job/create',
 			array(
 				'method'  => 'POST',
 				'headers' => array(
@@ -36,7 +37,8 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 					array(
 						'source' => 'VIMEO',
 						'data'   => array(
-							'vimeoId' => $id_video,
+							'vimeoId'  => $id_video,
+							'language' => $language_subtitle,
 						),
 					)
 				),
@@ -75,11 +77,12 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 	 * @param string $id_video id video.
 	 * @param string $video_title video title.
 	 * @param string $from where the request comes from.
+	 * @param string $language_subtitle code languages subtitle.
 	 *
 	 * @return array<mixed>
 	 */
-	public function get_transcript( $id_video, $video_title, $from ) {
-		$response      = $this->send_job_to_backend( $id_video );
+	public function get_transcript( $id_video, $video_title, $from, $language_subtitle = '' ) {
+		$response      = $this->send_job_to_backend( $id_video, $language_subtitle );
 		$response_code = wp_remote_retrieve_response_code( $response );
 		$message       = array(
 			'400' => __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ),

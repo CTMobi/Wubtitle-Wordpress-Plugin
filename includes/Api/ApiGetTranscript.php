@@ -73,8 +73,9 @@ class ApiGetTranscript {
 			wp_send_json_success( $data_posts );
 		}
 		if ( 'vimeo.com' === $url_parts['host'] ) {
-			$video_source = new Vimeo();
-			$transcript   = $video_source->get_transcript( $id_video, $video_title, $from );
+			$video_source      = new Vimeo();
+			$language_subtitle = $url_subtitle;
+			$transcript        = $video_source->get_transcript( $id_video, $video_title, $from, $language_subtitle );
 			if ( ! $transcript['success'] ) {
 				wp_send_json_error( $transcript['message'] );
 			}
