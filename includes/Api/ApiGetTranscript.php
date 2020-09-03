@@ -87,6 +87,7 @@ class ApiGetTranscript {
 			wp_send_json_success( $data_posts );
 		}
 		$video_source = new YouTube();
+		$video_title  = $video_title . ' (' . $lang . ')';
 		$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
 		if ( ! $transcript['success'] ) {
 			wp_send_json_error( $transcript['message'] );
