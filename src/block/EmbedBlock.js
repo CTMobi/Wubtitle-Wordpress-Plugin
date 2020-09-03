@@ -17,6 +17,7 @@ const withInspectorControls = (BlockEdit) => {
 				<EmbedControlPanel
 					{...props.attributes}
 					setAttributes={props.setAttributes}
+					block={props.name}
 				/>
 			</Fragment>
 		);

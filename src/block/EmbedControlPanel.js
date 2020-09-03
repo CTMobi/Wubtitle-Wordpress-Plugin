@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
-import { useSelect, useDispatch } from '@wordpress/data';
+import { useDispatch } from '@wordpress/data';
 import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
@@ -15,25 +15,7 @@ const EmbedControlPanel = (props) => {
 	const [title, setTitle] = useState('');
 	const [disabled, setDisabled] = useState(true);
 	const noticeDispatcher = useDispatch('core/notices');
-
-	useSelect((select) => {
-		if (props.url === undefined) {
-			return;
-		}
-		const transcript = select('core').getEntityRecords(
-			'postType',
-			'transcript',
-			{
-				metaKey: '_video_id',
-				metaValue: props.url,
-			}
-		);
-		const createdStatus = __('Created', 'wubtitle');
-		if (transcript && transcript.length > 0 && status !== createdStatus) {
-			setStatus(createdStatus);
-		}
-	});
-
+	const disabledGetInfo = langReady || !props.url;
 	const handleClick = () => {
 		const selectedBlockIndex = wp.data
 			.select('core/block-editor')
@@ -71,6 +53,7 @@ const EmbedControlPanel = (props) => {
 	};
 
 	const getLang = () => {
+		setReady(true);
 		wp.ajax
 			.send('get_video_info', {
 				type: 'POST',
@@ -87,11 +70,16 @@ const EmbedControlPanel = (props) => {
 					return;
 				}
 				setMessage('');
-				setReady(true);
 				const arrayLang = response.languages.map((lang) => {
+					if (response.source === 'youtube') {
+						return {
+							value: lang.baseUrl,
+							label: lang.name.simpleText,
+						};
+					}
 					return {
-						value: lang.baseUrl,
-						label: lang.name.simpleText,
+						value: lang.code,
+						label: lang.name,
 					};
 				});
 				arrayLang.unshift({
@@ -100,11 +88,12 @@ const EmbedControlPanel = (props) => {
 				});
 				setOptions(arrayLang);
 				setTitle(response.title);
-			})
-			.fail((response) => {
-				console.log(response);
 			});
 	};
+
+	if (!langReady && props.url && 'core-embed/youtube' === props.block) {
+		getLang();
+	}
 
 	return (
 		<InspectorControls>
@@ -112,6 +101,18 @@ const EmbedControlPanel = (props) => {
 				<p style={{ margin: '0', marginBottom: '20px' }}>
 					{`${__('Transcript status:', 'wubtitle')} ${status}`}
 				</p>
+				{props.block === 'core-embed/vimeo' && !langReady ? (
+					<Button
+						name=""
+						isPrimary
+						onClick={getLang}
+						disabled={disabledGetInfo}
+					>
+						{__('Get Video Info', 'wubtitle')}
+					</Button>
+				) : (
+					''
+				)}
 				{props.url && langReady ? (
 					<SelectControl
 						label={__('Select the video language', 'wubtitle')}
@@ -123,17 +124,21 @@ const EmbedControlPanel = (props) => {
 						options={options}
 					/>
 				) : (
-					getLang()
+					''
 				)}
-				<Button
-					name="sottotitoli"
-					id={props.id}
-					isPrimary
-					onClick={handleClick}
-					disabled={disabled}
-				>
-					{__('Get Transcribe', 'wubtitle')}
-				</Button>
+				{props.block === 'core-embed/youtube' || langReady ? (
+					<Button
+						name="sottotitoli"
+						id={props.id}
+						isPrimary
+						onClick={handleClick}
+						disabled={disabled}
+					>
+						{__('Get Transcribe', 'wubtitle')}
+					</Button>
+				) : (
+					''
+				)}
 				<p>{message}</p>
 			</PanelBody>
 		</InspectorControls>
