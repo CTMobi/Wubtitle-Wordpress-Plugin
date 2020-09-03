@@ -72,9 +72,16 @@ class ApiGetTranscript {
 		if ( $data_posts ) {
 			wp_send_json_success( $data_posts );
 		}
-
+		if ( 'vimeo.com' === $url_parts['host'] ) {
+			$video_source = new Vimeo();
+			$transcript   = $video_source->get_transcript( $id_video, $video_title, $from );
+			if ( ! $transcript['success'] ) {
+				wp_send_json_error( $transcript['message'] );
+			}
+			wp_send_json_success( $transcript );
+		}
 		$video_source = new YouTube();
-		$transcript   = $video_source->get_transcript( $id_video, $url_subtitle, $video_title, $from );
+		$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $url_subtitle );
 		if ( ! $transcript['success'] ) {
 			wp_send_json_error( $transcript['message'] );
 		}
