@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				data: {
 					_ajax_nonce: wubtitle_object_modal.ajaxnonce,
 					urlVideo: embedUrl,
-					urlSubtitle: languageSubtitle,
+					subtitle: languageSubtitle,
 					videoTitle,
 				},
 			})

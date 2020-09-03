@@ -29,7 +29,7 @@ const EmbedControlPanel = (props) => {
 				type: 'POST',
 				data: {
 					urlVideo: props.url,
-					urlSubtitle: languageSelected,
+					subtitle: languageSelected,
 					videoTitle: title,
 					from: 'default_post_type',
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,

@@ -38,7 +38,7 @@ class TestApiGetTranscript extends WP_Ajax_UnitTestCase {
         $id_transcript  = wp_insert_post( $trascript_post );
         update_post_meta( $id_transcript, '_video_id', $id_video . $lang );
         $_POST['urlVideo']    = 'https://www.youtube.com/watch?v=' . $id_video;
-        $_POST['urlSubtitle'] = 'https://www.youtube.com/api?lang=' . $lang;
+        $_POST['subtitle'] = 'https://www.youtube.com/api?lang=' . $lang;
         $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
         $_POST['videoTitle']  = 'Video test';
         $_POST['from']        = 'default_post_type';

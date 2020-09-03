@@ -35,14 +35,14 @@ class ApiGetTranscript {
 	 * @return void
 	 */
 	public function get_transcript_embed() {
-		if ( ! isset( $_POST['urlVideo'], $_POST['urlSubtitle'], $_POST['_ajax_nonce'], $_POST['videoTitle'] ) ) {
+		if ( ! isset( $_POST['urlVideo'], $_POST['subtitle'], $_POST['_ajax_nonce'], $_POST['videoTitle'] ) ) {
 			wp_send_json_error( __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ) );
 		}
 		$nonce = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
 		check_ajax_referer( 'itr_ajax_nonce', $nonce );
-		$url_video    = sanitize_text_field( wp_unslash( $_POST['urlVideo'] ) );
-		$url_subtitle = sanitize_text_field( wp_unslash( $_POST['urlSubtitle'] ) );
-		$video_title  = sanitize_text_field( wp_unslash( $_POST['videoTitle'] ) );
+		$url_video   = sanitize_text_field( wp_unslash( $_POST['urlVideo'] ) );
+		$subtitle    = sanitize_text_field( wp_unslash( $_POST['subtitle'] ) );
+		$video_title = sanitize_text_field( wp_unslash( $_POST['videoTitle'] ) );
 
 		$from = 'transcript_post_type';
 		if ( isset( $_POST['from'] ) ) {
@@ -59,7 +59,7 @@ class ApiGetTranscript {
 			wp_send_json_error( __( 'Url not a valid youtube or vimeo url', 'wubtitle' ) );
 		}
 
-		$url_subtitle_parts    = wp_parse_url( $url_subtitle );
+		$url_subtitle_parts    = wp_parse_url( $subtitle );
 		$query_subtitle_params = array();
 		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
 		$lang = $query_subtitle_params['lang'];
@@ -73,16 +73,15 @@ class ApiGetTranscript {
 			wp_send_json_success( $data_posts );
 		}
 		if ( 'vimeo.com' === $url_parts['host'] ) {
-			$video_source      = new Vimeo();
-			$language_subtitle = $url_subtitle;
-			$transcript        = $video_source->get_transcript( $id_video, $video_title, $from, $language_subtitle );
+			$video_source = new Vimeo();
+			$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
 			if ( ! $transcript['success'] ) {
 				wp_send_json_error( $transcript['message'] );
 			}
 			wp_send_json_success( $transcript );
 		}
 		$video_source = new YouTube();
-		$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $url_subtitle );
+		$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
 		if ( ! $transcript['success'] ) {
 			wp_send_json_error( $transcript['message'] );
 		}
