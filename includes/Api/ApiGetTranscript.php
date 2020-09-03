@@ -59,6 +59,20 @@ class ApiGetTranscript {
 			wp_send_json_error( __( 'Url not a valid youtube or vimeo url', 'wubtitle' ) );
 		}
 
+		if ( 'vimeo.com' === $url_parts['host'] ) {
+			$video_source = new Vimeo();
+			$id_video     = basename( $url_parts['path'] );
+			$data_posts   = $this->get_data_transcript( $id_video, $from );
+			if ( $data_posts ) {
+				wp_send_json_success( $data_posts );
+			}
+			$transcript = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
+			if ( ! $transcript['success'] ) {
+				wp_send_json_error( $transcript['message'] );
+			}
+			wp_send_json_success( $transcript['data'] );
+		}
+
 		$url_subtitle_parts    = wp_parse_url( $subtitle );
 		$query_subtitle_params = array();
 		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
@@ -71,14 +85,6 @@ class ApiGetTranscript {
 		$data_posts = $this->get_data_transcript( $id_video, $from );
 		if ( $data_posts ) {
 			wp_send_json_success( $data_posts );
-		}
-		if ( 'vimeo.com' === $url_parts['host'] ) {
-			$video_source = new Vimeo();
-			$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
-			if ( ! $transcript['success'] ) {
-				wp_send_json_error( $transcript['message'] );
-			}
-			wp_send_json_success( $transcript );
 		}
 		$video_source = new YouTube();
 		$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
