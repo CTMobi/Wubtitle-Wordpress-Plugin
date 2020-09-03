@@ -171,7 +171,7 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 		$response = array(
 			'success'   => 'true',
 			'source'    => 'vimeo',
-			'languages' => $languages,
+			'languages' => ! empty( $languages ) ? $languages : null,
 			'title'     => $video_info_body->title,
 		);
 
