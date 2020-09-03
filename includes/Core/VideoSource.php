@@ -28,10 +28,11 @@ interface VideoSource {
 	 * @param string $id_video embed video id.
 	 * @param string $video_title video title.
 	 * @param string $from where the request comes from.
+	 * @param string $subtitle url or code language of subtitle.
 	 *
 	 * @return array<mixed>
 	 */
-	public function get_transcript( $id_video, $video_title, $from );
+	public function get_transcript( $id_video, $video_title, $from, $subtitle );
 
 		/**
 		 * Gets the trascription.

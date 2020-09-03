@@ -262,11 +262,11 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 	 * @param string $id_video id video.
 	 * @param string $video_title video title.
 	 * @param string $from where the request comes from.
-	 * @param string $url_subtitle url video youtube subtitle.
+	 * @param string $subtitle url video youtube subtitle.
 	 *
 	 * @return array<mixed>
 	 */
-	public function get_transcript( $id_video, $video_title, $from, $url_subtitle = '' ) {
+	public function get_transcript( $id_video, $video_title, $from, $subtitle ) {
 		$response      = $this->send_job_to_backend( $id_video );
 		$response_code = wp_remote_retrieve_response_code( $response );
 
@@ -284,14 +284,14 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			);
 		}
 
-		if ( empty( $url_subtitle ) ) {
+		if ( empty( $subtitle ) ) {
 			return array(
 				'success' => false,
 				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
 			);
 		}
-		$url_subtitle = $url_subtitle . '&fmt=json3';
-		$response     = wp_remote_get( $url_subtitle );
+		$subtitle = $subtitle . '&fmt=json3';
+		$response = wp_remote_get( $subtitle );
 		if ( is_wp_error( $response ) ) {
 			return array(
 				'success' => false,
