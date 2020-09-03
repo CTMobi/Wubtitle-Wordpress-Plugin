@@ -21,7 +21,7 @@ class TestVimeoTranscript extends WP_UnitTestCase {
     /**
      * Test Vimeo get transcript without license
      */
-     public function test_no_licese_get_video_info(){
+     public function test_no_license_get_video_info() {
         $url       = 'https://test/id_video';
         $url_parts = wp_parse_url( $url );
 
@@ -61,7 +61,7 @@ class TestVimeoTranscript extends WP_UnitTestCase {
             'meta_key'       => '_video_id',
             'meta_value'     => $id_video,
           );
-          
+
           $posts = get_posts( $args );
           $this->assertTrue( $response['success'] );
           $this->assertEquals( $content, $posts[0]->post_content );
