@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			return;
 		}
 		wp.ajax
-			.send('get_transcript_yt', {
+			.send('get_transcript_embed', {
 				type: 'POST',
 				data: {
 					_ajax_nonce: wubtitle_object_modal.ajaxnonce,
