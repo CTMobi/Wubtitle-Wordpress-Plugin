@@ -266,6 +266,7 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		$title_video = json_decode( $file_info['player_response'] )->videoDetails->title;
 		$languages   = json_decode( $file_info['player_response'] )->captions->playerCaptionsTracklistRenderer->captionTracks;
 		$video_info  = array(
+			'source'    => 'youtube',
 			'languages' => $languages,
 			'title'     => $title_video,
 		);

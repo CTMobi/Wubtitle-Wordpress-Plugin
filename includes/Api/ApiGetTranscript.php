@@ -10,6 +10,7 @@
 namespace Wubtitle\Api;
 
 use \Wubtitle\Core\Sources\YouTube;
+use \Wubtitle\Core\Sources\Vimeo;
 
 /**
  * Manages ajax and sends http request.
@@ -107,9 +108,18 @@ class ApiGetTranscript {
 		$allowed_urls = array(
 			'www.youtube.com',
 			'www.youtu.be',
+			'vimeo.com',
 		);
 		if ( ! array_key_exists( 'host', $url_parts ) || ! in_array( $url_parts['host'], $allowed_urls, true ) ) {
-			wp_send_json_error( __( 'Url not a valid youtube url', 'wubtitle' ) );
+			wp_send_json_error( __( 'Url not a valid youtube or vimeo url', 'wubtitle' ) );
+		}
+		if ( 'vimeo.com' === $url_parts['host'] ) {
+			$video_source = new Vimeo();
+			$response     = $video_source->get_video_info( $url_parts );
+			if ( ! $response['success'] ) {
+				wp_send_json_error( $response['message'] );
+			}
+			wp_send_json_success( $response );
 		}
 		$video_source = new Youtube();
 		$response     = $video_source->get_video_info( $url_parts );
