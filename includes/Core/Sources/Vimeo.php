@@ -99,8 +99,8 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 		}
 		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
 		$text          = $response_body->data->transcription ?? false;
-		$video_title  = $video_title . ' (' . $subtitle . ')';
-		$transcript = $this->insert_transcript( $id_video, $video_title, $text, $from );
+		$video_title   = $video_title . ' (' . $subtitle . ')';
+		$transcript    = $this->insert_transcript( $id_video, $video_title, $text, $from );
 		if ( ! $transcript ) {
 			return array(
 				'success' => false,
