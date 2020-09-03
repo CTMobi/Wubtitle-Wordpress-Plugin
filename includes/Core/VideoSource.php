@@ -34,15 +34,16 @@ interface VideoSource {
 	 */
 	public function get_transcript( $id_video, $url_subtitle, $video_title, $from );
 
-	/**
-	 * Interface method for retrieving transcripts from url.
-	 *
-	 * @param string $url_subtitle url sottotitoli youtube.
-	 * @param string $id_video id video.
-	 * @param string $title_video titolo video.
-	 * @return bool|string|int
-	 */
-	public function get_subtitle_to_url( $url_subtitle, $id_video, $title_video );
+		/**
+		 * Gets the trascription.
+		 *
+		 * @param string $id_video id video.
+		 * @param string $title_video video title.
+		 * @param string $text transcription content.
+		 * @param string $from where the request starts.
+		 * @return bool|string|int|\WP_Error
+		 */
+	public function insert_transcript( $id_video, $title_video, $text, $from );
 
 	/**
 	 * Interface method for get video info

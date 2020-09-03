@@ -46,30 +46,13 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 	/**
 	 * Gets the trascription.
 	 *
-	 * @param string $url_subtitle url youtube subtitle.
 	 * @param string $id_video id video.
 	 * @param string $title_video video title.
+	 * @param string $text transcription content.
 	 * @param string $from where the request starts.
 	 * @return bool|string|int|\WP_Error
 	 */
-	public function get_subtitle_to_url( $url_subtitle, $id_video, $title_video, $from = '' ) {
-		if ( empty( $url_subtitle ) ) {
-			return false;
-		}
-		$url_subtitle = $url_subtitle . '&fmt=json3';
-		$response     = wp_remote_get( $url_subtitle );
-		if ( is_wp_error( $response ) ) {
-			return false;
-		}
-		$text = '';
-		foreach ( json_decode( $response['body'] )->events as $event ) {
-			if ( isset( $event->segs ) ) {
-				foreach ( $event->segs as $seg ) {
-					$text .= $seg->utf8;
-				}
-			}
-		}
-		$text           = str_replace( "\n", ' ', $text );
+	public function insert_transcript( $id_video, $title_video, $text, $from = '' ) {
 		$trascript_post = array(
 			'post_title'   => $title_video,
 			'post_content' => $text,
@@ -300,7 +283,34 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 				'message' => $message[ $response_code ],
 			);
 		}
-		$transcript = $this->get_subtitle_to_url( $url_subtitle, $id_video, $video_title, $from );
+
+		if ( empty( $url_subtitle ) ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
+			);
+		}
+		$url_subtitle = $url_subtitle . '&fmt=json3';
+		$response     = wp_remote_get( $url_subtitle );
+		if ( is_wp_error( $response ) ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
+			);
+		}
+		$text          = '';
+		$response_body = json_decode( $response['body'] );
+		foreach ( $response_body->events as $event ) {
+			if ( isset( $event->segs ) ) {
+				foreach ( $event->segs as $seg ) {
+					$text .= $seg->utf8;
+				}
+			}
+		}
+
+		$text = str_replace( "\n", ' ', $text );
+
+		$transcript = $this->insert_transcript( $id_video, $video_title, $text, $from );
 		if ( ! $transcript ) {
 			return array(
 				'success' => false,
