@@ -90,7 +90,7 @@ class PaymentTemplate {
 			$html = ob_get_clean();
 			wp_send_json_success( $html );
 		}
-		$html = 'Error';
+		$html =           'Error';
 		wp_send_json_error( $html );
 	}
 	/**

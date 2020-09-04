@@ -26,15 +26,15 @@ addons:
 #
 # Reference: https://www.php.net/supported-versions.php
 php:
-  - 7.4
+  # - 7.4
   - 7.3
-  - 7.2
+  # - 7.2
 
 
 # Test against the latest version of WordPress and one version back.
 env:
-  - WP_VERSION=latest
-  - WP_VERSION=5.4
+  # - WP_VERSION=latest
+  # - WP_VERSION=5.4
   - WP_VERSION=5.3
 
 # Customize the build matrix.
@@ -64,8 +64,8 @@ before_install:
 install:
   # Install our Composer dependencies
   - composer install --prefer-dist --no-interaction
-  - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
-  - phpcs --config-set standard infinum
+  - phpcs --config-set installed_paths ./vendor/wp-coding-standards/wpcs
+  - phpcs --config-set standard ./phpcs.xml.dist
 
   - npm ci --prefer-offline --progress=false
 
