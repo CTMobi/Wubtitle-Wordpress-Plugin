@@ -79,7 +79,10 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		$query_params = array();
 		parse_str( $url_parts['query'], $query_params );
 		if ( ! array_key_exists( 'v', $query_params ) ) {
-			return false;
+			return array(
+				'success' => false,
+				'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
+			);
 		}
 		$id_video     = $query_params['v'];
 		$get_info_url = "https://www.youtube.com/get_video_info?video_id=$id_video";
