@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		const languageSelect = document.getElementById(
 			'transcript-select-lang'
 		);
-		const languageSubtitle = languageSelect.value;
-		if (languageSubtitle === '') {
+		const subtitle = languageSelect.value;
+		if (subtitle === '') {
 			myNotice.style.visibility = 'visible';
 			myNotice.innerHTML = `<p>  ${wp.i18n.__(
 				'Error, language not selected',
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				data: {
 					_ajax_nonce: wubtitle_object_modal.ajaxnonce,
 					urlVideo: embedUrl,
-					subtitle: languageSubtitle,
+					subtitle,
 					videoTitle,
 				},
 			})
@@ -125,9 +125,19 @@ document.addEventListener('DOMContentLoaded', function () {
 				errorMessage.innerHTML = '';
 				selectInput.disabled = false;
 				response.languages.forEach((subtitle) => {
+					let value;
+					let label;
+					if (response.source === 'youtube') {
+						value = subtitle.baseUrl;
+						label = subtitle.name.simpleText;
+					}
+					if (response.source === 'vimeo') {
+						value = subtitle.code;
+						label = subtitle.name;
+					}
 					document.getElementById(
 						'transcript-select-lang'
-					).innerHTML += `<option value=${subtitle.baseUrl}>${subtitle.name.simpleText}</option>`;
+					).innerHTML += `<option value=${value}>${label}</option>`;
 				});
 			})
 			.fail((response) => {
@@ -164,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				divModal[0].appendChild(select);
 				divModal[0].appendChild(errorMessage);
 			}
+			select.disabled = true;
 		}
 	};
 
@@ -175,12 +186,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			inputUrl.addEventListener('input', () => {
 				if (inputUrl.value === '') {
-					document.getElementById(
+					const select = document.getElementById(
 						'transcript-select-lang'
-					).innerHTML = `<option value="">${wp.i18n.__(
+					);
+					select.innerHTML = `<option value="">${wp.i18n.__(
 						'Select language',
 						'wubtitle'
 					)}</option>`;
+					select.disabled = true;
 				}
 				if (pattern.test(inputUrl.value)) {
 					getLanguages(inputUrl.value);
