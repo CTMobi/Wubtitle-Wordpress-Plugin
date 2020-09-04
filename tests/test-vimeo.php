@@ -59,7 +59,7 @@ class TestVimeoTranscript extends WP_UnitTestCase {
             'post_type'      => 'transcript',
             'posts_per_page' => 1,
             'meta_key'       => '_video_id',
-            'meta_value'     => $id_video,
+            'meta_value'     => $id_video . 'it',
           );
 
           $posts = get_posts( $args );
