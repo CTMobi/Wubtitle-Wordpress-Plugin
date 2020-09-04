@@ -89,8 +89,8 @@ class TestApiLivenseValidation extends WP_UnitTestCase {
         $expected_job_list = array(
             'data' => array(
                 'job_list' => array(
-                    'job_uuid_test',
                     'job_test_2',
+                    'job_uuid_test',
                 ), 
             ),
         );
