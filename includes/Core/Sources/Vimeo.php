@@ -100,6 +100,7 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
 		$text          = $response_body->data->transcription ?? false;
 		$video_title   = $video_title . ' (' . $subtitle . ')';
+		$id_video      = $id_video . $subtitle;
 		$transcript    = $this->insert_transcript( $id_video, $video_title, $text, $from );
 		if ( ! $transcript ) {
 			return array(
@@ -193,5 +194,21 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 			'name' => $languages[ $item ],
 		);
 		return $accumulator;
+	}
+
+	/**
+	 * Create and return id video.
+	 *
+	 * @param string        $subtitle code languages.
+	 * @param array<string> $url_parts url parts.
+	 *
+	 * @return array<string> id video.
+	 */
+	public function get_ids_video_transcription( $subtitle, $url_parts ) {
+		$id_video = basename( $url_parts['path'] );
+		return array(
+			'id_transcription' => $id_video . $subtitle,
+			'id_video'         => $id_video,
+		);
 	}
 }

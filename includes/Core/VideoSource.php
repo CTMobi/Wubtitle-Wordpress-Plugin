@@ -53,4 +53,14 @@ interface VideoSource {
 	 * @return array<mixed>|false
 	 */
 	public function get_video_info( $url_parts );
+
+	/**
+	 * Interface method for get id video
+	 *
+	 * @param string        $subtitle code languages or url subtitle.
+	 * @param array<string> $url_parts url parts.
+	 *
+	 * @return array<string> id video.
+	 */
+	public function get_ids_video_transcription( $subtitle, $url_parts );
 }

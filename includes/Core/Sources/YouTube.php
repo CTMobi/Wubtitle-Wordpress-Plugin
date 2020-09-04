@@ -244,11 +244,15 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 
 		parse_str( $file, $file_info );
 		if ( 'fail' === $file_info['status'] ) {
-			return false;
+			return array(
+				'success' => false,
+				'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
+			);
 		}
 		$title_video = json_decode( $file_info['player_response'] )->videoDetails->title;
 		$languages   = json_decode( $file_info['player_response'] )->captions->playerCaptionsTracklistRenderer->captionTracks;
 		$video_info  = array(
+			'success'   => true,
 			'source'    => 'youtube',
 			'languages' => $languages,
 			'title'     => $title_video,
@@ -310,7 +314,14 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 
 		$text = str_replace( "\n", ' ', $text );
 
-		$transcript = $this->insert_transcript( $id_video, $video_title, $text, $from );
+		$url_subtitle_parts    = wp_parse_url( $subtitle );
+		$query_subtitle_params = array();
+		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
+		$lang = $query_subtitle_params['lang'];
+
+		$video_title = $video_title . ' (' . $lang . ')';
+		$id_video    = $id_video . $lang;
+		$transcript  = $this->insert_transcript( $id_video, $video_title, $text, $from );
 		if ( ! $transcript ) {
 			return array(
 				'success' => false,
@@ -320,6 +331,28 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		return array(
 			'success' => true,
 			'data'    => $transcript,
+		);
+	}
+
+	/**
+	 * Create and return id video.
+	 *
+	 * @param string        $subtitle url youtube subtitle.
+	 * @param array<string> $url_parts url parts.
+	 *
+	 * @return array<string> id video.
+	 */
+	public function get_ids_video_transcription( $subtitle, $url_parts ) {
+		$url_subtitle_parts    = wp_parse_url( $subtitle );
+		$query_subtitle_params = array();
+		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
+		$lang = $query_subtitle_params['lang'];
+
+		$query_video_params = array();
+		parse_str( $url_parts['query'], $query_video_params );
+		return array(
+			'id_transcription' => $query_video_params['v'] . $lang,
+			'id_video'         => $query_video_params['v'],
 		);
 	}
 }
