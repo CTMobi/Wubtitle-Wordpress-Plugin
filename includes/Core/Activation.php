@@ -45,7 +45,7 @@ class Activation {
 	 * @return void
 	 */
 	public function wubtitle_activation_license_key( $wp_version = '' ) {
-		$site_url      = get_site_url();
+		$site_url      = get_option( 'siteurl' );
 		$wubtitle_data = get_plugin_data( WUBTITLE_FILE_URL );
 		$body          = array(
 			'data' => array(
