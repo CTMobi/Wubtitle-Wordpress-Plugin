@@ -59,7 +59,7 @@ class ApiPricingPlan {
 				'timeout' => 15,
 				'headers' => array(
 					'licenseKey'   => $license_key,
-					'domainUrl'    => get_site_url(),
+					'domainUrl'    => get_option( 'siteurl' ),
 					'Content-Type' => 'application/json; charset=utf-8',
 				),
 				'body'    => wp_json_encode( $body ),
@@ -111,7 +111,7 @@ class ApiPricingPlan {
 				'method'  => 'POST',
 				'headers' => array(
 					'licenseKey' => $license_key,
-					'domainUrl'  => get_site_url(),
+					'domainUrl'  => get_option( 'siteurl' ),
 				),
 			)
 		);
@@ -164,7 +164,7 @@ class ApiPricingPlan {
 	 * @return string|array<string>
 	 */
 	public function send_wanted_plan_info( $plan_rank ) {
-		$site_url     = get_site_url();
+		$site_url     = get_option( 'siteurl' );
 		$all_plans    = get_option( 'wubtitle_all_plans' );
 		$pricing_plan = $all_plans[ $plan_rank ]['stripe_code'];
 		$body         = $this->set_body_request( $pricing_plan, $site_url );
@@ -186,7 +186,7 @@ class ApiPricingPlan {
 				'method'  => 'POST',
 				'headers' => array(
 					'licenseKey'   => $license_key,
-					'domainUrl'    => get_site_url(),
+					'domainUrl'    => get_option( 'siteurl' ),
 					'Content-Type' => 'application/json; charset=utf-8',
 				),
 				'body'    => wp_json_encode( $body ),
@@ -275,7 +275,7 @@ class ApiPricingPlan {
 				'headers' => array(
 					'Content-Type' => 'application/json; charset=utf-8',
 					'licenseKey'   => $license_key,
-					'domainUrl'    => get_site_url(),
+					'domainUrl'    => get_option( 'siteurl' ),
 				),
 				'body'    => wp_json_encode( $body ),
 			)
@@ -341,7 +341,7 @@ class ApiPricingPlan {
 				'headers' => array(
 					'Content-Type' => 'application/json; charset=utf-8',
 					'licenseKey'   => $license_key,
-					'domainUrl'    => get_site_url(),
+					'domainUrl'    => get_option( 'siteurl' ),
 				),
 				'body'    => wp_json_encode( $body ),
 			)

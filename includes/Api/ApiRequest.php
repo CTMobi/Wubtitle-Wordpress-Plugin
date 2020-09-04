@@ -188,7 +188,7 @@ class ApiRequest {
 				'method'  => 'POST',
 				'headers' => array(
 					'licenseKey'   => $license_key,
-					'domainUrl'    => get_site_url(),
+					'domainUrl'    => get_option( 'siteurl' ),
 					'Content-Type' => 'application/json; charset=utf-8',
 				),
 				'body'    => wp_json_encode( $body ),
