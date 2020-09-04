@@ -12,7 +12,7 @@
     },
     "scripts": {
         "analyze": "./vendor/bin/phpstan analyze",
-        "phpcs": "phpcs -v ./",
+        "phpcs": "phpcs --standard=phpcs.xml.dist -v ./",
         "fixphp": "phpcbf",
         "phpmd": "phpmd ./ ansi ./phpmd.xml",
         "test": "./vendor/bin/phpunit --color=always --testdox",
