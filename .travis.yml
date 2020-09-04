@@ -64,6 +64,8 @@ before_install:
 install:
   # Install our Composer dependencies
   - composer install --prefer-dist --no-interaction
+  - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+  - phpcs --config-set standard infinum
 
   - npm ci --prefer-offline --progress=false
 
