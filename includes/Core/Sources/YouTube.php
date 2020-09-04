@@ -46,30 +46,13 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 	/**
 	 * Gets the trascription.
 	 *
-	 * @param string $url_subtitle url youtube subtitle.
 	 * @param string $id_video id video.
 	 * @param string $title_video video title.
+	 * @param string $text transcription content.
 	 * @param string $from where the request starts.
 	 * @return bool|string|int|\WP_Error
 	 */
-	public function get_subtitle_to_url( $url_subtitle, $id_video, $title_video, $from = '' ) {
-		if ( empty( $url_subtitle ) ) {
-			return false;
-		}
-		$url_subtitle = $url_subtitle . '&fmt=json3';
-		$response     = wp_remote_get( $url_subtitle );
-		if ( is_wp_error( $response ) ) {
-			return false;
-		}
-		$text = '';
-		foreach ( json_decode( $response['body'] )->events as $event ) {
-			if ( isset( $event->segs ) ) {
-				foreach ( $event->segs as $seg ) {
-					$text .= $seg->utf8;
-				}
-			}
-		}
-		$text           = str_replace( "\n", ' ', $text );
+	public function insert_transcript( $id_video, $title_video, $text, $from = '' ) {
 		$trascript_post = array(
 			'post_title'   => $title_video,
 			'post_content' => $text,
@@ -231,5 +214,148 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		);
 
 		return $response;
+	}
+
+	/**
+	 * Get youtube video info
+	 *
+	 * @param array<string> $url_parts parts of url.
+	 *
+	 * @return array<mixed>|false
+	 */
+	public function get_video_info( $url_parts ) {
+		$query_params = array();
+		parse_str( $url_parts['query'], $query_params );
+		if ( ! array_key_exists( 'v', $query_params ) ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
+			);
+		}
+		$id_video     = $query_params['v'];
+		$get_info_url = "https://www.youtube.com/get_video_info?video_id=$id_video";
+
+		$file_info = array();
+
+		$response = wp_remote_get(
+			$get_info_url,
+			array(
+				'headers' => array( 'Accept-Language' => get_locale() ),
+			)
+		);
+		$file     = wp_remote_retrieve_body( $response );
+
+		parse_str( $file, $file_info );
+		if ( 'fail' === $file_info['status'] ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
+			);
+		}
+		$title_video = json_decode( $file_info['player_response'] )->videoDetails->title;
+		$languages   = json_decode( $file_info['player_response'] )->captions->playerCaptionsTracklistRenderer->captionTracks;
+		$video_info  = array(
+			'success'   => true,
+			'source'    => 'youtube',
+			'languages' => $languages,
+			'title'     => $title_video,
+		);
+		return $video_info;
+	}
+
+	/**
+	 * Get transcript video.
+	 *
+	 * @param string $id_video id video.
+	 * @param string $video_title video title.
+	 * @param string $from where the request comes from.
+	 * @param string $subtitle url video youtube subtitle.
+	 *
+	 * @return array<mixed>
+	 */
+	public function get_transcript( $id_video, $video_title, $from, $subtitle ) {
+		$response      = $this->send_job_to_backend( $id_video );
+		$response_code = wp_remote_retrieve_response_code( $response );
+
+		$message = array(
+			'400' => __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ),
+			'401' => __( 'An error occurred while creating the transcriptions. Please try again in a few minutes', 'wubtitle' ),
+			'403' => __( 'Unable to create transcriptions. Invalid product license', 'wubtitle' ),
+			'500' => __( 'Could not contact the server', 'wubtitle' ),
+			'429' => __( 'Error, no more video left for your subscription plan', 'wubtitle' ),
+		);
+		if ( 201 !== $response_code ) {
+			return array(
+				'success' => false,
+				'message' => $message[ $response_code ],
+			);
+		}
+
+		if ( empty( $subtitle ) ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
+			);
+		}
+		$subtitle = $subtitle . '&fmt=json3';
+		$response = wp_remote_get( $subtitle );
+		if ( is_wp_error( $response ) ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
+			);
+		}
+		$text          = '';
+		$response_body = json_decode( $response['body'] );
+		foreach ( $response_body->events as $event ) {
+			if ( isset( $event->segs ) ) {
+				foreach ( $event->segs as $seg ) {
+					$text .= $seg->utf8;
+				}
+			}
+		}
+
+		$text = str_replace( "\n", ' ', $text );
+
+		$url_subtitle_parts    = wp_parse_url( $subtitle );
+		$query_subtitle_params = array();
+		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
+		$lang = $query_subtitle_params['lang'];
+
+		$video_title = $video_title . ' (' . $lang . ')';
+		$id_video    = $id_video . $lang;
+		$transcript  = $this->insert_transcript( $id_video, $video_title, $text, $from );
+		if ( ! $transcript ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
+			);
+		}
+		return array(
+			'success' => true,
+			'data'    => $transcript,
+		);
+	}
+
+	/**
+	 * Create and return id video.
+	 *
+	 * @param string        $subtitle url youtube subtitle.
+	 * @param array<string> $url_parts url parts.
+	 *
+	 * @return array<string> id video.
+	 */
+	public function get_ids_video_transcription( $subtitle, $url_parts ) {
+		$url_subtitle_parts    = wp_parse_url( $subtitle );
+		$query_subtitle_params = array();
+		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
+		$lang = $query_subtitle_params['lang'];
+
+		$query_video_params = array();
+		parse_str( $url_parts['query'], $query_video_params );
+		return array(
+			'id_transcription' => $query_video_params['v'] . $lang,
+			'id_video'         => $query_video_params['v'],
+		);
 	}
 }

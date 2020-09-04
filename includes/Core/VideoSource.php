@@ -13,14 +13,6 @@ namespace Wubtitle\Core;
  * This class handle subtitles.
  */
 interface VideoSource {
-	/**
-	 * Interface method.
-	 *
-	 * @param string $id_video id del del video.
-	 * @param string $from post type dal quale viene fatta la richiesta.
-	 * @return bool|string|int
-	 */
-	public function get_subtitle( $id_video, $from );
 
 	/**
 	 * Interface method send job to backend.
@@ -33,19 +25,42 @@ interface VideoSource {
 	/**
 	 * Interface method for calling and retrieving transcripts.
 	 *
-	 * @param string $url_video youtube video url.
-	 * @param string $from where the request starts.
-	 * @return array<string,int|bool|string|\WP_Error>
+	 * @param string $id_video embed video id.
+	 * @param string $video_title video title.
+	 * @param string $from where the request comes from.
+	 * @param string $subtitle url or code language of subtitle.
+	 *
+	 * @return array<mixed>
 	 */
-	public function send_job_and_get_transcription( $url_video, $from );
+	public function get_transcript( $id_video, $video_title, $from, $subtitle );
+
+		/**
+		 * Gets the trascription.
+		 *
+		 * @param string $id_video id video.
+		 * @param string $title_video video title.
+		 * @param string $text transcription content.
+		 * @param string $from where the request starts.
+		 * @return bool|string|int|\WP_Error
+		 */
+	public function insert_transcript( $id_video, $title_video, $text, $from );
 
 	/**
-	 * Interface method for retrieving transcripts from url.
+	 * Interface method for get video info
 	 *
-	 * @param string $url_subtitle url sottotitoli youtube.
-	 * @param string $id_video id video.
-	 * @param string $title_video titolo video.
-	 * @return bool|string|int
+	 * @param array<string> $url_parts parts of url.
+	 *
+	 * @return array<mixed>|false
 	 */
-	public function get_subtitle_to_url( $url_subtitle, $id_video, $title_video );
+	public function get_video_info( $url_parts );
+
+	/**
+	 * Interface method for get id video
+	 *
+	 * @param string        $subtitle code languages or url subtitle.
+	 * @param array<string> $url_parts url parts.
+	 *
+	 * @return array<string> id video.
+	 */
+	public function get_ids_video_transcription( $subtitle, $url_parts );
 }
