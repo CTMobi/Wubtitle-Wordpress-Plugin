@@ -101,6 +101,8 @@ class TestApiLivenseValidation extends WP_UnitTestCase {
         update_post_meta( $attachment_id, 'wubtitle_job_uuid', $expected_job_list['data']['job_list'][1]);
         update_post_meta( $attachment_id, 'wubtitle_status', 'pending');
         $response_job_list = $this->instance->get_job_list();
-        $this->assertEqualSets( $expected_job_list, $response_job_list );
+        $job_list          = $response_job_list['data']['job_list'];
+        sort( $job_list );
+        $this->assertEqualSets( $expected_job_list['data']['job_list'], $job_list );
       }
 }
