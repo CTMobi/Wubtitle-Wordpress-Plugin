@@ -90,6 +90,7 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 			'403' => __( 'Unable to create transcriptions. Invalid product license', 'wubtitle' ),
 			'500' => __( 'Could not contact the server', 'wubtitle' ),
 			'429' => __( 'Error, no more video left for your subscription plan', 'wubtitle' ),
+			'415' => __( 'The transcript from this video could not be recovered, unsupported subtitle format', 'wubtitle' ),
 		);
 		if ( 201 !== $response_code ) {
 			return array(
