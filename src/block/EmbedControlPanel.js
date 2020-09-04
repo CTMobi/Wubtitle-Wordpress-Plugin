@@ -1,53 +1,40 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
-import { useSelect, useDispatch } from '@wordpress/data';
+import { useDispatch } from '@wordpress/data';
 import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 
-const YoutubeControlPanel = (props) => {
+const EmbedControlPanel = (props) => {
 	const [message, setMessage] = useState('');
 	const [status, setStatus] = useState(__('None', 'wubtitle'));
 	const [languageSelected, setLanguage] = useState('');
 	const [langReady, setReady] = useState(false);
 	const [options, setOptions] = useState([]);
 	const [title, setTitle] = useState('');
+	const [videoUrl, setVideoUrl] = useState('');
 	const [disabled, setDisabled] = useState(true);
 	const noticeDispatcher = useDispatch('core/notices');
-
-	useSelect((select) => {
-		if (props.url === undefined) {
-			return;
-		}
-		const transcript = select('core').getEntityRecords(
-			'postType',
-			'transcript',
-			{
-				metaKey: '_video_id',
-				metaValue: props.url,
-			}
-		);
-		const createdStatus = __('Created', 'wubtitle');
-		if (transcript && transcript.length > 0 && status !== createdStatus) {
-			setStatus(createdStatus);
-		}
-	});
-
+	const disabledGetInfo = langReady || !videoUrl;
+	if (videoUrl !== props.url) {
+		setVideoUrl(props.url);
+		setReady(false);
+		setMessage('');
+	}
 	const handleClick = () => {
 		const selectedBlockIndex = wp.data
 			.select('core/block-editor')
 			.getBlockIndex(
 				wp.data.select('core/block-editor').getSelectedBlock().clientId
 			);
-
 		setMessage(__('Getting transcript…', 'ear2words'));
 		wp.ajax
-			.send('get_transcript_yt', {
+			.send('get_transcript_embed', {
 				type: 'POST',
 				data: {
-					urlVideo: props.url,
-					urlSubtitle: languageSelected,
+					urlVideo: videoUrl,
+					subtitle: languageSelected,
 					videoTitle: title,
 					from: 'default_post_type',
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
@@ -71,11 +58,13 @@ const YoutubeControlPanel = (props) => {
 	};
 
 	const getLang = () => {
+		setReady(true);
+		setOptions([]);
 		wp.ajax
 			.send('get_video_info', {
 				type: 'POST',
 				data: {
-					url: props.url,
+					url: videoUrl,
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
 				},
 			})
@@ -87,11 +76,16 @@ const YoutubeControlPanel = (props) => {
 					return;
 				}
 				setMessage('');
-				setReady(true);
 				const arrayLang = response.languages.map((lang) => {
+					if (response.source === 'youtube') {
+						return {
+							value: lang.baseUrl,
+							label: lang.name.simpleText,
+						};
+					}
 					return {
-						value: lang.baseUrl,
-						label: lang.name.simpleText,
+						value: lang.code,
+						label: lang.name,
 					};
 				});
 				arrayLang.unshift({
@@ -100,11 +94,12 @@ const YoutubeControlPanel = (props) => {
 				});
 				setOptions(arrayLang);
 				setTitle(response.title);
-			})
-			.fail((response) => {
-				console.log(response);
 			});
 	};
+
+	if (!langReady && videoUrl && 'core-embed/youtube' === props.block) {
+		getLang();
+	}
 
 	return (
 		<InspectorControls>
@@ -112,7 +107,19 @@ const YoutubeControlPanel = (props) => {
 				<p style={{ margin: '0', marginBottom: '20px' }}>
 					{`${__('Transcript status:', 'wubtitle')} ${status}`}
 				</p>
-				{props.url && langReady ? (
+				{props.block === 'core-embed/vimeo' && !langReady ? (
+					<Button
+						name=""
+						isPrimary
+						onClick={getLang}
+						disabled={disabledGetInfo}
+					>
+						{__('Get Video Info', 'wubtitle')}
+					</Button>
+				) : (
+					''
+				)}
+				{videoUrl && langReady ? (
 					<SelectControl
 						label={__('Select the video language', 'wubtitle')}
 						value={languageSelected}
@@ -123,21 +130,25 @@ const YoutubeControlPanel = (props) => {
 						options={options}
 					/>
 				) : (
-					getLang()
+					''
 				)}
-				<Button
-					name="sottotitoli"
-					id={props.id}
-					isPrimary
-					onClick={handleClick}
-					disabled={disabled}
-				>
-					{__('Get Transcribe', 'wubtitle')}
-				</Button>
+				{props.block === 'core-embed/youtube' || langReady ? (
+					<Button
+						name="sottotitoli"
+						id={props.id}
+						isPrimary
+						onClick={handleClick}
+						disabled={disabled}
+					>
+						{__('Get Transcribe', 'wubtitle')}
+					</Button>
+				) : (
+					''
+				)}
 				<p>{message}</p>
 			</PanelBody>
 		</InspectorControls>
 	);
 };
 
-export default YoutubeControlPanel;
+export default EmbedControlPanel;

@@ -10,6 +10,5 @@
  */
 
 import './block/addSubtitleButton';
-import './block/TranscriptPanel';
-import './block/YoutubeBlock';
+import './block/EmbedBlock';
 import './block/trascriptionBlock';
