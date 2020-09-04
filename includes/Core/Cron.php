@@ -76,7 +76,7 @@ class Cron {
 				'headers' => array(
 					'Content-Type' => 'application/json; charset=utf-8',
 					'licenseKey'   => $license_key,
-					'domainUrl'    => get_site_url(),
+					'domainUrl'    => get_option( 'siteurl' ),
 				),
 				'body'    => wp_json_encode( $body ),
 			)
