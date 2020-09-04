@@ -60,9 +60,10 @@ class ApiGetTranscript {
 		}
 
 		if ( 'vimeo.com' === $url_parts['host'] ) {
-			$video_source = new Vimeo();
-			$id_video     = basename( $url_parts['path'] );
-			$data_posts   = $this->get_data_transcript( $id_video, $from );
+			$video_source  = new Vimeo();
+			$id_video      = basename( $url_parts['path'] );
+			$id_transcript = $id_video . $subtitle;
+			$data_posts    = $this->get_data_transcript( $id_transcript, $from );
 			if ( $data_posts ) {
 				wp_send_json_success( $data_posts );
 			}
