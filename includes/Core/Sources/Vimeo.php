@@ -196,4 +196,20 @@ class Vimeo implements \Wubtitle\Core\VideoSource {
 		);
 		return $accumulator;
 	}
+
+	/**
+	 * Create and return id video.
+	 *
+	 * @param string        $subtitle code languages.
+	 * @param array<string> $url_parts url parts.
+	 *
+	 * @return array<string> id video.
+	 */
+	public function get_ids_video_transcription( $subtitle, $url_parts ) {
+		$id_video = basename( $url_parts['path'] );
+		return array(
+			'id_transcription' => $id_video . $subtitle,
+			'id_video'         => $id_video,
+		);
+	}
 }

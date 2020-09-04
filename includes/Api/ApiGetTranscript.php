@@ -50,46 +50,22 @@ class ApiGetTranscript {
 		}
 
 		$url_parts    = wp_parse_url( $url_video );
+		$host         = $url_parts['host'];
 		$allowed_urls = array(
-			'www.youtube.com',
-			'www.youtu.be',
-			'vimeo.com',
+			'www.youtube.com' => Youtube::class,
+			'www.youtu.be'    => Youtube::class,
+			'vimeo.com'       => Vimeo::class,
 		);
-		if ( ! in_array( $url_parts['host'], $allowed_urls, true ) ) {
+		if ( ! array_key_exists( $host, $allowed_urls ) ) {
 			wp_send_json_error( __( 'Url not a valid youtube or vimeo url', 'wubtitle' ) );
 		}
-
-		if ( 'vimeo.com' === $url_parts['host'] ) {
-			$video_source  = new Vimeo();
-			$id_video      = basename( $url_parts['path'] );
-			$id_transcript = $id_video . $subtitle;
-			$data_posts    = $this->get_data_transcript( $id_transcript, $from );
-			if ( $data_posts ) {
-				wp_send_json_success( $data_posts );
-			}
-			$transcript = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
-			if ( ! $transcript['success'] ) {
-				wp_send_json_error( $transcript['message'] );
-			}
-			wp_send_json_success( $transcript['data'] );
-		}
-
-		$url_subtitle_parts    = wp_parse_url( $subtitle );
-		$query_subtitle_params = array();
-		parse_str( $url_subtitle_parts['query'], $query_subtitle_params );
-		$lang = $query_subtitle_params['lang'];
-
-		$query_video_params = array();
-		parse_str( $url_parts['query'], $query_video_params );
-		$id_video = $query_video_params['v'] . $lang;
-
-		$data_posts = $this->get_data_transcript( $id_video, $from );
+		$video_source = new $allowed_urls[ $host ]();
+		$ids_video    = $video_source->get_ids_video_transcription( $subtitle, $url_parts );
+		$data_posts   = $this->get_data_transcript( $ids_video['id_transcription'], $from );
 		if ( $data_posts ) {
 			wp_send_json_success( $data_posts );
 		}
-		$video_source = new YouTube();
-		$video_title  = $video_title . ' (' . $lang . ')';
-		$transcript   = $video_source->get_transcript( $id_video, $video_title, $from, $subtitle );
+		$transcript = $video_source->get_transcript( $ids_video['id_video'], $video_title, $from, $subtitle );
 		if ( ! $transcript['success'] ) {
 			wp_send_json_error( $transcript['message'] );
 		}
@@ -109,27 +85,21 @@ class ApiGetTranscript {
 		$url_video = sanitize_text_field( wp_unslash( $_POST['url'] ) );
 		$nonce     = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
 		check_ajax_referer( 'itr_ajax_nonce', $nonce );
-		$url_parts    = wp_parse_url( $url_video );
+		$url_parts = wp_parse_url( $url_video );
+
+		$host         = array_key_exists( 'host', $url_parts ) ? $url_parts['host'] : '';
 		$allowed_urls = array(
-			'www.youtube.com',
-			'www.youtu.be',
-			'vimeo.com',
+			'www.youtube.com' => Youtube::class,
+			'www.youtu.be'    => Youtube::class,
+			'vimeo.com'       => Vimeo::class,
 		);
-		if ( ! array_key_exists( 'host', $url_parts ) || ! in_array( $url_parts['host'], $allowed_urls, true ) ) {
+		if ( ! array_key_exists( $host, $allowed_urls ) ) {
 			wp_send_json_error( __( 'Url not a valid youtube or vimeo url', 'wubtitle' ) );
 		}
-		if ( 'vimeo.com' === $url_parts['host'] ) {
-			$video_source = new Vimeo();
-			$response     = $video_source->get_video_info( $url_parts );
-			if ( ! $response['success'] ) {
-				wp_send_json_error( $response['message'] );
-			}
-			wp_send_json_success( $response );
-		}
-		$video_source = new Youtube();
+		$video_source = new $allowed_urls[ $host ]();
 		$response     = $video_source->get_video_info( $url_parts );
-		if ( ! $response ) {
-			wp_send_json_error( __( 'Url not a valid youtube url', 'wubtitle' ) );
+		if ( ! $response['success'] ) {
+			wp_send_json_error( $response['message'] );
 		}
 		wp_send_json_success( $response );
 	}
