@@ -97,6 +97,10 @@ const EmbedControlPanel = (props) => {
 				});
 				setOptions(arrayLang);
 				setTitle(response.title);
+			})
+			.fail((response) => {
+				noticeDispatcher.createNotice('error', response);
+				setMessage('');
 			});
 	};
 
