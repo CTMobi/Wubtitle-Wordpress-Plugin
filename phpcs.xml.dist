@@ -7,7 +7,7 @@
 	<exclude-pattern>/vendor/</exclude-pattern>
 	<exclude-pattern>/node_modules/</exclude-pattern>
 	<exclude-pattern>/tests/</exclude-pattern>
-	<exclude-pattern>/build/</exclude-pattern>
+	<exclude-pattern type="relative">^build/*</exclude-pattern>
 	<exclude-pattern>/build_form/</exclude-pattern>
 
 	<!-- How to scan -->
@@ -24,7 +24,7 @@
 	<config name="testVersion" value="7.0-"/>
 	<!-- https://github.com/PHPCompatibility/PHPCompatibilityWP -->
 	<rule ref="PHPCompatibilityWP"/>
-	<config name="ParanoiaMode" value="1"/>
+	<config name="ParanoiaMode" value="0"/>
 	<!-- Rules: WordPress Coding Standards -->
 	<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards -->
 	<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties -->
@@ -52,5 +52,10 @@
 	<!-- Add in some extra rules from other standards. -->
 	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
 	<!-- <rule ref="Generic.Commenting.Todo"/> -->
-	<rule ref="Security"/>
+	<rule ref="Security">
+		<!-- This warns that functions like dirname (__FILE__) use dynamic parameters -->
+		<exclude name ="PHPCS_SecurityAudit.BadFunctions.FilesystemFunctions.WarnFilesystem"/>
+		<!-- this warns that there are functions that support callbacks -->
+		<exclude name ="PHPCS_SecurityAudit.BadFunctions.CallbackFunctions.WarnCallbackFunctions"/>
+	</rule>
 </ruleset>

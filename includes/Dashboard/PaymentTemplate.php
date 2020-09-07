@@ -66,9 +66,9 @@ class PaymentTemplate {
 		$taxes_preview    = $wanted_plan_info['taxes_preview'];
 		$taxable          = $wanted_plan_info['taxable'];
 		$tax_wanted_plan  = $price_info_object[ $wanted_plan_rank ]->taxAmount;
-		$includes_file    = 'Templates/downgrade_plan_template.php';
+		$includes_file    = 'Templates/downgrade_plan_template';
 		if ( $wanted_plan_rank > $plan_rank ) {
-			$includes_file = 'Templates/upgrade_plan_template.php';
+			$includes_file = 'Templates/upgrade_plan_template';
 		}
 		if ( current_user_can( 'manage_options' ) ) {
 			ob_start();
@@ -86,7 +86,7 @@ class PaymentTemplate {
 					'stripeKey' => $this->stripe_key,
 				)
 			);
-			include $includes_file;
+			include $includes_file . '.php';
 			$html = ob_get_clean();
 			wp_send_json_success( $html );
 		}
