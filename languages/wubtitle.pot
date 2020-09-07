@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Wubtitle plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wubtitle 1.0.3\n"
+"Project-Id-Version: Wubtitle 1.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Wubtitle-Wordpress-Plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-08-26T15:46:17+02:00\n"
+"POT-Creation-Date: 2020-09-07T11:39:42+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wubtitle\n"
@@ -76,74 +76,22 @@ msgid "Bad gateway"
 msgstr ""
 
 #: includes/Api/ApiGetTranscript.php:38
-#: includes/Api/ApiGetTranscript.php:77
-#: includes/Api/ApiGetTranscript.php:78
-#: includes/Api/ApiGetTranscript.php:101
-#: includes/Api/ApiGetTranscript.php:151
-#: includes/Api/ApiGetTranscript.php:187
-#: includes/Api/ApiGetTranscript.php:223
-#: includes/Api/ApiGetTranscript.php:224
+#: includes/Api/ApiGetTranscript.php:82
+#: includes/Api/ApiGetTranscript.php:112
 #: includes/Api/ApiPricingPlan.php:121
-#: includes/Core/CustomPostTypes/Transcript.php:161
-#: includes/Core/CustomPostTypes/Transcript.php:162
-#: includes/Core/Sources/YouTube.php:204
-#: includes/Core/Sources/YouTube.php:205
+#: includes/Core/Sources/Vimeo.php:88
+#: includes/Core/Sources/Vimeo.php:89
+#: includes/Core/Sources/YouTube.php:133
+#: includes/Core/Sources/YouTube.php:134
 msgid "An error occurred while creating the transcriptions. Please try again in a few minutes"
 msgstr ""
 
-#: includes/Api/ApiGetTranscript.php:57
-#: includes/Api/ApiGetTranscript.php:112
-#: includes/Api/ApiGetTranscript.php:117
-#: includes/Api/ApiGetTranscript.php:134
-#: includes/Api/ApiGetTranscript.php:209
-#: includes/Core/CustomPostTypes/Transcript.php:139
-msgid "Url not a valid youtube url"
+#: includes/Api/ApiGetTranscript.php:59
+#: includes/Api/ApiGetTranscript.php:96
+msgid "Url not a valid youtube or vimeo url"
 msgstr ""
 
-#: includes/Api/ApiGetTranscript.php:79
-#: includes/Api/ApiGetTranscript.php:225
-#: includes/Core/CustomPostTypes/Transcript.php:163
-#: includes/Core/Sources/YouTube.php:206
-msgid "Unable to create transcriptions. Invalid product license"
-msgstr ""
-
-#: includes/Api/ApiGetTranscript.php:80
-#: includes/Api/ApiGetTranscript.php:226
-#: includes/Api/ApiPricingPlan.php:73
-#: includes/Api/ApiPricingPlan.php:74
-#: includes/Api/ApiPricingPlan.php:123
-#: includes/Api/ApiPricingPlan.php:200
-#: includes/Api/ApiPricingPlan.php:201
-#: includes/Api/ApiPricingPlan.php:288
-#: includes/Api/ApiPricingPlan.php:289
-#: includes/Api/ApiPricingPlan.php:377
-#: includes/Api/ApiPricingPlan.php:378
-#: includes/Api/ApiRequest.php:123
-#: includes/Core/CustomPostTypes/Transcript.php:164
-#: includes/Core/Sources/YouTube.php:207
-#: includes/Utils/InvoiceHelper.php:77
-#: includes/Utils/InvoiceHelper.php:78
-#: includes/Utils/InvoiceHelper.php:298
-#: includes/Utils/InvoiceHelper.php:299
-msgid "Could not contact the server"
-msgstr ""
-
-#: includes/Api/ApiGetTranscript.php:81
-#: includes/Api/ApiGetTranscript.php:227
-#: includes/Api/ApiRequest.php:223
-#: includes/Core/CustomPostTypes/Transcript.php:165
-#: includes/Core/Sources/YouTube.php:208
-msgid "Error, no more video left for your subscription plan"
-msgstr ""
-
-#: includes/Api/ApiGetTranscript.php:88
-#: includes/Api/ApiGetTranscript.php:236
-#: includes/Core/CustomPostTypes/Transcript.php:186
-#: includes/Core/Sources/YouTube.php:223
-msgid "Transcript not avaiable for this video."
-msgstr ""
-
-#: includes/Api/ApiGetTranscript.php:168
+#: includes/Api/ApiGetTranscript.php:129
 msgid "Error: this video doesn't have subtitles yet. It is necessary to generate them to obtain the transcription"
 msgstr ""
 
@@ -181,6 +129,8 @@ msgstr ""
 #: includes/Api/ApiPricingPlan.php:286
 #: includes/Api/ApiPricingPlan.php:374
 #: includes/Api/ApiPricingPlan.php:375
+#: includes/Core/Sources/Vimeo.php:153
+#: includes/Core/Sources/Vimeo.php:154
 #: includes/Utils/InvoiceHelper.php:74
 #: includes/Utils/InvoiceHelper.php:75
 #: includes/Utils/InvoiceHelper.php:123
@@ -194,9 +144,31 @@ msgstr ""
 #: includes/Api/ApiPricingPlan.php:199
 #: includes/Api/ApiPricingPlan.php:287
 #: includes/Api/ApiPricingPlan.php:376
+#: includes/Core/Sources/Vimeo.php:155
 #: includes/Utils/InvoiceHelper.php:76
 #: includes/Utils/InvoiceHelper.php:297
 msgid "Access denied"
+msgstr ""
+
+#: includes/Api/ApiPricingPlan.php:73
+#: includes/Api/ApiPricingPlan.php:74
+#: includes/Api/ApiPricingPlan.php:123
+#: includes/Api/ApiPricingPlan.php:200
+#: includes/Api/ApiPricingPlan.php:201
+#: includes/Api/ApiPricingPlan.php:288
+#: includes/Api/ApiPricingPlan.php:289
+#: includes/Api/ApiPricingPlan.php:377
+#: includes/Api/ApiPricingPlan.php:378
+#: includes/Api/ApiRequest.php:123
+#: includes/Core/Sources/Vimeo.php:91
+#: includes/Core/Sources/Vimeo.php:156
+#: includes/Core/Sources/Vimeo.php:157
+#: includes/Core/Sources/YouTube.php:136
+#: includes/Utils/InvoiceHelper.php:77
+#: includes/Utils/InvoiceHelper.php:78
+#: includes/Utils/InvoiceHelper.php:298
+#: includes/Utils/InvoiceHelper.php:299
+msgid "Could not contact the server"
 msgstr ""
 
 #: includes/Api/ApiPricingPlan.php:176
@@ -234,6 +206,12 @@ msgstr ""
 msgid "Unable to create subtitles. Invalid product license"
 msgstr ""
 
+#: includes/Api/ApiRequest.php:223
+#: includes/Core/Sources/Vimeo.php:92
+#: includes/Core/Sources/YouTube.php:137
+msgid "Error, no more video left for your subscription plan"
+msgstr ""
+
 #: includes/Api/ApiRequest.php:224
 msgid "Error, language not supported for your subscription plan"
 msgstr ""
@@ -242,7 +220,7 @@ msgstr ""
 #: includes/MediaLibrary/MediaLibraryExtented.php:73
 #: includes/MediaLibrary/MediaLibraryExtented.php:200
 #: build/index.js:1
-#: src/block/WubtitlePanel.js:92
+#: src/block/WubtitlePanel.js:94
 msgid "Unsupported video format for free plan"
 msgstr ""
 
@@ -254,128 +232,141 @@ msgstr ""
 msgid ", video left"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:43
+#: includes/Core/CustomPostTypes/Transcript.php:39
 msgid "Shortcode"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:70
-msgid "Source"
-msgstr ""
-
-#: includes/Core/CustomPostTypes/Transcript.php:92
-msgid "Source:"
-msgstr ""
-
-#: includes/Core/CustomPostTypes/Transcript.php:99
-msgid "Insert url youtube video"
-msgstr ""
-
-#: includes/Core/CustomPostTypes/Transcript.php:230
-#: includes/Core/CustomPostTypes/Transcript.php:232
-#: includes/Core/CustomPostTypes/Transcript.php:261
+#: includes/Core/CustomPostTypes/Transcript.php:98
+#: includes/Core/CustomPostTypes/Transcript.php:100
+#: includes/Core/CustomPostTypes/Transcript.php:129
 msgid "Transcripts"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:231
-#: includes/Core/CustomPostTypes/Transcript.php:251
+#: includes/Core/CustomPostTypes/Transcript.php:99
+#: includes/Core/CustomPostTypes/Transcript.php:119
 msgid "Transcript"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:233
+#: includes/Core/CustomPostTypes/Transcript.php:101
 msgid "All transcripts"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:234
+#: includes/Core/CustomPostTypes/Transcript.php:102
 msgid "Add new"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:235
+#: includes/Core/CustomPostTypes/Transcript.php:103
 msgid "Add new transcript"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:236
+#: includes/Core/CustomPostTypes/Transcript.php:104
 msgid "Edit transcript"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:237
+#: includes/Core/CustomPostTypes/Transcript.php:105
 msgid "New transcript"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:238
+#: includes/Core/CustomPostTypes/Transcript.php:106
 msgid "View transcript"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:239
+#: includes/Core/CustomPostTypes/Transcript.php:107
 msgid "View transcripts"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:240
+#: includes/Core/CustomPostTypes/Transcript.php:108
 msgid "Search transcripts"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:241
+#: includes/Core/CustomPostTypes/Transcript.php:109
 msgid "No Transcripts found"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:242
+#: includes/Core/CustomPostTypes/Transcript.php:110
 msgid "No Transcripts found in trash"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:243
-#: includes/Core/CustomPostTypes/Transcript.php:257
+#: includes/Core/CustomPostTypes/Transcript.php:111
+#: includes/Core/CustomPostTypes/Transcript.php:125
 msgid "Parent transcript:"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:244
+#: includes/Core/CustomPostTypes/Transcript.php:112
 msgid "Transcript archives"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:245
+#: includes/Core/CustomPostTypes/Transcript.php:113
 msgid "Insert into Transcript"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:246
+#: includes/Core/CustomPostTypes/Transcript.php:114
 msgid "Upload to this Transcript"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:247
+#: includes/Core/CustomPostTypes/Transcript.php:115
 msgid "Filter Transcripts list"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:248
+#: includes/Core/CustomPostTypes/Transcript.php:116
 msgid "Transcripts list navigation"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:249
+#: includes/Core/CustomPostTypes/Transcript.php:117
 msgid "Transcripts list"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:250
+#: includes/Core/CustomPostTypes/Transcript.php:118
 msgid "Transcripts attributes"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:252
+#: includes/Core/CustomPostTypes/Transcript.php:120
 msgid "Transcript published"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:253
+#: includes/Core/CustomPostTypes/Transcript.php:121
 msgid "Transcript published privately."
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:254
+#: includes/Core/CustomPostTypes/Transcript.php:122
 msgid "Transcript reverted to draft."
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:255
+#: includes/Core/CustomPostTypes/Transcript.php:123
 msgid "Transcript scheduled"
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:256
+#: includes/Core/CustomPostTypes/Transcript.php:124
 msgid "Transcript updated."
 msgstr ""
 
-#: includes/Core/CustomPostTypes/Transcript.php:263
+#: includes/Core/CustomPostTypes/Transcript.php:131
 msgid "Video Transcripts"
+msgstr ""
+
+#: includes/Core/Sources/Vimeo.php:90
+#: includes/Core/Sources/YouTube.php:135
+msgid "Unable to create transcriptions. Invalid product license"
+msgstr ""
+
+#: includes/Core/Sources/Vimeo.php:93
+msgid "The transcript from this video could not be recovered, unsupported subtitle format"
+msgstr ""
+
+#: includes/Core/Sources/Vimeo.php:109
+#: includes/Core/Sources/YouTube.php:149
+#: includes/Core/Sources/YouTube.php:157
+#: includes/Core/Sources/YouTube.php:183
+msgid "Transcript not avaiable for this video."
+msgstr ""
+
+#: includes/Core/Sources/Vimeo.php:136
+msgid "License key is missing"
+msgstr ""
+
+#: includes/Core/Sources/YouTube.php:84
+#: includes/Core/Sources/YouTube.php:104
+msgid "Url not a valid youtube url"
 msgstr ""
 
 #: includes/Dashboard/PaymentTemplate.php:143
@@ -478,31 +469,35 @@ msgstr ""
 msgid "Could not contact the server."
 msgstr ""
 
-#: includes/Dashboard/Settings.php:324
+#: includes/Dashboard/Settings.php:327
 msgid "Upgrade feature temporarily disabled due to error loading the page. Please refresh the page and try again."
 msgstr ""
 
-#: includes/Dashboard/Settings.php:328
+#: includes/Dashboard/Settings.php:331
+msgid "Upgrading and plan changes can only be done by the administrator"
+msgstr ""
+
+#: includes/Dashboard/Settings.php:336
 msgid "Unlock more features!"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:333
+#: includes/Dashboard/Settings.php:341
 msgid "Upgrade"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:342
+#: includes/Dashboard/Settings.php:351
 msgid "License Number"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:349
+#: includes/Dashboard/Settings.php:358
 msgid "License key"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:351
+#: includes/Dashboard/Settings.php:360
 msgid "Please enter the license key you received after successful checkout"
 msgstr ""
 
-#: includes/Dashboard/Settings.php:385
+#: includes/Dashboard/Settings.php:395
 msgid "now!"
 msgstr ""
 
@@ -707,9 +702,9 @@ msgstr ""
 #: includes/MediaLibrary/MediaLibraryExtented.php:60
 #: includes/MediaLibrary/MediaLibraryExtented.php:190
 #: build/index.js:1
+#: src/block/EmbedControlPanel.js:11
 #: src/block/labels.js:16
-#: src/block/WubtitlePanel.js:64
-#: src/block/YoutubeControlPanel.js:11
+#: src/block/WubtitlePanel.js:66
 msgid "None"
 msgstr ""
 
@@ -717,7 +712,7 @@ msgstr ""
 #: includes/MediaLibrary/MediaLibraryExtented.php:59
 #: includes/MediaLibrary/MediaLibraryExtented.php:191
 #: build/index.js:1
-#: src/block/WubtitlePanel.js:63
+#: src/block/WubtitlePanel.js:65
 msgid "Error"
 msgstr ""
 
@@ -731,7 +726,7 @@ msgstr ""
 #: includes/MediaLibrary/MediaLibraryExtented.php:104
 #: includes/MediaLibrary/MediaLibraryExtented.php:292
 #: build/index.js:1
-#: src/block/WubtitlePanel.js:83
+#: src/block/WubtitlePanel.js:85
 msgid "GENERATE SUBTITLES"
 msgstr ""
 
@@ -746,6 +741,7 @@ msgstr ""
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:160
 #: includes/MediaLibrary/MediaLibraryExtented.php:368
+#: includes/Utils/VimeoHelper.php:56
 #: build/index.js:1
 #: src/block/labels.js:5
 #: src/block/labels.js:26
@@ -811,6 +807,498 @@ msgstr ""
 msgid "Invalid Coupon"
 msgstr ""
 
+#: includes/Utils/VimeoHelper.php:25
+msgid "Afrikaans"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:26
+msgid "Albanian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:27
+msgid "Arabic (U.A.E.)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:28
+msgid "Arabic (Bahrain)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:29
+msgid "Arabic (Algeria)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:30
+msgid "Arabic (Egypt)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:31
+msgid "Arabic (Iraq)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:32
+msgid "Arabic (Jordan)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:33
+msgid "Arabic (Kuwait)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:34
+msgid "Arabic (Lebanon)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:35
+msgid "Arabic (Libya)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:36
+msgid "Arabic (Morocco)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:37
+msgid "Arabic (Oman)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:38
+msgid "Arabic (Qatar)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:39
+msgid "Arabic (Saudi Arabia)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:40
+msgid "Arabic (Syria)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:41
+msgid "Arabic (Tunisia)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:42
+msgid "Arabic (Yemen)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:43
+msgid "Basque"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:44
+msgid "Belarusian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:45
+msgid "Bulgarian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:46
+msgid "Catalan"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:47
+msgid "Croatian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:48
+msgid "Chinese (PRC)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:49
+msgid "Chinese (Hong Kong)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:50
+msgid "Chinese (Singapore)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:51
+msgid "Chinese (Taiwan)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:52
+msgid "Czech"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:53
+msgid "Danish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:54
+msgid "Dutch (Standard)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:55
+msgid "Dutch (Belgium)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:57
+msgid "English (Australia)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:58
+msgid "English (Belize)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:59
+msgid "English (Canada)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:60
+msgid "English (United Kingdom)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:61
+msgid "English (Ireland)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:62
+msgid "English (Jamaica)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:63
+msgid "English (New Zealand)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:64
+msgid "English (Trinidad)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:65
+msgid "English (United States)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:66
+msgid "English (South Africa)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:67
+msgid "Estonian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:68
+msgid "Farsi"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:69
+msgid "Finnish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:70
+msgid "Faeroese"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:71
+msgid "French (Standard)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:72
+msgid "French (Belgium)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:73
+msgid "French (Canada)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:74
+msgid "French (Switzerland)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:75
+msgid "French (Luxembourg)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:76
+msgid "Gaelic (Scotland)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:77
+msgid "German (Standard)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:78
+msgid "German (Austria)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:79
+msgid "German (Switzerland)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:80
+msgid "German (Liechtenstein)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:81
+msgid "German (Luxembourg)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:82
+msgid "Greek"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:83
+msgid "Irish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:84
+msgid "Hebrew"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:85
+msgid "Hindi"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:86
+msgid "Hungarian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:87
+msgid "Indonesian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:88
+msgid "Icelandic"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:89
+msgid "Italian (Standard)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:90
+msgid "Italian (Switzerland)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:91
+msgid "Japanese"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:92
+msgid "Korean (Johab)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:93
+msgid "Kurdish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:94
+msgid "Lithuanian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:95
+msgid "Latvian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:96
+msgid "Macedonian (FYROM)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:97
+msgid "Malayalam"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:98
+msgid "Malaysian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:99
+msgid "Maltese"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:100
+msgid "Norwegian (Bokmål)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:101
+msgid "Norwegian (Nynorsk)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:102
+msgid "Norwegian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:103
+msgid "Punjabi"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:104
+msgid "Polish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:105
+msgid "Portuguese (Portugal)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:106
+msgid "Portuguese (Brazil)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:107
+msgid "Rhaeto-Romanic"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:108
+msgid "Romanian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:109
+msgid "Romanian (Republic of Moldova)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:110
+msgid "Russian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:111
+msgid "Russian (Republic of Moldova)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:112
+msgid "Sorbian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:113
+msgid "Slovak"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:114
+msgid "Slovenian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:115
+msgid "Serbian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:116
+msgid "Spanish (Spain)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:117
+msgid "Spanish (Argentina)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:118
+msgid "Spanish (Bolivia)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:119
+msgid "Spanish (Chile)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:120
+msgid "Spanish (Colombia)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:121
+msgid "Spanish (Costa Rica)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:122
+msgid "Spanish (Dominican Republic)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:123
+msgid "Spanish (Ecuador)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:124
+msgid "Spanish (Guatemala)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:125
+msgid "Spanish (Honduras)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:126
+msgid "Spanish (Mexico)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:127
+msgid "Spanish (Nicaragua)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:128
+msgid "Spanish (Panama)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:129
+msgid "Spanish (Peru)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:130
+msgid "Spanish (Puerto Rico)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:131
+msgid "Spanish (Paraguay)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:132
+msgid "Spanish (El Salvador)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:133
+msgid "Spanish (Uruguay)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:134
+msgid "Spanish (Venezuela)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:135
+msgid "Swedish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:136
+msgid "Swedish (Finland)"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:137
+msgid "Thai"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:138
+msgid "Tswana"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:139
+msgid "Turkish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:140
+msgid "Tsonga"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:141
+msgid "Ukrainian"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:142
+msgid "Urdu"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:143
+msgid "Venda"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:144
+msgid "Vietnamese"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:145
+msgid "Welsh"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:146
+msgid "Xhosa"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:147
+msgid "Yiddish"
+msgstr ""
+
+#: includes/Utils/VimeoHelper.php:148
+msgid "Zulu"
+msgstr ""
+
 #: assets/editor/transcriptionModalScript.js:47
 msgid "Transcription of the video"
 msgstr ""
@@ -820,11 +1308,11 @@ msgid "Error, language not selected"
 msgstr ""
 
 #: assets/editor/transcriptionModalScript.js:112
-#: assets/editor/transcriptionModalScript.js:137
-#: assets/editor/transcriptionModalScript.js:158
-#: assets/editor/transcriptionModalScript.js:180
+#: assets/editor/transcriptionModalScript.js:147
+#: assets/editor/transcriptionModalScript.js:168
+#: assets/editor/transcriptionModalScript.js:192
 #: build/index.js:1
-#: src/block/YoutubeControlPanel.js:99
+#: src/block/EmbedControlPanel.js:93
 msgid "Select language"
 msgstr ""
 
@@ -832,7 +1320,7 @@ msgstr ""
 msgid "Error: this video does not contain subtitles. Select a video with subtitles to generate the transcript"
 msgstr ""
 
-#: assets/editor/transcriptionModalScript.js:151
+#: assets/editor/transcriptionModalScript.js:161
 msgid "Language of trascription"
 msgstr ""
 
@@ -864,7 +1352,7 @@ msgstr ""
 #: build/index.js:1
 #: src/block/PendingSubtitle.js:7
 #: src/block/SubtitleControl.js:67
-#: src/block/WubtitlePanel.js:67
+#: src/block/WubtitlePanel.js:69
 msgid "Status:"
 msgstr ""
 
@@ -876,51 +1364,44 @@ msgstr ""
 
 #: build/index.js:1
 #: src/block/SubtitleControl.js:29
-#: src/block/TranscriptPanel.js:15
 msgid "Getting transcript…"
 msgstr ""
 
 #: build/index.js:1
+#: src/block/EmbedControlPanel.js:143
 #: src/block/SubtitleControl.js:80
-#: src/block/YoutubeControlPanel.js:135
 msgid "Get Transcribe"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/WubtitlePanel.js:69
-#: src/block/YoutubeControlPanel.js:117
+#: src/block/EmbedControlPanel.js:124
+#: src/block/WubtitlePanel.js:71
 msgid "Select the video language"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/WubtitlePanel.js:112
+#: src/block/WubtitlePanel.js:116
 msgid "Subtitle creation successfully started"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/TranscriptPanel.js:28
-msgid "Done"
+#: src/block/EmbedControlPanel.js:74
+msgid "Subtitles not available for this video"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/TranscriptPanel.js:58
-msgid "Get transcript"
-msgstr ""
-
-#: build/index.js:1
-#: src/block/YoutubeControlPanel.js:31
-#: src/block/YoutubeControlPanel.js:65
-msgid "Created"
-msgstr ""
-
-#: build/index.js:1
-#: src/block/YoutubeControlPanel.js:113
+#: src/block/EmbedControlPanel.js:108
 msgid "Transcript status:"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/YoutubeControlPanel.js:85
-msgid "Subtitles not available for this video"
+#: src/block/EmbedControlPanel.js:117
+msgid "Get Video Info"
+msgstr ""
+
+#: build/index.js:1
+#: src/block/EmbedControlPanel.js:52
+msgid "Created"
 msgstr ""
 
 #: build/index.js:1
@@ -1250,7 +1731,8 @@ msgid "for this month*"
 msgstr ""
 
 #: build_form/index.js:1
-msgid "After the first month the price is"
+#: src/stripe/Components/InfoPriceColumn.js:26
+msgid "After the first month the monthly price will be"
 msgstr ""
 
 #: build_form/index.js:1
@@ -1260,7 +1742,8 @@ msgid "(VAT)"
 msgstr ""
 
 #: build_form/index.js:1
-msgid "for the first"
+#: src/stripe/Components/InfoPriceColumn.js:32
+msgid "for the firsts"
 msgstr ""
 
 #: build_form/index.js:1
@@ -1269,25 +1752,11 @@ msgid "months*"
 msgstr ""
 
 #: build_form/index.js:1
-msgid "After the first"
-msgstr ""
-
-#: build_form/index.js:1
-msgid "months the price is"
-msgstr ""
-
-#: src/stripe/Components/InfoPriceColumn.js:26
-msgid "After the first month the monthly price will be"
-msgstr ""
-
-#: src/stripe/Components/InfoPriceColumn.js:32
-msgid "for the firsts"
-msgstr ""
-
 #: src/stripe/Components/InfoPriceColumn.js:35
 msgid "After the firsts"
 msgstr ""
 
+#: build_form/index.js:1
 #: src/stripe/Components/InfoPriceColumn.js:37
 msgid "months the monthly price will be"
 msgstr ""
