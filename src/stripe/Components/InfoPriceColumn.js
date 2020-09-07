@@ -26,7 +26,10 @@ const InfoPriceColumn = (props) => {
 		infoMessage = `*${__(
 			'After the first month the monthly price will be',
 			'wubtitle'
-		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
+		)} ${price}€`;
+		infoMessage += taxable
+			? ` + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`
+			: '';
 	}
 	if (discountedPrice && discountedPrice.duration === 'repeating') {
 		messagePrice = ` ${__('for the firsts', 'wubtitle')} ${
@@ -34,10 +37,10 @@ const InfoPriceColumn = (props) => {
 		} ${__('months*', 'wubtitle')}`;
 		infoMessage = `*${__('After the firsts', 'wubtitle')} ${
 			discountedPrice.durationInMonths
-		} ${__(
-			'months the monthly price will be',
-			'wubtitle'
-		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
+		} ${__('months the monthly price will be', 'wubtitle')} ${price}€`;
+		infoMessage += taxable
+			? ` + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`
+			: '';
 	}
 	let total = parseFloat(price);
 	if (taxable) {
