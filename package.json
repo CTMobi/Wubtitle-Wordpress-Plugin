@@ -4,7 +4,7 @@
   "main": "",
   "author": "CTMobi",
   "devDependencies": {
-    "@wordpress/plugins": "^2.20.3",
+    "@wordpress/plugins": "^2.21.0",
     "@wordpress/scripts": "^12.1.1",
     "csslint": "^1.0.5",
     "eslint-plugin-scanjs-rules": "^0.2.1",
@@ -46,8 +46,8 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.9.0",
-    "@wordpress/api-fetch": "^3.18.0",
-    "@wordpress/i18n": "^3.14.0",
+    "@wordpress/api-fetch": "^3.19.0",
+    "@wordpress/i18n": "^3.15.0",
     "formik": "^2.1.5",
     "yup": "^0.29.3"
   }
