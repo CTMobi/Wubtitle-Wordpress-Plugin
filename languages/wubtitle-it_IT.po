@@ -2,25 +2,25 @@
 # This file is distributed under the same license as the Wubtitle plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wubtitle 1.0.0\n"
+"Project-Id-Version: Wubtitle 1.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Wubtitle-"
 "Wordpress-Plugin\n"
-"POT-Creation-Date: 2020-09-07T11:39:42+02:00\n"
-"PO-Revision-Date: 2020-09-07 12:09+0200\n"
-"Last-Translator: \n"
 "Language-Team: \n"
-"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-09-07T11:39:42+02:00\n"
+"PO-Revision-Date: 2020-09-08 14:50+0200\n"
 "X-Generator: Poedit 2.4.1\n"
 "X-Domain: wubtitle\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it_IT\n"
 
 #. Plugin Name of the plugin
 #: includes/Dashboard/Settings.php:47
 msgid "Wubtitle"
-msgstr ""
+msgstr "TORNA A WUBTITLE"
 
 #. Plugin URI of the plugin
 msgid "https://www.wubtitle.com"
@@ -44,11 +44,12 @@ msgstr ""
 
 #: includes/Api/ApiCancelSubscription.php:36
 msgid "No Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: includes/Api/ApiCancelSubscription.php:38
 msgid "Invalid"
 msgstr ""
+"Impossibile creare i sottotitoli. La  licenza del prodotto non è valida"
 
 #: includes/Api/ApiCancelSubscription.php:58
 msgid "Deleted successfully"
@@ -82,6 +83,7 @@ msgstr ""
 #: includes/Api/ApiGetTranscript.php:112 includes/Api/ApiPricingPlan.php:121
 #: includes/Core/Sources/Vimeo.php:88 includes/Core/Sources/Vimeo.php:89
 #: includes/Core/Sources/YouTube.php:133 includes/Core/Sources/YouTube.php:134
+#, fuzzy
 msgid ""
 "An error occurred while creating the transcriptions. Please try again in a "
 "few minutes"
@@ -90,10 +92,12 @@ msgstr ""
 "nuovo tra qualche minuto"
 
 #: includes/Api/ApiGetTranscript.php:59 includes/Api/ApiGetTranscript.php:96
+#, fuzzy
 msgid "Url not a valid youtube or vimeo url"
 msgstr "Url youtube o vimeo non valida"
 
 #: includes/Api/ApiGetTranscript.php:129
+#, fuzzy
 msgid ""
 "Error: this video doesn't have subtitles yet. It is necessary to generate "
 "them to obtain the transcription"
@@ -112,11 +116,13 @@ msgstr ""
 #: includes/Dashboard/PaymentTemplate.php:231
 #: includes/Utils/InvoiceHelper.php:35 includes/Utils/InvoiceHelper.php:95
 #: includes/Utils/InvoiceHelper.php:264
+#, fuzzy
 msgid "An error occurred. Please try again in a few minutes."
 msgstr "Si è verificato un errore. Riprova di nuovo tra qualche minuto."
 
 #: includes/Api/ApiPricingPlan.php:53 includes/Api/ApiPricingPlan.php:105
 #: includes/Api/ApiRequest.php:104
+#, fuzzy
 msgid "Unable to create subtitles. The product license key is missing."
 msgstr "Impossibile creare i sottotitoli. La  licenza del prodotto è assente."
 
@@ -128,6 +134,7 @@ msgstr "Impossibile creare i sottotitoli. La  licenza del prodotto è assente."
 #: includes/Core/Sources/Vimeo.php:154 includes/Utils/InvoiceHelper.php:74
 #: includes/Utils/InvoiceHelper.php:75 includes/Utils/InvoiceHelper.php:123
 #: includes/Utils/InvoiceHelper.php:295 includes/Utils/InvoiceHelper.php:296
+#, fuzzy
 msgid "An error occurred. Please try again in a few minutes"
 msgstr "Si è verificato un errore.  Riprova di nuovo tra qualche minuto"
 
@@ -135,6 +142,7 @@ msgstr "Si è verificato un errore.  Riprova di nuovo tra qualche minuto"
 #: includes/Api/ApiPricingPlan.php:199 includes/Api/ApiPricingPlan.php:287
 #: includes/Api/ApiPricingPlan.php:376 includes/Core/Sources/Vimeo.php:155
 #: includes/Utils/InvoiceHelper.php:76 includes/Utils/InvoiceHelper.php:297
+#, fuzzy
 msgid "Access denied"
 msgstr "Accesso negato"
 
@@ -147,19 +155,23 @@ msgstr "Accesso negato"
 #: includes/Core/Sources/Vimeo.php:157 includes/Core/Sources/YouTube.php:136
 #: includes/Utils/InvoiceHelper.php:77 includes/Utils/InvoiceHelper.php:78
 #: includes/Utils/InvoiceHelper.php:298 includes/Utils/InvoiceHelper.php:299
+#, fuzzy
 msgid "Could not contact the server"
 msgstr "Impossibile contattare il server"
 
 #: includes/Api/ApiPricingPlan.php:176
+#, fuzzy
 msgid "The product license key is missing."
 msgstr "Errore, la licenza del prodotto è assente."
 
 #: includes/Api/ApiPricingPlan.php:385
+#, fuzzy
 msgid "Unable to apply discount. You are not authorized to use this coupon"
 msgstr ""
 "Impossibile applicare lo sconto. Non sei abilitato ad usare questo coupon"
 
 #: includes/Api/ApiPricingPlan.php:386
+#, fuzzy
 msgid ""
 "Unable to apply discount. This coupon can only be used on the first purchase"
 msgstr ""
@@ -167,6 +179,7 @@ msgstr ""
 "primo acquisto"
 
 #: includes/Api/ApiPricingPlan.php:387
+#, fuzzy
 msgid ""
 "Unable to apply discount. Please try again later or enter a different "
 "discount code"
@@ -175,11 +188,13 @@ msgstr ""
 "sconto differente"
 
 #: includes/Api/ApiRequest.php:67
+#, fuzzy
 msgid "Error, invalid language selected"
 msgstr "Errore, lingua selezionata non valida"
 
 #: includes/Api/ApiRequest.php:95 includes/Api/ApiRequest.php:101
 #: includes/Api/ApiRequest.php:108
+#, fuzzy
 msgid ""
 "An error occurred while creating the subtitles. Please try again in a few "
 "minutes."
@@ -188,6 +203,7 @@ msgstr ""
 "nuovo tra qualche minuto."
 
 #: includes/Api/ApiRequest.php:120 includes/Api/ApiRequest.php:121
+#, fuzzy
 msgid ""
 "An error occurred while creating the subtitles. Please try again in a few "
 "minutes"
@@ -196,16 +212,19 @@ msgstr ""
 "nuovo tra qualche minuto."
 
 #: includes/Api/ApiRequest.php:122
+#, fuzzy
 msgid "Unable to create subtitles. Invalid product license"
 msgstr ""
 "Impossibile creare i sottotitoli. La  licenza del prodotto non è valida"
 
 #: includes/Api/ApiRequest.php:223 includes/Core/Sources/Vimeo.php:92
 #: includes/Core/Sources/YouTube.php:137
+#, fuzzy
 msgid "Error, no more video left for your subscription plan"
 msgstr "Errore, non hai più video disponibili per il tuo piano di abbonamento"
 
 #: includes/Api/ApiRequest.php:224
+#, fuzzy
 msgid "Error, language not supported for your subscription plan"
 msgstr "Errore, lingua non supportata per il tuo piano di abbonamento"
 
@@ -213,10 +232,12 @@ msgstr "Errore, lingua non supportata per il tuo piano di abbonamento"
 #: includes/MediaLibrary/MediaLibraryExtented.php:73
 #: includes/MediaLibrary/MediaLibraryExtented.php:200 build/index.js:1
 #: src/block/WubtitlePanel.js:94
+#, fuzzy
 msgid "Unsupported video format for free plan"
 msgstr "Formato video non supportato per il piano free"
 
 #: includes/Api/ApiRequest.php:230
+#, fuzzy
 msgid ""
 "Error, video length is longer than minutes available for your subscription "
 "plan (minutes left"
@@ -225,6 +246,7 @@ msgstr ""
 "piano di abbonamento (minuti rimasti"
 
 #: includes/Api/ApiRequest.php:230
+#, fuzzy
 msgid ", video left"
 msgstr ", video rimasti"
 
@@ -235,117 +257,145 @@ msgstr ""
 #: includes/Core/CustomPostTypes/Transcript.php:98
 #: includes/Core/CustomPostTypes/Transcript.php:100
 #: includes/Core/CustomPostTypes/Transcript.php:129
+#, fuzzy
 msgid "Transcripts"
 msgstr "Trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:99
 #: includes/Core/CustomPostTypes/Transcript.php:119
+#, fuzzy
 msgid "Transcript"
 msgstr "Trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:101
+#, fuzzy
 msgid "All transcripts"
 msgstr "Tutte le trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:102
+#, fuzzy
 msgid "Add new"
 msgstr "Aggiungi nuovo"
 
 #: includes/Core/CustomPostTypes/Transcript.php:103
+#, fuzzy
 msgid "Add new transcript"
 msgstr "Aggiungi nuova trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:104
+#, fuzzy
 msgid "Edit transcript"
 msgstr "Modifica trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:105
+#, fuzzy
 msgid "New transcript"
 msgstr "Nuova trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:106
+#, fuzzy
 msgid "View transcript"
 msgstr "Vedi trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:107
+#, fuzzy
 msgid "View transcripts"
 msgstr "Vedi trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:108
+#, fuzzy
 msgid "Search transcripts"
 msgstr "Cerca trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:109
+#, fuzzy
 msgid "No Transcripts found"
 msgstr "Nessuna trascrizione trovata"
 
 #: includes/Core/CustomPostTypes/Transcript.php:110
+#, fuzzy
 msgid "No Transcripts found in trash"
 msgstr "Nessuna trascrizione trovata nel cestino"
 
 #: includes/Core/CustomPostTypes/Transcript.php:111
 #: includes/Core/CustomPostTypes/Transcript.php:125
+#, fuzzy
 msgid "Parent transcript:"
-msgstr ""
+msgstr "Trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:112
+#, fuzzy
 msgid "Transcript archives"
 msgstr "Archivio trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:113
+#, fuzzy
 msgid "Insert into Transcript"
 msgstr "Inserisci nella trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:114
+#, fuzzy
 msgid "Upload to this Transcript"
 msgstr "Aggiorna trascrizione"
 
 #: includes/Core/CustomPostTypes/Transcript.php:115
+#, fuzzy
 msgid "Filter Transcripts list"
 msgstr "Filtra lista trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:116
+#, fuzzy
 msgid "Transcripts list navigation"
 msgstr "Lista navigazione trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:117
+#, fuzzy
 msgid "Transcripts list"
 msgstr "Lista trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:118
+#, fuzzy
 msgid "Transcripts attributes"
 msgstr "Attributi trascrizioni"
 
 #: includes/Core/CustomPostTypes/Transcript.php:120
+#, fuzzy
 msgid "Transcript published"
 msgstr "Trascrizione pubblicata"
 
 #: includes/Core/CustomPostTypes/Transcript.php:121
+#, fuzzy
 msgid "Transcript published privately."
 msgstr "Trascrizione pubblicata privatamente."
 
 #: includes/Core/CustomPostTypes/Transcript.php:122
+#, fuzzy
 msgid "Transcript reverted to draft."
 msgstr "Trascrizione ripristinata in bozza."
 
 #: includes/Core/CustomPostTypes/Transcript.php:123
+#, fuzzy
 msgid "Transcript scheduled"
 msgstr "Trascrizione pianificata"
 
 #: includes/Core/CustomPostTypes/Transcript.php:124
+#, fuzzy
 msgid "Transcript updated."
 msgstr "Trascrizione aggiornata."
 
 #: includes/Core/CustomPostTypes/Transcript.php:131
+#, fuzzy
 msgid "Video Transcripts"
 msgstr "Trascrizioni video"
 
 #: includes/Core/Sources/Vimeo.php:90 includes/Core/Sources/YouTube.php:135
+#, fuzzy
 msgid "Unable to create transcriptions. Invalid product license"
 msgstr ""
 "Impossibile creare i sottotitoli. La  licenza del prodotto non è valida"
 
 #: includes/Core/Sources/Vimeo.php:93
+#, fuzzy
 msgid ""
 "The transcript from this video could not be recovered, unsupported subtitle "
 "format"
@@ -355,82 +405,102 @@ msgstr ""
 
 #: includes/Core/Sources/Vimeo.php:109 includes/Core/Sources/YouTube.php:149
 #: includes/Core/Sources/YouTube.php:157 includes/Core/Sources/YouTube.php:183
+#, fuzzy
 msgid "Transcript not avaiable for this video."
 msgstr "Trascrizione non disponibile per questo video."
 
 #: includes/Core/Sources/Vimeo.php:136
+#, fuzzy
 msgid "License key is missing"
 msgstr "Licenza del prodotto è assente."
 
 #: includes/Core/Sources/YouTube.php:84 includes/Core/Sources/YouTube.php:104
+#, fuzzy
 msgid "Url not a valid youtube url"
 msgstr "Url youtube non valida"
 
 #: includes/Dashboard/PaymentTemplate.php:143
+#, fuzzy
 msgid "Update successfull!"
 msgstr "Aggiornamento riuscito!"
 
 #: includes/Dashboard/PaymentTemplate.php:145
+#, fuzzy
 msgid "Upgrade successfull!"
 msgstr "Modifica del piano avvenuta con successo"
 
 #: includes/Dashboard/PaymentTemplate.php:147
+#, fuzzy
 msgid "Downgrade successfull!"
 msgstr "Modifica del piano avvenuta con successo"
 
 #: includes/Dashboard/Settings.php:47
+#, fuzzy
 msgid "Wubtitle Settings"
 msgstr "Impostazioni Wubtitle"
 
 #: includes/Dashboard/Settings.php:89
+#, fuzzy
 msgid "Licensing"
 msgstr "Licenza"
 
 #: includes/Dashboard/Settings.php:93
+#, fuzzy
 msgid "Plan:"
 msgstr "Piano:"
 
 #: includes/Dashboard/Settings.php:102
+#, fuzzy
 msgid "Generated video subtitles:"
 msgstr "Sottotitoli generati:"
 
 #: includes/Dashboard/Settings.php:109
+#, fuzzy
 msgid "Video time spent:"
 msgstr "Tempo video utilizzato:"
 
 #: includes/Dashboard/Settings.php:111
+#, fuzzy
 msgid "hours"
 msgstr "ore"
 
 #: includes/Dashboard/Settings.php:116
+#, fuzzy
 msgid "The counters will be reset on:"
 msgstr "I contatori verranno resettati il:"
 
 #: includes/Dashboard/Settings.php:153
+#, fuzzy
 msgid "Payment successful"
 msgstr "Pagamento effettuato"
 
 #: includes/Dashboard/Settings.php:154
+#, fuzzy
 msgid "Payment information updated"
 msgstr "Metodo di pagamento aggiornato"
 
 #: includes/Dashboard/Settings.php:155
+#, fuzzy
 msgid "Unsubscription successful"
 msgstr "Iscrizione annullata con successo"
 
 #: includes/Dashboard/Settings.php:156
+#, fuzzy
 msgid "Reactivation of the plan successful"
 msgstr "Riattivazione del piano andato a buon fine"
 
 #: includes/Dashboard/Settings.php:157
+#, fuzzy
 msgid "Invalid license or domain, the license key will be reset"
 msgstr "Licenza o dominio non validi, la licenza verrà resettata"
 
 #: includes/Dashboard/Settings.php:186
+#, fuzzy
 msgid "Automatic renewal:"
 msgstr "Rinnovo automatico:"
 
 #: includes/Dashboard/Settings.php:188
+#, fuzzy
 msgid ""
 "You requested the subscription cancellation. Your plan will be valid until"
 msgstr ""
@@ -438,30 +508,37 @@ msgstr ""
 "fino al"
 
 #: includes/Dashboard/Settings.php:202
+#, fuzzy
 msgid "Unsubscribe"
 msgstr "Annulla l'iscrizione"
 
 #: includes/Dashboard/Settings.php:205
+#, fuzzy
 msgid "Update billing or payment details"
 msgstr "Aggiorna dettagli di fatturazione o di pagamento"
 
 #: includes/Dashboard/Settings.php:208
+#, fuzzy
 msgid "Modify plan"
 msgstr "Modifica piano"
 
 #: includes/Dashboard/Settings.php:214
+#, fuzzy
 msgid "Reactivate plan"
 msgstr "Riattiva piano"
 
 #: includes/Dashboard/Settings.php:248
+#, fuzzy
 msgid "Unable to update. Expired product license."
 msgstr "Impossibile aggiornare. Licenza del prodotto scaduta."
 
 #: includes/Dashboard/Settings.php:249
+#, fuzzy
 msgid "Unable to update. Invalid product license."
 msgstr "Impossibile aggiornare. Licenza del prodotto non valida."
 
 #: includes/Dashboard/Settings.php:250
+#, fuzzy
 msgid ""
 "An error occurred while updating licence. Please try again in a few minutes."
 msgstr ""
@@ -469,10 +546,12 @@ msgstr ""
 "nuovo tra qualche minuto."
 
 #: includes/Dashboard/Settings.php:251
+#, fuzzy
 msgid "Could not contact the server."
 msgstr "Impossibile contattare il server."
 
 #: includes/Dashboard/Settings.php:327
+#, fuzzy
 msgid ""
 "Upgrade feature temporarily disabled due to error loading the page. Please "
 "refresh the page and try again."
@@ -482,40 +561,49 @@ msgstr ""
 "riprova"
 
 #: includes/Dashboard/Settings.php:331
+#, fuzzy
 msgid "Upgrading and plan changes can only be done by the administrator"
 msgstr ""
 "Upgrading e cambio piano possono essere eseguito solo dall'amministratore"
 
 #: includes/Dashboard/Settings.php:336
+#, fuzzy
 msgid "Unlock more features!"
 msgstr "Sblocca più funzionalità!"
 
 #: includes/Dashboard/Settings.php:341
+#, fuzzy
 msgid "Upgrade"
-msgstr ""
+msgstr "Aggiorna il tuo piano"
 
 #: includes/Dashboard/Settings.php:351
+#, fuzzy
 msgid "License Number"
 msgstr "Numero licenza"
 
 #: includes/Dashboard/Settings.php:358
+#, fuzzy
 msgid "License key"
 msgstr "Licenza"
 
 #: includes/Dashboard/Settings.php:360
+#, fuzzy
 msgid "Please enter the license key you received after successful checkout"
 msgstr ""
 "Inserisci la chiave di licenza ricevuta dopo aver effettuato il checkout"
 
 #: includes/Dashboard/Settings.php:395
+#, fuzzy
 msgid "now!"
 msgstr " "
 
 #: includes/Dashboard/Templates/cancel_template.php:32
+#, fuzzy
 msgid "Are you sure you want to unsubscribe?"
 msgstr "Sei sicuro che vuoi annullare l'iscrizione?"
 
 #: includes/Dashboard/Templates/cancel_template.php:33
+#, fuzzy
 msgid ""
 "Are you sure you want to cancel your subscription? If you choose to "
 "continue, when the subscription expires your plan will return to free "
@@ -526,29 +614,35 @@ msgstr ""
 "perderai tutte le funzionalità aggiuntive"
 
 #: includes/Dashboard/Templates/cancel_template.php:35
+#, fuzzy
 msgid "Return to free version"
 msgstr "Ritorna alla versione free"
 
 #: includes/Dashboard/Templates/cancel_template.php:36
 #: includes/Dashboard/Templates/downgrade_plan_template.php:49
 #: includes/Dashboard/Templates/upgrade_plan_template.php:138
+#, fuzzy
 msgid "Forget it"
 msgstr "Annulla"
 
 #: includes/Dashboard/Templates/cancel_template.php:42
+#, fuzzy
 msgid "Or choose another plan"
 msgstr "O scegli un'altro piano"
 
 #: includes/Dashboard/Templates/cancel_template.php:57
 #: includes/Dashboard/Templates/payment_template.php:44
+#, fuzzy
 msgid "Per month"
 msgstr "Per mese"
 
 #: includes/Dashboard/Templates/downgrade_plan_template.php:25
+#, fuzzy
 msgid "Subscription plan downgrade"
 msgstr "Modifica piano di abbonamento"
 
 #: includes/Dashboard/Templates/downgrade_plan_template.php:26
+#, fuzzy
 msgid ""
 "Downgrading now, you will earn a credit that will be billed to you at the "
 "next charge"
@@ -557,11 +651,13 @@ msgstr ""
 "verrà utilizzato al pagamento successivo"
 
 #: includes/Dashboard/Templates/downgrade_plan_template.php:35
+#, fuzzy
 msgid "credit earnings"
 msgstr "di credito"
 
 #: includes/Dashboard/Templates/downgrade_plan_template.php:46
 #: includes/Dashboard/Templates/upgrade_plan_template.php:133
+#, fuzzy
 msgid ""
 "The subtitles already created and the minutes already used will be counted "
 "on the new subscription plan"
@@ -570,14 +666,17 @@ msgstr ""
 "nuovo piano di abbonamento"
 
 #: includes/Dashboard/Templates/downgrade_plan_template.php:48
+#, fuzzy
 msgid "Downgrade Now"
 msgstr "Modifica piano"
 
 #: includes/Dashboard/Templates/payment_template.php:29
+#, fuzzy
 msgid "Choose the right plan for your project"
 msgstr "Scegli il piano giusto per il tuo progetto"
 
 #: includes/Dashboard/Templates/plans_array.php:25
+#, fuzzy
 msgid ""
 "Unable to select this plan during the first month of subscription for "
 "current plan"
@@ -586,31 +685,38 @@ msgstr ""
 "abbonamento per il piano corrente"
 
 #: includes/Dashboard/Templates/plans_array.php:28
+#, fuzzy
 msgid "Minutes"
 msgstr "Minuti"
 
 #: includes/Dashboard/Templates/plans_array.php:28
+#, fuzzy
 msgid "Hours"
 msgstr "Ore"
 
 #: includes/Dashboard/Templates/plans_array.php:33
+#, fuzzy
 msgid "Choose this plan"
 msgstr "Scegli il piano"
 
 #: includes/Dashboard/Templates/plans_array.php:35
+#, fuzzy
 msgid "Number of video"
 msgstr "Numero di video"
 
 #: includes/Dashboard/Templates/plans_array.php:36
+#, fuzzy
 msgid "Total length of videos"
 msgstr "Lunghezza totale dei video"
 
 #: includes/Dashboard/Templates/plans_array.php:49 build_form/index.js:1
 #: src/stripe/Components/PlanTable.js:18
+#, fuzzy
 msgid "Your plan"
 msgstr "Il tuo piano"
 
 #: includes/Dashboard/Templates/thankyou_page.php:25
+#, fuzzy
 msgid ""
 "Update Wubtitle settings page on your site backoffice to view the changes or "
 "click on the button below"
@@ -619,85 +725,105 @@ msgstr ""
 "modifiche o fai clic sul pulsante in basso"
 
 #: includes/Dashboard/Templates/thankyou_page.php:26
+#, fuzzy
 msgid "BACK TO WUBTITLE"
 msgstr "TORNA A WUBTITLE"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:34
+#, fuzzy
 msgid "Upgrade your plan"
 msgstr "Aggiorna il tuo piano"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:37
+#, fuzzy
 msgid "Upgrading to"
 msgstr "Aggiornamento a"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:39
+#, fuzzy
 msgid "now you will be charged only for the price difference between"
 msgstr "ti verrà addebitata solo la differenza di prezzo tra"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:41
+#, fuzzy
 msgid "plan and your current plan with no changes to your billing period. "
 msgstr "piano e il piano attuale senza modifiche al periodo di fatturazione. "
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:66
+#, fuzzy
 msgid "You will pay:"
 msgstr "Pagherai:"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:75
 #: includes/Dashboard/Templates/upgrade_plan_template.php:101
+#, fuzzy
 msgid " (VAT)"
 msgstr "(IVA)"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:82
+#, fuzzy
 msgid "What you pay now (Discounted"
 msgstr "Cosa paghi adesso (scontato"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:84
+#, fuzzy
 msgid "Price)"
 msgstr "Prezzo)"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:89
+#, fuzzy
 msgid "Until "
 msgstr "Fino"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:108
+#, fuzzy
 msgid "What you pay monthly (Full"
 msgstr "Quanto paghi mensilmente(Full"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:110
+#, fuzzy
 msgid "price)"
 msgstr "rezzo)"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:115
+#, fuzzy
 msgid "From "
 msgstr "a partire da"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:123
+#, fuzzy
 msgid "Current Payment details"
 msgstr "Dettagli di pagamento corrente"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:127
+#, fuzzy
 msgid "Name: "
 msgstr "Nome:"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:128
+#, fuzzy
 msgid "Email: "
-msgstr ""
+msgstr "Aggiorna email o dettagli pagamento"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:129
+#, fuzzy
 msgid "Card: "
 msgstr "Carta:"
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:130
+#, fuzzy
 msgid "Expiration Date: "
 msgstr "Data di scadenza: "
 
 #: includes/Dashboard/Templates/upgrade_plan_template.php:139
+#, fuzzy
 msgid "Upgrade Now"
 msgstr "Modifica piano"
 
 #: includes/MediaLibrary/ListingSubtitles.php:36
 #: includes/MediaLibrary/MediaLibraryExtented.php:82
 #: includes/MediaLibrary/MediaLibraryExtented.php:114
+#, fuzzy
 msgid "Subtitle"
 msgstr "Sottotitoli"
 
@@ -705,6 +831,7 @@ msgstr "Sottotitoli"
 #: includes/MediaLibrary/MediaLibraryExtented.php:56
 #: includes/MediaLibrary/MediaLibraryExtented.php:187 build/index.js:1
 #: src/block/labels.js:13
+#, fuzzy
 msgid "Generating"
 msgstr "In Creazione"
 
@@ -714,6 +841,7 @@ msgstr "In Creazione"
 #: includes/MediaLibrary/MediaLibraryExtented.php:188
 #: includes/MediaLibrary/MediaLibraryExtented.php:264 build/index.js:1
 #: src/block/labels.js:14
+#, fuzzy
 msgid "Draft"
 msgstr "In bozza"
 
@@ -723,6 +851,7 @@ msgstr "In bozza"
 #: includes/MediaLibrary/MediaLibraryExtented.php:189
 #: includes/MediaLibrary/MediaLibraryExtented.php:263 build/index.js:1
 #: src/block/SubtitleControl.js:73
+#, fuzzy
 msgid "Published"
 msgstr "Pubblicati"
 
@@ -731,6 +860,7 @@ msgstr "Pubblicati"
 #: includes/MediaLibrary/MediaLibraryExtented.php:190 build/index.js:1
 #: src/block/EmbedControlPanel.js:11 src/block/labels.js:16
 #: src/block/WubtitlePanel.js:66
+#, fuzzy
 msgid "None"
 msgstr "Nessuno"
 
@@ -738,6 +868,7 @@ msgstr "Nessuno"
 #: includes/MediaLibrary/MediaLibraryExtented.php:59
 #: includes/MediaLibrary/MediaLibraryExtented.php:191 build/index.js:1
 #: src/block/WubtitlePanel.js:65
+#, fuzzy
 msgid "Error"
 msgstr "Errore"
 
@@ -745,18 +876,21 @@ msgstr "Errore"
 #: includes/MediaLibrary/MediaLibraryExtented.php:132
 #: includes/MediaLibrary/MediaLibraryExtented.php:236
 #: includes/MediaLibrary/MediaLibraryExtented.php:280
+#, fuzzy
 msgid "Language"
 msgstr "Lingua"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:104
 #: includes/MediaLibrary/MediaLibraryExtented.php:292 build/index.js:1
 #: src/block/WubtitlePanel.js:85
+#, fuzzy
 msgid "GENERATE SUBTITLES"
 msgstr "GENERA SOTTOTITOLI"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:159
 #: includes/MediaLibrary/MediaLibraryExtented.php:367 build/index.js:1
 #: src/block/labels.js:4 src/block/labels.js:22 src/block/labels.js:49
+#, fuzzy
 msgid "Italian"
 msgstr "Italiano"
 
@@ -764,42 +898,50 @@ msgstr "Italiano"
 #: includes/MediaLibrary/MediaLibraryExtented.php:368
 #: includes/Utils/VimeoHelper.php:56 build/index.js:1 src/block/labels.js:5
 #: src/block/labels.js:26 src/block/labels.js:54
+#, fuzzy
 msgid "English"
 msgstr "Inglese"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:161
 #: includes/MediaLibrary/MediaLibraryExtented.php:369 build/index.js:1
 #: src/block/labels.js:6 src/block/labels.js:30
+#, fuzzy
 msgid "Spanish"
 msgstr "Spagnolo"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:162
 #: includes/MediaLibrary/MediaLibraryExtented.php:370 build/index.js:1
 #: src/block/labels.js:7 src/block/labels.js:34
+#, fuzzy
 msgid "German"
 msgstr "Tedesco"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:163
 #: includes/MediaLibrary/MediaLibraryExtented.php:371 build/index.js:1
 #: src/block/labels.js:8 src/block/labels.js:38
+#, fuzzy
 msgid "Chinese"
 msgstr "Cinese"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:164
 #: includes/MediaLibrary/MediaLibraryExtented.php:372 build/index.js:1
 #: src/block/labels.js:9 src/block/labels.js:42
+#, fuzzy
 msgid "French"
 msgstr "Francese"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:214
+#, fuzzy
 msgid "Subtitles"
 msgstr "Sottotitoli"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:218
+#, fuzzy
 msgid "Status"
 msgstr "Stato"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:243
+#, fuzzy
 msgid ""
 "Wait while subtitles are created. Subtitles will be available as soon as "
 "possible"
@@ -808,515 +950,643 @@ msgstr ""
 "il prima possibile"
 
 #: includes/MediaLibrary/TrascriptionsExtends.php:66
+#, fuzzy
 msgid "Add transcription"
 msgstr "Aggiungi trascrizione"
 
 #: includes/Utils/InvoiceHelper.php:58 includes/Utils/InvoiceHelper.php:107
 #: includes/Utils/InvoiceHelper.php:204
+#, fuzzy
 msgid "Error. The product license key is missing."
 msgstr "Errore, la licenza del prodotto è assente."
 
 #: includes/Utils/InvoiceHelper.php:305
+#, fuzzy
 msgid "Invalid Coupon"
 msgstr "Coupon non valido"
 
 #: includes/Utils/VimeoHelper.php:25
+#, fuzzy
 msgid "Afrikaans"
 msgstr "Africano"
 
 #: includes/Utils/VimeoHelper.php:26
+#, fuzzy
 msgid "Albanian"
 msgstr "Albanese"
 
 #: includes/Utils/VimeoHelper.php:27
+#, fuzzy
 msgid "Arabic (U.A.E.)"
 msgstr "Arabo (U.A.E.)"
 
 #: includes/Utils/VimeoHelper.php:28
+#, fuzzy
 msgid "Arabic (Bahrain)"
 msgstr "Arabo (Bahrain)"
 
 #: includes/Utils/VimeoHelper.php:29
+#, fuzzy
 msgid "Arabic (Algeria)"
 msgstr "Arabo (Algeria)"
 
 #: includes/Utils/VimeoHelper.php:30
+#, fuzzy
 msgid "Arabic (Egypt)"
 msgstr "Arabo (Egitto)"
 
 #: includes/Utils/VimeoHelper.php:31
+#, fuzzy
 msgid "Arabic (Iraq)"
 msgstr "Arabo (Iraq)"
 
 #: includes/Utils/VimeoHelper.php:32
+#, fuzzy
 msgid "Arabic (Jordan)"
 msgstr "Arabo (Jordan)"
 
 #: includes/Utils/VimeoHelper.php:33
+#, fuzzy
 msgid "Arabic (Kuwait)"
 msgstr "Arabo (Kuwait)"
 
 #: includes/Utils/VimeoHelper.php:34
+#, fuzzy
 msgid "Arabic (Lebanon)"
 msgstr "Arabo (Lebanon)"
 
 #: includes/Utils/VimeoHelper.php:35
+#, fuzzy
 msgid "Arabic (Libya)"
 msgstr "Arabo (Libia)"
 
 #: includes/Utils/VimeoHelper.php:36
+#, fuzzy
 msgid "Arabic (Morocco)"
 msgstr "Arabo (Marocco)"
 
 #: includes/Utils/VimeoHelper.php:37
+#, fuzzy
 msgid "Arabic (Oman)"
 msgstr "Arabo (Oman)"
 
 #: includes/Utils/VimeoHelper.php:38
+#, fuzzy
 msgid "Arabic (Qatar)"
 msgstr "Arabo (Qatar)"
 
 #: includes/Utils/VimeoHelper.php:39
+#, fuzzy
 msgid "Arabic (Saudi Arabia)"
 msgstr "Arabo (Arabia Saudita)"
 
 #: includes/Utils/VimeoHelper.php:40
+#, fuzzy
 msgid "Arabic (Syria)"
 msgstr "Arabo (Siria)"
 
 #: includes/Utils/VimeoHelper.php:41
+#, fuzzy
 msgid "Arabic (Tunisia)"
 msgstr "Arabo (Tunisia)"
 
 #: includes/Utils/VimeoHelper.php:42
+#, fuzzy
 msgid "Arabic (Yemen)"
 msgstr "Arabo (Yemen)"
 
 #: includes/Utils/VimeoHelper.php:43
+#, fuzzy
 msgid "Basque"
 msgstr "Basco"
 
 #: includes/Utils/VimeoHelper.php:44
+#, fuzzy
 msgid "Belarusian"
 msgstr "Biellorussia"
 
 #: includes/Utils/VimeoHelper.php:45
+#, fuzzy
 msgid "Bulgarian"
 msgstr "Bulgaro"
 
 #: includes/Utils/VimeoHelper.php:46
+#, fuzzy
 msgid "Catalan"
 msgstr "Catalano"
 
 #: includes/Utils/VimeoHelper.php:47
+#, fuzzy
 msgid "Croatian"
 msgstr "Croato"
 
 #: includes/Utils/VimeoHelper.php:48
+#, fuzzy
 msgid "Chinese (PRC)"
 msgstr "Cinese (PRC)"
 
 #: includes/Utils/VimeoHelper.php:49
+#, fuzzy
 msgid "Chinese (Hong Kong)"
 msgstr "Cinese (Hong Kong)"
 
 #: includes/Utils/VimeoHelper.php:50
+#, fuzzy
 msgid "Chinese (Singapore)"
 msgstr "Cinese (Singapore)"
 
 #: includes/Utils/VimeoHelper.php:51
+#, fuzzy
 msgid "Chinese (Taiwan)"
 msgstr "Cinese (Taiwan)"
 
 #: includes/Utils/VimeoHelper.php:52
+#, fuzzy
 msgid "Czech"
 msgstr "Ceco"
 
 #: includes/Utils/VimeoHelper.php:53
+#, fuzzy
 msgid "Danish"
 msgstr "Danese"
 
 #: includes/Utils/VimeoHelper.php:54
+#, fuzzy
 msgid "Dutch (Standard)"
 msgstr "Olandese (Standard)"
 
 #: includes/Utils/VimeoHelper.php:55
+#, fuzzy
 msgid "Dutch (Belgium)"
 msgstr "Oldandese (Belgio)"
 
 #: includes/Utils/VimeoHelper.php:57
+#, fuzzy
 msgid "English (Australia)"
 msgstr "Inglese (Australia)"
 
 #: includes/Utils/VimeoHelper.php:58
+#, fuzzy
 msgid "English (Belize)"
 msgstr "Inglese (Belize)"
 
 #: includes/Utils/VimeoHelper.php:59
+#, fuzzy
 msgid "English (Canada)"
 msgstr "Inglese (Canada)"
 
 #: includes/Utils/VimeoHelper.php:60
+#, fuzzy
 msgid "English (United Kingdom)"
 msgstr "Inglese (Regno Unito)"
 
 #: includes/Utils/VimeoHelper.php:61
+#, fuzzy
 msgid "English (Ireland)"
 msgstr "Inglese (Irlanda)"
 
 #: includes/Utils/VimeoHelper.php:62
+#, fuzzy
 msgid "English (Jamaica)"
 msgstr "Inglese (Jamaica)"
 
 #: includes/Utils/VimeoHelper.php:63
+#, fuzzy
 msgid "English (New Zealand)"
 msgstr "Inglese (Nuova Zelanda)"
 
 #: includes/Utils/VimeoHelper.php:64
+#, fuzzy
 msgid "English (Trinidad)"
 msgstr "Inglese (Trinidad)"
 
 #: includes/Utils/VimeoHelper.php:65
+#, fuzzy
 msgid "English (United States)"
 msgstr "Inglese (Stati Uniti)"
 
 #: includes/Utils/VimeoHelper.php:66
+#, fuzzy
 msgid "English (South Africa)"
 msgstr "Inglese (Sud Africa)"
 
 #: includes/Utils/VimeoHelper.php:67
+#, fuzzy
 msgid "Estonian"
 msgstr "Estone"
 
 #: includes/Utils/VimeoHelper.php:68
+#, fuzzy
 msgid "Farsi"
 msgstr "Farsi"
 
 #: includes/Utils/VimeoHelper.php:69
+#, fuzzy
 msgid "Finnish"
 msgstr "Finlandese"
 
 #: includes/Utils/VimeoHelper.php:70
+#, fuzzy
 msgid "Faeroese"
 msgstr "Faeroese"
 
 #: includes/Utils/VimeoHelper.php:71
+#, fuzzy
 msgid "French (Standard)"
 msgstr "Francese (Standard)"
 
 #: includes/Utils/VimeoHelper.php:72
+#, fuzzy
 msgid "French (Belgium)"
 msgstr "Francese (Belgio)"
 
 #: includes/Utils/VimeoHelper.php:73
+#, fuzzy
 msgid "French (Canada)"
 msgstr "Francese (Canada)"
 
 #: includes/Utils/VimeoHelper.php:74
+#, fuzzy
 msgid "French (Switzerland)"
 msgstr "Francese (Svizzera)"
 
 #: includes/Utils/VimeoHelper.php:75
+#, fuzzy
 msgid "French (Luxembourg)"
 msgstr "Francese (Lussenburgo)"
 
 #: includes/Utils/VimeoHelper.php:76
+#, fuzzy
 msgid "Gaelic (Scotland)"
 msgstr "Gaelico (Scozia)"
 
 #: includes/Utils/VimeoHelper.php:77
+#, fuzzy
 msgid "German (Standard)"
 msgstr "Tedesco (Standard)"
 
 #: includes/Utils/VimeoHelper.php:78
+#, fuzzy
 msgid "German (Austria)"
 msgstr "Tedesco (Austria)"
 
 #: includes/Utils/VimeoHelper.php:79
+#, fuzzy
 msgid "German (Switzerland)"
 msgstr "Tedesco (Svizzera)"
 
 #: includes/Utils/VimeoHelper.php:80
+#, fuzzy
 msgid "German (Liechtenstein)"
 msgstr "Tedesco (Liechtenstein)"
 
 #: includes/Utils/VimeoHelper.php:81
+#, fuzzy
 msgid "German (Luxembourg)"
 msgstr "Tedesco (Lussenburgo)"
 
 #: includes/Utils/VimeoHelper.php:82
+#, fuzzy
 msgid "Greek"
 msgstr "Greco"
 
 #: includes/Utils/VimeoHelper.php:83
+#, fuzzy
 msgid "Irish"
 msgstr "Irlandese"
 
 #: includes/Utils/VimeoHelper.php:84
+#, fuzzy
 msgid "Hebrew"
 msgstr "Ebraico"
 
 #: includes/Utils/VimeoHelper.php:85
+#, fuzzy
 msgid "Hindi"
 msgstr "Hindi"
 
 #: includes/Utils/VimeoHelper.php:86
+#, fuzzy
 msgid "Hungarian"
 msgstr "Ungherese"
 
 #: includes/Utils/VimeoHelper.php:87
+#, fuzzy
 msgid "Indonesian"
 msgstr "Indonesiano"
 
 #: includes/Utils/VimeoHelper.php:88
+#, fuzzy
 msgid "Icelandic"
 msgstr "Islandese"
 
 #: includes/Utils/VimeoHelper.php:89
+#, fuzzy
 msgid "Italian (Standard)"
 msgstr "Italiano (Standard)"
 
 #: includes/Utils/VimeoHelper.php:90
+#, fuzzy
 msgid "Italian (Switzerland)"
 msgstr "Italiano (Svizzera)"
 
 #: includes/Utils/VimeoHelper.php:91
+#, fuzzy
 msgid "Japanese"
 msgstr "Giapponese"
 
 #: includes/Utils/VimeoHelper.php:92
+#, fuzzy
 msgid "Korean (Johab)"
 msgstr "Coreano (Johab)"
 
 #: includes/Utils/VimeoHelper.php:93
+#, fuzzy
 msgid "Kurdish"
 msgstr "Curdo"
 
 #: includes/Utils/VimeoHelper.php:94
+#, fuzzy
 msgid "Lithuanian"
 msgstr "Lituano"
 
 #: includes/Utils/VimeoHelper.php:95
+#, fuzzy
 msgid "Latvian"
 msgstr "Lettone"
 
 #: includes/Utils/VimeoHelper.php:96
+#, fuzzy
 msgid "Macedonian (FYROM)"
 msgstr "Macedone (FYROM)"
 
 #: includes/Utils/VimeoHelper.php:97
+#, fuzzy
 msgid "Malayalam"
 msgstr "Malayalam"
 
 #: includes/Utils/VimeoHelper.php:98
+#, fuzzy
 msgid "Malaysian"
 msgstr "Malese"
 
 #: includes/Utils/VimeoHelper.php:99
+#, fuzzy
 msgid "Maltese"
 msgstr "Maltese"
 
 #: includes/Utils/VimeoHelper.php:100
+#, fuzzy
 msgid "Norwegian (Bokmål)"
 msgstr "Norvegese (Bokmål)"
 
 #: includes/Utils/VimeoHelper.php:101
+#, fuzzy
 msgid "Norwegian (Nynorsk)"
 msgstr "Norvegese (Nynorsk)"
 
 #: includes/Utils/VimeoHelper.php:102
+#, fuzzy
 msgid "Norwegian"
 msgstr "Norvegese"
 
 #: includes/Utils/VimeoHelper.php:103
+#, fuzzy
 msgid "Punjabi"
 msgstr "Punjabi"
 
 #: includes/Utils/VimeoHelper.php:104
+#, fuzzy
 msgid "Polish"
 msgstr "Polacco"
 
 #: includes/Utils/VimeoHelper.php:105
+#, fuzzy
 msgid "Portuguese (Portugal)"
 msgstr "Portoghese (Portogallo)"
 
 #: includes/Utils/VimeoHelper.php:106
+#, fuzzy
 msgid "Portuguese (Brazil)"
 msgstr "Portoghese (Brasile)"
 
 #: includes/Utils/VimeoHelper.php:107
+#, fuzzy
 msgid "Rhaeto-Romanic"
 msgstr "Retoromanico"
 
 #: includes/Utils/VimeoHelper.php:108
+#, fuzzy
 msgid "Romanian"
 msgstr "Rumeno"
 
 #: includes/Utils/VimeoHelper.php:109
+#, fuzzy
 msgid "Romanian (Republic of Moldova)"
 msgstr "Rumeno (Repubblica di Moldova)"
 
 #: includes/Utils/VimeoHelper.php:110
+#, fuzzy
 msgid "Russian"
 msgstr "Russo"
 
 #: includes/Utils/VimeoHelper.php:111
+#, fuzzy
 msgid "Russian (Republic of Moldova)"
 msgstr "Russo (Repubblica di Moldova)"
 
 #: includes/Utils/VimeoHelper.php:112
+#, fuzzy
 msgid "Sorbian"
 msgstr "Sorabo"
 
 #: includes/Utils/VimeoHelper.php:113
+#, fuzzy
 msgid "Slovak"
 msgstr "Slovacco"
 
 #: includes/Utils/VimeoHelper.php:114
+#, fuzzy
 msgid "Slovenian"
 msgstr "Sloveno"
 
 #: includes/Utils/VimeoHelper.php:115
+#, fuzzy
 msgid "Serbian"
 msgstr "Serbo"
 
 #: includes/Utils/VimeoHelper.php:116
+#, fuzzy
 msgid "Spanish (Spain)"
 msgstr "Spagnolo (Spagna)"
 
 #: includes/Utils/VimeoHelper.php:117
+#, fuzzy
 msgid "Spanish (Argentina)"
 msgstr "Spagnolo (Argentina)"
 
 #: includes/Utils/VimeoHelper.php:118
+#, fuzzy
 msgid "Spanish (Bolivia)"
 msgstr "Spagnolo (Bolivia)"
 
 #: includes/Utils/VimeoHelper.php:119
+#, fuzzy
 msgid "Spanish (Chile)"
 msgstr "Spagnolo (Cile)"
 
 #: includes/Utils/VimeoHelper.php:120
+#, fuzzy
 msgid "Spanish (Colombia)"
 msgstr "Spagnolo (Colombia)"
 
 #: includes/Utils/VimeoHelper.php:121
+#, fuzzy
 msgid "Spanish (Costa Rica)"
 msgstr "Spagnolo (Costa Rica)"
 
 #: includes/Utils/VimeoHelper.php:122
+#, fuzzy
 msgid "Spanish (Dominican Republic)"
 msgstr "Spagnolo (Repubblica Domenicana)"
 
 #: includes/Utils/VimeoHelper.php:123
+#, fuzzy
 msgid "Spanish (Ecuador)"
 msgstr "Spagnolo (Equador)"
 
 #: includes/Utils/VimeoHelper.php:124
+#, fuzzy
 msgid "Spanish (Guatemala)"
 msgstr "Spagnolo (Guatemala)"
 
 #: includes/Utils/VimeoHelper.php:125
+#, fuzzy
 msgid "Spanish (Honduras)"
 msgstr "Spagnolo (Honduras)"
 
 #: includes/Utils/VimeoHelper.php:126
+#, fuzzy
 msgid "Spanish (Mexico)"
 msgstr "Spagnolo (Messico)"
 
 #: includes/Utils/VimeoHelper.php:127
+#, fuzzy
 msgid "Spanish (Nicaragua)"
 msgstr "Spagnolo (Nicaragua)"
 
 #: includes/Utils/VimeoHelper.php:128
+#, fuzzy
 msgid "Spanish (Panama)"
 msgstr "Spagnolo (Panama)"
 
 #: includes/Utils/VimeoHelper.php:129
+#, fuzzy
 msgid "Spanish (Peru)"
 msgstr "Spagnolo (Perù)"
 
 #: includes/Utils/VimeoHelper.php:130
+#, fuzzy
 msgid "Spanish (Puerto Rico)"
 msgstr "Spagnolo (Porto Rico)"
 
 #: includes/Utils/VimeoHelper.php:131
+#, fuzzy
 msgid "Spanish (Paraguay)"
 msgstr "Spagnolo (Paraguay)"
 
 #: includes/Utils/VimeoHelper.php:132
+#, fuzzy
 msgid "Spanish (El Salvador)"
 msgstr "Spagnolo (El Salvador)"
 
 #: includes/Utils/VimeoHelper.php:133
+#, fuzzy
 msgid "Spanish (Uruguay)"
 msgstr "Spagnolo (Uruguay)"
 
 #: includes/Utils/VimeoHelper.php:134
+#, fuzzy
 msgid "Spanish (Venezuela)"
 msgstr "Spagnolo (Venezuela)"
 
 #: includes/Utils/VimeoHelper.php:135
+#, fuzzy
 msgid "Swedish"
 msgstr "Svedese"
 
 #: includes/Utils/VimeoHelper.php:136
+#, fuzzy
 msgid "Swedish (Finland)"
 msgstr "Svedese (Finlandia)"
 
 #: includes/Utils/VimeoHelper.php:137
+#, fuzzy
 msgid "Thai"
 msgstr "Tailandese"
 
 #: includes/Utils/VimeoHelper.php:138
+#, fuzzy
 msgid "Tswana"
 msgstr "Tswana"
 
 #: includes/Utils/VimeoHelper.php:139
+#, fuzzy
 msgid "Turkish"
 msgstr "Turco"
 
 #: includes/Utils/VimeoHelper.php:140
+#, fuzzy
 msgid "Tsonga"
 msgstr "Tsonga"
 
 #: includes/Utils/VimeoHelper.php:141
+#, fuzzy
 msgid "Ukrainian"
 msgstr "Ucraino"
 
 #: includes/Utils/VimeoHelper.php:142
+#, fuzzy
 msgid "Urdu"
 msgstr "Urdu"
 
 #: includes/Utils/VimeoHelper.php:143
+#, fuzzy
 msgid "Venda"
 msgstr "Venda"
 
 #: includes/Utils/VimeoHelper.php:144
+#, fuzzy
 msgid "Vietnamese"
 msgstr "Vietnamese"
 
 #: includes/Utils/VimeoHelper.php:145
+#, fuzzy
 msgid "Welsh"
 msgstr "Gallese"
 
 #: includes/Utils/VimeoHelper.php:146
+#, fuzzy
 msgid "Xhosa"
 msgstr "Xhosa"
 
 #: includes/Utils/VimeoHelper.php:147
+#, fuzzy
 msgid "Yiddish"
 msgstr "Yiddish"
 
 #: includes/Utils/VimeoHelper.php:148
+#, fuzzy
 msgid "Zulu"
 msgstr "Zulu"
 
 #: assets/editor/transcriptionModalScript.js:47
+#, fuzzy
 msgid "Transcription of the video"
 msgstr "Trascrizione del video"
 
 #: assets/editor/transcriptionModalScript.js:69
+#, fuzzy
 msgid "Error, language not selected"
 msgstr "Errore, lingua non selezionata"
 
@@ -1325,10 +1595,12 @@ msgstr "Errore, lingua non selezionata"
 #: assets/editor/transcriptionModalScript.js:168
 #: assets/editor/transcriptionModalScript.js:192 build/index.js:1
 #: src/block/EmbedControlPanel.js:93
+#, fuzzy
 msgid "Select language"
 msgstr "Seleziona la lingua"
 
 #: assets/editor/transcriptionModalScript.js:118
+#, fuzzy
 msgid ""
 "Error: this video does not contain subtitles. Select a video with subtitles "
 "to generate the transcript"
@@ -1337,303 +1609,372 @@ msgstr ""
 "sottotitoli per generare la trascrizione"
 
 #: assets/editor/transcriptionModalScript.js:161
+#, fuzzy
 msgid "Language of trascription"
 msgstr "Lingua della trascrizione"
 
 #: build/index.js:1 src/block/labels.js:15
+#, fuzzy
 msgid "Enabled"
 msgstr "Attivati"
 
 #: build/index.js:1 src/block/labels.js:59
+#, fuzzy
 msgid "Spanish (Pro only)"
 msgstr "Spagnolo (solo Pro)"
 
 #: build/index.js:1 src/block/labels.js:64
+#, fuzzy
 msgid "German (Pro only)"
 msgstr "Tedesco (solo Pro)"
 
 #: build/index.js:1 src/block/labels.js:69
+#, fuzzy
 msgid "Chinese (Pro only)"
 msgstr "Cinese (solo Pro)"
 
 #: build/index.js:1 src/block/labels.js:74
+#, fuzzy
 msgid "French (Pro only)"
 msgstr "Francese (solo Pro)"
 
 #: build/index.js:1 src/block/PendingSubtitle.js:7
 #: src/block/SubtitleControl.js:67 src/block/WubtitlePanel.js:69
+#, fuzzy
 msgid "Status:"
 msgstr "Stato:"
 
 #: build/index.js:1 src/block/PendingSubtitle.js:8
 #: src/block/SubtitleControl.js:70
+#, fuzzy
 msgid "Language:"
 msgstr "Lingua:"
 
 #: build/index.js:1 src/block/SubtitleControl.js:29
+#, fuzzy
 msgid "Getting transcript…"
 msgstr "Generazione trascrizione..."
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:143
 #: src/block/SubtitleControl.js:80
+#, fuzzy
 msgid "Get Transcribe"
 msgstr "Ottieni trascrizione"
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:124
 #: src/block/WubtitlePanel.js:71
+#, fuzzy
 msgid "Select the video language"
 msgstr "Seleziona la lingua del video"
 
 #: build/index.js:1 src/block/WubtitlePanel.js:116
+#, fuzzy
 msgid "Subtitle creation successfully started"
 msgstr "Creazione dei sottotitoli avviata con successo"
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:74
+#, fuzzy
 msgid "Subtitles not available for this video"
 msgstr "Sottotitoli non disponibili per questo video"
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:108
+#, fuzzy
 msgid "Transcript status:"
 msgstr "Stato trascrizione:"
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:117
+#, fuzzy
 msgid "Get Video Info"
 msgstr "Informazioni Video"
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:52
+#, fuzzy
 msgid "Created"
 msgstr "Creata"
 
 #: build/index.js:1 src/block/TranscriptionEditBlock.js:108
+#, fuzzy
 msgid "Wubtitle transcriptions"
 msgstr "Trascrizioni Wubtitle"
 
 #: build/index.js:1 src/block/TranscriptionEditBlock.js:112
+#, fuzzy
 msgid "Insert transcriptions"
 msgstr "Inserisci trascrizioni"
 
 #: build/index.js:1 src/block/TranscriptionEditBlock.js:117
+#, fuzzy
 msgid "Enter the title of the video you want to transcribe"
 msgstr "Scrivi il titolo del video del quale vuoi inserire la trascrizione"
 
 #: build/index.js:1 src/block/trascriptionBlock.js:6
+#, fuzzy
 msgid "Trascription"
 msgstr "Trascrizione"
 
 #: build/index.js:1 src/block/trascriptionBlock.js:8
+#, fuzzy
 msgid "Enter the transcript of your video"
 msgstr "Inserisci la trascrizione del tuo video"
 
 #: build_form/index.js:1 src/stripe/Components/CardSection.js:33
+#, fuzzy
 msgid "Card details"
 msgstr "Dettagli carta"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:31
 #: src/stripe/Components/InvoiceForm.js:17
+#, fuzzy
 msgid "Required"
 msgstr "Obbligat"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:38
 #: src/stripe/Components/InvoiceForm.js:44
+#, fuzzy
 msgid "Invalid email"
 msgstr "Email non valida"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:88
+#, fuzzy
 msgid "Coupon"
-msgstr ""
+msgstr "Applica Coupon"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:95
+#, fuzzy
 msgid "Discount Code"
 msgstr "Codice Sconto"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:114
+#, fuzzy
 msgid "Apply Coupon"
 msgstr "Applica Coupon"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:120
+#, fuzzy
 msgid "Payment Details"
 msgstr "Dettagli di pagamento"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:125
+#, fuzzy
 msgid "editing enabled"
 msgstr "modalità modifica attivata"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:126
+#, fuzzy
 msgid "editing disabled"
 msgstr "modalità modifica disattivata"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:144
 #: src/stripe/Components/InvoiceSummary.js:40
+#, fuzzy
 msgid "Email"
-msgstr ""
+msgstr "Aggiorna email o dettagli pagamento"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:148
+#, fuzzy
 msgid "Card Details"
 msgstr "Dettagli carta"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:154
 #: src/stripe/Components/CheckoutForm.js:197
+#, fuzzy
 msgid "Card Holder"
 msgstr "Titolare della carta"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:158
+#, fuzzy
 msgid "Expires"
 msgstr "Scadenza"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:217
+#, fuzzy
 msgid "Back"
 msgstr "Indietro"
 
 #: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:226
+#, fuzzy
 msgid "Subscribe"
 msgstr "Iscrizione"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:48
+#, fuzzy
 msgid "Telephone number required"
 msgstr "Numero di telefono richiesto"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:49
 #: src/stripe/Components/InvoiceForm.js:73
 #: src/stripe/Components/InvoiceForm.js:96
+#, fuzzy
 msgid "Only numbers"
 msgstr "Solo numeri"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:51
+#, fuzzy
 msgid "Prefix required"
 msgstr "Prefisso obbligatorio"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:54
+#, fuzzy
 msgid "Prefix is only numbers"
 msgstr "Prefisso: solo numeri"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:56
+#, fuzzy
 msgid "Prefix must be max 3 numbers"
 msgstr "Il prefisso ha massimo 3 numeri"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:71
+#, fuzzy
 msgid "Vat Code must be exactly 11 characters"
 msgstr "La partita iva deve essere esattamente di 11 caratteri"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:81
+#, fuzzy
 msgid "Fiscal Code must be exactly 16 characters"
 msgstr "Il codice fiscale deve essere esattamente di 16 caratteri"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:85
+#, fuzzy
 msgid "Invalid Fiscal Code"
 msgstr "Codice fiscale non valido"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:94
+#, fuzzy
 msgid "Postal Code must be exactly 5 characters"
 msgstr "Il codice postale deve essere esattamente di 5 caratteri"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:100
+#, fuzzy
 msgid "Destination Code must be exactly 7 characters"
 msgstr "Codice di destinazioni deve essere esattamente di 7 caratteri"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:151
+#, fuzzy
 msgid "Billing Details"
 msgstr "Dettagli fatturazione"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:164
 #: src/stripe/Components/InvoiceSummary.js:36
+#, fuzzy
 msgid "Name"
 msgstr "Nome"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:177
 #: src/stripe/Components/InvoiceSummary.js:72
+#, fuzzy
 msgid "Lastname"
 msgstr "Cognome"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:197
 #: src/stripe/Components/InvoiceSummary.js:77
+#, fuzzy
 msgid "Company Name"
 msgstr "Nome azienda"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:209
 #: src/stripe/Components/InvoiceSummary.js:44
+#, fuzzy
 msgid "Country"
 msgstr "Nazione"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:233
 #: src/stripe/Components/InvoiceSummary.js:86
+#, fuzzy
 msgid "Province"
 msgstr "Provincia"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:253
 #: src/stripe/Components/InvoiceSummary.js:94
+#, fuzzy
 msgid "City"
 msgstr "Città"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:262
 #: src/stripe/Components/InvoiceSummary.js:56
+#, fuzzy
 msgid "Address"
 msgstr "Indirizzo"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:275
 #: src/stripe/Components/InvoiceSummary.js:49
+#, fuzzy
 msgid "Postal Code"
 msgstr "Codice postale"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:291
+#, fuzzy
 msgid "Vat Code"
 msgstr "Partita iva"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:313
 #: src/stripe/Components/InvoiceSummary.js:100
+#, fuzzy
 msgid "Fiscal Code"
 msgstr "Codice fiscale"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:325
 #: src/stripe/Components/InvoiceSummary.js:62
+#, fuzzy
 msgid "Telephone"
 msgstr "Numero di telefono"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:355
 #: src/stripe/Components/InvoiceSummary.js:120
+#, fuzzy
 msgid "Destination Code"
 msgstr "Codice di destinazione"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:372
+#, fuzzy
 msgid "Cancel"
 msgstr "Annulla"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:378
+#, fuzzy
 msgid "Next"
 msgstr "Avanti"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceSummary.js:24
+#, fuzzy
 msgid "Billing Recap"
 msgstr "Riepilogo dati di fattura"
 
 #: build_form/index.js:1 src/stripe/Components/InvoiceSummary.js:110
+#, fuzzy
 msgid "VAT Code"
 msgstr "Partita IVA"
 
 #: build_form/index.js:1 src/stripe/Components/PlanTable.js:22
 #: src/stripe/Components/PriceTable.js:22
+#, fuzzy
 msgid "Price"
 msgstr "Prezzo"
 
 #: build_form/index.js:1 src/stripe/Components/PlanTable.js:27
 #: src/stripe/Components/PriceTable.js:37
+#, fuzzy
 msgid "VAT"
 msgstr "IVA"
 
 #: build_form/index.js:1 src/stripe/Components/PlanTable.js:35
 #: src/stripe/Components/PriceTable.js:45
+#, fuzzy
 msgid "no Vat due for you"
 msgstr "nessuna IVA per te"
 
 #: build_form/index.js:1 src/stripe/Components/PlanTable.js:41
 #: src/stripe/Components/PriceTable.js:51
+#, fuzzy
 msgid "Total"
 msgstr "Totale"
 
 #: build_form/index.js:1 src/stripe/Components/PriceTable.js:60
+#, fuzzy
 msgid "Coupon applied!"
 msgstr "Coupon applicato!"
 
 #: build_form/index.js:1 src/stripe/Components/Disclaimer.js:10
+#, fuzzy
 msgid ""
 "When ordering within the EU an order may be exempt to VAT if a valid VAT "
 "registration number is provided."
@@ -1642,6 +1983,7 @@ msgstr ""
 "IVA se viene fornito un numero di partita IVA valido."
 
 #: build_form/index.js:1 src/stripe/Components/Disclaimer.js:21
+#, fuzzy
 msgid "Terms and conditions"
 msgstr "Termini e condizioni"
 
@@ -1650,14 +1992,17 @@ msgid "Privacy"
 msgstr ""
 
 #: build_form/index.js:1 src/stripe/Components/ColumnTitle.js:11
+#, fuzzy
 msgid "Subscribe to"
 msgstr "Iscrizione a"
 
 #: build_form/index.js:1 src/stripe/Components/ColumnTitle.js:11
+#, fuzzy
 msgid "plan"
 msgstr "piano"
 
 #: build_form/index.js:1 src/stripe/Components/PlanTable.js:45
+#, fuzzy
 msgid " per month"
 msgstr "per mese"
 
@@ -1666,6 +2011,7 @@ msgid "Automatic renewal"
 msgstr "Rinnovo automatico: "
 
 #: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:22
+#, fuzzy
 msgid "per month"
 msgstr "per mese"
 
@@ -1697,64 +2043,3 @@ msgstr "Dopo i primi"
 #: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:37
 msgid "months the monthly price will be"
 msgstr "mesi il prezzo mensile sarà"
-
-#~ msgid "Insert url youtube video"
-#~ msgstr "Inserisci l' url del video youtube"
-
-#~ msgid "Done"
-#~ msgstr "Fatto"
-
-#~ msgid "Get transcript"
-#~ msgstr "Ottieni trascrizione"
-
-#~ msgid "After the first month the price is"
-#~ msgstr "Dopo il primo mese il prezzo è"
-
-#~ msgid "for the first"
-#~ msgstr "per il primo"
-
-#~ msgid "After the first"
-#~ msgstr "Dopo il primo"
-
-#~ msgid "months the price is"
-#~ msgstr "mesi il prezzo è"
-
-#~ msgid "Subscription plan upgrade"
-#~ msgstr "Modifica piano di abbonamento"
-
-#~ msgid ""
-#~ "Upgrading now, for the first month you are entired to a partial refund of "
-#~ "previous monthly subscription plan"
-#~ msgstr ""
-#~ "Scegliendo un piano di abbonamento superiore, per il primo mese verrà "
-#~ "applicato uno sconto pari al credito residuo della mensilità "
-#~ "dell'abbonamento precedente"
-
-#~ msgid "Only for first month (Until"
-#~ msgstr "Solo per il primo mese (Fino al"
-
-#~ msgid "Confirm order"
-#~ msgstr "Conferma"
-
-#~ msgid "Summary"
-#~ msgstr "Riepilogo"
-
-#~ msgid "Unable to update payment data. The product license key is missing."
-#~ msgstr ""
-#~ "Impossibile aggiornare i dati di pagamento. La licenza del prodotto è "
-#~ "assente."
-
-#~ msgid "License key sent, check your email!"
-#~ msgstr "Licenza inviata, controlla l'email!"
-
-#~ msgid "Reset license key"
-#~ msgstr "Reset Licenza"
-
-#~ msgid "Valid product license. Subscription plan updated."
-#~ msgstr "Licenza del prodotto valida. Piano di abbonamento aggiornato."
-
-#~ msgid "per mounth"
-#~ msgstr "per mese"
-
-#~ msgid "An error occurred."
-#~ msgstr "Si è verificato un errore."
