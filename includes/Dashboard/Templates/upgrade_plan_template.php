@@ -87,7 +87,7 @@ $plans            = isset( $plans ) ? $plans : array();
 						<td>
 						<?php
 						esc_html_e( 'Until ', 'wubtitle' );
-						echo esc_html( $data );
+						echo ' ' . esc_html( $data );
 						?>
 						</td>
 					</tr>
@@ -113,7 +113,7 @@ $plans            = isset( $plans ) ? $plans : array();
 						<td>
 						<?php
 						esc_html_e( 'From ', 'wubtitle' );
-						echo esc_html( $new_data );
+						echo ' ' . esc_html( $new_data );
 						?>
 						</td>
 					</tr>
