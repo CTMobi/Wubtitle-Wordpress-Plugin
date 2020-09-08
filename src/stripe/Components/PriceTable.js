@@ -11,6 +11,7 @@ const PriceTable = (props) => {
 		discountedPrice,
 		messagePrice,
 	} = props;
+	const { siteDomain } = WP_GLOBALS;
 	if (discountedPrice) {
 		total = taxable ? discountedPrice.newTotal : discountedPrice.price;
 		taxAmount = discountedPrice.newTax;
@@ -18,6 +19,10 @@ const PriceTable = (props) => {
 	return (
 		<div>
 			<table className="price-table">
+				<tr>
+					<td>{__('Domain', 'wubtitle')}</td>
+					<td className="val">{siteDomain}</td>
+				</tr>
 				<tr>
 					<td>{__('Price', 'wubtitle')}</td>
 					{discountedPrice ? (

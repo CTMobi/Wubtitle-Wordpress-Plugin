@@ -19,6 +19,7 @@ const InfoPriceColumn = (props) => {
 		expirationDate,
 		discountedPrice,
 	} = props;
+	const { siteDomain } = WP_GLOBALS;
 	let messagePrice = ` ${__('per month', 'wubtitle')}`;
 	let infoMessage = null;
 	if (discountedPrice && discountedPrice.duration === 'once') {
@@ -51,6 +52,12 @@ const InfoPriceColumn = (props) => {
 		<div className="column price-column">
 			<div className="price">
 				<ColumnTitle name={name} update={update} />
+				<table className="is-hidden-on-desktop">
+					<tr>
+						<td>{__('Domain', 'wubtitle')}</td>
+						<td className="val-domain">{siteDomain}</td>
+					</tr>
+				</table>
 				{update ? null : (
 					<p className="mobile-price-info is-hidden-on-desktop">
 						{discountedPrice ? (
