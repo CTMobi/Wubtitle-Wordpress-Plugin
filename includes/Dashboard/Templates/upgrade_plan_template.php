@@ -130,6 +130,7 @@ $plans            = isset( $plans ) ? $plans : array();
 								<p><strong><?php esc_html_e( 'Expiration Date: ', 'wubtitle' ); ?></strong> <?php echo isset( $expiration ) ? esc_html( $expiration ) : ''; ?> </p>
 						</div>
 				</div>
+				<p><?php esc_html_e( 'Domain:', 'wubtitle' ); ?> <strong> <?php echo ' ' . esc_html( get_option( 'siteurl' ) ); ?> </strong> </p>
 				<p><?php esc_html_e( 'The subtitles already created and the minutes already used will be counted on the new subscription plan', 'wubtitle' ); ?></p>
 			</div>
 		</div>
