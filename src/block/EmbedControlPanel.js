@@ -121,7 +121,7 @@ const EmbedControlPanel = (props) => {
 						onClick={getLang}
 						disabled={disabledGetInfo}
 					>
-						{__('Get Video Info', 'wubtitle')}
+						{__('Select transcript language', 'wubtitle')}
 					</Button>
 				) : (
 					''
