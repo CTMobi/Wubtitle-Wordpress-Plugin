@@ -43,6 +43,7 @@ $amount_preview = isset( $amount_preview ) ? number_format( - (float) $amount_pr
 			<?php endif; ?>
 		</div>
 		<div class="confirm-change-section">
+			<p class="confirm-paragraph"><?php esc_html_e( 'Domain:', 'wubtitle' ); ?> <strong> <?php echo ' ' . esc_html( get_option( 'siteurl' ) ); ?> </strong> </p>
 			<p class="confirm-paragraph"> <?php esc_html_e( 'The subtitles already created and the minutes already used will be counted on the new subscription plan', 'wubtitle' ); ?> </p>
 			<div class="buttons">
 				<div class="button unsubscribe" id="confirm_changes"><?php esc_html_e( 'Downgrade Now', 'wubtitle' ); ?></div>

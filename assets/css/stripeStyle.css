@@ -242,8 +242,16 @@ form h2 {
 	font: 400 14px/19px "Open Sans", sans-serif;
 }
 
+table {
+	display: contents;
+}
+
 table tr {
 	height: 3rem;
+}
+
+table td {
+	padding-left: 0;
 }
 
 .mobile-price-info .total {
@@ -421,6 +429,10 @@ table tr {
 	.price-column .mobile-price-view.opened .disclaimer {
 		display: block;
 	}
+
+	.price-name {
+		margin-bottom: 0;
+	}
 }
 
 .switch {
@@ -568,6 +580,11 @@ table tr {
 
 .description {
 	font: 400 14px/19px "Open Sans", sans-serif;
+}
+
+.val-domain {
+	font: 400 14px/18px "Days One", sans-serif;
+	padding-left: 8px;
 }
 
 /* Smartphone */
