@@ -23,6 +23,7 @@ const EmbedControlPanel = (props) => {
 		setMessage('');
 	}
 	const handleClick = () => {
+		setDisabled(true);
 		const selectedBlockIndex = wp.data
 			.select('core/block-editor')
 			.getBlockIndex(
@@ -41,6 +42,7 @@ const EmbedControlPanel = (props) => {
 				},
 			})
 			.then((response) => {
+				setDisabled(false);
 				const block = wp.blocks.createBlock('wubtitle/transcription', {
 					contentId: response,
 				});
@@ -52,6 +54,7 @@ const EmbedControlPanel = (props) => {
 				setStatus(__('Created', 'wubtitle'));
 			})
 			.fail((response) => {
+				setDisabled(false);
 				noticeDispatcher.createNotice('error', response);
 				setMessage('');
 			});
@@ -94,6 +97,10 @@ const EmbedControlPanel = (props) => {
 				});
 				setOptions(arrayLang);
 				setTitle(response.title);
+			})
+			.fail((response) => {
+				noticeDispatcher.createNotice('error', response);
+				setMessage('');
 			});
 	};
 
@@ -114,7 +121,7 @@ const EmbedControlPanel = (props) => {
 						onClick={getLang}
 						disabled={disabledGetInfo}
 					>
-						{__('Get Video Info', 'wubtitle')}
+						{__('Select transcript language', 'wubtitle')}
 					</Button>
 				) : (
 					''

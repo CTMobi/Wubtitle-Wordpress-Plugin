@@ -210,6 +210,7 @@ class PaymentTemplate {
 					'stripeKey'        => $this->stripe_key,
 					'invoicePreValues' => $data && isset( $invoice_object ) ? $invoice_object : null,
 					'paymentPreValues' => $data && isset( $payment_object ) ? $payment_object : null,
+					'siteDomain'       => get_option( 'siteurl' ),
 				)
 			);
 			wp_enqueue_style( 'wubtitle_style_form', WUBTITLE_URL . 'assets/css/stripeStyle.css', array(), WUBTITLE_VER );
@@ -252,6 +253,7 @@ class PaymentTemplate {
 					'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
 					'ajaxNonce'     => wp_create_nonce( 'itr_ajax_nonce' ),
 					'stripeKey'     => $this->stripe_key,
+					'siteDomain'    => get_option( 'siteurl' ),
 				)
 			);
 			wp_enqueue_style( 'wubtitle_style_form', WUBTITLE_URL . 'assets/css/stripeStyle.css', array(), WUBTITLE_VER );

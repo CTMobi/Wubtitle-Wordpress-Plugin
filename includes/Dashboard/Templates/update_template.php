@@ -11,6 +11,9 @@
  * This template displays the update plan page.
  */
 
+if ( ! defined( 'WP_ADMIN' ) ) {
+	define( 'WP_ADMIN', true );
+}
 wp_cache_delete( 'wubtitle_plan', 'options' );
 wp_cache_delete( 'wubtitle_free', 'options' );
 wp_cache_delete( 'wubtitle_plan_rank', 'options' );

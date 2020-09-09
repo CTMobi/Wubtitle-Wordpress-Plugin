@@ -19,6 +19,7 @@ const InfoPriceColumn = (props) => {
 		expirationDate,
 		discountedPrice,
 	} = props;
+	const { siteDomain } = WP_GLOBALS;
 	let messagePrice = ` ${__('per month', 'wubtitle')}`;
 	let infoMessage = null;
 	if (discountedPrice && discountedPrice.duration === 'once') {
@@ -26,7 +27,10 @@ const InfoPriceColumn = (props) => {
 		infoMessage = `*${__(
 			'After the first month the monthly price will be',
 			'wubtitle'
-		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
+		)} ${price}€`;
+		infoMessage += taxable
+			? ` + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`
+			: '';
 	}
 	if (discountedPrice && discountedPrice.duration === 'repeating') {
 		messagePrice = ` ${__('for the firsts', 'wubtitle')} ${
@@ -34,10 +38,10 @@ const InfoPriceColumn = (props) => {
 		} ${__('months*', 'wubtitle')}`;
 		infoMessage = `*${__('After the firsts', 'wubtitle')} ${
 			discountedPrice.durationInMonths
-		} ${__(
-			'months the monthly price will be',
-			'wubtitle'
-		)} ${price}€ + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`;
+		} ${__('months the monthly price will be', 'wubtitle')} ${price}€`;
+		infoMessage += taxable
+			? ` + ${taxAmount}€ ${__('(VAT)', 'wubtitle')}`
+			: '';
 	}
 	let total = parseFloat(price);
 	if (taxable) {
@@ -48,6 +52,12 @@ const InfoPriceColumn = (props) => {
 		<div className="column price-column">
 			<div className="price">
 				<ColumnTitle name={name} update={update} />
+				<table className="is-hidden-on-desktop">
+					<tr>
+						<td>{__('Domain', 'wubtitle')}</td>
+						<td className="val-domain">{siteDomain}</td>
+					</tr>
+				</table>
 				{update ? null : (
 					<p className="mobile-price-info is-hidden-on-desktop">
 						{discountedPrice ? (
