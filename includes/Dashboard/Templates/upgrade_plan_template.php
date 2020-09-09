@@ -87,7 +87,7 @@ $plans            = isset( $plans ) ? $plans : array();
 						<td>
 						<?php
 						esc_html_e( 'Until ', 'wubtitle' );
-						echo esc_html( $data );
+						echo ' ' . esc_html( $data );
 						?>
 						</td>
 					</tr>
@@ -113,7 +113,7 @@ $plans            = isset( $plans ) ? $plans : array();
 						<td>
 						<?php
 						esc_html_e( 'From ', 'wubtitle' );
-						echo esc_html( $new_data );
+						echo ' ' . esc_html( $new_data );
 						?>
 						</td>
 					</tr>
@@ -130,6 +130,7 @@ $plans            = isset( $plans ) ? $plans : array();
 								<p><strong><?php esc_html_e( 'Expiration Date: ', 'wubtitle' ); ?></strong> <?php echo isset( $expiration ) ? esc_html( $expiration ) : ''; ?> </p>
 						</div>
 				</div>
+				<p><?php esc_html_e( 'Domain:', 'wubtitle' ); ?> <strong> <?php echo ' ' . esc_html( get_option( 'siteurl' ) ); ?> </strong> </p>
 				<p><?php esc_html_e( 'The subtitles already created and the minutes already used will be counted on the new subscription plan', 'wubtitle' ); ?></p>
 			</div>
 		</div>

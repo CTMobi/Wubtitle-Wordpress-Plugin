@@ -11,9 +11,13 @@ const PlanTable = (props) => {
 		price,
 		total,
 	} = props;
-
+	const { siteDomain } = WP_GLOBALS;
 	return (
 		<table className="price-table">
+			<tr>
+				<td>{__('Domain', 'wubtitle')}</td>
+				<td className="val">{siteDomain}</td>
+			</tr>
 			<tr>
 				<td>{__('Your plan', 'wubtitle')}</td>
 				<td className="val">{currentPlan}</td>
