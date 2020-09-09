@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-09-07T11:39:42+02:00\n"
+"POT-Creation-Date: 2020-09-08T18:12:33+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wubtitle\n"
@@ -107,7 +107,7 @@ msgstr ""
 #: includes/Dashboard/PaymentTemplate.php:104
 #: includes/Dashboard/PaymentTemplate.php:138
 #: includes/Dashboard/PaymentTemplate.php:183
-#: includes/Dashboard/PaymentTemplate.php:231
+#: includes/Dashboard/PaymentTemplate.php:232
 #: includes/Utils/InvoiceHelper.php:35
 #: includes/Utils/InvoiceHelper.php:95
 #: includes/Utils/InvoiceHelper.php:264
@@ -514,8 +514,8 @@ msgid "Return to free version"
 msgstr ""
 
 #: includes/Dashboard/Templates/cancel_template.php:36
-#: includes/Dashboard/Templates/downgrade_plan_template.php:49
-#: includes/Dashboard/Templates/upgrade_plan_template.php:138
+#: includes/Dashboard/Templates/downgrade_plan_template.php:50
+#: includes/Dashboard/Templates/upgrade_plan_template.php:139
 msgid "Forget it"
 msgstr ""
 
@@ -542,10 +542,15 @@ msgstr ""
 
 #: includes/Dashboard/Templates/downgrade_plan_template.php:46
 #: includes/Dashboard/Templates/upgrade_plan_template.php:133
+msgid "Domain:"
+msgstr ""
+
+#: includes/Dashboard/Templates/downgrade_plan_template.php:47
+#: includes/Dashboard/Templates/upgrade_plan_template.php:134
 msgid "The subtitles already created and the minutes already used will be counted on the new subscription plan"
 msgstr ""
 
-#: includes/Dashboard/Templates/downgrade_plan_template.php:48
+#: includes/Dashboard/Templates/downgrade_plan_template.php:49
 msgid "Downgrade Now"
 msgstr ""
 
@@ -579,7 +584,7 @@ msgstr ""
 
 #: includes/Dashboard/Templates/plans_array.php:49
 #: build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:18
+#: src/stripe/Components/PlanTable.js:22
 msgid "Your plan"
 msgstr ""
 
@@ -660,7 +665,7 @@ msgstr ""
 msgid "Expiration Date: "
 msgstr ""
 
-#: includes/Dashboard/Templates/upgrade_plan_template.php:139
+#: includes/Dashboard/Templates/upgrade_plan_template.php:140
 msgid "Upgrade Now"
 msgstr ""
 
@@ -1312,7 +1317,7 @@ msgstr ""
 #: assets/editor/transcriptionModalScript.js:168
 #: assets/editor/transcriptionModalScript.js:192
 #: build/index.js:1
-#: src/block/EmbedControlPanel.js:93
+#: src/block/EmbedControlPanel.js:96
 msgid "Select language"
 msgstr ""
 
@@ -1368,13 +1373,13 @@ msgid "Getting transcript…"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/EmbedControlPanel.js:143
+#: src/block/EmbedControlPanel.js:150
 #: src/block/SubtitleControl.js:80
 msgid "Get Transcribe"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/EmbedControlPanel.js:124
+#: src/block/EmbedControlPanel.js:131
 #: src/block/WubtitlePanel.js:71
 msgid "Select the video language"
 msgstr ""
@@ -1385,22 +1390,21 @@ msgid "Subtitle creation successfully started"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/EmbedControlPanel.js:74
+#: src/block/EmbedControlPanel.js:77
 msgid "Subtitles not available for this video"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/EmbedControlPanel.js:108
+#: src/block/EmbedControlPanel.js:115
 msgid "Transcript status:"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/EmbedControlPanel.js:117
 msgid "Get Video Info"
 msgstr ""
 
 #: build/index.js:1
-#: src/block/EmbedControlPanel.js:52
+#: src/block/EmbedControlPanel.js:54
 msgid "Created"
 msgstr ""
 
@@ -1657,31 +1661,38 @@ msgid "VAT Code"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:22
-#: src/stripe/Components/PriceTable.js:22
+#: src/stripe/Components/InfoPriceColumn.js:57
+#: src/stripe/Components/PlanTable.js:18
+#: src/stripe/Components/PriceTable.js:23
+msgid "Domain"
+msgstr ""
+
+#: build_form/index.js:1
+#: src/stripe/Components/PlanTable.js:26
+#: src/stripe/Components/PriceTable.js:27
 msgid "Price"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:27
-#: src/stripe/Components/PriceTable.js:37
+#: src/stripe/Components/PlanTable.js:31
+#: src/stripe/Components/PriceTable.js:42
 msgid "VAT"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:35
-#: src/stripe/Components/PriceTable.js:45
+#: src/stripe/Components/PlanTable.js:39
+#: src/stripe/Components/PriceTable.js:50
 msgid "no Vat due for you"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:41
-#: src/stripe/Components/PriceTable.js:51
+#: src/stripe/Components/PlanTable.js:45
+#: src/stripe/Components/PriceTable.js:56
 msgid "Total"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/PriceTable.js:60
+#: src/stripe/Components/PriceTable.js:65
 msgid "Coupon applied!"
 msgstr ""
 
@@ -1711,52 +1722,56 @@ msgid "plan"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:45
+#: src/stripe/Components/PlanTable.js:49
 msgid " per month"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:51
+#: src/stripe/Components/PlanTable.js:55
 msgid "Automatic renewal"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:22
+#: src/stripe/Components/InfoPriceColumn.js:23
 msgid "per month"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:25
+#: src/stripe/Components/InfoPriceColumn.js:26
 msgid "for this month*"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:26
+#: src/stripe/Components/InfoPriceColumn.js:27
 msgid "After the first month the monthly price will be"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:29
-#: src/stripe/Components/InfoPriceColumn.js:40
+#: src/stripe/Components/InfoPriceColumn.js:32
+#: src/stripe/Components/InfoPriceColumn.js:43
 msgid "(VAT)"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:32
+#: src/stripe/Components/InfoPriceColumn.js:36
 msgid "for the firsts"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:34
+#: src/stripe/Components/InfoPriceColumn.js:38
 msgid "months*"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:35
+#: src/stripe/Components/InfoPriceColumn.js:39
 msgid "After the firsts"
 msgstr ""
 
 #: build_form/index.js:1
-#: src/stripe/Components/InfoPriceColumn.js:37
+#: src/stripe/Components/InfoPriceColumn.js:41
 msgid "months the monthly price will be"
+msgstr ""
+
+#: src/block/EmbedControlPanel.js:124
+msgid "Select transcript language"
 msgstr ""

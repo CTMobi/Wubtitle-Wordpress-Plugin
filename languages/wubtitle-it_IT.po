@@ -2,11 +2,11 @@
 # This file is distributed under the same license as the Wubtitle plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wubtitle 1.0.0\n"
+"Project-Id-Version: Wubtitle 1.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Wubtitle-"
 "Wordpress-Plugin\n"
-"POT-Creation-Date: 2020-09-07T11:39:42+02:00\n"
-"PO-Revision-Date: 2020-09-07 12:09+0200\n"
+"POT-Creation-Date: 2020-09-08T18:12:33+02:00\n"
+"PO-Revision-Date: 2020-09-08 18:13+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -109,7 +109,7 @@ msgstr ""
 #: includes/Dashboard/PaymentTemplate.php:104
 #: includes/Dashboard/PaymentTemplate.php:138
 #: includes/Dashboard/PaymentTemplate.php:183
-#: includes/Dashboard/PaymentTemplate.php:231
+#: includes/Dashboard/PaymentTemplate.php:232
 #: includes/Utils/InvoiceHelper.php:35 includes/Utils/InvoiceHelper.php:95
 #: includes/Utils/InvoiceHelper.php:264
 msgid "An error occurred. Please try again in a few minutes."
@@ -530,8 +530,8 @@ msgid "Return to free version"
 msgstr "Ritorna alla versione free"
 
 #: includes/Dashboard/Templates/cancel_template.php:36
-#: includes/Dashboard/Templates/downgrade_plan_template.php:49
-#: includes/Dashboard/Templates/upgrade_plan_template.php:138
+#: includes/Dashboard/Templates/downgrade_plan_template.php:50
+#: includes/Dashboard/Templates/upgrade_plan_template.php:139
 msgid "Forget it"
 msgstr "Annulla"
 
@@ -562,6 +562,11 @@ msgstr "di credito"
 
 #: includes/Dashboard/Templates/downgrade_plan_template.php:46
 #: includes/Dashboard/Templates/upgrade_plan_template.php:133
+msgid "Domain:"
+msgstr "Dominio:"
+
+#: includes/Dashboard/Templates/downgrade_plan_template.php:47
+#: includes/Dashboard/Templates/upgrade_plan_template.php:134
 msgid ""
 "The subtitles already created and the minutes already used will be counted "
 "on the new subscription plan"
@@ -569,7 +574,7 @@ msgstr ""
 "I sottotitoli già creati e i minuti già utilizzati verranno conteggiati nel "
 "nuovo piano di abbonamento"
 
-#: includes/Dashboard/Templates/downgrade_plan_template.php:48
+#: includes/Dashboard/Templates/downgrade_plan_template.php:49
 msgid "Downgrade Now"
 msgstr "Modifica piano"
 
@@ -606,7 +611,7 @@ msgid "Total length of videos"
 msgstr "Lunghezza totale dei video"
 
 #: includes/Dashboard/Templates/plans_array.php:49 build_form/index.js:1
-#: src/stripe/Components/PlanTable.js:18
+#: src/stripe/Components/PlanTable.js:22
 msgid "Your plan"
 msgstr "Il tuo piano"
 
@@ -691,7 +696,7 @@ msgstr "Carta:"
 msgid "Expiration Date: "
 msgstr "Data di scadenza: "
 
-#: includes/Dashboard/Templates/upgrade_plan_template.php:139
+#: includes/Dashboard/Templates/upgrade_plan_template.php:140
 msgid "Upgrade Now"
 msgstr "Modifica piano"
 
@@ -1324,7 +1329,7 @@ msgstr "Errore, lingua non selezionata"
 #: assets/editor/transcriptionModalScript.js:147
 #: assets/editor/transcriptionModalScript.js:168
 #: assets/editor/transcriptionModalScript.js:192 build/index.js:1
-#: src/block/EmbedControlPanel.js:93
+#: src/block/EmbedControlPanel.js:96
 msgid "Select language"
 msgstr "Seleziona la lingua"
 
@@ -1374,12 +1379,12 @@ msgstr "Lingua:"
 msgid "Getting transcript…"
 msgstr "Generazione trascrizione..."
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:143
+#: build/index.js:1 src/block/EmbedControlPanel.js:150
 #: src/block/SubtitleControl.js:80
 msgid "Get Transcribe"
 msgstr "Ottieni trascrizione"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:124
+#: build/index.js:1 src/block/EmbedControlPanel.js:131
 #: src/block/WubtitlePanel.js:71
 msgid "Select the video language"
 msgstr "Seleziona la lingua del video"
@@ -1388,19 +1393,19 @@ msgstr "Seleziona la lingua del video"
 msgid "Subtitle creation successfully started"
 msgstr "Creazione dei sottotitoli avviata con successo"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:74
+#: build/index.js:1 src/block/EmbedControlPanel.js:77
 msgid "Subtitles not available for this video"
 msgstr "Sottotitoli non disponibili per questo video"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:108
+#: build/index.js:1 src/block/EmbedControlPanel.js:115
 msgid "Transcript status:"
 msgstr "Stato trascrizione:"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:117
+#: build/index.js:1
 msgid "Get Video Info"
 msgstr "Informazioni Video"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:52
+#: build/index.js:1 src/block/EmbedControlPanel.js:54
 msgid "Created"
 msgstr "Creata"
 
@@ -1609,27 +1614,32 @@ msgstr "Riepilogo dati di fattura"
 msgid "VAT Code"
 msgstr "Partita IVA"
 
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:22
-#: src/stripe/Components/PriceTable.js:22
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:57
+#: src/stripe/Components/PlanTable.js:18 src/stripe/Components/PriceTable.js:23
+msgid "Domain"
+msgstr ""
+
+#: build_form/index.js:1 src/stripe/Components/PlanTable.js:26
+#: src/stripe/Components/PriceTable.js:27
 msgid "Price"
 msgstr "Prezzo"
 
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:27
-#: src/stripe/Components/PriceTable.js:37
+#: build_form/index.js:1 src/stripe/Components/PlanTable.js:31
+#: src/stripe/Components/PriceTable.js:42
 msgid "VAT"
 msgstr "IVA"
 
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:35
-#: src/stripe/Components/PriceTable.js:45
+#: build_form/index.js:1 src/stripe/Components/PlanTable.js:39
+#: src/stripe/Components/PriceTable.js:50
 msgid "no Vat due for you"
 msgstr "nessuna IVA per te"
 
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:41
-#: src/stripe/Components/PriceTable.js:51
+#: build_form/index.js:1 src/stripe/Components/PlanTable.js:45
+#: src/stripe/Components/PriceTable.js:56
 msgid "Total"
 msgstr "Totale"
 
-#: build_form/index.js:1 src/stripe/Components/PriceTable.js:60
+#: build_form/index.js:1 src/stripe/Components/PriceTable.js:65
 msgid "Coupon applied!"
 msgstr "Coupon applicato!"
 
@@ -1657,46 +1667,50 @@ msgstr "Iscrizione a"
 msgid "plan"
 msgstr "piano"
 
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:45
+#: build_form/index.js:1 src/stripe/Components/PlanTable.js:49
 msgid " per month"
 msgstr "per mese"
 
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:51
+#: build_form/index.js:1 src/stripe/Components/PlanTable.js:55
 msgid "Automatic renewal"
 msgstr "Rinnovo automatico: "
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:22
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:23
 msgid "per month"
 msgstr "per mese"
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:25
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:26
 msgid "for this month*"
 msgstr "per questo mese*"
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:26
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:27
 msgid "After the first month the monthly price will be"
 msgstr "Dopo il primo mese il prezzo mensile sarà"
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:29
-#: src/stripe/Components/InfoPriceColumn.js:40
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:32
+#: src/stripe/Components/InfoPriceColumn.js:43
 msgid "(VAT)"
 msgstr "(IVA)"
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:32
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:36
 msgid "for the firsts"
 msgstr "per i primi"
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:34
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:38
 msgid "months*"
 msgstr "mesi*"
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:35
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:39
 msgid "After the firsts"
 msgstr "Dopo i primi"
 
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:37
+#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:41
 msgid "months the monthly price will be"
 msgstr "mesi il prezzo mensile sarà"
+
+#: src/block/EmbedControlPanel.js:124
+msgid "Select transcript language"
+msgstr "Selezione la lingua della trascrizione"
 
 #~ msgid "Insert url youtube video"
 #~ msgstr "Inserisci l' url del video youtube"
