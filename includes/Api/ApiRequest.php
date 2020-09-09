@@ -186,6 +186,7 @@ class ApiRequest {
 			WUBTITLE_ENDPOINT . 'job/create',
 			array(
 				'method'  => 'POST',
+				'timeout' => 10,
 				'headers' => array(
 					'licenseKey'   => $license_key,
 					'domainUrl'    => get_option( 'siteurl' ),
