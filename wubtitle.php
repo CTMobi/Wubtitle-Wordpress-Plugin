@@ -7,7 +7,7 @@
  * Author URI:      https://www.ctmobi.it
  * Text Domain:     wubtitle
  * Domain Path:     /languages
- * Version:         1.0.6
+ * Version:         1.1.0
  *
  * @package         Wubtitle
  */
@@ -21,7 +21,7 @@ define( 'WUBTITLE_FILE_URL', __FILE__ );
 define( 'WUBTITLE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WUBTITLE_URL', plugin_dir_url( __FILE__ ) );
 define( 'WUBTITLE_NAME', dirname( plugin_basename( __FILE__ ) ) );
-define( 'WUBTITLE_VER', '1.0.6' );
+define( 'WUBTITLE_VER', '1.1.0' );
 $endpoint = 'https://api.wubtitle.com/';
 if ( defined( 'WP_WUBTITLE_ENV' ) && 'development' === WP_WUBTITLE_ENV ) {
 	$endpoint = 'https://dev.api.wubtitle.com/';

@@ -1,7 +1,7 @@
 === Wubtitle ===
 Contributors: giuseppectmobi
 Donate link: https://www.wubtitle.com/
-Tags: subtitle, subtitles, video, Transcription, SEO, speech-to-text, video to text, youtube to text
+Tags: subtitle, subtitles, video, Transcription, SEO, speech-to-text, video to text, Youtube to text, Vimeo, Vimeo to text, Youtube, Youtube Transcription, Vimeo Transcription
 Requires at least: 5.3
 Tested up to: 5.5
 Stable tag: trunk
@@ -9,18 +9,19 @@ Requires PHP: 7.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
-Wubtitle is a plugin that generates subtitles and transcript of uploaded videos in media library and youtube videos.
+Wubtitle is a plugin that generates subtitles and transcript of uploaded videos in media library, Youtube and Vimeo videos.
 
 == Description ==
 
 ### The ultimate video-to-text solution. Boost your SEO using videos
 
-Wubtitle is the all-in-one plugin for dealing with video-to-text tasks in WordPress. Save tons of time automatically subtitling and transcribing your videos or instantly converting Youtube subtitles to plain text. Get started for free!
+Wubtitle is the all-in-one plugin for dealing with video-to-text tasks in WordPress. Save tons of time automatically subtitling and transcribing your videos or instantly converting Youtube and Vimeo subtitles to plain text. Get started for free!
 
 Wubtitle is a plugin that generates:
 
 * Subtitles and transcript of uploaded videos in media library
-* Transcripts of youtube videos
+* Transcripts of Youtube videos
+* Transcripts of Vimeo videos
 
 ## Functionality
 
@@ -55,7 +56,7 @@ Wubtitle currently supports english, italian, spanish, chinese and french.  Howe
 
 No, Wubtitle can’t automatically translate transcriptions, but we are working to add this feature.
 
-= What happens if I request a transcription twice for the same youtube video? =
+= What happens if I request a transcription twice for the same Youtube video? =
 
 If you request a transcription twice for the same video, you will be charged only for the first transcription. The following transcribe requests will return the already processed transcription. Note that "same video" means the same media library file in WordPress or "the same Youtube url": instead, if you upload the same video twice in your Wordpress, the second one will be marked as a different video, and you will be charged every time you request a transcription for a "different" video.
 
@@ -93,6 +94,16 @@ No, currently we do not offer annual subscriptions.
 
 
 == Changelog ==
+
+= 1.1.0 =
+Release Date: September 10th, 2020
+
+Enhancements:
+* Support Vimeo translations
+
+Bugfixes:
+
+* Stability improvements
 
 = 1.0.6 =
 Release Date: August 28th, 2020
@@ -151,3 +162,7 @@ Bugfixes:
 Release Date: July 25th, 2020
 
 First public version
+
+== Upgrade Notice ==
+
+Upgrade to enjoy Vimeo Transcriptions
