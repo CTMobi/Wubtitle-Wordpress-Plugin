@@ -155,8 +155,11 @@ class MediaLibraryExtented {
 	 * @return void
 	 */
 	private function language_options( $lang ) {
-		$languages = Loader::get( 'helpers' )->get_languages();
-		foreach ( $languages as $key => $language ) {
+		$all_languages  = Loader::get( 'helpers' )->get_languages();
+		$languages_free = array( 'it-IT', 'en-US' );
+		$languages      = get_option( 'wubtitle_free', true ) ? $languages_free : array_keys( $all_languages );
+		$lang           = in_array( $lang, $languages, true ) ? $lang : 'en-US';
+		foreach ( $all_languages as $key => $language ) {
 			echo sprintf(
 				'<option %s value="%s" %s>%s</option>',
 				selected( $lang, $key, false ),
