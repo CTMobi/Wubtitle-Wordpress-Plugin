@@ -1,13 +1,7 @@
+/*  global wubtitle_button_object  */
 import { __ } from '@wordpress/i18n';
 
-const langExten = {
-	it: __('Italian', 'wubtitle'),
-	en: __('English', 'wubtitle'),
-	es: __('Spanish', 'wubtitle'),
-	de: __('German', 'wubtitle'),
-	zh: __('Chinese', 'wubtitle'),
-	fr: __('French', 'wubtitle'),
-};
+const langExten = wubtitle_button_object.langExten;
 
 const statusExten = {
 	pending: __('Generating', 'wubtitle'),
@@ -16,64 +10,43 @@ const statusExten = {
 	notfound: __('None', 'wubtitle'),
 };
 
-const selectOptions = [
-	{
-		value: 'it',
-		label: __('Italian', 'wubtitle'),
-	},
-	{
-		value: 'en',
-		label: __('English', 'wubtitle'),
-	},
-	{
-		value: 'es',
-		label: __('Spanish', 'wubtitle'),
-	},
-	{
-		value: 'de',
-		label: __('German', 'wubtitle'),
-	},
-	{
-		value: 'zh',
-		label: __('Chinese', 'wubtitle'),
-	},
-	{
-		value: 'fr',
-		label: __('French', 'wubtitle'),
-	},
-];
+const selectOptions = Object.entries(langExten).map(([key, value]) => {
+	return {
+		value: key,
+		label: value,
+	};
+});
 
-const selectOptionsFreePlan = [
-	{
-		value: 'it',
-		label: __('Italian', 'wubtitle'),
-		disabled: false,
-	},
-	{
-		value: 'en',
-		label: __('English', 'wubtitle'),
-		disabled: false,
-	},
-	{
-		value: 'es',
-		label: __('Spanish (Pro only)', 'wubtitle'),
-		disabled: true,
-	},
-	{
-		value: 'de',
-		label: __('German (Pro only)', 'wubtitle'),
-		disabled: true,
-	},
-	{
-		value: 'zh',
-		label: __('Chinese (Pro only)', 'wubtitle'),
-		disabled: true,
-	},
-	{
-		value: 'fr',
-		label: __('French (Pro only)', 'wubtitle'),
-		disabled: true,
-	},
-];
+const languagesFree = ['it-IT', 'en-US'];
+const allLanguages = Object.keys(langExten);
 
-export { langExten, statusExten, selectOptions, selectOptionsFreePlan };
+const selectOptionsFreePlan = Object.entries(langExten).map(([key, value]) => {
+	if (languagesFree.includes(key)) {
+		return {
+			value: key,
+			label: value,
+		};
+	}
+	return {
+		value: key,
+		label: `${value} ${__('(Pro Only)', 'wubtitle')}`,
+		disabled: true,
+	};
+});
+
+//support to old version
+langExten.it = __('Italian', 'wubtitle');
+langExten.en = __('English', 'wubtitle');
+langExten.es = __('Spanish', 'wubtitle');
+langExten.de = __('German', 'wubtitle');
+langExten.zh = __('Chinese', 'wubtitle');
+langExten.fr = __('French', 'wubtitle');
+
+export {
+	langExten,
+	statusExten,
+	selectOptions,
+	selectOptionsFreePlan,
+	allLanguages,
+	languagesFree,
+};
