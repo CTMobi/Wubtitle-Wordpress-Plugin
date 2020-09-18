@@ -93,7 +93,7 @@ class MediaLibraryExtented {
 				'html'  => '',
 				'value' => $post->ID,
 			);
-			$lang                    = explode( '_', get_locale(), 2 )[0];
+			$lang                    = str_replace( '_', '-', get_locale() );
 			ob_start();
 			?>
 			<select name="attachments[<?php echo esc_html( (string) $post->ID ); ?>][select-lang]" id="Profile Image Select">
@@ -144,7 +144,7 @@ class MediaLibraryExtented {
 	 * @return bool
 	 */
 	private function is_pro_only( $lang_code ) {
-		$free_lang = array( 'it', 'en' );
+		$free_lang = array( 'it-IT', 'en-US' );
 		return get_option( 'wubtitle_free', true ) && ! in_array( $lang_code, $free_lang, true );
 	}
 
@@ -155,14 +155,7 @@ class MediaLibraryExtented {
 	 * @return void
 	 */
 	private function language_options( $lang ) {
-		$languages = array(
-			'it' => __( 'Italian', 'wubtitle' ),
-			'en' => __( 'English', 'wubtitle' ),
-			'es' => __( 'Spanish', 'wubtitle' ),
-			'de' => __( 'German', 'wubtitle' ),
-			'zh' => __( 'Chinese', 'wubtitle' ),
-			'fr' => __( 'French', 'wubtitle' ),
-		);
+		$languages = Loader::get( 'helpers' )->get_languages();
 		foreach ( $languages as $key => $language ) {
 			echo sprintf(
 				'<option %s value="%s" %s>%s</option>',
@@ -282,7 +275,7 @@ class MediaLibraryExtented {
 			'html'  => '',
 			'value' => $id_video,
 		);
-		$lang        = explode( '_', get_locale(), 2 )[0];
+		$lang        = str_replace( '_', '-', get_locale() );
 		ob_start();
 		?>
 			<select style="width:100%" name="attachments[<?php echo esc_html( (string) $id_video ); ?>][select-lang]" id="Profile Image Select">
@@ -363,14 +356,14 @@ class MediaLibraryExtented {
 	 */
 	public function get_video_language( $id_video ) {
 		$lang     = get_post_meta( $id_video, 'wubtitle_lang_video', true );
-		$all_lang = array(
-			'it' => __( 'Italian', 'wubtitle' ),
-			'en' => __( 'English', 'wubtitle' ),
-			'es' => __( 'Spanish', 'wubtitle' ),
-			'de' => __( 'German', 'wubtitle' ),
-			'zh' => __( 'Chinese', 'wubtitle' ),
-			'fr' => __( 'French', 'wubtitle' ),
-		);
+		$all_lang = Loader::get( 'helpers' )->get_languages();
+		// support to old version.
+		$all_lang['it'] = __( 'Italian', 'wubtitle' );
+		$all_lang['en'] = __( 'English', 'wubtitle' );
+		$all_lang['es'] = __( 'Spanish', 'wubtitle' );
+		$all_lang['de'] = __( 'German', 'wubtitle' );
+		$all_lang['zh'] = __( 'Chinese', 'wubtitle' );
+		$all_lang['fr'] = __( 'French', 'wubtitle' );
 		return array_key_exists( $lang, $all_lang ) ? $all_lang[ $lang ] : 'Undefined';
 	}
 }
