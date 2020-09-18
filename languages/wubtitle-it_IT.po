@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Wubtitle 1.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Wubtitle-"
 "Wordpress-Plugin\n"
-"POT-Creation-Date: 2020-09-08T18:12:33+02:00\n"
-"PO-Revision-Date: 2020-09-08 18:13+0200\n"
+"POT-Creation-Date: 2020-09-18T15:29:00+02:00\n"
+"PO-Revision-Date: 2020-09-18 17:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -116,7 +116,7 @@ msgid "An error occurred. Please try again in a few minutes."
 msgstr "Si è verificato un errore. Riprova di nuovo tra qualche minuto."
 
 #: includes/Api/ApiPricingPlan.php:53 includes/Api/ApiPricingPlan.php:105
-#: includes/Api/ApiRequest.php:104
+#: includes/Api/ApiRequest.php:93
 msgid "Unable to create subtitles. The product license key is missing."
 msgstr "Impossibile creare i sottotitoli. La  licenza del prodotto è assente."
 
@@ -142,7 +142,7 @@ msgstr "Accesso negato"
 #: includes/Api/ApiPricingPlan.php:123 includes/Api/ApiPricingPlan.php:200
 #: includes/Api/ApiPricingPlan.php:201 includes/Api/ApiPricingPlan.php:288
 #: includes/Api/ApiPricingPlan.php:289 includes/Api/ApiPricingPlan.php:377
-#: includes/Api/ApiPricingPlan.php:378 includes/Api/ApiRequest.php:123
+#: includes/Api/ApiPricingPlan.php:378 includes/Api/ApiRequest.php:112
 #: includes/Core/Sources/Vimeo.php:91 includes/Core/Sources/Vimeo.php:156
 #: includes/Core/Sources/Vimeo.php:157 includes/Core/Sources/YouTube.php:136
 #: includes/Utils/InvoiceHelper.php:77 includes/Utils/InvoiceHelper.php:78
@@ -174,12 +174,8 @@ msgstr ""
 "Impossibile applicare lo sconto. Riprova più tardi o inserisci un codice "
 "sconto differente"
 
-#: includes/Api/ApiRequest.php:67
-msgid "Error, invalid language selected"
-msgstr "Errore, lingua selezionata non valida"
-
-#: includes/Api/ApiRequest.php:95 includes/Api/ApiRequest.php:101
-#: includes/Api/ApiRequest.php:108
+#: includes/Api/ApiRequest.php:84 includes/Api/ApiRequest.php:90
+#: includes/Api/ApiRequest.php:97
 msgid ""
 "An error occurred while creating the subtitles. Please try again in a few "
 "minutes."
@@ -187,7 +183,7 @@ msgstr ""
 "Si è verificato un errore durante la creazione dei sottotitoli. Riprova di "
 "nuovo tra qualche minuto."
 
-#: includes/Api/ApiRequest.php:120 includes/Api/ApiRequest.php:121
+#: includes/Api/ApiRequest.php:109 includes/Api/ApiRequest.php:110
 msgid ""
 "An error occurred while creating the subtitles. Please try again in a few "
 "minutes"
@@ -195,28 +191,28 @@ msgstr ""
 "Si è verificato un errore durante la creazione dei sottotitoli. Riprova di "
 "nuovo tra qualche minuto."
 
-#: includes/Api/ApiRequest.php:122
+#: includes/Api/ApiRequest.php:111
 msgid "Unable to create subtitles. Invalid product license"
 msgstr ""
 "Impossibile creare i sottotitoli. La  licenza del prodotto non è valida"
 
-#: includes/Api/ApiRequest.php:223 includes/Core/Sources/Vimeo.php:92
+#: includes/Api/ApiRequest.php:213 includes/Core/Sources/Vimeo.php:92
 #: includes/Core/Sources/YouTube.php:137
 msgid "Error, no more video left for your subscription plan"
 msgstr "Errore, non hai più video disponibili per il tuo piano di abbonamento"
 
-#: includes/Api/ApiRequest.php:224
+#: includes/Api/ApiRequest.php:214
 msgid "Error, language not supported for your subscription plan"
 msgstr "Errore, lingua non supportata per il tuo piano di abbonamento"
 
-#: includes/Api/ApiRequest.php:225
+#: includes/Api/ApiRequest.php:215
 #: includes/MediaLibrary/MediaLibraryExtented.php:73
-#: includes/MediaLibrary/MediaLibraryExtented.php:200 build/index.js:1
-#: src/block/WubtitlePanel.js:94
+#: includes/MediaLibrary/MediaLibraryExtented.php:196 build/index.js:1
+#: src/block/WubtitlePanel.js:97
 msgid "Unsupported video format for free plan"
 msgstr "Formato video non supportato per il piano free"
 
-#: includes/Api/ApiRequest.php:230
+#: includes/Api/ApiRequest.php:220
 msgid ""
 "Error, video length is longer than minutes available for your subscription "
 "plan (minutes left"
@@ -224,7 +220,7 @@ msgstr ""
 "Errore, la durata del video è maggiore dei minuti disponibili per il tuo "
 "piano di abbonamento (minuti rimasti"
 
-#: includes/Api/ApiRequest.php:230
+#: includes/Api/ApiRequest.php:220
 msgid ", video left"
 msgstr ", video rimasti"
 
@@ -700,6 +696,135 @@ msgstr "Data di scadenza: "
 msgid "Upgrade Now"
 msgstr "Modifica piano"
 
+#: includes/Helpers.php:112 includes/MediaLibrary/MediaLibraryExtented.php:364
+#: build/index.js:1 src/block/labels.js:38
+msgid "Italian"
+msgstr "Italiano"
+
+#: includes/Helpers.php:113
+msgid "US English"
+msgstr "Inglese (US)"
+
+#: includes/Helpers.php:114 includes/MediaLibrary/MediaLibraryExtented.php:366
+#: build/index.js:1 src/block/labels.js:40
+msgid "Spanish"
+msgstr "Spagnolo"
+
+#: includes/Helpers.php:115 includes/MediaLibrary/MediaLibraryExtented.php:367
+#: build/index.js:1 src/block/labels.js:41
+msgid "German"
+msgstr "Tedesco"
+
+#: includes/Helpers.php:116 includes/MediaLibrary/MediaLibraryExtented.php:368
+#: build/index.js:1 src/block/labels.js:42
+msgid "Chinese"
+msgstr "Cinese"
+
+#: includes/Helpers.php:117 includes/MediaLibrary/MediaLibraryExtented.php:369
+#: build/index.js:1 src/block/labels.js:43
+msgid "French"
+msgstr "Francese"
+
+#: includes/Helpers.php:118
+msgid "Gulf Arabic"
+msgstr "Golfo Arabo"
+
+#: includes/Helpers.php:119
+msgid "Modern Standard Arabic"
+msgstr "Arabo Moderno"
+
+#: includes/Helpers.php:120
+msgid "Dutch"
+msgstr "Olandese"
+
+#: includes/Helpers.php:121
+msgid "Australian English"
+msgstr "Inglese Australiano"
+
+#: includes/Helpers.php:122
+msgid "Welsh English"
+msgstr "Inglese Gallese"
+
+#: includes/Helpers.php:123
+msgid "US Spanish"
+msgstr "Spagnolo (US)"
+
+#: includes/Helpers.php:124
+msgid "Canadian French"
+msgstr "Francese Canadese"
+
+#: includes/Helpers.php:125 includes/Utils/VimeoHelper.php:68
+msgid "Farsi"
+msgstr "Farsi"
+
+#: includes/Helpers.php:126
+msgid "Swiss German"
+msgstr "Tedesco Svizzero"
+
+#: includes/Helpers.php:127 includes/Utils/VimeoHelper.php:84
+msgid "Hebrew"
+msgstr "Ebraico"
+
+#: includes/Helpers.php:128
+msgid "Indian Hindi"
+msgstr "Indiano Hindi"
+
+#: includes/Helpers.php:129 includes/Utils/VimeoHelper.php:87
+msgid "Indonesian"
+msgstr "Indonesiano"
+
+#: includes/Helpers.php:130 includes/Utils/VimeoHelper.php:91
+msgid "Japanese"
+msgstr "Giapponese"
+
+#: includes/Helpers.php:131
+msgid "Korean"
+msgstr "Coreano"
+
+#: includes/Helpers.php:132
+msgid "Malay"
+msgstr "Malese"
+
+#: includes/Helpers.php:133
+msgid "Portuguese"
+msgstr "Portoghese"
+
+#: includes/Helpers.php:134 includes/Utils/VimeoHelper.php:110
+msgid "Russian"
+msgstr "Russo"
+
+#: includes/Helpers.php:135
+msgid "Tamil"
+msgstr "Tamil"
+
+#: includes/Helpers.php:136
+msgid "Telugu"
+msgstr "Telugu"
+
+#: includes/Helpers.php:137 includes/Utils/VimeoHelper.php:139
+msgid "Turkish"
+msgstr "Turco"
+
+#: includes/Helpers.php:138
+msgid "Indian English"
+msgstr "Inglese Indiano"
+
+#: includes/Helpers.php:139
+msgid "Irish English"
+msgstr "Inglese Irlandese"
+
+#: includes/Helpers.php:140
+msgid "Scottish English"
+msgstr "Inglese Scozzese"
+
+#: includes/Helpers.php:141
+msgid "British English"
+msgstr "Inglese (UK)"
+
+#: includes/Helpers.php:142
+msgid "Brazilian Portuguese"
+msgstr "Portoghese Brasiliano"
+
 #: includes/MediaLibrary/ListingSubtitles.php:36
 #: includes/MediaLibrary/MediaLibraryExtented.php:82
 #: includes/MediaLibrary/MediaLibraryExtented.php:114
@@ -708,109 +833,77 @@ msgstr "Sottotitoli"
 
 #: includes/MediaLibrary/ListingSubtitles.php:49
 #: includes/MediaLibrary/MediaLibraryExtented.php:56
-#: includes/MediaLibrary/MediaLibraryExtented.php:187 build/index.js:1
-#: src/block/labels.js:13
+#: includes/MediaLibrary/MediaLibraryExtented.php:183 build/index.js:1
+#: src/block/labels.js:7
 msgid "Generating"
 msgstr "In Creazione"
 
 #: includes/MediaLibrary/ListingSubtitles.php:50
 #: includes/MediaLibrary/MediaLibraryExtented.php:57
 #: includes/MediaLibrary/MediaLibraryExtented.php:124
-#: includes/MediaLibrary/MediaLibraryExtented.php:188
-#: includes/MediaLibrary/MediaLibraryExtented.php:264 build/index.js:1
-#: src/block/labels.js:14
+#: includes/MediaLibrary/MediaLibraryExtented.php:184
+#: includes/MediaLibrary/MediaLibraryExtented.php:260 build/index.js:1
+#: src/block/labels.js:8
 msgid "Draft"
 msgstr "In bozza"
 
 #: includes/MediaLibrary/ListingSubtitles.php:51
 #: includes/MediaLibrary/MediaLibraryExtented.php:58
 #: includes/MediaLibrary/MediaLibraryExtented.php:123
-#: includes/MediaLibrary/MediaLibraryExtented.php:189
-#: includes/MediaLibrary/MediaLibraryExtented.php:263 build/index.js:1
+#: includes/MediaLibrary/MediaLibraryExtented.php:185
+#: includes/MediaLibrary/MediaLibraryExtented.php:259 build/index.js:1
 #: src/block/SubtitleControl.js:73
 msgid "Published"
 msgstr "Pubblicati"
 
 #: includes/MediaLibrary/ListingSubtitles.php:53
 #: includes/MediaLibrary/MediaLibraryExtented.php:60
-#: includes/MediaLibrary/MediaLibraryExtented.php:190 build/index.js:1
-#: src/block/EmbedControlPanel.js:11 src/block/labels.js:16
-#: src/block/WubtitlePanel.js:66
+#: includes/MediaLibrary/MediaLibraryExtented.php:186 build/index.js:1
+#: src/block/EmbedControlPanel.js:11 src/block/labels.js:10
+#: src/block/WubtitlePanel.js:69
 msgid "None"
 msgstr "Nessuno"
 
 #: includes/MediaLibrary/ListingSubtitles.php:54
 #: includes/MediaLibrary/MediaLibraryExtented.php:59
-#: includes/MediaLibrary/MediaLibraryExtented.php:191 build/index.js:1
-#: src/block/WubtitlePanel.js:65
+#: includes/MediaLibrary/MediaLibraryExtented.php:187 build/index.js:1
+#: src/block/WubtitlePanel.js:68
 msgid "Error"
 msgstr "Errore"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:91
 #: includes/MediaLibrary/MediaLibraryExtented.php:132
-#: includes/MediaLibrary/MediaLibraryExtented.php:236
-#: includes/MediaLibrary/MediaLibraryExtented.php:280
+#: includes/MediaLibrary/MediaLibraryExtented.php:232
+#: includes/MediaLibrary/MediaLibraryExtented.php:276
 msgid "Language"
 msgstr "Lingua"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:104
-#: includes/MediaLibrary/MediaLibraryExtented.php:292 build/index.js:1
-#: src/block/WubtitlePanel.js:85
+#: includes/MediaLibrary/MediaLibraryExtented.php:288 build/index.js:1
+#: src/block/WubtitlePanel.js:88
 msgid "GENERATE SUBTITLES"
 msgstr "GENERA SOTTOTITOLI"
 
-#: includes/MediaLibrary/MediaLibraryExtented.php:159
-#: includes/MediaLibrary/MediaLibraryExtented.php:367 build/index.js:1
-#: src/block/labels.js:4 src/block/labels.js:22 src/block/labels.js:49
-msgid "Italian"
-msgstr "Italiano"
-
-#: includes/MediaLibrary/MediaLibraryExtented.php:160
-#: includes/MediaLibrary/MediaLibraryExtented.php:368
-#: includes/Utils/VimeoHelper.php:56 build/index.js:1 src/block/labels.js:5
-#: src/block/labels.js:26 src/block/labels.js:54
-msgid "English"
-msgstr "Inglese"
-
-#: includes/MediaLibrary/MediaLibraryExtented.php:161
-#: includes/MediaLibrary/MediaLibraryExtented.php:369 build/index.js:1
-#: src/block/labels.js:6 src/block/labels.js:30
-msgid "Spanish"
-msgstr "Spagnolo"
-
-#: includes/MediaLibrary/MediaLibraryExtented.php:162
-#: includes/MediaLibrary/MediaLibraryExtented.php:370 build/index.js:1
-#: src/block/labels.js:7 src/block/labels.js:34
-msgid "German"
-msgstr "Tedesco"
-
-#: includes/MediaLibrary/MediaLibraryExtented.php:163
-#: includes/MediaLibrary/MediaLibraryExtented.php:371 build/index.js:1
-#: src/block/labels.js:8 src/block/labels.js:38
-msgid "Chinese"
-msgstr "Cinese"
-
-#: includes/MediaLibrary/MediaLibraryExtented.php:164
-#: includes/MediaLibrary/MediaLibraryExtented.php:372 build/index.js:1
-#: src/block/labels.js:9 src/block/labels.js:42
-msgid "French"
-msgstr "Francese"
-
-#: includes/MediaLibrary/MediaLibraryExtented.php:214
+#: includes/MediaLibrary/MediaLibraryExtented.php:210
 msgid "Subtitles"
 msgstr "Sottotitoli"
 
-#: includes/MediaLibrary/MediaLibraryExtented.php:218
+#: includes/MediaLibrary/MediaLibraryExtented.php:214
 msgid "Status"
 msgstr "Stato"
 
-#: includes/MediaLibrary/MediaLibraryExtented.php:243
+#: includes/MediaLibrary/MediaLibraryExtented.php:239
 msgid ""
 "Wait while subtitles are created. Subtitles will be available as soon as "
 "possible"
 msgstr ""
 "Attendi che vengano creati i sottotitoli. I sottotitoli saranno disponibili "
 "il prima possibile"
+
+#: includes/MediaLibrary/MediaLibraryExtented.php:365
+#: includes/Utils/VimeoHelper.php:56 build/index.js:1 src/block/labels.js:39
+msgid "English"
+msgstr "Inglese"
 
 #: includes/MediaLibrary/TrascriptionsExtends.php:66
 msgid "Add transcription"
@@ -993,10 +1086,6 @@ msgstr "Inglese (Sud Africa)"
 msgid "Estonian"
 msgstr "Estone"
 
-#: includes/Utils/VimeoHelper.php:68
-msgid "Farsi"
-msgstr "Farsi"
-
 #: includes/Utils/VimeoHelper.php:69
 msgid "Finnish"
 msgstr "Finlandese"
@@ -1057,10 +1146,6 @@ msgstr "Greco"
 msgid "Irish"
 msgstr "Irlandese"
 
-#: includes/Utils/VimeoHelper.php:84
-msgid "Hebrew"
-msgstr "Ebraico"
-
 #: includes/Utils/VimeoHelper.php:85
 msgid "Hindi"
 msgstr "Hindi"
@@ -1068,10 +1153,6 @@ msgstr "Hindi"
 #: includes/Utils/VimeoHelper.php:86
 msgid "Hungarian"
 msgstr "Ungherese"
-
-#: includes/Utils/VimeoHelper.php:87
-msgid "Indonesian"
-msgstr "Indonesiano"
 
 #: includes/Utils/VimeoHelper.php:88
 msgid "Icelandic"
@@ -1084,10 +1165,6 @@ msgstr "Italiano (Standard)"
 #: includes/Utils/VimeoHelper.php:90
 msgid "Italian (Switzerland)"
 msgstr "Italiano (Svizzera)"
-
-#: includes/Utils/VimeoHelper.php:91
-msgid "Japanese"
-msgstr "Giapponese"
 
 #: includes/Utils/VimeoHelper.php:92
 msgid "Korean (Johab)"
@@ -1160,10 +1237,6 @@ msgstr "Rumeno"
 #: includes/Utils/VimeoHelper.php:109
 msgid "Romanian (Republic of Moldova)"
 msgstr "Rumeno (Repubblica di Moldova)"
-
-#: includes/Utils/VimeoHelper.php:110
-msgid "Russian"
-msgstr "Russo"
 
 #: includes/Utils/VimeoHelper.php:111
 msgid "Russian (Republic of Moldova)"
@@ -1277,10 +1350,6 @@ msgstr "Tailandese"
 msgid "Tswana"
 msgstr "Tswana"
 
-#: includes/Utils/VimeoHelper.php:139
-msgid "Turkish"
-msgstr "Turco"
-
 #: includes/Utils/VimeoHelper.php:140
 msgid "Tsonga"
 msgstr "Tsonga"
@@ -1345,28 +1414,16 @@ msgstr ""
 msgid "Language of trascription"
 msgstr "Lingua della trascrizione"
 
-#: build/index.js:1 src/block/labels.js:15
+#: build/index.js:1 src/block/labels.js:9
 msgid "Enabled"
 msgstr "Attivati"
 
-#: build/index.js:1 src/block/labels.js:59
-msgid "Spanish (Pro only)"
-msgstr "Spagnolo (solo Pro)"
-
-#: build/index.js:1 src/block/labels.js:64
-msgid "German (Pro only)"
-msgstr "Tedesco (solo Pro)"
-
-#: build/index.js:1 src/block/labels.js:69
-msgid "Chinese (Pro only)"
-msgstr "Cinese (solo Pro)"
-
-#: build/index.js:1 src/block/labels.js:74
-msgid "French (Pro only)"
-msgstr "Francese (solo Pro)"
+#: build/index.js:1 src/block/labels.js:32
+msgid "(Pro Only)"
+msgstr "(solo Pro)"
 
 #: build/index.js:1 src/block/PendingSubtitle.js:7
-#: src/block/SubtitleControl.js:67 src/block/WubtitlePanel.js:69
+#: src/block/SubtitleControl.js:67 src/block/WubtitlePanel.js:72
 msgid "Status:"
 msgstr "Stato:"
 
@@ -1385,11 +1442,11 @@ msgid "Get Transcribe"
 msgstr "Ottieni trascrizione"
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:131
-#: src/block/WubtitlePanel.js:71
+#: src/block/WubtitlePanel.js:74
 msgid "Select the video language"
 msgstr "Seleziona la lingua del video"
 
-#: build/index.js:1 src/block/WubtitlePanel.js:116
+#: build/index.js:1 src/block/WubtitlePanel.js:119
 msgid "Subtitle creation successfully started"
 msgstr "Creazione dei sottotitoli avviata con successo"
 
@@ -1401,9 +1458,9 @@ msgstr "Sottotitoli non disponibili per questo video"
 msgid "Transcript status:"
 msgstr "Stato trascrizione:"
 
-#: build/index.js:1
-msgid "Get Video Info"
-msgstr "Informazioni Video"
+#: build/index.js:1 src/block/EmbedControlPanel.js:124
+msgid "Select transcript language"
+msgstr "Selezione la lingua della trascrizione"
 
 #: build/index.js:1 src/block/EmbedControlPanel.js:54
 msgid "Created"
@@ -1708,9 +1765,20 @@ msgstr "Dopo i primi"
 msgid "months the monthly price will be"
 msgstr "mesi il prezzo mensile sarà"
 
-#: src/block/EmbedControlPanel.js:124
-msgid "Select transcript language"
-msgstr "Selezione la lingua della trascrizione"
+#~ msgid "Error, invalid language selected"
+#~ msgstr "Errore, lingua selezionata non valida"
+
+#~ msgid "Spanish (Pro only)"
+#~ msgstr "Spagnolo (solo Pro)"
+
+#~ msgid "Chinese (Pro only)"
+#~ msgstr "Cinese (solo Pro)"
+
+#~ msgid "French (Pro only)"
+#~ msgstr "Francese (solo Pro)"
+
+#~ msgid "Get Video Info"
+#~ msgstr "Informazioni Video"
 
 #~ msgid "Insert url youtube video"
 #~ msgstr "Inserisci l' url del video youtube"
