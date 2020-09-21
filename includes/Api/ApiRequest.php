@@ -54,18 +54,7 @@ class ApiRequest {
 	 * @return false|array<mixed>
 	 */
 	public function set_body_request( $data ) {
-		$languanges = array(
-			'en' => 'en-US',
-			'it' => 'it-IT',
-			'de' => 'de-DE',
-			'fr' => 'fr-FR',
-			'zh' => 'zh-CN',
-			'es' => 'es-ES',
-		);
-		$lang       = $data['lang'];
-		if ( ! array_key_exists( $lang, $languanges ) ) {
-			wp_send_json_error( __( 'Error, invalid language selected', 'wubtitle' ) );
-		}
+		$lang          = $data['lang'];
 		$id_attachment = (int) $data['id_attachment'];
 		$video_data    = $this->get_media_metadata( $id_attachment );
 		if ( ! is_numeric( $id_attachment ) || $video_data['filesize'] <= 0 || $video_data['length'] <= 0 || ! wp_http_validate_url( $data['src_attachment'] ) ) {
@@ -78,7 +67,7 @@ class ApiRequest {
 				'url'          => $data['src_attachment'],
 				'size'         => $video_data['filesize'],
 				'duration'     => $video_data['length'],
-				'lang'         => $languanges[ $lang ],
+				'lang'         => $lang,
 			),
 		);
 		return $body;

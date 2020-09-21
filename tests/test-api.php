@@ -87,7 +87,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
          $data = array(
            'id_attachment' => $attachment_id,
            'src_attachment' => $src,
-           'lang' => 'en'
+           'lang' => 'en-US'
          );
          $result = $this->instance->set_body_request($data);
          $expected_body = array(

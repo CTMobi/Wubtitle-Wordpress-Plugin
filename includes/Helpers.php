@@ -102,4 +102,45 @@ class Helpers {
 		return true;
 	}
 
+	/**
+	 * Get languages supported for transcriptions
+	 *
+	 * @return array<string>
+	 */
+	public function get_languages() {
+		return array(
+			'it-IT' => __( 'Italian', 'wubtitle' ),
+			'en-US' => __( 'US English', 'wubtitle' ),
+			'es-ES' => __( 'Spanish', 'wubtitle' ),
+			'de-DE' => __( 'German', 'wubtitle' ),
+			'zh-CN' => __( 'Chinese', 'wubtitle' ),
+			'fr-FR' => __( 'French', 'wubtitle' ),
+			'ar-AE' => __( 'Gulf Arabic', 'wubtitle' ),
+			'ar-SA' => __( 'Modern Standard Arabic', 'wubtitle' ),
+			'nl-NL' => __( 'Dutch', 'wubtitle' ),
+			'en-AU' => __( 'Australian English', 'wubtitle' ),
+			'en-WL' => __( 'Welsh English', 'wubtitle' ),
+			'es-US' => __( 'US Spanish', 'wubtitle' ),
+			'fr-CA' => __( 'Canadian French', 'wubtitle' ),
+			'fa-IR' => __( 'Farsi', 'wubtitle' ),
+			'de-CH' => __( 'Swiss German', 'wubtitle' ),
+			'he-IL' => __( 'Hebrew', 'wubtitle' ),
+			'hi-IN' => __( 'Indian Hindi', 'wubtitle' ),
+			'id-ID' => __( 'Indonesian', 'wubtitle' ),
+			'ja-JP' => __( 'Japanese', 'wubtitle' ),
+			'ko-KR' => __( 'Korean', 'wubtitle' ),
+			'ms-MY' => __( 'Malay', 'wubtitle' ),
+			'pt-PT' => __( 'Portuguese', 'wubtitle' ),
+			'ru-RU' => __( 'Russian', 'wubtitle' ),
+			'ta-IN' => __( 'Tamil', 'wubtitle' ),
+			'te-IN' => __( 'Telugu', 'wubtitle' ),
+			'tr-TR' => __( 'Turkish', 'wubtitle' ),
+			'en-IN' => __( 'Indian English', 'wubtitle' ),
+			'en-IE' => __( 'Irish English', 'wubtitle' ),
+			'en-AB' => __( 'Scottish English', 'wubtitle' ),
+			'en-GB' => __( 'British English', 'wubtitle' ),
+			'pt-BR' => __( 'Brazilian Portuguese', 'wubtitle' ),
+		);
+	}
+
 }

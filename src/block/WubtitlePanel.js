@@ -7,7 +7,12 @@ import { useState, Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import PendingSubtitle from './PendingSubtitle';
 import SubtitleControl from './SubtitleControl';
-import { selectOptions, selectOptionsFreePlan } from './labels';
+import {
+	selectOptions,
+	selectOptionsFreePlan,
+	allLanguages,
+	languagesFree,
+} from './labels';
 
 const WubtitlePanel = (props) => {
 	const extensionsFile =
@@ -15,12 +20,10 @@ const WubtitlePanel = (props) => {
 			? props.src.substring(props.src.lastIndexOf('.') + 1)
 			: 'mp4';
 	const languages =
-		wubtitle_button_object.isFree === '1'
-			? ['it', 'en']
-			: ['it', 'en', 'es', 'de', 'zh'];
+		wubtitle_button_object.isFree === '1' ? languagesFree : allLanguages;
 	const lang = languages.includes(wubtitle_button_object.lang)
 		? wubtitle_button_object.lang
-		: 'en';
+		: 'en-US';
 	const metaValues = useSelect((select) => {
 		let attachment;
 		if (props.id !== undefined) {
