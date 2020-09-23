@@ -50,7 +50,7 @@ No, but we are working to add this feature.
 
 = What languages does Wubtitle support? =
 
-Wubtitle currently supports english, italian, spanish, chinese and french.  However, free plan only supports english and italian languages.
+Wubtitle currently supports english, italian, spanish, chinese, french, Gulf Arabic, Modern Standard Arabic, Dutch, Australian English, British English, Indian English, Irish English, Scottish English, Welsh English, US Spanish, Canadian French, Farsi, Swiss German, Hebrew, Indian Hindi, Indonesian, Japanese, Korean, Malay, Portuguese, Brazilian Portuguese, Russian, Tamil, Telugu, Turkish. However, free plan only supports english and italian languages.
 
 = Can Wubtitle automatically translate transcriptions? =
 
@@ -94,6 +94,16 @@ No, currently we do not offer annual subscriptions.
 
 
 == Changelog ==
+
+= 1.1.1 =
+Release Date: September 23th, 2020
+
+Enhancements:
+* Added support for a lot of new languages: Gulf Arabic, Modern Standard Arabic, Dutch, Australian English, British English, Indian English, Irish English, Scottish English, Welsh English, US Spanish, Canadian French, Farsi, Swiss German, Hebrew, Indian Hindi, Indonesian, Japanese, Korean, Malay, Portuguese, Brazilian Portuguese, Russian, Tamil, Telugu, Turkish
+
+Bugfixes:
+
+* Stability improvements
 
 = 1.1.0 =
 Release Date: September 10th, 2020
@@ -165,4 +175,5 @@ First public version
 
 == Upgrade Notice ==
 
-Upgrade to enjoy Vimeo Transcriptions
+= 1.1.1 =
+Upgrade to enjoy Vimeo Transcriptions and a lot of new languages: Gulf Arabic, Modern Standard Arabic, Dutch, Australian English, British English, Indian English, Irish English, Scottish English, Welsh English, US Spanish, Canadian French, Farsi, Swiss German, Hebrew, Indian Hindi, Indonesian, Japanese, Korean, Malay, Portuguese, Brazilian Portuguese, Russian, Tamil, Telugu, Turkish
