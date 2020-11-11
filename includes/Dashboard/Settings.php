@@ -294,7 +294,7 @@ class Settings {
 
 		$validation = array();
 
-		$validation['verified'] = $retrieved['data']['verified'];
+		$validation['verified'] = (bool) $retrieved['data']['verified'];
 		$validation['error']    = false;
 
 		if ( ! $validation['verified'] ) {
