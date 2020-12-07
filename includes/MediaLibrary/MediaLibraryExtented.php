@@ -161,11 +161,10 @@ class MediaLibraryExtented {
 		$lang           = in_array( $lang, $languages, true ) ? $lang : 'en-US';
 		foreach ( $all_languages as $key => $language ) {
 			echo sprintf(
-				'<option %s value="%s" %s>%s</option>',
+				'<option %s value="%s">%s</option>',
 				selected( $lang, $key, false ),
 				esc_html( $key ),
-				esc_html( $this->is_pro_only( $key ) ? 'disabled' : '' ),
-				esc_html( $this->is_pro_only( $key ) ? $language . ' (Pro Only)' : $language )
+				esc_html( $language )
 			);
 		}
 	}
