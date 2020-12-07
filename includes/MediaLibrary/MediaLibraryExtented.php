@@ -138,17 +138,6 @@ class MediaLibraryExtented {
 	}
 
 	/**
-	 * Checks free plan languages.
-	 *
-	 * @param string $lang_code language code.
-	 * @return bool
-	 */
-	private function is_pro_only( $lang_code ) {
-		$free_lang = array( 'it-IT', 'en-US' );
-		return get_option( 'wubtitle_free', true ) && ! in_array( $lang_code, $free_lang, true );
-	}
-
-	/**
 	 * Language select options.
 	 *
 	 * @param string $lang language code.
