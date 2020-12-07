@@ -175,7 +175,7 @@ class InvoiceHelper {
 	 * @param array<string> $invoice_details array content init value.
 	 * @param object        $invoice_object invoice data object.
 	 *
-	 * @return array<string>|false
+	 * @return mixed
 	 */
 	public function italian_invoice( $invoice_details, $invoice_object ) {
 		if ( empty( $invoice_object->cap ) || empty( $invoice_object->province ) ) {
