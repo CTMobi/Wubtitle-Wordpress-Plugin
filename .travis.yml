@@ -34,6 +34,7 @@ php:
 # Test against the latest version of WordPress and one version back.
 env:
   - WP_VERSION=latest
+  - WP_VERSION=5.5
   - WP_VERSION=5.4
   - WP_VERSION=5.3
 
