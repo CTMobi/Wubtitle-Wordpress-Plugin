@@ -23,6 +23,7 @@ parameters:
     excludes_analyse:
         - vendor/
         - tests/
+        - node_modules/
     bootstrapFiles:
         - wubtitle.php
     ignoreErrors:
