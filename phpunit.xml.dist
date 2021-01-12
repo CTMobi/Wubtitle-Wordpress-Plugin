@@ -21,6 +21,7 @@
 				<directory>./vendor</directory>
 				<directory>./includes/Dashboard/Templates</directory>
 				<directory>./tests</directory>
+				<directory>./node_modules</directory>
 			</exclude>
                 </whitelist>
 	</filter>
