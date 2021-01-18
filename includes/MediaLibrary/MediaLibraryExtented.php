@@ -138,17 +138,6 @@ class MediaLibraryExtented {
 	}
 
 	/**
-	 * Checks free plan languages.
-	 *
-	 * @param string $lang_code language code.
-	 * @return bool
-	 */
-	private function is_pro_only( $lang_code ) {
-		$free_lang = array( 'it-IT', 'en-US' );
-		return get_option( 'wubtitle_free', true ) && ! in_array( $lang_code, $free_lang, true );
-	}
-
-	/**
 	 * Language select options.
 	 *
 	 * @param string $lang language code.
@@ -161,11 +150,10 @@ class MediaLibraryExtented {
 		$lang           = in_array( $lang, $languages, true ) ? $lang : 'en-US';
 		foreach ( $all_languages as $key => $language ) {
 			echo sprintf(
-				'<option %s value="%s" %s>%s</option>',
+				'<option %s value="%s">%s</option>',
 				selected( $lang, $key, false ),
 				esc_html( $key ),
-				esc_html( $this->is_pro_only( $key ) ? 'disabled' : '' ),
-				esc_html( $this->is_pro_only( $key ) ? $language . ' (Pro Only)' : $language )
+				esc_html( $language )
 			);
 		}
 	}

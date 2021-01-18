@@ -7,12 +7,7 @@ import { useState, Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import PendingSubtitle from './PendingSubtitle';
 import SubtitleControl from './SubtitleControl';
-import {
-	selectOptions,
-	selectOptionsFreePlan,
-	allLanguages,
-	languagesFree,
-} from './labels';
+import { selectOptions, allLanguages, languagesFree } from './labels';
 
 const WubtitlePanel = (props) => {
 	const extensionsFile =
@@ -58,10 +53,6 @@ const WubtitlePanel = (props) => {
 	const isDisabled =
 		status === 'pending' || props.id === undefined || isLoading;
 	const isPublished = status === 'enabled';
-	const optionLanguage =
-		wubtitle_button_object.isFree === '1'
-			? selectOptionsFreePlan
-			: selectOptions;
 	const GenerateSubtitles = () => {
 		status =
 			status === 'error'
@@ -76,7 +67,7 @@ const WubtitlePanel = (props) => {
 					onChange={(lingua) => {
 						setLanguage(lingua);
 					}}
-					options={optionLanguage}
+					options={selectOptions}
 				/>
 				<Button
 					disabled={isDisabled}
