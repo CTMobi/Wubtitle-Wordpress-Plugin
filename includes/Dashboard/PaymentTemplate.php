@@ -208,7 +208,7 @@ class PaymentTemplate {
 					'expirationDate'   => $friendly_expiration_date,
 					'isTaxable'        => $taxable,
 					'stripeKey'        => $this->stripe_key,
-					'invoicePreValues' => $data && isset( $invoice_object ) ? $invoice_object : null,
+					'invoicePreValues' => $data && null !== $invoice_object ? $invoice_object : null,
 					'paymentPreValues' => $data && isset( $payment_object ) ? $payment_object : null,
 					'siteDomain'       => get_option( 'siteurl' ),
 				)
