@@ -5,10 +5,11 @@
   "author": "CTMobi",
   "devDependencies": {
     "@wordpress/plugins": "^2.24.1",
-    "@wordpress/scripts": "^12.6.1",
+    "@wordpress/scripts": "^13.0.0",
     "csslint": "^1.0.5",
-    "eslint-plugin-scanjs-rules": "^0.2.1",
     "eslint": "^7.18.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-scanjs-rules": "^0.2.1",
     "husky": "^4.3.8",
     "prettier": "^2.2.1",
     "stylelint-config-wordpress": "^17.0.0"
@@ -21,7 +22,7 @@
   "scripts": {
     "build-stripe": "wp-scripts build src/stripe/index.js --output-path=build_form",
     "build-data": "cp src/stripe/data/europeanCountries.json build_form/",
-    "build-translations" : "vendor/bin/wp i18n make-json languages --no-purge && vendor/bin/wp i18n make-mo languages",
+    "build-translations": "vendor/bin/wp i18n make-json languages --no-purge && vendor/bin/wp i18n make-mo languages",
     "build": "wp-scripts build && npm run build-stripe && npm run build-data && npm run build-translations",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
@@ -47,8 +48,17 @@
     "@stripe/react-stripe-js": "^1.2.0",
     "@stripe/stripe-js": "^1.11.0",
     "@wordpress/api-fetch": "^3.21.2",
+    "@wordpress/block-editor": "^5.2.2",
+    "@wordpress/blocks": "^6.25.2",
+    "@wordpress/components": "^12.0.2",
+    "@wordpress/compose": "^3.23.1",
+    "@wordpress/data": "^4.26.2",
+    "@wordpress/element": "^2.19.0",
+    "@wordpress/hooks": "^2.11.0",
     "@wordpress/i18n": "^3.17.0",
     "formik": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "yup": "^0.32.8"
   }
 }
