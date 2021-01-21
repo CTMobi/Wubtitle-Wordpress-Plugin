@@ -49,6 +49,7 @@
     "@stripe/stripe-js": "^1.11.0",
     "@wordpress/api-fetch": "^3.21.2",
     "@wordpress/compose": "^3.23.1",
+    "@wordpress/element": "^2.19.0",
     "@wordpress/hooks": "^2.11.0",
     "@wordpress/i18n": "^3.17.0",
     "formik": "^2.2.6",
