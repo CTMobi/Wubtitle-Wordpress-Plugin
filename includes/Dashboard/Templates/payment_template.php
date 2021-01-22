@@ -64,18 +64,17 @@ require WUBTITLE_DIR . 'includes/Dashboard/Templates/plans_array.php';
 						<?php echo esc_html( $plan['message_button'] ); ?>
 					</div>
 				</div>
-				<ul class="features-list">
-					<?php
-					foreach ( $plan['dot_list'] as $dot ) :
-						?>
-					<li><?php echo esc_html( $dot ); ?></li>
-						<?php
-						endforeach;
-					?>
-				</ul>
 			</div>
 				<?php
 		endforeach;
+			?>
+		<ul class="features-list">
+			<li>
+				<strong><?php echo esc_html_e( 'Supported languages:', 'wubtitle' ); ?> </strong>
+				<?php echo esc_html( $plans['dot_list'][0] ); ?>
+			</li>
+		</ul>
+			<?php
 		endif;
 		?>
 		</div>
