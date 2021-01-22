@@ -179,15 +179,6 @@ html {
 	padding: 30px 5px;
 }
 
-.features-list li::before {
-	color: #ff0;
-	content: "\2022";
-	display: inline-block;
-	font-weight: 700;
-	margin-left: -1em;
-	width: 1em;
-}
-
 .features-list li {
 	color: #fff;
 	font-size: 12px;
