@@ -5,6 +5,18 @@ import { Fragment } from '@wordpress/element';
 
 const withInspectorControls = (BlockEdit) => {
 	return (props) => {
+		if (props.name === 'core/embed') {
+			switch (props.attributes.providerNameSlug) {
+				case 'youtube':
+					props.name = 'core-embed/youtube';
+					break;
+				case 'vimeo':
+					props.name = 'core-embed/vimeo';
+					break;
+				default:
+					props.name = '';
+			}
+		}
 		if (
 			props.name !== 'core-embed/youtube' &&
 			props.name !== 'core-embed/vimeo'
