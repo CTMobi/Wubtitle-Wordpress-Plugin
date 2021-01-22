@@ -26,7 +26,7 @@ $disable_downgrade_message = __( 'Unable to select this plan during the first mo
 
 foreach ( $plans as $key => $plan ) {
 	$max_lenght                      = $plans[ $key ]['totalSeconds'] < 3600 ? date_i18n( 'i', $plans[ $key ]['totalSeconds'] ) . ' ' . __( 'Minutes', 'wubtitle' ) : date_i18n( 'g', $plans[ $key ]['totalSeconds'] ) . ' ' . __( 'Hours', 'wubtitle' );
-	$video_formats                   = array( 'all' ) === $plans[ $key ]['supportedFormats'] ? __( 'All video formats', 'wubtitle' ) : 'MP4';
+	$video_formats                   = array( 'all' ) === $plans[ $key ]['supportedFormats'] ? __( 'All WordPress video formats', 'wubtitle' ) : 'MP4';
 	$plans[ $key ]['current_plan']   = false;
 	$plans[ $key ]['zoom']           = false;
 	$plans[ $key ]['class_button']   = 'button-choose-plan';
