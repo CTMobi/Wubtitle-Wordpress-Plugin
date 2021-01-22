@@ -154,12 +154,13 @@ class ApiLicenseValidation {
 		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		// warning camel case.
 		$accumulator[ $item->rank ] = array(
-			'name'         => $item->name,
-			'stripe_code'  => $item->id,
-			'totalJobs'    => $item->totalJobs,
-			'totalSeconds' => $item->totalSeconds,
-			'dot_list'     => $item->dotlist,
-			'icon'         => $item->icon,
+			'name'             => $item->name,
+			'stripe_code'      => $item->id,
+			'totalJobs'        => $item->totalJobs,
+			'totalSeconds'     => $item->totalSeconds,
+			'dot_list'         => $item->dotlist,
+			'icon'             => $item->icon,
+			'supportedFormats' => $item->supportedFormats,
 		);
 		return $accumulator;
 	}
