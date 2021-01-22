@@ -5,9 +5,24 @@ import { Fragment } from '@wordpress/element';
 
 const withInspectorControls = (BlockEdit) => {
 	return (props) => {
+		let name;
+		if (props.name === 'core/embed') {
+			switch (props.attributes.providerNameSlug) {
+				case 'youtube':
+					name = 'core-embed/youtube';
+					break;
+				case 'vimeo':
+					name = 'core-embed/vimeo';
+					break;
+				default:
+					name = '';
+			}
+		}
+		const isYoutubeOrVimeo = props.name === 'core/embed' && name !== '';
 		if (
 			props.name !== 'core-embed/youtube' &&
-			props.name !== 'core-embed/vimeo'
+			props.name !== 'core-embed/vimeo' &&
+			!isYoutubeOrVimeo
 		) {
 			return <BlockEdit {...props} />;
 		}
@@ -17,7 +32,7 @@ const withInspectorControls = (BlockEdit) => {
 				<EmbedControlPanel
 					{...props.attributes}
 					setAttributes={props.setAttributes}
-					block={props.name}
+					block={name || props.name}
 				/>
 			</Fragment>
 		);
