@@ -37,7 +37,7 @@ const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 		if (attributes.contentId && tokens.length === 0) {
 			const queryPost = {
 				per_page: 1,
-				include: attributes.contentId,
+				include: `${attributes.contentId}`,
 			};
 			const resultPost = select('core').getEntityRecords(
 				'postType',
