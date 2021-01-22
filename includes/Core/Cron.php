@@ -102,12 +102,13 @@ class Cron {
 			$total_seconds      = 0;
 			foreach ( $plans as $plan ) {
 				$wubtitle_plans[ $plan->rank ]   = array(
-					'name'         => $plan->name,
-					'stripe_code'  => $plan->id,
-					'totalJobs'    => $plan->totalJobs,
-					'totalSeconds' => $plan->totalSeconds,
-					'dot_list'     => $plan->dotlist,
-					'icon'         => $plan->icon,
+					'name'             => $plan->name,
+					'stripe_code'      => $plan->id,
+					'totalJobs'        => $plan->totalJobs,
+					'totalSeconds'     => $plan->totalSeconds,
+					'dot_list'         => $plan->dotlist,
+					'icon'             => $plan->icon,
+					'supportedFormats' => $plan->supportedFormats,
 				);
 				$price_info_plans[ $plan->rank ] = array(
 					'price'         => $plan->price,
