@@ -161,6 +161,7 @@ class ApiLicenseValidation {
 			'dot_list'         => $item->dotlist,
 			'icon'             => $item->icon,
 			'supportedFormats' => $item->supportedFormats,
+			'dotlistV4'        => $item->dolistV4,
 		);
 		return $accumulator;
 	}
