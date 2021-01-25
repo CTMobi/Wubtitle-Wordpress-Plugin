@@ -109,6 +109,7 @@ class Cron {
 					'dot_list'         => $plan->dotlist,
 					'icon'             => $plan->icon,
 					'supportedFormats' => $plan->supportedFormats,
+					'dotlistV4'        => $plan->dotlistV4,
 				);
 				$price_info_plans[ $plan->rank ] = array(
 					'price'         => $plan->price,

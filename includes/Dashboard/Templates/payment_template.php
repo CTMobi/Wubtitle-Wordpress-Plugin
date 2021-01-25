@@ -71,7 +71,7 @@ require WUBTITLE_DIR . 'includes/Dashboard/Templates/plans_array.php';
 		<ul class="features-list">
 			<li>
 				<p><strong><?php echo esc_html_e( 'Supported languages:', 'wubtitle' ); ?></strong></p>
-				<?php echo esc_html( $plans[0]['dot_list'][0] ); ?>
+				<?php echo esc_html( $plans[0]['dotlistV4'] ); ?>
 			</li>
 		</ul>
 			<?php

@@ -43,6 +43,7 @@ class TestDashboard extends WP_Ajax_UnitTestCase {
                     '3',
                 ),
                 'supportedFormats' => ['all'],
+                'dotlistV4'        => '',
             ),
             array(
                 'totalSeconds'     => 5466,
@@ -60,6 +61,7 @@ class TestDashboard extends WP_Ajax_UnitTestCase {
                     '3',
                 ),
                 'supportedFormats' => ['all'],
+                'dotlistV4'        => '',
             ),
         );
         update_option( 'wubtitle_all_plans', $this->all_plans );

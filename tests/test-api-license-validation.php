@@ -31,6 +31,7 @@ class TestApiLivenseValidation extends WP_UnitTestCase {
                 'icon'             => 'icon_1',
                 'rank'             => 0,
                 'supportedFormats' => ['all'],
+                'dotlistV4'        => '',
             ),
             array(
                 'name'             => 'name_2',
@@ -41,6 +42,7 @@ class TestApiLivenseValidation extends WP_UnitTestCase {
                 'icon'             => 'icon_2',
                 'rank'             => 1,
                 'supportedFormats' => ['all'],
+                'dotlistV4'        => '',
             ),
         );
 		$body = array(
