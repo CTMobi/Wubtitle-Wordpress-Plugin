@@ -80,27 +80,14 @@ require WUBTITLE_DIR . 'includes/Dashboard/Templates/plans_array.php';
 			</div>
 				<?php
 		endforeach;
-	endif;
-		?>
-		</div>
-		<div class="row">
-		<?php
-		if ( isset( $plans ) ) :
-			foreach ( $plans as $plan ) :
-				?>
-			<div class="column one-quarter">
-				<ul class="features-list">
-					<?php
-					foreach ( $plan['dot_list'] as $dot ) :
-						?>
-					<li><?php echo esc_html( $dot ); ?></li>
-						<?php
-					endforeach;
-					?>
-				</ul>
-			</div>
-				<?php
-			endforeach;
+			?>
+		<ul class="features-list">
+			<li>
+				<p><strong><?php echo esc_html_e( 'Supported languages:', 'wubtitle' ); ?> </strong></p>
+				<?php echo esc_html( $plans[0]['dot_list'][0] ); ?>
+			</li>
+		</ul>
+			<?php
 		endif;
 		?>
 		</div>

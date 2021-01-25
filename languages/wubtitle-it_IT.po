@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Wubtitle 1.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Wubtitle-"
 "Wordpress-Plugin\n"
-"POT-Creation-Date: 2020-09-18T15:29:00+02:00\n"
-"PO-Revision-Date: 2020-09-18 17:39+0200\n"
+"POT-Creation-Date: 2021-01-25T09:25:06+01:00\n"
+"PO-Revision-Date: 2021-01-25 09:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -207,8 +207,8 @@ msgstr "Errore, lingua non supportata per il tuo piano di abbonamento"
 
 #: includes/Api/ApiRequest.php:215
 #: includes/MediaLibrary/MediaLibraryExtented.php:73
-#: includes/MediaLibrary/MediaLibraryExtented.php:196 build/index.js:1
-#: src/block/WubtitlePanel.js:97
+#: includes/MediaLibrary/MediaLibraryExtented.php:184 build/index.js:896
+#: src/block/WubtitlePanel.js:88
 msgid "Unsupported video format for free plan"
 msgstr "Formato video non supportato per il piano free"
 
@@ -540,6 +540,11 @@ msgstr "O scegli un'altro piano"
 msgid "Per month"
 msgstr "Per mese"
 
+#: includes/Dashboard/Templates/cancel_template.php:86
+#: includes/Dashboard/Templates/payment_template.php:73
+msgid "Supported languages:"
+msgstr "Linguaggi supportati:"
+
 #: includes/Dashboard/Templates/downgrade_plan_template.php:25
 msgid "Subscription plan downgrade"
 msgstr "Modifica piano di abbonamento"
@@ -594,6 +599,10 @@ msgstr "Minuti"
 msgid "Hours"
 msgstr "Ore"
 
+#: includes/Dashboard/Templates/plans_array.php:29
+msgid "All WordPress video formats"
+msgstr "Tutti i formati video wordpress"
+
 #: includes/Dashboard/Templates/plans_array.php:33
 msgid "Choose this plan"
 msgstr "Scegli il piano"
@@ -606,7 +615,11 @@ msgstr "Numero di video"
 msgid "Total length of videos"
 msgstr "Lunghezza totale dei video"
 
-#: includes/Dashboard/Templates/plans_array.php:49 build_form/index.js:1
+#: includes/Dashboard/Templates/plans_array.php:37
+msgid "Video format allowed"
+msgstr "Formati video supportati"
+
+#: includes/Dashboard/Templates/plans_array.php:50 build_form/index.js:1
 #: src/stripe/Components/PlanTable.js:22
 msgid "Your plan"
 msgstr "Il tuo piano"
@@ -696,8 +709,8 @@ msgstr "Data di scadenza: "
 msgid "Upgrade Now"
 msgstr "Modifica piano"
 
-#: includes/Helpers.php:112 includes/MediaLibrary/MediaLibraryExtented.php:364
-#: build/index.js:1 src/block/labels.js:38
+#: includes/Helpers.php:112 includes/MediaLibrary/MediaLibraryExtented.php:352
+#: build/index.js:1068 src/block/labels.js:38
 msgid "Italian"
 msgstr "Italiano"
 
@@ -705,23 +718,23 @@ msgstr "Italiano"
 msgid "US English"
 msgstr "Inglese (US)"
 
-#: includes/Helpers.php:114 includes/MediaLibrary/MediaLibraryExtented.php:366
-#: build/index.js:1 src/block/labels.js:40
+#: includes/Helpers.php:114 includes/MediaLibrary/MediaLibraryExtented.php:354
+#: build/index.js:1070 src/block/labels.js:40
 msgid "Spanish"
 msgstr "Spagnolo"
 
-#: includes/Helpers.php:115 includes/MediaLibrary/MediaLibraryExtented.php:367
-#: build/index.js:1 src/block/labels.js:41
+#: includes/Helpers.php:115 includes/MediaLibrary/MediaLibraryExtented.php:355
+#: build/index.js:1071 src/block/labels.js:41
 msgid "German"
 msgstr "Tedesco"
 
-#: includes/Helpers.php:116 includes/MediaLibrary/MediaLibraryExtented.php:368
-#: build/index.js:1 src/block/labels.js:42
+#: includes/Helpers.php:116 includes/MediaLibrary/MediaLibraryExtented.php:356
+#: build/index.js:1072 src/block/labels.js:42
 msgid "Chinese"
 msgstr "Cinese"
 
-#: includes/Helpers.php:117 includes/MediaLibrary/MediaLibraryExtented.php:369
-#: build/index.js:1 src/block/labels.js:43
+#: includes/Helpers.php:117 includes/MediaLibrary/MediaLibraryExtented.php:357
+#: build/index.js:1073 src/block/labels.js:43
 msgid "French"
 msgstr "Francese"
 
@@ -833,7 +846,7 @@ msgstr "Sottotitoli"
 
 #: includes/MediaLibrary/ListingSubtitles.php:49
 #: includes/MediaLibrary/MediaLibraryExtented.php:56
-#: includes/MediaLibrary/MediaLibraryExtented.php:183 build/index.js:1
+#: includes/MediaLibrary/MediaLibraryExtented.php:171 build/index.js:1032
 #: src/block/labels.js:7
 msgid "Generating"
 msgstr "In Creazione"
@@ -841,8 +854,8 @@ msgstr "In Creazione"
 #: includes/MediaLibrary/ListingSubtitles.php:50
 #: includes/MediaLibrary/MediaLibraryExtented.php:57
 #: includes/MediaLibrary/MediaLibraryExtented.php:124
-#: includes/MediaLibrary/MediaLibraryExtented.php:184
-#: includes/MediaLibrary/MediaLibraryExtented.php:260 build/index.js:1
+#: includes/MediaLibrary/MediaLibraryExtented.php:172
+#: includes/MediaLibrary/MediaLibraryExtented.php:248 build/index.js:1033
 #: src/block/labels.js:8
 msgid "Draft"
 msgstr "In bozza"
@@ -850,49 +863,49 @@ msgstr "In bozza"
 #: includes/MediaLibrary/ListingSubtitles.php:51
 #: includes/MediaLibrary/MediaLibraryExtented.php:58
 #: includes/MediaLibrary/MediaLibraryExtented.php:123
-#: includes/MediaLibrary/MediaLibraryExtented.php:185
-#: includes/MediaLibrary/MediaLibraryExtented.php:259 build/index.js:1
+#: includes/MediaLibrary/MediaLibraryExtented.php:173
+#: includes/MediaLibrary/MediaLibraryExtented.php:247 build/index.js:625
 #: src/block/SubtitleControl.js:73
 msgid "Published"
 msgstr "Pubblicati"
 
 #: includes/MediaLibrary/ListingSubtitles.php:53
 #: includes/MediaLibrary/MediaLibraryExtented.php:60
-#: includes/MediaLibrary/MediaLibraryExtented.php:186 build/index.js:1
-#: src/block/EmbedControlPanel.js:11 src/block/labels.js:10
-#: src/block/WubtitlePanel.js:69
+#: includes/MediaLibrary/MediaLibraryExtented.php:174 build/index.js:353
+#: build/index.js:878 build/index.js:1035 src/block/EmbedControlPanel.js:11
+#: src/block/labels.js:10 src/block/WubtitlePanel.js:60
 msgid "None"
 msgstr "Nessuno"
 
 #: includes/MediaLibrary/ListingSubtitles.php:54
 #: includes/MediaLibrary/MediaLibraryExtented.php:59
-#: includes/MediaLibrary/MediaLibraryExtented.php:187 build/index.js:1
-#: src/block/WubtitlePanel.js:68
+#: includes/MediaLibrary/MediaLibraryExtented.php:175 build/index.js:878
+#: src/block/WubtitlePanel.js:59
 msgid "Error"
 msgstr "Errore"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:91
 #: includes/MediaLibrary/MediaLibraryExtented.php:132
-#: includes/MediaLibrary/MediaLibraryExtented.php:232
-#: includes/MediaLibrary/MediaLibraryExtented.php:276
+#: includes/MediaLibrary/MediaLibraryExtented.php:220
+#: includes/MediaLibrary/MediaLibraryExtented.php:264
 msgid "Language"
 msgstr "Lingua"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:104
-#: includes/MediaLibrary/MediaLibraryExtented.php:288 build/index.js:1
-#: src/block/WubtitlePanel.js:88
+#: includes/MediaLibrary/MediaLibraryExtented.php:276 build/index.js:892
+#: src/block/WubtitlePanel.js:79
 msgid "GENERATE SUBTITLES"
 msgstr "GENERA SOTTOTITOLI"
 
-#: includes/MediaLibrary/MediaLibraryExtented.php:210
+#: includes/MediaLibrary/MediaLibraryExtented.php:198
 msgid "Subtitles"
 msgstr "Sottotitoli"
 
-#: includes/MediaLibrary/MediaLibraryExtented.php:214
+#: includes/MediaLibrary/MediaLibraryExtented.php:202
 msgid "Status"
 msgstr "Stato"
 
-#: includes/MediaLibrary/MediaLibraryExtented.php:239
+#: includes/MediaLibrary/MediaLibraryExtented.php:227
 msgid ""
 "Wait while subtitles are created. Subtitles will be available as soon as "
 "possible"
@@ -900,8 +913,8 @@ msgstr ""
 "Attendi che vengano creati i sottotitoli. I sottotitoli saranno disponibili "
 "il prima possibile"
 
-#: includes/MediaLibrary/MediaLibraryExtented.php:365
-#: includes/Utils/VimeoHelper.php:56 build/index.js:1 src/block/labels.js:39
+#: includes/MediaLibrary/MediaLibraryExtented.php:353
+#: includes/Utils/VimeoHelper.php:56 build/index.js:1069 src/block/labels.js:39
 msgid "English"
 msgstr "Inglese"
 
@@ -1397,7 +1410,7 @@ msgstr "Errore, lingua non selezionata"
 #: assets/editor/transcriptionModalScript.js:112
 #: assets/editor/transcriptionModalScript.js:147
 #: assets/editor/transcriptionModalScript.js:168
-#: assets/editor/transcriptionModalScript.js:192 build/index.js:1
+#: assets/editor/transcriptionModalScript.js:192 build/index.js:457
 #: src/block/EmbedControlPanel.js:96
 msgid "Select language"
 msgstr "Seleziona la lingua"
@@ -1414,75 +1427,76 @@ msgstr ""
 msgid "Language of trascription"
 msgstr "Lingua della trascrizione"
 
-#: build/index.js:1 src/block/labels.js:9
-msgid "Enabled"
-msgstr "Attivati"
+#: build/index.js:418 src/block/EmbedControlPanel.js:54
+msgid "Created"
+msgstr "Creata"
 
-#: build/index.js:1 src/block/labels.js:32
-msgid "(Pro Only)"
-msgstr "(solo Pro)"
+#: build/index.js:437 src/block/EmbedControlPanel.js:77
+msgid "Subtitles not available for this video"
+msgstr "Sottotitoli non disponibili per questo video"
 
-#: build/index.js:1 src/block/PendingSubtitle.js:7
-#: src/block/SubtitleControl.js:67 src/block/WubtitlePanel.js:72
-msgid "Status:"
-msgstr "Stato:"
+#: build/index.js:478 src/block/EmbedControlPanel.js:115
+msgid "Transcript status:"
+msgstr "Stato trascrizione:"
 
-#: build/index.js:1 src/block/PendingSubtitle.js:8
-#: src/block/SubtitleControl.js:70
-msgid "Language:"
-msgstr "Lingua:"
+#: build/index.js:483 src/block/EmbedControlPanel.js:124
+msgid "Select transcript language"
+msgstr "Selezione la lingua della trascrizione"
 
-#: build/index.js:1 src/block/SubtitleControl.js:29
-msgid "Getting transcript…"
-msgstr "Generazione trascrizione..."
+#: build/index.js:484 build/index.js:880 src/block/EmbedControlPanel.js:131
+#: src/block/WubtitlePanel.js:65
+msgid "Select the video language"
+msgstr "Seleziona la lingua del video"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:150
+#: build/index.js:497 build/index.js:635 src/block/EmbedControlPanel.js:150
 #: src/block/SubtitleControl.js:80
 msgid "Get Transcribe"
 msgstr "Ottieni trascrizione"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:131
-#: src/block/WubtitlePanel.js:74
-msgid "Select the video language"
-msgstr "Seleziona la lingua del video"
+#: build/index.js:526 build/index.js:620 build/index.js:879
+#: src/block/PendingSubtitle.js:7 src/block/SubtitleControl.js:67
+#: src/block/WubtitlePanel.js:63
+msgid "Status:"
+msgstr "Stato:"
 
-#: build/index.js:1 src/block/WubtitlePanel.js:119
-msgid "Subtitle creation successfully started"
-msgstr "Creazione dei sottotitoli avviata con successo"
+#: build/index.js:526 build/index.js:624 src/block/PendingSubtitle.js:8
+#: src/block/SubtitleControl.js:70
+msgid "Language:"
+msgstr "Lingua:"
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:77
-msgid "Subtitles not available for this video"
-msgstr "Sottotitoli non disponibili per questo video"
+#: build/index.js:589 src/block/SubtitleControl.js:29
+msgid "Getting transcript…"
+msgstr "Generazione trascrizione..."
 
-#: build/index.js:1 src/block/EmbedControlPanel.js:115
-msgid "Transcript status:"
-msgstr "Stato trascrizione:"
-
-#: build/index.js:1 src/block/EmbedControlPanel.js:124
-msgid "Select transcript language"
-msgstr "Selezione la lingua della trascrizione"
-
-#: build/index.js:1 src/block/EmbedControlPanel.js:54
-msgid "Created"
-msgstr "Creata"
-
-#: build/index.js:1 src/block/TranscriptionEditBlock.js:108
+#: build/index.js:774 src/block/TranscriptionEditBlock.js:108
 msgid "Wubtitle transcriptions"
 msgstr "Trascrizioni Wubtitle"
 
-#: build/index.js:1 src/block/TranscriptionEditBlock.js:112
+#: build/index.js:780 src/block/TranscriptionEditBlock.js:112
 msgid "Insert transcriptions"
 msgstr "Inserisci trascrizioni"
 
-#: build/index.js:1 src/block/TranscriptionEditBlock.js:117
+#: build/index.js:787 src/block/TranscriptionEditBlock.js:117
 msgid "Enter the title of the video you want to transcribe"
 msgstr "Scrivi il titolo del video del quale vuoi inserire la trascrizione"
 
-#: build/index.js:1 src/block/trascriptionBlock.js:6
+#: build/index.js:914 src/block/WubtitlePanel.js:110
+msgid "Subtitle creation successfully started"
+msgstr "Creazione dei sottotitoli avviata con successo"
+
+#: build/index.js:1034 src/block/labels.js:9
+msgid "Enabled"
+msgstr "Attivati"
+
+#: build/index.js:1063 src/block/labels.js:32
+msgid "(Pro Only)"
+msgstr "(solo Pro)"
+
+#: build/index.js:1096 src/block/trascriptionBlock.js:6
 msgid "Trascription"
 msgstr "Trascrizione"
 
-#: build/index.js:1 src/block/trascriptionBlock.js:8
+#: build/index.js:1098 src/block/trascriptionBlock.js:8
 msgid "Enter the transcript of your video"
 msgstr "Inserisci la trascrizione del tuo video"
 
