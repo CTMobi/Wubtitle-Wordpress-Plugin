@@ -28,36 +28,38 @@ class TestDashboard extends WP_Ajax_UnitTestCase {
 
         $this->all_plans = array(
             array(
-                'totalSeconds' => 2000,
-                'totalJobs'    => 4,
-                'name'         => 'free',
-                'icon'         => 'smile',
-                'stripe_code'  => 'freecode',
-                'features'     => array(
+                'totalSeconds'     => 2000,
+                'totalJobs'        => 4,
+                'name'             => 'free',
+                'icon'             => 'smile',
+                'stripe_code'      => 'freecode',
+                'features'         => array(
                     'feature 1',
                     'feature 2',
                 ),
-                'dot_list'    => array(
+                'dot_list'         => array(
                     '1',
                     '2',
                     '3',
                 ),
+                'supportedFormats' => ['all'],
             ),
             array(
-                'totalSeconds' => 5466,
-                'totalJobs'    => 16,
-                'name'         => 'pro',
-                'icon'         => 'fire',
-                'stripe_code'  => 'procode',
-                'features'     => array(
+                'totalSeconds'     => 5466,
+                'totalJobs'        => 16,
+                'name'             => 'pro',
+                'icon'             => 'fire',
+                'stripe_code'      => 'procode',
+                'features'         => array(
                     'feature 2',
                     'feature 3',
                 ),
-                'dot_list'    => array(
+                'dot_list'         => array(
                     '1',
                     '2',
                     '3',
                 ),
+                'supportedFormats' => ['all'],
             ),
         );
         update_option( 'wubtitle_all_plans', $this->all_plans );

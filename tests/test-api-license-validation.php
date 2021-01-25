@@ -23,22 +23,24 @@ class TestApiLivenseValidation extends WP_UnitTestCase {
 	 public function test_get_init_data(){
         $plans = array(
             array(
-                'name'         => 'name_1',
-                'id'           => 'id_1',
-                'totalJobs'    => 'jobs_1',
-                'totalSeconds' => 'seconds_1',
-                'dotlist'      => 'list_1',
-                'icon'         => 'icon_1',
-                'rank'         => 0,
+                'name'             => 'name_1',
+                'id'               => 'id_1',
+                'totalJobs'        => 'jobs_1',
+                'totalSeconds'     => 'seconds_1',
+                'dotlist'          => 'list_1',
+                'icon'             => 'icon_1',
+                'rank'             => 0,
+                'supportedFormats' => ['all'],
             ),
             array(
-                'name'         => 'name_2',
-                'id'           => 'id_2',
-                'totalJobs'    => 'jobs_2',
-                'totalSeconds' => 'seconds_2',
-                'dotlist'      => 'list_2',
-                'icon'         => 'icon_2',
-                'rank'         => 1,
+                'name'             => 'name_2',
+                'id'               => 'id_2',
+                'totalJobs'        => 'jobs_2',
+                'totalSeconds'     => 'seconds_2',
+                'dotlist'          => 'list_2',
+                'icon'             => 'icon_2',
+                'rank'             => 1,
+                'supportedFormats' => ['all'],
             ),
         );
 		$body = array(
