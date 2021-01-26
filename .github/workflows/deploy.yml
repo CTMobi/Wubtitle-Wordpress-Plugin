@@ -16,15 +16,15 @@ jobs:
       with:
         php_version: 7.4
         version: 2
-        command: |
-          composer install --prefer-dist --no-interaction
-          npm ci --prefer-offline --progress=false
-          npm run build
-          rm -rf vendor
-          composer install --no-dev --prefer-dist --no-interaction
-          npm ci --prefer-offline --progress=false --only=prod
-          rm -rf src/ tests/ composer.json composer.lock package.json package-lock.json .github .aspell.en.pws .eslintrc.json .gitattributes .stylelintrc.json phpmd.xml phpstan.neon.dist node_modules/.cache
-          zip -r ${{ github.event.repository.name }}.zip .
+      run: |
+        composer install --prefer-dist --no-interaction
+        npm ci --prefer-offline --progress=false
+        npm run build
+        rm -rf vendor
+        composer install --no-dev --prefer-dist --no-interaction
+        npm ci --prefer-offline --progress=false --only=prod
+        rm -rf src/ tests/ composer.json composer.lock package.json package-lock.json .github .aspell.en.pws .eslintrc.json .gitattributes .stylelintrc.json phpmd.xml phpstan.neon.dist node_modules/.cache
+        zip -r ${{ github.event.repository.name }}.zip .
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
