@@ -73,9 +73,9 @@ class Cron {
 			WUBTITLE_ENDPOINT . 'subscription/info',
 			array(
 				'method'  => 'POST',
+				'timeout' => 10,
 				'headers' => array(
 					'Content-Type' => 'application/json; charset=utf-8',
-					'timeout'      => 10,
 					'licenseKey'   => $license_key,
 					'domainUrl'    => get_option( 'siteurl' ),
 				),
