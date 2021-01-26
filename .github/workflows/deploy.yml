@@ -11,20 +11,27 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Composer
+    - name: Composer for npm
       uses: php-actions/composer@v5
       with:
         php_version: 7.4
         version: 2
         args: --prefer-dist --no-interaction
-    - name: Build
+    - name: Build npm
       run: |
         npm ci --prefer-offline --progress=false
         npm run build
-        rm -rf vendor
-        composer install --no-dev --prefer-dist --no-interaction
+        sudo rm -rf vendor
+    - name: Composer for release
+      uses: php-actions/composer@v5
+      with:
+        php_version: 7.4
+        version: 2
+        args: --no-dev --prefer-dist --no-interaction
+    - name: Build for release
+      run: |
         npm ci --prefer-offline --progress=false --only=prod
-        rm -rf src/ tests/ composer.json composer.lock package.json package-lock.json .github .aspell.en.pws .eslintrc.json .gitattributes .stylelintrc.json phpmd.xml phpstan.neon.dist node_modules/.cache
+        sudo rm -rf src/ tests/ composer.json composer.lock package.json package-lock.json .github .aspell.en.pws .eslintrc.json .gitattributes .stylelintrc.json phpmd.xml phpstan.neon.dist node_modules/.cache
         zip -r ${{ github.event.repository.name }}.zip .
     - name: Create Release
       id: create_release
