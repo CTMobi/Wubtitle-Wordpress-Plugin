@@ -11,13 +11,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Build
+    - name: Composer
       uses: php-actions/composer@v5
       with:
         php_version: 7.4
         version: 2
+        args: --prefer-dist --no-interaction
+    - name: Build
       run: |
-        composer install --prefer-dist --no-interaction
         npm ci --prefer-offline --progress=false
         npm run build
         rm -rf vendor
