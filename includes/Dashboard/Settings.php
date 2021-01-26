@@ -357,7 +357,7 @@ class Settings {
 					'name'        => 'wubtitle_license_key',
 					'placeholder' => __( 'License key', 'wubtitle' ),
 					'class'       => 'input-license-key',
-					'description' => __( 'Please enter the license key you received after successful checkout', 'wubtitle' ),
+					'description' => get_option( 'wubtitle_free' ) ? __( 'Please enter the license key you received after successful checkout', 'wubtitle' ) : '',
 				)
 			);
 		}
