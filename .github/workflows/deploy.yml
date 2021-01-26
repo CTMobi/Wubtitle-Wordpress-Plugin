@@ -12,6 +12,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Build
+      uses: php-actions/composer@v5
+      with:
+        php_version: 7.4
+        version: 2
       run: |
         composer install --prefer-dist --no-interaction
         npm ci --prefer-offline --progress=false
