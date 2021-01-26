@@ -371,13 +371,15 @@ class Settings {
 	 * @return void
 	 */
 	public function input_field( $args ) {
-		$option = '';
+		$option      = '';
+		$description = $args['description'];
 		if ( ! get_option( 'wubtitle_free' ) ) {
-			$option = get_option( $args['name'], '' );
+			$option      = get_option( $args['name'], '' );
+			$description = '';
 		}
 		?>
 		<input class="regular-text" type="<?php echo esc_attr( $args['type'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $option ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>">
-		<p class="description"><?php echo esc_html( $args['description'] ); ?></p>
+		<p class="description"><?php echo esc_html( $description ); ?></p>
 		<?php
 	}
 	/**
