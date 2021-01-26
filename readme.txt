@@ -3,7 +3,7 @@ Contributors: giuseppectmobi
 Donate link: https://www.wubtitle.com/
 Tags: subtitle, subtitles, video, Transcription, SEO, speech-to-text, video to text, Youtube to text, Vimeo, Vimeo to text, Youtube, Youtube Transcription, Vimeo Transcription
 Requires at least: 5.3
-Tested up to: 5.5
+Tested up to: 5.6
 Stable tag: trunk
 Requires PHP: 7.2
 License: GPLv3
@@ -95,6 +95,17 @@ No, currently we do not offer annual subscriptions.
 
 == Changelog ==
 
+= 1.2.0 =
+Release Date: January 26th, 2021
+
+Enhancements:
+* All languages are now supported also in the free version!
+* Wordpress 5.6 support
+
+Bugfixes:
+
+* Stability improvements
+
 = 1.1.1 =
 Release Date: September 23th, 2020
 
@@ -174,6 +185,9 @@ Release Date: July 25th, 2020
 First public version
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+Upgrade to enjoy all new languages supported in the free version!
 
 = 1.1.1 =
 Upgrade to enjoy Vimeo Transcriptions and a lot of new languages: Gulf Arabic, Modern Standard Arabic, Dutch, Australian English, British English, Indian English, Irish English, Scottish English, Welsh English, US Spanish, Canadian French, Farsi, Swiss German, Hebrew, Indian Hindi, Indonesian, Japanese, Korean, Malay, Portuguese, Brazilian Portuguese, Russian, Tamil, Telugu, Turkish
