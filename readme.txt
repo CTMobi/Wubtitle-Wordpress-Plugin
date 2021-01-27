@@ -95,8 +95,8 @@ No, currently we do not offer annual subscriptions.
 
 == Changelog ==
 
-= 1.2.0 =
-Release Date: January 26th, 2021
+= 1.2.1 =
+Release Date: January 27th, 2021
 
 Enhancements:
 * All languages are now supported also in the free version!
@@ -186,7 +186,7 @@ First public version
 
 == Upgrade Notice ==
 
-= 1.2.0 =
+= 1.2.1 =
 Upgrade to enjoy all new languages supported in the free version!
 
 = 1.1.1 =
