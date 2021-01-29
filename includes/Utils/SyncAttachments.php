@@ -44,7 +44,7 @@ class SyncAttachments {
 			'wubtitle_subtitle',
 			'is_subtitle',
 		);
-
+		remove_action( 'updated_post_meta', array( $this, 'sync_post_meta' ), 10, 4 );
 		if ( 'wubtitle_transcript' === $meta_key ) {
 			$trid               = $sitepress->get_element_trid( $meta_value, 'post_attachment' );
 			$translations_query = $wpdb->prepare( "SELECT * FROM wp_icl_translations WHERE trid = %d AND element_type = 'post_attachment'", $trid );
@@ -87,6 +87,7 @@ class SyncAttachments {
 				}
 			}
 		}
+		add_action( 'updated_post_meta', array( $this, 'sync_post_meta' ), 10, 4 );
 	}
 
 }
