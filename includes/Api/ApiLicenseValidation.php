@@ -128,7 +128,6 @@ class ApiLicenseValidation {
 			'posts_per_page' => -1,
 			'meta_key'       => 'wubtitle_status',
 			'meta_value'     => 'pending',
-			'nopaging'       => true,
 		);
 		$media    = get_posts( $args );
 		$job_list = array();

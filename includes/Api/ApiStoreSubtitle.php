@@ -198,7 +198,6 @@ class ApiStoreSubtitle {
 			'posts_per_page' => 1,
 			'meta_key'       => 'wubtitle_job_uuid',
 			'meta_value'     => $job_id,
-			'nopaging'       => true,
 		);
 		$job_meta = get_posts( $args );
 		if ( empty( $job_meta[0] ) || empty( $job_id ) ) {
