@@ -21,6 +21,7 @@ class SyncAttachments {
 	 */
 	public function run() {
 		add_action( 'updated_post_meta', array( $this, 'sync_post_meta' ), 10, 4 );
+		add_action( 'added_post_meta', array( $this, 'sync_post_meta' ), 10, 4 );
 	}
 
 	/**
@@ -44,6 +45,35 @@ class SyncAttachments {
 			'is_subtitle',
 		);
 
+		if ( 'wubtitle_transcript' === $meta_key ) {
+			$trid               = $sitepress->get_element_trid( $meta_value, 'post_attachment' );
+			$translations_query = $wpdb->prepare( "SELECT * FROM wp_icl_translations WHERE trid = %d AND element_type = 'post_attachment'", $trid );
+			// phpcs:disable
+			$translations       = $wpdb->get_results( $translations_query );
+			// phpcs:enable
+			$args  = array(
+				'post_type'      => 'transcript',
+				'posts_per_page' => 1,
+				'meta_key'       => 'wubtitle_transcript',
+				'meta_value'     => $meta_value,
+			);
+			$posts = get_posts( $args );
+			foreach ( $translations as $translation ) {
+				if ( $translation->element_id !== $object_id ) {
+					$trascript_post = array(
+						'post_title'   => $posts[0]->post_title,
+						'post_content' => $posts[0]->post_contets,
+						'post_status'  => 'publish',
+						'post_type'    => 'transcript',
+						'meta_input'   => array(
+							'wubtitle_transcript' => $translation->element_id,
+						),
+					);
+					wp_insert_post( $trascript_post );
+				}
+			}
+		}
+
 		if ( in_array( $meta_key, $sync_meta_keys, true ) ) {
 			$trid               = $sitepress->get_element_trid( $object_id, 'post_attachment' );
 			$translations_query = $wpdb->prepare( "SELECT * FROM wp_icl_translations WHERE trid = %d AND element_type = 'post_attachment'", $trid );
@@ -60,3 +90,4 @@ class SyncAttachments {
 	}
 
 }
+
