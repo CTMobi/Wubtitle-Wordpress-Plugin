@@ -31,6 +31,10 @@ class SyncAttachments {
 	 * @return void
 	 */
 	public function sync_post_meta( ...$args ) {
+		if ( ! is_plugin_active( 'sitepress-multilingual-cms/sitepress.php' ) ) {
+			return;
+		}
+
 		$object_id  = $args[1];
 		$meta_key   = $args[2];
 		$meta_value = $args[3];
