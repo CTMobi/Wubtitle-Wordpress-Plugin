@@ -49,6 +49,7 @@ class Loader {
 			'youtube_source'         => Core\Sources\YouTube::class,
 			'trascription_block'     => Gutenberg\TranscriptionBlock::class,
 			'invoice_helper'         => Utils\InvoiceHelper::class,
+			'sync_attachments'       => Utils\SyncAttachments::class,
 		);
 
 		foreach ( $classes as $key => $class ) {
