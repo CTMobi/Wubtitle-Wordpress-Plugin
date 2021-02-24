@@ -42,7 +42,6 @@ parameters:
         #- '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'
         # false positive, the sanitize_text_field function receives the wp_unslash output as input which will always be a string
         # wp_unslash returns an array only when it receives an array as input.
-        - '#Parameter \#[0-9]+ \$[a-zA-Z0-9\\_]+ of function sanitize_text_field expects string, array<string>\|string given.#'
         # get_posts ($args) always returns WP_Post if args is not null. 
         - '#Cannot access property [a-zA-Z0-9\\_]+ on int|WP_Post.#'
         # Please consider commenting ignores: issue URL or reason for ignoring
