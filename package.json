@@ -10,14 +10,9 @@
     "eslint": "^7.18.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-scanjs-rules": "^0.2.1",
-    "husky": "^4.3.8",
+    "husky": "^5.1.1",
     "prettier": "^2.2.1",
     "stylelint-config-wordpress": "^17.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "composer run-script check-php && npm run lint:js:src"
-    }
   },
   "scripts": {
     "build-stripe": "wp-scripts build src/stripe/index.js --output-path=build_form",
@@ -39,7 +34,8 @@
     "fixjs": "eslint --fix ./src",
     "lint:js:src": "wp-scripts lint-js ./src",
     "fix:js:src": "wp-scripts lint-js --fix ./src",
-    "csslint": "node_modules/.bin/csslint src/ || return 0"
+    "csslint": "node_modules/.bin/csslint src/ || return 0",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
