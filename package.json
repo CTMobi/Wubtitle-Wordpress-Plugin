@@ -10,7 +10,7 @@
     "eslint": "^7.18.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-scanjs-rules": "^0.2.1",
-    "husky": "^5.1.1",
+    "husky": "^5.1.2",
     "prettier": "^2.2.1",
     "stylelint-config-wordpress": "^17.0.0"
   },
