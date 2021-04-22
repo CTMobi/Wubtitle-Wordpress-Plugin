@@ -43,7 +43,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@stripe/react-stripe-js": "^1.2.0",
     "@stripe/stripe-js": "^1.11.0",
-    "@wordpress/api-fetch": "^3.21.2",
+    "@wordpress/api-fetch": "^3.23.1",
     "@wordpress/i18n": "^3.17.0",
     "formik": "^2.2.6",
     "yup": "^0.32.8"
