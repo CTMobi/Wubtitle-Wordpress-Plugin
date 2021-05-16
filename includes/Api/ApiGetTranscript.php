@@ -97,7 +97,7 @@ class ApiGetTranscript {
 		}
 		$video_source = new $allowed_urls[ $host ]();
 		$response     = $video_source->get_video_info( $url_parts );
-		if ( ! $response['success'] ) {
+		if ( $response && ! $response['success'] ) {
 			wp_send_json_error( $response['message'] );
 		}
 		wp_send_json_success( $response );

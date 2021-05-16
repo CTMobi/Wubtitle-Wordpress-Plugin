@@ -93,8 +93,8 @@ class ApiStoreSubtitle {
 			'name'     => $file_name,
 			'type'     => 'text/vtt',
 			'tmp_name' => $temp_file,
-			'error'    => 0,
-			'size'     => filesize( $temp_file ),
+			'error'    => '0',
+			'size'     => (string) filesize( $temp_file ),
 		);
 
 		if ( ! function_exists( 'media_handle_sideload' ) ) {
