@@ -5,7 +5,7 @@
   "author": "CTMobi",
   "devDependencies": {
     "@wordpress/plugins": "^3.0.0",
-    "@wordpress/scripts": "^13.0.0",
+    "@wordpress/scripts": "^16.0.0",
     "csslint": "^1.0.5",
     "eslint": "^7.26.0",
     "eslint-plugin-import": "^2.22.1",
