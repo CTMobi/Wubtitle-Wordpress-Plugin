@@ -7,6 +7,7 @@
     "@wordpress/plugins": "^3.0.0",
     "@wordpress/scripts": "^16.0.0",
     "csslint": "^1.0.5",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.26.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-scanjs-rules": "^0.2.1",
@@ -47,5 +48,10 @@
     "@wordpress/i18n": "^4.0.0",
     "formik": "^2.2.6",
     "yup": "^0.32.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
