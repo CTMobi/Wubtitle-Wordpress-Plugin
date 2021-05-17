@@ -6,13 +6,8 @@ import provinces from '../data/provinces.json';
 import euCountries from '../data/europeanCountries.json';
 
 export default function CheckoutForm(props) {
-	const {
-		invoicePreValues,
-		handleSubmit,
-		cancelFunction,
-		error,
-		loading,
-	} = props;
+	const { invoicePreValues, handleSubmit, cancelFunction, error, loading } =
+		props;
 	const { ajaxUrl, ajaxNonce } = WP_GLOBALS;
 	const requiredMessage = __('Required', 'wubtitle');
 	let fiscalCode;
