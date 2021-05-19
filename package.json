@@ -42,7 +42,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@stripe/react-stripe-js": "^1.4.0",
+    "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.14.0",
     "@wordpress/api-fetch": "^5.0.0",
     "@wordpress/i18n": "^4.0.0",
