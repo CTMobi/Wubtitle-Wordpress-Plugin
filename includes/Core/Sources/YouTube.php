@@ -85,7 +85,7 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			);
 		}
 		$id_video     = $query_params['v'];
-		$get_info_url = "https://www.youtube.com/get_video_info?video_id=$id_video";
+		$get_info_url = "https://www.youtube.com/get_video_info?html5=1&video_id=$id_video";
 
 		$file_info = array();
 
