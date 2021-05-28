@@ -36,7 +36,7 @@
     "lint:js:src": "wp-scripts lint-js ./src",
     "fix:js:src": "wp-scripts lint-js --fix ./src",
     "csslint": "node_modules/.bin/csslint src/ || return 0",
-    "postinstall": "husky install"
+    "postinstall": "[ \"$NODE_ENV\" != production ] && husky install || true"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
