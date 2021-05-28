@@ -95,6 +95,18 @@ No, currently we do not offer annual subscriptions.
 
 == Changelog ==
 
+= 1.2.2 =
+Release Date: May 28th, 2021
+
+Enhancements:
+* Added support for WPML
+* Added support to Wordpress 5.7
+
+Bugfixes:
+
+* Stability improvements
+* Fix support for youtube transcribe
+
 = 1.2.1 =
 Release Date: January 27th, 2021
 
