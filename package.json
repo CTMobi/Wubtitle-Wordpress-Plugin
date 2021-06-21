@@ -8,7 +8,7 @@
     "@wordpress/scripts": "^16.1.0",
     "csslint": "^1.0.5",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.27.0",
+    "eslint": "^7.29.0",
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-scanjs-rules": "^0.2.1",
     "husky": "^6.0.0",
