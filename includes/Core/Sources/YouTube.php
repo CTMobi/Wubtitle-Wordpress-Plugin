@@ -128,7 +128,10 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		$response = wp_remote_post(
 			$get_info_url,
 			array(
-				'headers' => array( 'Accept-Language' => get_locale() ),
+				'headers' => array(
+					'Accept-Language' => get_locale(),
+					'Content-Type' => 'application/json; charset=utf-8',
+				),
 				'body'    => wp_json_encode( $body ),
 			)
 		);
