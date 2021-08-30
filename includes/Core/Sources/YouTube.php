@@ -136,16 +136,16 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			)
 		);
 		// $file     = wp_remote_retrieve_body( $response );
-		// $response_object = json_decode( $response );
-		// if ( 'fail' === $file_info['status'] ) {
-		// 	return array(
-		// 		'success' => false,
-		// 		'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
-		// 	);
-		// }
+		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
+		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
+			);
+		}
 		error_log(print_r($response, true));
-		$title_video = $response->videoDetails->title;
-		$languages   = $response->captions->playerCaptionsTracklistRenderer->captionTracks;
+		$title_video = $response_body->videoDetails->title;
+		$languages   = $response_body->captions->playerCaptionsTracklistRenderer->captionTracks;
 		error_log(print_r($title_video, true));
 		error_log(print_r($languages, true));
 		$video_info  = array(
