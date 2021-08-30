@@ -136,7 +136,7 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			)
 		);
 		// $file     = wp_remote_retrieve_body( $response );
-		$response_object = json_decode( $response );
+		// $response_object = json_decode( $response );
 		// if ( 'fail' === $file_info['status'] ) {
 		// 	return array(
 		// 		'success' => false,
@@ -144,8 +144,8 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		// 	);
 		// }
 		error_log(print_r("response_object", true));
-		$title_video = $response_object->videoDetails->title;
-		$languages   = $response_object->captions->playerCaptionsTracklistRenderer->captionTracks;
+		$title_video = $response->videoDetails->title;
+		$languages   = $response->captions->playerCaptionsTracklistRenderer->captionTracks;
 		$video_info  = array(
 			'success'   => true,
 			'source'    => 'youtube',
