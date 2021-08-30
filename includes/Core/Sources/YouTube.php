@@ -98,7 +98,7 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 					'clientFormFactor' => 'UNKNOWN_FORM_FACTOR',
 					'clientScreen' => 'WATCH',
 					'mainAppWebInfo' => array (
-						'graftUrl' => '/watch?v=UF8uR6Z6KLc'
+						'graftUrl' => "/watch?v=$id_video"
 					)
 				),
 				'user' => array(
@@ -110,7 +110,7 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 					'consistencyTokenJars' => []
 				)
 			),
-			'videoId' => 'UF8uR6Z6KLc',
+			'videoId' => $id_video,
 			'playbackContext' => array (
 				'contentPlaybackContext' => array(
 					'vis' => 0,
@@ -128,7 +128,7 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		$response = wp_remote_post(
 			$get_info_url,
 			array(
-				// 'headers' => array( 'Accept-Language' => get_locale() ),
+				'headers' => array( 'Accept-Language' => get_locale() ),
 				'body'    => wp_json_encode( $body ),
 			)
 		);
