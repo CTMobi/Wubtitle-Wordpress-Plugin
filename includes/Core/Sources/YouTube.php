@@ -85,28 +85,67 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			);
 		}
 		$id_video     = $query_params['v'];
-		$get_info_url = "https://www.youtube.com/get_video_info?html5=1&video_id=$id_video";
+		$get_info_url = 'https://www.youtube.com/youtubei/v1/player?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8';
 
-		$file_info = array();
+		$body = array(
+			'context'         => array(
+				'client'  => array(
+					'hl'               => 'en',
+					'clientName'       => 'WEB',
+					'clientVersion'    => '2.20210721.00.00',
+					'clientFormFactor' => 'UNKNOWN_FORM_FACTOR',
+					'clientScreen'     => 'WATCH',
+					'mainAppWebInfo'   => array(
+						'graftUrl' => "/watch?v=$id_video",
+					),
+				),
+				'user'    => array(
+					'lockedSafetyMode' => false,
+				),
+				'request' => array(
+					'useSsl'                  => true,
+					'internalExperimentFlags' => array(),
+					'consistencyTokenJars'    => array(),
+				),
+			),
+			'videoId'         => $id_video,
+			'playbackContext' => array(
+				'contentPlaybackContext' => array(
+					'vis'                   => 0,
+					'splay'                 => false,
+					'autoCaptionsDefaultOn' => false,
+					'autonavState'          => 'STATE_NONE',
+					'html5Preference'       => 'HTML5_PREF_WANTS',
+					'lactMilliseconds'      => '-1',
+				),
+			),
+			'racyCheckOk'     => false,
+			'contentCheckOk'  => false,
+		);
 
-		$response = wp_remote_get(
+		$response      = wp_remote_post(
 			$get_info_url,
 			array(
-				'headers' => array( 'Accept-Language' => get_locale() ),
+				'headers' => array(
+					'Accept-Language' => get_locale(),
+					'Content-Type'    => 'application/json; charset=utf-8',
+				),
+				'body'    => wp_json_encode( $body ),
 			)
 		);
-		$file     = wp_remote_retrieve_body( $response );
-
-		parse_str( $file, $file_info );
-		if ( 'fail' === $file_info['status'] ) {
+		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
+		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
 			return array(
 				'success' => false,
 				'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
 			);
 		}
-		$title_video = json_decode( $file_info['player_response'] )->videoDetails->title;
-		$languages   = json_decode( $file_info['player_response'] )->captions->playerCaptionsTracklistRenderer->captionTracks;
-		$video_info  = array(
+		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+		// warning camel case.
+		$title_video = $response_body->videoDetails->title;
+		// phpcs:enable
+		$languages  = $response_body->captions->playerCaptionsTracklistRenderer->captionTracks;
+		$video_info = array(
 			'success'   => true,
 			'source'    => 'youtube',
 			'languages' => $languages,
