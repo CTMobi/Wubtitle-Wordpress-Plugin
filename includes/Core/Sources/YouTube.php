@@ -85,14 +85,51 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			);
 		}
 		$id_video     = $query_params['v'];
-		$get_info_url = "https://www.youtube.com/get_video_info?html5=1&video_id=$id_video";
+		$get_info_url = "https://www.youtube.com/youtubei/v1/player?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8";
 
 		$file_info = array();
 
-		$response = wp_remote_get(
+		$body = array (
+			'context' => array(
+				'client' => array(
+					'hl' => 'en',
+					'clientName' => 'WEB',
+					'clientVersion' => '2.20210721.00.00',
+					'clientFormFactor' => 'UNKNOWN_FORM_FACTOR',
+					'clientScreen' => 'WATCH',
+					'mainAppWebInfo' => array (
+						'graftUrl' => '/watch?v=UF8uR6Z6KLc'
+					)
+				),
+				'user' => array(
+					'lockedSafetyMode' => false,
+				),
+				'request' => array (
+					'useSsl' => true,
+					'internalExperimentFlags' => [],
+					'consistencyTokenJars' => []
+				)
+			),
+			'videoId' => 'UF8uR6Z6KLc',
+			'playbackContext' => array (
+				'contentPlaybackContext' => array(
+					'vis' => 0,
+					'splay' => false,
+					'autoCaptionsDefaultOn' => false,
+					'autonavState' => 'STATE_NONE',
+					'html5Preference' => 'HTML5_PREF_WANTS',
+					'lactMilliseconds' => '-1'
+				)
+			),
+			'racyCheckOk' => false,
+			'contentCheckOk' => false
+		);
+
+		$response = wp_remote_post(
 			$get_info_url,
 			array(
 				'headers' => array( 'Accept-Language' => get_locale() ),
+				'body'    => wp_json_encode( $body ),
 			)
 		);
 		$file     = wp_remote_retrieve_body( $response );
