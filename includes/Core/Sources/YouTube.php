@@ -144,8 +144,10 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		// 	);
 		// }
 		// error_log(print_r($response_object, true));
-		$title_video = $response['videoDetails']->title;
+		$title_video = $response->videoDetails->title;
 		$languages   = $response->captions->playerCaptionsTracklistRenderer->captionTracks;
+		error_log(print_r($title_video, true));
+		error_log(print_r($languages, true));
 		$video_info  = array(
 			'success'   => true,
 			'source'    => 'youtube',
