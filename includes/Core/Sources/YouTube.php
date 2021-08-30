@@ -135,7 +135,6 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 				'body'    => wp_json_encode( $body ),
 			)
 		);
-		// $file     = wp_remote_retrieve_body( $response );
 		$response_body = json_decode( wp_remote_retrieve_body( $response ) );
 		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
 			return array(
