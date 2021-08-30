@@ -135,15 +135,17 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 				'body'    => wp_json_encode( $body ),
 			)
 		);
+		// $file     = wp_remote_retrieve_body( $response );
+		$response_object = json_decode( $reponse );
 		// if ( 'fail' === $file_info['status'] ) {
 		// 	return array(
 		// 		'success' => false,
 		// 		'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
 		// 	);
 		// }
-		error_log(print_r($response, true));
-		$title_video = $response->videoDetails->title;
-		$languages   = $response->captions->playerCaptionsTracklistRenderer->captionTracks;
+		error_log(print_r("response_object", true));
+		$title_video = $response_object->videoDetails->title;
+		$languages   = $response_object->captions->playerCaptionsTracklistRenderer->captionTracks;
 		$video_info  = array(
 			'success'   => true,
 			'source'    => 'youtube',
