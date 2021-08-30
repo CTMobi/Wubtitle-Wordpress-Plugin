@@ -141,6 +141,7 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 		// 		'message' => __( 'Url not a valid youtube url', 'wubtitle' ),
 		// 	);
 		// }
+		error_log(print_r($response, true));
 		$title_video = $response->videoDetails->title;
 		$languages   = $response->captions->playerCaptionsTracklistRenderer->captionTracks;
 		$video_info  = array(
