@@ -49,7 +49,7 @@ class TestApiGetTranscript extends WP_Ajax_UnitTestCase {
         $this->assertTrue( isset( $e ) );
         $response = json_decode( $this->_last_response );
         $this->assertTrue( $response->success);
-        $this->assertEqualSets( $id_transcript , $response->data );
+        $this->assertEquals( $id_transcript , $response->data );
     }
     /**
     * test url not valid get video info
@@ -65,7 +65,7 @@ class TestApiGetTranscript extends WP_Ajax_UnitTestCase {
         $this->assertTrue( isset( $e ) );
         $response = json_decode( $this->_last_response );
         $this->assertFalse( $response->success);
-        $this->assertEqualSets( $expected_response , $response->data );
+        $this->assertEquals( $expected_response , $response->data );
     }
     /**
     * test get transcript internal video
@@ -96,6 +96,6 @@ class TestApiGetTranscript extends WP_Ajax_UnitTestCase {
         $this->assertTrue( isset( $e ) );
         $response = json_decode( $this->_last_response );
         $this->assertTrue( $response->success );
-        $this->assertEqualSets( $expected_response , $response->data );
+        $this->assertEquals( $expected_response , $response->data );
     }
 }

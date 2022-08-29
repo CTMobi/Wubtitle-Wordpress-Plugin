@@ -39,7 +39,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
       $response = json_decode( $this->_last_response );
       $expected = 'change_plan';
       $this->assertTrue( $response->success);
-      $this->assertEqualSets($expected, $response->data);
+      $this->assertEquals($expected, $response->data);
     }
     /**
      * Fail test, license not found.
@@ -56,7 +56,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
        // Verifica che è stata lanciata l'eccezione
        $expected = 'The product license key is missing.';
        //verifica che c'è stato un'errore
-       $this->assertEqualSets($expected, $result);
+       $this->assertEquals($expected, $result);
      }
       /**
        * Verifica che il body è stato creato correttamente
@@ -73,7 +73,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
              'siteLang' => $lang_expected,
     			 ),
     		 );
-         $this->assertEqualSets($expected_body,$result);
+         $this->assertEquals($expected_body,$result);
        }
 
       /**
@@ -105,7 +105,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
         $response = json_decode( $this->_last_response );
         $expected = 'Unable to create subtitles. The product license key is missing.';
         $this->assertFalse( $response->success);
-        $this->assertEqualSets($expected, $response->data);
+        $this->assertEquals($expected, $response->data);
       }
 
 
@@ -137,7 +137,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
         $response = json_decode( $this->_last_response );
         $expected = 'An error occurred. Please try again in a few minutes.';
         $this->assertFalse( $response->success);
-        $this->assertEqualSets($expected, $response->data);
+        $this->assertEquals($expected, $response->data);
       }
 
 
@@ -156,7 +156,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
         $response = json_decode( $this->_last_response );
         $expected = 'Unable to create subtitles. The product license key is missing.';
         $this->assertFalse( $response->success);
-        $this->assertEqualSets($expected, $response->data);
+        $this->assertEquals($expected, $response->data);
       }
 
       /**
@@ -173,7 +173,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
         $response = json_decode( $this->_last_response );
         $expected = 'An error occurred. Please try again in a few minutes.';
         $this->assertFalse( $response->success);
-        $this->assertEqualSets($expected, $response->data);
+        $this->assertEquals($expected, $response->data);
       }
       /**
        * Test no administrator create subscription
@@ -192,7 +192,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
         $response = json_decode( $this->_last_response );
         $expected = 'An error occurred. Please try again in a few minutes.';
         $this->assertFalse( $response->success);
-        $this->assertEqualSets($expected, $response->data);
+        $this->assertEquals($expected, $response->data);
       }
       /**
        * Test confirm new subscription without plan id
@@ -213,7 +213,7 @@ class TestApiPricingPlan extends WP_Ajax_UnitTestCase {
         $response = json_decode( $this->_last_response );
         $expected = 'An error occurred. Please try again in a few minutes.';
         $this->assertFalse( $response->success);
-        $this->assertEqualSets($expected, $response->data);
+        $this->assertEquals($expected, $response->data);
       }
 
         /**

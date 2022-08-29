@@ -142,9 +142,9 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
           $result_uuid   = get_post_meta( $id_attachment, 'wubtitle_job_uuid', true );
           $result_status = get_post_meta( $id_attachment, 'wubtitle_status', true );
 
-          $this->assertEqualSets( $expected_lang, $result_lang );
-          $this->assertEqualSets( $expected_uuid, $result_uuid );
-          $this->assertEqualSets( $expected_status, $result_status );
+          $this->assertEquals( $expected_lang, $result_lang );
+          $this->assertEquals( $expected_uuid, $result_uuid );
+          $this->assertEquals( $expected_status, $result_status );
         }
 
         /**
@@ -165,7 +165,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
           );
           $expected_response = 'Error, no more video left for your subscription plan';
           $result_response   = $this->instance->get_error_message($response);
-          $this->assertEqualSets( $expected_response, $result_response );
+          $this->assertEquals( $expected_response, $result_response );
         }
         /**
          * get error message for minutes error
@@ -189,6 +189,6 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
           );
           $expected_response = 'Error, video length is longer than minutes available for your subscription plan (minutes left ' . date_i18n( 'i:s', $time_left ) . ', video left ' . $jobs_left . ')';
           $result_response   = $this->instance->get_error_message($response);
-          $this->assertEqualSets( $expected_response, $result_response );
+          $this->assertEquals( $expected_response, $result_response );
         }
 }

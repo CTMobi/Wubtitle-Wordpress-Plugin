@@ -59,9 +59,9 @@
           $media = $query->posts;
           $subtitle_id = $this->expected;
           $result_id = get_post_meta($media[0]->ID,'wubtitle_subtitle',true);
-          $this->assertEqualSets(1,count($media));
-          $this->assertEqualSets('video',$media[0]->post_title);
-          $this->assertEqualSets($subtitle_id,$result_id);
+          $this->assertEquals(1,count($media));
+          $this->assertEquals('video',$media[0]->post_title);
+          $this->assertEquals($subtitle_id,$result_id);
           $this->assertInstanceOf('WP_Post',get_post($subtitle_id));
        }
   }
