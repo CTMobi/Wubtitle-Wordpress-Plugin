@@ -30,6 +30,7 @@
         "phpcompatibility/phpcompatibility-wp": "*",
         "szepeviktor/phpstan-wordpress": "^0.7.2",
         "pheromone/phpcs-security-audit": "^2.0",
-        "wp-cli/wp-cli-bundle": "*"
+        "wp-cli/wp-cli-bundle": "*",
+        "yoast/phpunit-polyfills": "^1.0"
     }
 }
