@@ -1,16 +1,33 @@
 name: Code checker
 on: ["pull_request"]
 jobs:
+  codacy-analysis-cli:
+    name: Codacy Analysis CLI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@master
   code_checker:
     runs-on: ubuntu-latest
     services:
-      mysql
-    build:
-      strategy:
-        matrix:
-          php: ["7.4", "8.1"]
-          wp: ["5.4", "5.6", "latest"]
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    strategy:
+      matrix:
+        php: ["7.3", "7.4", "8.1"]
+        wp: ["5.4", "5.6", "latest"]
     steps:
+      - name: before-install
+        run: |
+          export PATH="$HOME/.composer/vendor/bin:$PATH"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -27,7 +44,7 @@ jobs:
           composer install --prefer-dist --no-interaction
           npm ci --prefer-offline --progress=false
       - name: Test php
-        run: bash bin/install-wp-tests.sh wordpress_test root 'password' $WP_VERSION
+        run: bash bin/install-wp-tests.sh wordpress_test root 'password' 127.0.0.1 $WP_VERSION
         env:
           WP_VERSION: ${{ matrix.wp }}
       - name: Test and build
@@ -35,7 +52,6 @@ jobs:
           bash bin/check-spelling.sh
           find -L . -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
           composer test
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) || return 0
           composer check-php
           npm run lint:js:src
           npm run csslint
