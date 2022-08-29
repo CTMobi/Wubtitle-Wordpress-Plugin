@@ -168,7 +168,7 @@ class ApiRequest {
 	 *
 	 * @param array<mixed> $body body request.
 	 * @param string       $license_key user license.
-	 * @return array<string>|\WP_Error
+	 * @return array<string, mixed>|\WP_Error
 	 */
 	public function send_job_to_backend( $body, $license_key ) {
 		$response = wp_remote_post(

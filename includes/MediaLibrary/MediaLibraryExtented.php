@@ -321,8 +321,8 @@ class MediaLibraryExtented {
 	/**
 	 * Adds subtitles overriding video shortcode.
 	 *
-	 * @param string        $html shortcode html.
-	 * @param array<string> $attr shortcode attributes.
+	 * @param string       $html shortcode html.
+	 * @param array<mixed> $attr shortcode attributes.
 	 * @return string|void
 	 */
 	public function wubtitle_video_shortcode( $html, $attr ) {
