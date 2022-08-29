@@ -4,15 +4,15 @@
   "main": "",
   "author": "CTMobi",
   "devDependencies": {
-    "@wordpress/plugins": "^3.1.0",
-    "@wordpress/scripts": "^16.1.0",
+    "@wordpress/plugins": "^4.14.0",
+    "@wordpress/scripts": "^24.0.0",
     "csslint": "^1.0.5",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.27.0",
-    "eslint-plugin-import": "^2.23.3",
+    "eslint": "^8.23.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-scanjs-rules": "^0.2.1",
-    "husky": "^6.0.0",
-    "prettier": "^2.3.0",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
     "stylelint-config-wordpress": "^17.0.0"
   },
   "scripts": {
@@ -39,15 +39,15 @@
     "postinstall": "[ \"$NODE_ENV\" != production ] && husky install || true"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "@stripe/react-stripe-js": "^1.4.1",
-    "@stripe/stripe-js": "^1.15.0",
-    "@wordpress/api-fetch": "^5.1.0",
-    "@wordpress/i18n": "^4.1.0",
-    "formik": "^2.2.8",
-    "yup": "^0.32.9"
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@stripe/react-stripe-js": "^1.10.0",
+    "@stripe/stripe-js": "^1.35.0",
+    "@wordpress/api-fetch": "^6.13.0",
+    "@wordpress/i18n": "^4.16.0",
+    "formik": "^2.2.9",
+    "yup": "^0.32.11"
   },
   "config": {
     "commitizen": {
