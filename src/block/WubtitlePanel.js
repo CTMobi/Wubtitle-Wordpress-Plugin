@@ -14,8 +14,10 @@ const WubtitlePanel = (props) => {
 		props.id !== undefined
 			? props.src.substring(props.src.lastIndexOf('.') + 1)
 			: 'mp4';
+	/* eslint-disable camelcase */
 	const languages =
 		wubtitle_button_object.isFree === '1' ? languagesFree : allLanguages;
+	/* eslint-disable camelcase */
 	const lang = languages.includes(wubtitle_button_object.lang)
 		? wubtitle_button_object.lang
 		: 'en-US';
@@ -95,12 +97,14 @@ const WubtitlePanel = (props) => {
 		const srcAttachment = props.src;
 		setIsLoading(true);
 		apiFetch({
+			/* eslint-disable camelcase */
 			url: wubtitle_button_object.ajax_url,
 			method: 'POST',
 			headers: {
 				'Content-Type':
 					'application/x-www-form-urlencoded; charset=utf-8',
 			},
+			/* eslint-disable camelcase */
 			body: `action=submitVideo&_ajax_nonce=${wubtitle_button_object.ajaxnonce}&id_attachment=${idAttachment}&src_attachment=${srcAttachment}&lang=${languageSelected}&`,
 		}).then((res) => {
 			setIsLoading(false);
@@ -127,6 +131,7 @@ const WubtitlePanel = (props) => {
 	}
 
 	const WubtitlePanelContent = () => {
+		/* eslint-disable camelcase */
 		if (wubtitle_button_object.isFree === '1' && extensionsFile !== 'mp4') {
 			return <FormatNotSupported />;
 		}

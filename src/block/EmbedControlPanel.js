@@ -38,6 +38,7 @@ const EmbedControlPanel = (props) => {
 					subtitle: languageSelected,
 					videoTitle: title,
 					from: 'default_post_type',
+					/* eslint-disable camelcase */
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
 				},
 			})
@@ -68,6 +69,7 @@ const EmbedControlPanel = (props) => {
 				type: 'POST',
 				data: {
 					url: videoUrl,
+					/* eslint-disable camelcase */
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
 				},
 			})
