@@ -1,6 +1,11 @@
 {
     "name": "ctmobi/wubtitle",
     "type": "project",
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
+    },
     "authors": [
         {
             "name": "Alessio Catania",
