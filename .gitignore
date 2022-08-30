@@ -13,3 +13,4 @@ build_form/
 reports/
 languages/*.json
 languages/*.mo
+.phpunit*
