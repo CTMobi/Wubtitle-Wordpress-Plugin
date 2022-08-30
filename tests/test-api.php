@@ -13,7 +13,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
   /**
    * Setup function.
    */
-   public function SetUp(){
+   public function SetUp(): void {
      parent::setUp();
      update_option('siteurl','http://wordpress01.local');
      $this->instance = new Wubtitle\Api\ApiRequest();
@@ -21,22 +21,8 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
    /**
     * tearDown function.
     */
-    public function tearDown(){
+    public function tearDown(): void {
       parent::tearDown();
-    }
-
-   /**
-    * Effettua la chiamata senza nonce
-    */
-    public function test_negative_send_request(){
-      try {
-          $this->_handleAjax( 'submitVideo' );
-      } catch ( WPAjaxDieContinueException $e ) {}
-
-      // Verifica che è stata lanciata l'eccezione
-      $this->assertTrue( isset( $e ) );
-      $response = json_decode( $this->_last_response );
-      $this->assertFalse( $response->success);
     }
     /**
      * Effettua la chiamata senza avere una license key
@@ -82,7 +68,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
             'filesize' => 123456,
             'length'   => 15,
           );
-         $attachment_id = self::factory()->attachment->create($attachment_data,'/test',1);
+         $attachment_id = self::factory()->attachment->create($attachment_data,['/test'],1);
          wp_update_attachment_metadata( $attachment_id, $attachment_metadata );
          $data = array(
            'id_attachment' => $attachment_id,
@@ -118,7 +104,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
              'filesize' => 123456,
              'length'   => 15,
            );
-          $attachment_id = self::factory()->attachment->create($attachment_data,'/test',1);
+          $attachment_id = self::factory()->attachment->create($attachment_data,['/test'],1);
           wp_update_attachment_metadata( $attachment_id, $attachment_metadata );
           $data = array(
             'id_attachment' => $attachment_id,

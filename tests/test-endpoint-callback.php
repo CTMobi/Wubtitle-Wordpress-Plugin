@@ -13,7 +13,7 @@ class TestEndpointCallback extends WP_UnitTestCase {
 	/**
 	 * Setup function.
 	 */
-	public function SetUp(){
+	public function SetUp(): void {
 		parent::setUp();
 		$this->instance = new ApiStoreSubtitle;
 		//aggiungo un'attachment per il video

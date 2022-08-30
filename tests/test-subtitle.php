@@ -15,7 +15,7 @@ class TestSubtitle extends WP_UnitTestCase {
 	/**
 	 * Setup del test
 	 */
-	public function setUp() {
+	public function setUp(): void {
 		parent::setUp();
 		$this->instance = new Subtitle();
 		$this->instance->run();

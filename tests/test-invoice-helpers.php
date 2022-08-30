@@ -13,49 +13,9 @@ class TestInvoiceHelper extends WP_Ajax_UnitTestCase {
     /**
      * Setup function.
      */
-    public function SetUp(){
+    public function SetUp(): void {
         parent::setUp();
         $this->instance = new InvoiceHelper;
-    }
-
-    /**
-     * Test no license check vat code.
-     */
-    public function test_no_license_check_vat_code(){
-        $this->_setRole( 'administrator' );
-        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
-        $_POST['price_plan']  = 25;
-        $_POST['vat_code']    = '11111111111';
-        $_POST['country']     = 'IT';
-        $expected_response    = 'Error. The product license key is missing.';
-        try {
-            $this->_handleAjax( 'check_vat_code' );
-        } catch ( WPAjaxDieContinueException $e ) {}
-
-        //Check excpetion
-        $this->assertTrue( isset( $e ) );
-        $response = json_decode( $this->_last_response );
-        $this->assertFalse( $response->success );
-        $this->assertEquals( $expected_response, $response->data );
-    }
-
-    /**
-     * Test no license check fiscal code.
-     */
-    public function test_no_license_check_fiscal_code(){
-        $this->_setRole( 'administrator' );
-        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
-        $_POST['fiscalCode']  = '11111111111';
-        $expected_response    = 'Error. The product license key is missing.';
-        try {
-            $this->_handleAjax( 'check_fiscal_code' );
-        } catch ( WPAjaxDieContinueException $e ) {}
-
-        //Check excpetion
-        $this->assertTrue( isset( $e ) );
-        $response = json_decode( $this->_last_response );
-        $this->assertFalse( $response->success );
-        $this->assertEquals( $expected_response, $response->data );
     }
 
     /**
@@ -101,24 +61,6 @@ class TestInvoiceHelper extends WP_Ajax_UnitTestCase {
             'FiscalCode' => $invoice_object->fiscal_code,
         );
         $this->assertEqualSets( $expected_response, $response );
-    }
-
-    /**
-     * Test no nonce check coupon.
-     */
-    public function test_no_nonce_check_coupon(){
-        $this->_setRole( 'administrator' );
-        $_POST['coupon']  = 'Test10';
-        $_POST['planId']  = '1';
-
-        try {
-            $this->_handleAjax( 'check_coupon' );
-        } catch ( WPAjaxDieContinueException $e ) {}
-
-        //Check excpetion
-        $this->assertTrue( isset( $e ) );
-        $response = json_decode( $this->_last_response );
-        $this->assertFalse( $response->success );
     }
 
 }
