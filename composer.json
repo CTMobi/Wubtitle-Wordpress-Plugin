@@ -32,7 +32,7 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "^7",
+        "phpunit/phpunit": "^9",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "wp-coding-standards/wpcs": "*",
         "phpcompatibility/phpcompatibility-wp": "*",
