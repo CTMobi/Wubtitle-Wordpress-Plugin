@@ -150,7 +150,7 @@ class InvoiceHelper {
 			'City'            => $invoice_object->city,
 			'Country'         => $invoice_object->country,
 		);
-		if ( ! in_array( $invoice_object->country, $eu_countries, true ) ) {
+		if ( ! isset( $eu_countries ) || ! in_array( $invoice_object->country, $eu_countries, true ) ) {
 			if ( ! empty( $invoice_object->company_name ) ) {
 				$invoice_details['CompanyName'] = $invoice_object->company_name;
 			}
