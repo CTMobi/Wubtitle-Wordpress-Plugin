@@ -438,6 +438,8 @@ msgid "Unsubscribe"
 msgstr "Annulla l'iscrizione"
 
 #: includes/Dashboard/Settings.php:205
+#: build_form/index.js:1
+#: src/stripe/Components/ColumnTitle.js:10
 msgid "Update billing or payment details"
 msgstr "Aggiorna dettagli di fatturazione o di pagamento"
 
@@ -469,13 +471,11 @@ msgid "Could not contact the server."
 msgstr "Impossibile contattare il server."
 
 #: includes/Dashboard/Settings.php:327
-msgid ""
-"Upgrade feature temporarily disabled due to error loading the page. Please "
-"refresh the page and try again."
+msgid "Upgrade feature temporarily disabled due to an error loading the page or you are using an inaccessible domain. If your domain is accessible reload the page and try again."
 msgstr ""
 "Impossibile effettuare l'upgrade del piano di abbonamento a causa di un "
-"errore durante il caricamento della pagina. Per favore ricarica la pagina e "
-"riprova"
+"errore durante il caricamento della pagina o stai usando un dominio non "
+"accessibile. Se il tuo dominio è accessibile ricarica la pagina e riprova"
 
 #: includes/Dashboard/Settings.php:331
 msgid "Upgrading and plan changes can only be done by the administrator"
