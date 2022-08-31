@@ -5,6 +5,7 @@ import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
+import { langExten } from './labels.js';
 
 const EmbedControlPanel = (props) => {
 	const [message, setMessage] = useState('');
@@ -88,9 +89,13 @@ const EmbedControlPanel = (props) => {
 							label: lang.name.simpleText,
 						};
 					}
+					let label = lang.name;
+					if (!label && lang.code.includes('autogen')) {
+						label = langExten[lang.code?.split('-')?.[0]] ?? '';
+					}
 					return {
 						value: lang.code,
-						label: lang.name,
+						label,
 					};
 				});
 				arrayLang.unshift({
