@@ -1,5 +1,5 @@
 /*  global wubtitle_button_object  */
-import { useSelect, useDispatch } from '@wordpress/data';
+import { useSelect, useDispatch, useEffect } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -43,26 +43,30 @@ const WubtitlePanel = (props) => {
 	});
 
 	let languageSaved;
-	let status;
 	if (metaValues !== undefined) {
 		languageSaved = metaValues.wubtitle_lang_video;
-		status = metaValues.wubtitle_status;
 	}
 	const noticeDispatcher = useDispatch('core/notices');
 	const entityDispatcher = useDispatch('core');
 	const [languageSelected, setLanguage] = useState(lang);
 	const [isLoading, setIsLoading] = useState(false);
+	const [status, setStatus] = useState(metaValues?.wubtitle_status);
+
+	useEffect(() => {
+		setStatus(metaValues?.wubtitle_status);
+	}, [metaValues?.wubtitle_status]);
+
 	const isDisabled =
 		status === 'pending' || props.id === undefined || isLoading;
 	const isPublished = status === 'enabled';
 	const GenerateSubtitles = () => {
-		status =
+		const statusLabel =
 			status === 'error'
 				? __('Error', 'wubtitle')
 				: __('None', 'wubtitle');
 		return (
 			<Fragment>
-				<div>{__('Status:', 'wubtitle') + ' ' + status}</div>
+				<div>{__('Status:', 'wubtitle') + ' ' + statusLabel}</div>
 				<SelectControl
 					label={__('Select the video language', 'wubtitle')}
 					value={languageSelected}
