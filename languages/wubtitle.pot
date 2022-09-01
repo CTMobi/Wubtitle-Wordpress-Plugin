@@ -438,6 +438,8 @@ msgid "Unsubscribe"
 msgstr ""
 
 #: includes/Dashboard/Settings.php:205
+#: build_form/index.js:1
+#: src/stripe/Components/ColumnTitle.js:10
 msgid "Update billing or payment details"
 msgstr ""
 
@@ -466,7 +468,7 @@ msgid "Could not contact the server."
 msgstr ""
 
 #: includes/Dashboard/Settings.php:327
-msgid "Upgrade feature temporarily disabled due to error loading the page. Please refresh the page and try again."
+msgid "Upgrade feature temporarily disabled due to an error loading the page or you are using an inaccessible domain. If your domain is accessible reload the page and try again."
 msgstr ""
 
 #: includes/Dashboard/Settings.php:331

@@ -22,8 +22,6 @@ class Helpers {
 	 * @return bool
 	 */
 	public function is_gutenberg_active() {
-		// Gutenberg plugin is installed and activated.
-		// @phpstan-ignore-next-line. False positive, does not recognize gutenberg_init as a callback.
 		$gutenberg = ! ( false === has_filter( 'replace_editor', 'gutenberg_init' ) );
 
 		$block_editor = false;

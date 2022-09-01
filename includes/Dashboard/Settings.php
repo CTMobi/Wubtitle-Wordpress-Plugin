@@ -324,7 +324,7 @@ class Settings {
 		$message  = '';
 		if ( count( $plans ) === 0 ) {
 			$disabled = 'disabled';
-			$message  = __( 'Upgrade feature temporarily disabled due to error loading the page. Please refresh the page and try again.', 'wubtitle' );
+			$message  = __( 'Upgrade feature temporarily disabled due to an error loading the page or you are using an inaccessible domain. If your domain is accessible reload the page and try again.', 'wubtitle' );
 		}
 		if ( ! current_user_can( 'manage_options' ) ) {
 			$disabled = 'disabled';

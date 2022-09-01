@@ -13,7 +13,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
   /**
    * Setup function.
    */
-   public function SetUp(){
+   public function SetUp(): void {
      parent::setUp();
      update_option('siteurl','http://wordpress01.local');
      $this->instance = new Wubtitle\Api\ApiRequest();
@@ -21,22 +21,8 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
    /**
     * tearDown function.
     */
-    public function tearDown(){
+    public function tearDown(): void {
       parent::tearDown();
-    }
-
-   /**
-    * Effettua la chiamata senza nonce
-    */
-    public function test_negative_send_request(){
-      try {
-          $this->_handleAjax( 'submitVideo' );
-      } catch ( WPAjaxDieContinueException $e ) {}
-
-      // Verifica che è stata lanciata l'eccezione
-      $this->assertTrue( isset( $e ) );
-      $response = json_decode( $this->_last_response );
-      $this->assertFalse( $response->success);
     }
     /**
      * Effettua la chiamata senza avere una license key
@@ -82,7 +68,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
             'filesize' => 123456,
             'length'   => 15,
           );
-         $attachment_id = self::factory()->attachment->create($attachment_data,'/test',1);
+         $attachment_id = self::factory()->attachment->create($attachment_data,['/test'],1);
          wp_update_attachment_metadata( $attachment_id, $attachment_metadata );
          $data = array(
            'id_attachment' => $attachment_id,
@@ -118,7 +104,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
              'filesize' => 123456,
              'length'   => 15,
            );
-          $attachment_id = self::factory()->attachment->create($attachment_data,'/test',1);
+          $attachment_id = self::factory()->attachment->create($attachment_data,['/test'],1);
           wp_update_attachment_metadata( $attachment_id, $attachment_metadata );
           $data = array(
             'id_attachment' => $attachment_id,
@@ -142,9 +128,9 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
           $result_uuid   = get_post_meta( $id_attachment, 'wubtitle_job_uuid', true );
           $result_status = get_post_meta( $id_attachment, 'wubtitle_status', true );
 
-          $this->assertEqualSets( $expected_lang, $result_lang );
-          $this->assertEqualSets( $expected_uuid, $result_uuid );
-          $this->assertEqualSets( $expected_status, $result_status );
+          $this->assertEquals( $expected_lang, $result_lang );
+          $this->assertEquals( $expected_uuid, $result_uuid );
+          $this->assertEquals( $expected_status, $result_status );
         }
 
         /**
@@ -165,7 +151,7 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
           );
           $expected_response = 'Error, no more video left for your subscription plan';
           $result_response   = $this->instance->get_error_message($response);
-          $this->assertEqualSets( $expected_response, $result_response );
+          $this->assertEquals( $expected_response, $result_response );
         }
         /**
          * get error message for minutes error
@@ -189,6 +175,6 @@ class TestApiRequest extends WP_Ajax_UnitTestCase {
           );
           $expected_response = 'Error, video length is longer than minutes available for your subscription plan (minutes left ' . date_i18n( 'i:s', $time_left ) . ', video left ' . $jobs_left . ')';
           $result_response   = $this->instance->get_error_message($response);
-          $this->assertEqualSets( $expected_response, $result_response );
+          $this->assertEquals( $expected_response, $result_response );
         }
 }

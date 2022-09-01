@@ -9,11 +9,11 @@ use Wubtitle\Utils\InvoiceHelper;
 /**
  * Test Dashboard views
  */
-class TestDashboard extends WP_Ajax_UnitTestCase {
+class TestDashboardChangePlanPage extends WP_Ajax_UnitTestCase {
     /**
      * Setup function
      */
-    public function SetUp() {
+    public function SetUp(): void {
         parent::setUp();
         $price_object = new stdClass();
         $this->price_info_object     = array();
@@ -72,74 +72,9 @@ class TestDashboard extends WP_Ajax_UnitTestCase {
     /**
     * tearDown function.
     */
-    public function tearDown(){
+    public function tearDown(): void {
         parent::tearDown();
       }
-    /**
-     * Test Cancel Page.
-     */
-    public function test_cancel_page() {
-        $this->_setRole( 'administrator' );
-        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
-        $_POST['priceinfo']   = wp_json_encode( $this->price_info_object );
-        try {
-            $this->_handleAjax( 'cancel_template' );
-        } catch ( WPAjaxDieContinueException $e ) {}
-  
-        // Check that the exception was thrown
-        $this->assertTrue( isset( $e ) );
-        $response = json_decode( $this->_last_response );
-        $this->assertTrue( $response->success );
-    }
-    /**
-     * Test payment page.
-     */
-    public function test_payment_page() {
-        $this->_setRole( 'administrator' );
-        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
-        $_POST['priceinfo']   = wp_json_encode( $this->price_info_object );
-        try {
-            $this->_handleAjax( 'payment_template' );
-        } catch ( WPAjaxDieContinueException $e ) {}
-  
-        // Check that the exception was thrown
-        $this->assertTrue( isset( $e ) );
-        $response = json_decode( $this->_last_response );
-        $this->assertTrue( $response->success );
-    }
-    /**
-     * Test thank you page.
-     */
-    public function test_thankyou_page() {
-        $this->_setRole( 'administrator' );
-        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
-        $_POST['mode']        = 'upgrade';
-        try {
-            $this->_handleAjax( 'thankyou_page' );
-        } catch ( WPAjaxDieContinueException $e ) {}
-  
-        // Check that the exception was thrown
-        $this->assertTrue( isset( $e ) );
-        $response = json_decode( $this->_last_response );
-        $this->assertTrue( $response->success );
-    }
-    /**
-     * Test custom form page.
-     */
-    public function test_custom_form_page() {
-        $this->_setRole( 'administrator' );
-        $_POST['_ajax_nonce'] = wp_create_nonce( 'itr_ajax_nonce' );
-        $_POST['priceinfo']   = wp_json_encode( $this->price_info_object );
-        $_POST['planRank']    = 1;
-        try {
-            $this->_handleAjax( 'custom_form_template' );
-        } catch ( WPAjaxDieContinueException $e ) {}
-  
-        // Check that the exception was thrown
-        $this->assertTrue( isset( $e ) );
-        $response = json_decode( $this->_last_response );
-        $this->assertTrue( $response->success );
-    }
     /**
      * Test change plan page.
      */

@@ -1,6 +1,14 @@
 {
     "name": "ctmobi/wubtitle",
     "type": "project",
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
     "authors": [
         {
             "name": "Alessio Catania",
@@ -24,12 +32,13 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "^7",
+        "phpunit/phpunit": "^9",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "wp-coding-standards/wpcs": "*",
         "phpcompatibility/phpcompatibility-wp": "*",
         "szepeviktor/phpstan-wordpress": "^0.7.2",
         "pheromone/phpcs-security-audit": "^2.0",
-        "wp-cli/wp-cli-bundle": "*"
+        "wp-cli/wp-cli-bundle": "*",
+        "yoast/phpunit-polyfills": "^1.0"
     }
 }

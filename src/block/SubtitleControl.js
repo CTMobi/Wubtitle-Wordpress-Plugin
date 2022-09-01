@@ -32,6 +32,7 @@ const SubtitleControl = ({ statusText, langText, isPublished, postId }) => {
 				type: 'POST',
 				data: {
 					id: postId,
+					/* eslint-disable camelcase */
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
 				},
 			})

@@ -5,6 +5,7 @@ import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
+import { langExten } from './labels.js';
 
 const EmbedControlPanel = (props) => {
 	const [message, setMessage] = useState('');
@@ -38,6 +39,7 @@ const EmbedControlPanel = (props) => {
 					subtitle: languageSelected,
 					videoTitle: title,
 					from: 'default_post_type',
+					/* eslint-disable camelcase */
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
 				},
 			})
@@ -68,6 +70,7 @@ const EmbedControlPanel = (props) => {
 				type: 'POST',
 				data: {
 					url: videoUrl,
+					/* eslint-disable camelcase */
 					_ajax_nonce: wubtitle_button_object.ajaxnonce,
 				},
 			})
@@ -86,9 +89,13 @@ const EmbedControlPanel = (props) => {
 							label: lang.name.simpleText,
 						};
 					}
+					let label = lang.name;
+					if (!label && lang.code.includes('autogen')) {
+						label = langExten[lang.code?.split('-')?.[0]] ?? '';
+					}
 					return {
 						value: lang.code,
-						label: lang.name,
+						label,
 					};
 				});
 				arrayLang.unshift({

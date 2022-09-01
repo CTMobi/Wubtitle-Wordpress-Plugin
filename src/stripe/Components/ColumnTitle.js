@@ -7,7 +7,7 @@ const ColumnTitle = (props) => {
 	return (
 		<p className="price-name">
 			{update
-				? __('Update billing or payment details')
+				? __('Update billing or payment details', 'wubtitle')
 				: `${__('Subscribe to', 'wubtitle')} ${name} ${__(
 						'plan',
 						'wubtitle'

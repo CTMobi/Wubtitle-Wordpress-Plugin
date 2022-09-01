@@ -58,15 +58,17 @@ class PaymentTemplate {
 		check_ajax_referer( 'itr_ajax_nonce', $nonce );
 		$plan_rank        = get_option( 'wubtitle_plan_rank' );
 		$wanted_plan_info = Loader::get( 'send_pricing_plan' )->send_wanted_plan_info( $wanted_plan_rank );
-		$amount_preview   = $wanted_plan_info['amount_preview'];
-		$name             = $wanted_plan_info['name'];
-		$email            = $wanted_plan_info['email'];
-		$expiration       = $wanted_plan_info['expiration'];
-		$card_number      = $wanted_plan_info['cardNumber'];
-		$taxes_preview    = $wanted_plan_info['taxes_preview'];
-		$taxable          = $wanted_plan_info['taxable'];
-		$tax_wanted_plan  = $price_info_object[ $wanted_plan_rank ]->taxAmount;
-		$includes_file    = 'Templates/downgrade_plan_template';
+		if ( is_array( $wanted_plan_info ) ) {
+			$amount_preview = $wanted_plan_info['amount_preview'];
+			$name           = $wanted_plan_info['name'];
+			$email          = $wanted_plan_info['email'];
+			$expiration     = $wanted_plan_info['expiration'];
+			$card_number    = $wanted_plan_info['cardNumber'];
+			$taxes_preview  = $wanted_plan_info['taxes_preview'];
+			$taxable        = $wanted_plan_info['taxable'];
+		}
+		$tax_wanted_plan = $price_info_object[ $wanted_plan_rank ]->taxAmount;
+		$includes_file   = 'Templates/downgrade_plan_template';
 		if ( $wanted_plan_rank > $plan_rank ) {
 			$includes_file = 'Templates/upgrade_plan_template';
 		}

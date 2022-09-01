@@ -221,7 +221,7 @@ class ApiPricingPlan {
 	/**
 	 * Checks if the request was successful.
 	 *
-	 * @param array<string>|\WP_Error $response response to the request.
+	 * @param array<string, mixed>|\WP_Error $response response to the request.
 	 * @return bool
 	 */
 	private function is_successful_response( $response ) {

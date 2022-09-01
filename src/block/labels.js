@@ -1,6 +1,6 @@
 /*  global wubtitle_button_object  */
 import { __ } from '@wordpress/i18n';
-
+/* eslint-disable camelcase */
 const langExten = wubtitle_button_object.langExten;
 
 const statusExten = {

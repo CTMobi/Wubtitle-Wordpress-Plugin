@@ -14,7 +14,7 @@ class TestVimeoTranscript extends WP_UnitTestCase {
     /**
      * Setup function.
      */
-    public function SetUp(){
+    public function SetUp(): void {
         parent::setUp();
         $this->instance = new Vimeo();
     }

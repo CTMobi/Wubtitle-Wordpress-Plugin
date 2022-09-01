@@ -9,11 +9,11 @@ use Wubtitle\Api\ApiLicenseValidation;
  /**
 	* Test callback endpoint.
 	*/
-class TestApiLivenseValidation extends WP_UnitTestCase {
+class TestApiLicenseValidation extends WP_UnitTestCase {
 	/**
 	 * Setup function.
 	 */
-	public function SetUp(){
+	public function SetUp(): void {
 		parent::setUp();
 		$this->instance = new ApiLicenseValidation;
 	}

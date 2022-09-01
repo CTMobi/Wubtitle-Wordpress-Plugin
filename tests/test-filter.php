@@ -12,7 +12,7 @@
     /**
      * Setup function.
      */
-     public function SetUp(){
+     public function SetUp(): void{
        parent::setUp();
        //Setto come current screen una schermata admin
        set_current_screen('upload');
@@ -27,7 +27,7 @@
           )
         );
         //error_log(print_r($attachment_data,true));
-        $subtitle_id = $this->factory()->attachment->create($attachment_data,'/sottotitoli.vtt',1);
+        $subtitle_id = $this->factory()->attachment->create($attachment_data,['/sottotitoli.vtt'],1);
         $this->expected = $subtitle_id;
         //aggiungo un'attachment per il video
         $attachment_data = array(
@@ -39,12 +39,12 @@
              'wubtitle_subtitle' => $subtitle_id
            )
          );
-         $attachment_id = $this->factory()->attachment->create($attachment_data,'/video.mp4',2);
+         $attachment_id = $this->factory()->attachment->create($attachment_data,['/video.mp4'],2);
      }
      /**
       * tearDown function.
       */
-      public function tearDown(){
+      public function tearDown(): void{
         parent::tearDown();
       }
       /**
@@ -59,9 +59,9 @@
           $media = $query->posts;
           $subtitle_id = $this->expected;
           $result_id = get_post_meta($media[0]->ID,'wubtitle_subtitle',true);
-          $this->assertEqualSets(1,count($media));
-          $this->assertEqualSets('video',$media[0]->post_title);
-          $this->assertEqualSets($subtitle_id,$result_id);
+          $this->assertEquals(1,count($media));
+          $this->assertEquals('video',$media[0]->post_title);
+          $this->assertEquals($subtitle_id,$result_id);
           $this->assertInstanceOf('WP_Post',get_post($subtitle_id));
        }
   }

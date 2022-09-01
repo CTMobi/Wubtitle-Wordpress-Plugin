@@ -1,5 +1,5 @@
 /*  global wubtitle_button_object  */
-import { useSelect, useDispatch } from '@wordpress/data';
+import { useSelect, useDispatch, useEffect } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -14,8 +14,10 @@ const WubtitlePanel = (props) => {
 		props.id !== undefined
 			? props.src.substring(props.src.lastIndexOf('.') + 1)
 			: 'mp4';
+	/* eslint-disable camelcase */
 	const languages =
 		wubtitle_button_object.isFree === '1' ? languagesFree : allLanguages;
+	/* eslint-disable camelcase */
 	const lang = languages.includes(wubtitle_button_object.lang)
 		? wubtitle_button_object.lang
 		: 'en-US';
@@ -41,26 +43,30 @@ const WubtitlePanel = (props) => {
 	});
 
 	let languageSaved;
-	let status;
 	if (metaValues !== undefined) {
 		languageSaved = metaValues.wubtitle_lang_video;
-		status = metaValues.wubtitle_status;
 	}
 	const noticeDispatcher = useDispatch('core/notices');
 	const entityDispatcher = useDispatch('core');
 	const [languageSelected, setLanguage] = useState(lang);
 	const [isLoading, setIsLoading] = useState(false);
+	const [status, setStatus] = useState(metaValues?.wubtitle_status);
+
+	useEffect(() => {
+		setStatus(metaValues?.wubtitle_status);
+	}, [metaValues?.wubtitle_status]);
+
 	const isDisabled =
 		status === 'pending' || props.id === undefined || isLoading;
 	const isPublished = status === 'enabled';
 	const GenerateSubtitles = () => {
-		status =
+		const statusLabel =
 			status === 'error'
 				? __('Error', 'wubtitle')
 				: __('None', 'wubtitle');
 		return (
 			<Fragment>
-				<div>{__('Status:', 'wubtitle') + ' ' + status}</div>
+				<div>{__('Status:', 'wubtitle') + ' ' + statusLabel}</div>
 				<SelectControl
 					label={__('Select the video language', 'wubtitle')}
 					value={languageSelected}
@@ -95,12 +101,14 @@ const WubtitlePanel = (props) => {
 		const srcAttachment = props.src;
 		setIsLoading(true);
 		apiFetch({
+			/* eslint-disable camelcase */
 			url: wubtitle_button_object.ajax_url,
 			method: 'POST',
 			headers: {
 				'Content-Type':
 					'application/x-www-form-urlencoded; charset=utf-8',
 			},
+			/* eslint-disable camelcase */
 			body: `action=submitVideo&_ajax_nonce=${wubtitle_button_object.ajaxnonce}&id_attachment=${idAttachment}&src_attachment=${srcAttachment}&lang=${languageSelected}&`,
 		}).then((res) => {
 			setIsLoading(false);
@@ -127,6 +135,7 @@ const WubtitlePanel = (props) => {
 	}
 
 	const WubtitlePanelContent = () => {
+		/* eslint-disable camelcase */
 		if (wubtitle_button_object.isFree === '1' && extensionsFile !== 'mp4') {
 			return <FormatNotSupported />;
 		}

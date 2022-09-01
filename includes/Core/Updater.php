@@ -69,7 +69,7 @@ class Updater {
 		}
 		$repo_url        = "https://api.github.com/repos/{$this->username}/{$this->repo}/releases/latest";
 		$github_response = wp_remote_get( $repo_url );
-		if ( is_wp_error( $github_response ) || empty( $github_response ) ) {
+		if ( is_wp_error( $github_response ) ) {
 			return;
 		}
 		$code_response = wp_remote_retrieve_response_code( $github_response );
