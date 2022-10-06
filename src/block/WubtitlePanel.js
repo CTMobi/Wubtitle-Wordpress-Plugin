@@ -1,9 +1,9 @@
 /*  global wubtitle_button_object  */
-import { useSelect, useDispatch, useEffect } from '@wordpress/data';
+import { useSelect, useDispatch } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 import { PanelBody, Button, SelectControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useState, Fragment } from '@wordpress/element';
+import { useState, Fragment, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import PendingSubtitle from './PendingSubtitle';
 import SubtitleControl from './SubtitleControl';
