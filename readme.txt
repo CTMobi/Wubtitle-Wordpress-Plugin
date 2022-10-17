@@ -3,9 +3,9 @@ Contributors: giuseppectmobi
 Donate link: https://www.wubtitle.com/
 Tags: subtitle, subtitles, video, Transcription, SEO, speech-to-text, video to text, Youtube to text, Vimeo, Vimeo to text, Youtube, Youtube Transcription, Vimeo Transcription
 Requires at least: 5.3
-Tested up to: 5.8
+Tested up to: 6.0
 Stable tag: trunk
-Requires PHP: 7.2
+Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -94,6 +94,16 @@ No, currently we do not offer annual subscriptions.
 
 
 == Changelog ==
+
+= 1.2.4 =
+Release Date: October 17th, 2022
+
+Enhancements:
+* Added support to Wordpress 6.0
+
+Bugfixes:
+
+* Stability improvements
 
 = 1.2.3 =
 Release Date: August 31th, 2021
