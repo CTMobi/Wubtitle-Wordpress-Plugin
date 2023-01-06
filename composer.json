@@ -33,7 +33,7 @@
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "@stable",
         "phpunit/phpunit": "^9",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
         "wp-coding-standards/wpcs": "*",
         "phpcompatibility/phpcompatibility-wp": "*",
         "szepeviktor/phpstan-wordpress": "^0.7.2",
