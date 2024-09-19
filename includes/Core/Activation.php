@@ -72,5 +72,4 @@ class Activation {
 			update_option( 'wubtitle_token_time', time() + ( MINUTE_IN_SECONDS * 5 ), false );
 		}
 	}
-
 }

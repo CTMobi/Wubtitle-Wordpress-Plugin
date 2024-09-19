@@ -47,7 +47,7 @@ class ApiAuthUpgradePlan {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'return_plan' ),
-				'permission_callback' => function( $request ) {
+				'permission_callback' => function ( $request ) {
 					return $this->helpers->authorizer( $request );
 				},
 			)
@@ -65,7 +65,7 @@ class ApiAuthUpgradePlan {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'reactivate_plan' ),
-				'permission_callback' => function( $request ) {
+				'permission_callback' => function ( $request ) {
 					return $this->helpers->authorizer( $request );
 				},
 			)

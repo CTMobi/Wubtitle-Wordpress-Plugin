@@ -68,6 +68,4 @@ class ApiCancelSubscription {
 		}
 		wp_send_json_success( $message[ $code_response ] );
 	}
-
-
 }

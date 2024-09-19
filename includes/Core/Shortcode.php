@@ -49,5 +49,4 @@ class Shortcode {
 		}
 		wp_reset_postdata();
 	}
-
 }

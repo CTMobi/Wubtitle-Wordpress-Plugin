@@ -393,4 +393,3 @@ class ApiPricingPlan {
 		return $data;
 	}
 }
-

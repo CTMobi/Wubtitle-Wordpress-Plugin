@@ -36,16 +36,16 @@ class ApiRequest {
 	/**
 	 * Checks the validation and sanitize input.
 	 *
-	 * @param array<string> $array post.
+	 * @param array<string> $post_array post.
 	 * @return array<mixed>|false
 	 */
-	public function sanitize_input( $array ) {
-		if ( ! isset( $array['id_attachment'] ) || ! isset( $array['src_attachment'] ) || ! isset( $array['lang'] ) ) {
+	public function sanitize_input( $post_array ) {
+		if ( ! isset( $post_array['id_attachment'] ) || ! isset( $post_array['src_attachment'] ) || ! isset( $post_array['lang'] ) ) {
 			return false;
 		}
-		$array['id_attachment']  = sanitize_text_field( wp_unslash( $array['id_attachment'] ) );
-		$array['src_attachment'] = sanitize_text_field( wp_unslash( $array['src_attachment'] ) );
-		return $array;
+		$post_array['id_attachment']  = sanitize_text_field( wp_unslash( $post_array['id_attachment'] ) );
+		$post_array['src_attachment'] = sanitize_text_field( wp_unslash( $post_array['src_attachment'] ) );
+		return $post_array;
 	}
 	/**
 	 *  Creates body request.
@@ -148,7 +148,7 @@ class ApiRequest {
 				'show_in_rest'  => true,
 				'type'          => 'string',
 				'single'        => true,
-				'auth_callback' => function() {
+				'auth_callback' => function () {
 					return current_user_can( 'edit_posts' );
 				},
 			)

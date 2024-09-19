@@ -149,7 +149,7 @@ class MediaLibraryExtented {
 		$languages      = get_option( 'wubtitle_free', true ) ? $languages_free : array_keys( $all_languages );
 		$lang           = in_array( $lang, $languages, true ) ? $lang : 'en-US';
 		foreach ( $all_languages as $key => $language ) {
-			echo sprintf(
+			printf(
 				'<option %s value="%s">%s</option>',
 				selected( $lang, $key, false ),
 				esc_html( $key ),

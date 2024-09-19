@@ -32,5 +32,4 @@ class Subtitle {
 		$releted_vtt = get_post_meta( $id_deleted_attachment, 'wubtitle_subtitle', true );
 		wp_delete_attachment( $releted_vtt );
 	}
-
 }
