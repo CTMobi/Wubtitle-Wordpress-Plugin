@@ -9,7 +9,8 @@
 
 namespace Wubtitle;
 
-use \Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key as JWT_Key;
 
 /**
  * This class handles some helper methods used throughout the plugin.
@@ -92,8 +93,13 @@ class Helpers {
 		}
 		$jwt            = $headers['jwt'][0];
 		$db_license_key = get_option( 'wubtitle_license_key' );
+
+		if ( empty( $db_license_key ) ) {
+			return false;
+		}
+
 		try {
-			JWT::decode( $jwt, $db_license_key, array( 'HS256' ) );
+			JWT::decode( $jwt, new JWT_Key( $db_license_key, 'HS256' ) );
 		} catch ( \Exception $e ) {
 			return false;
 		}
@@ -140,5 +146,4 @@ class Helpers {
 			'pt-BR' => __( 'Brazilian Portuguese', 'wubtitle' ),
 		);
 	}
-
 }
