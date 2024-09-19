@@ -19,6 +19,14 @@ class TestHelpers extends WP_UnitTestCase {
     }
 
     /**
+     * Teardown function.
+     */
+    public function tearDown(): void {
+        parent::tearDown();
+        delete_option('wubtitle_license_key');
+    }
+
+    /**
      * Test check gutenberg active. 
      */
     public function test_is_gutenberg_active() {
@@ -56,14 +64,43 @@ class TestHelpers extends WP_UnitTestCase {
     /**
      * Test check check has error. 
      */
-    public function test_authorizer() {
+    public function test_authorizer_error_no_license() {
         $request = new WP_REST_Request;
-        $request->set_header( 'jwt' , 'test_invaliv_jwt' );
+        $request->set_header( 'jwt' , 'test_invalid_jwt' );
 
         $response = $this->instance->authorizer( $request );
 
         $this->assertFalse( $response );
     }
 
+    /**
+     * Test check check has error. 
+     */
+    public function test_authorizer_error_wrong_license() {
+        update_option('wubtitle_license_key', 'key_a');
+
+        $request = new WP_REST_Request;
+        $request->set_header('jwt', 'key_b');
+
+        $response = $this->instance->authorizer($request);
+
+        $this->assertFalse($response);
+    }
+
+    /**
+     * Test check check passes. 
+     */
+    public function test_authorizer_success() {
+        $jwt = Firebase\JWT\JWT::encode([], 'valid_key', 'HS256');
+
+        update_option('wubtitle_license_key', 'valid_key');
+
+        $request = new WP_REST_Request;
+        $request->set_header('jwt', $jwt);
+
+        $response = $this->instance->authorizer($request);
+        
+        $this->assertTrue($response);
+    }
 
 }
