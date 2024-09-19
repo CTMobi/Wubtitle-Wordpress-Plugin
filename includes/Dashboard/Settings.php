@@ -317,7 +317,7 @@ class Settings {
 			// phpcs:enable
 			$this->price_info_plans = Loader::get( 'cron' )->get_remote_data();
 		}
-		add_settings_section( 'wubtitle-main-settings', '', function(){}, 'wubtitle-settings' );
+		add_settings_section( 'wubtitle-main-settings', '', function () {}, 'wubtitle-settings' );
 
 		$plans    = get_option( 'wubtitle_all_plans', array() );
 		$disabled = '';

@@ -10,7 +10,7 @@
 namespace Wubtitle\Api;
 
 use WP_REST_Response;
-use \download_url;
+use download_url;
 use Wubtitle\Helpers;
 
 /**
@@ -47,7 +47,7 @@ class ApiStoreSubtitle {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'get_subtitle' ),
-				'permission_callback' => function( $request ) {
+				'permission_callback' => function ( $request ) {
 					return $this->helpers->authorizer( $request );
 				},
 			)

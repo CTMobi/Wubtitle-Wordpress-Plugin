@@ -95,6 +95,4 @@ class SyncAttachments {
 		add_action( 'updated_post_meta', array( $this, 'sync_post_meta' ), 10, 4 );
 		add_action( 'added_post_meta', array( $this, 'sync_post_meta' ), 10, 4 );
 	}
-
 }
-

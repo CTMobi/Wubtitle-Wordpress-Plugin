@@ -9,8 +9,8 @@
 
 namespace Wubtitle\Api;
 
-use \Wubtitle\Core\Sources\YouTube;
-use \Wubtitle\Core\Sources\Vimeo;
+use Wubtitle\Core\Sources\YouTube;
+use Wubtitle\Core\Sources\Vimeo;
 
 /**
  * Manages ajax and sends http request.
@@ -160,5 +160,4 @@ class ApiGetTranscript {
 		}
 		return false;
 	}
-
 }

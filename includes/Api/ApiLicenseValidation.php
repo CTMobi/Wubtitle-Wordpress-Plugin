@@ -11,7 +11,7 @@ namespace Wubtitle\Api;
 
 use WP_Error;
 use WP_REST_Response;
-use \Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
 use Wubtitle\Helpers;
 
 /**
@@ -48,7 +48,7 @@ class ApiLicenseValidation {
 			array(
 				'methods'             => 'GET',
 				'callback'            => array( $this, 'get_job_list' ),
-				'permission_callback' => function( $request ) {
+				'permission_callback' => function ( $request ) {
 					return $this->helpers->authorizer( $request );
 				},
 			)
@@ -67,7 +67,7 @@ class ApiLicenseValidation {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'get_init_data' ),
-				'permission_callback' => function( $request ) {
+				'permission_callback' => function ( $request ) {
 					$headers          = $request->get_headers();
 					$token            = $headers['token'][0] ?? '';
 					if ( ! defined( 'WP_ADMIN' ) ) {

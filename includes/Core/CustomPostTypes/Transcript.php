@@ -9,7 +9,7 @@
 
 namespace Wubtitle\Core\CustomPostTypes;
 
-use \Wubtitle\Core\Sources\YouTube;
+use Wubtitle\Core\Sources\YouTube;
 
 /**
  * This class handle the transcript custom post type methods.
@@ -143,5 +143,4 @@ class Transcript {
 
 		register_post_type( 'transcript', $args );
 	}
-
 }
