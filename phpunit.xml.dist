@@ -9,9 +9,9 @@
 	>
 	<testsuites>
 		<testsuite name="plugin-tests">
-			<directory prefix="test-" suffix=".php">./tests/</directory>
-			<exclude>./tests/test-sample.php</exclude>
-			<exclude>./tests/test-youtube-api.php</exclude>
+			<directory prefix="Test" suffix=".php">./tests/</directory>
+			<exclude>./tests/TestSample.php</exclude>
+			<exclude>./tests/TestYoutubeApi.php</exclude>
 		</testsuite>
 	</testsuites>
 	<filter>
