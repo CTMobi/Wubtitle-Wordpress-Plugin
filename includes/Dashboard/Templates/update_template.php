@@ -30,8 +30,10 @@ wp_cache_delete( 'wubtitle_is_first_month', 'options' );
 <body>
 	<div id="update-form"></div>
 	<?php
-	// @phpstan-ignore-next-line
-	wp_enqueue_block_template_skip_link();
+	if ( function_exists( 'wp_enqueue_block_template_skip_link' ) ) {
+		// @phpstan-ignore-next-line
+		wp_enqueue_block_template_skip_link();
+	}
 	wp_footer();
 	?>
 </body>

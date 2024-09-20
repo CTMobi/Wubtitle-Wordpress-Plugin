@@ -52,8 +52,10 @@ $amount_preview = isset( $amount_preview ) ? number_format( - (float) $amount_pr
 		</div>
 	</div>
 	<?php
-	// @phpstan-ignore-next-line
-	wp_enqueue_block_template_skip_link();
+	if ( function_exists( 'wp_enqueue_block_template_skip_link' ) ) {
+		// @phpstan-ignore-next-line
+		wp_enqueue_block_template_skip_link();
+	}
 	wp_footer();
 	?>
 </body>
