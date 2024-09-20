@@ -65,10 +65,10 @@ const SubtitleControl = ({ statusText, langText, isPublished, postId }) => {
 	return (
 		<Fragment>
 			<p style={{ margin: '0' }}>
-				{__('Status:', 'wubtitle') + ' ' + statusExten[statusText]}
+				{__('Status:', 'wubtitle') + ' ' + statusExten[`${statusText}`]}
 			</p>
 			<p style={{ margin: '8px 0' }}>
-				{__('Language:', 'wubtitle') + ' ' + langExten[langText]}
+				{__('Language:', 'wubtitle') + ' ' + langExten[`${langText}`]}
 			</p>
 			<ToggleControl
 				label={__('Published', 'wubtitle')}

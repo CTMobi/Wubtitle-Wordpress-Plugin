@@ -74,14 +74,18 @@ const TranscriptionEditBlock = ({ attributes, setAttributes, className }) => {
 	const suggestions = [];
 	for (let i = 0; i < postsCurrent.length; i++) {
 		options.set(
-			decodeHtmlEntities(postsCurrent[i].title.rendered),
-			postsCurrent[i].id
+			decodeHtmlEntities(postsCurrent[parseInt(i)].title.rendered),
+			postsCurrent[parseInt(i)].id
 		);
 		options.set(
-			decodeHtmlEntities(`${postsCurrent[i].title.rendered} content`),
-			postsCurrent[i].content.rendered
+			decodeHtmlEntities(
+				`${postsCurrent[parseInt(i)].title.rendered} content`
+			),
+			postsCurrent[parseInt(i)].content.rendered
 		);
-		suggestions[i] = decodeHtmlEntities(postsCurrent[i].title.rendered);
+		suggestions[parseInt(i)] = decodeHtmlEntities(
+			postsCurrent[parseInt(i)].title.rendered
+		);
 	}
 
 	let contentText = '';
