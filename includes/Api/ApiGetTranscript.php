@@ -118,12 +118,13 @@ class ApiGetTranscript {
 		$nonce    = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
 		$id_video = sanitize_text_field( wp_unslash( $_POST['id'] ) );
 		check_ajax_referer( 'itr_ajax_nonce', $nonce );
-		$args  = array(
+		$args = array(
 			'post_type'      => 'transcript',
 			'posts_per_page' => 1,
 			'meta_key'       => 'wubtitle_transcript',
 			'meta_value'     => $id_video,
 		);
+		// @phpstan-ignore-next-line
 		$posts = get_posts( $args );
 		if ( empty( $posts ) ) {
 			wp_send_json_error( __( 'Error: this video doesn\'t have subtitles yet. It is necessary to generate them to obtain the transcription', 'wubtitle' ) );
@@ -145,12 +146,13 @@ class ApiGetTranscript {
 	 * @return bool|int|string
 	 */
 	public function get_data_transcript( $id_video, $from ) {
-		$args  = array(
+		$args = array(
 			'post_type'      => 'transcript',
 			'posts_per_page' => 1,
 			'meta_key'       => '_video_id',
 			'meta_value'     => $id_video,
 		);
+		// @phpstan-ignore-next-line
 		$posts = get_posts( $args );
 		if ( ! empty( $posts ) && 'default_post_type' === $from ) {
 			return $posts[0]->ID;

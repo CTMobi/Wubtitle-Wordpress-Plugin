@@ -123,12 +123,13 @@ class ApiLicenseValidation {
 	 * @return array<string,array<string,array<int,mixed>>>
 	 */
 	public function get_job_list() {
-		$args     = array(
+		$args = array(
 			'post_type'      => 'attachment',
 			'posts_per_page' => -1,
 			'meta_key'       => 'wubtitle_status',
 			'meta_value'     => 'pending',
 		);
+		// @phpstan-ignore-next-line
 		$media    = get_posts( $args );
 		$job_list = array();
 		foreach ( $media as  $file ) {

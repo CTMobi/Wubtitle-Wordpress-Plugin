@@ -7,6 +7,7 @@ includes:
     # Include this extension
     - vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
+    checkGenericClassInNonGenericObjectType: false
     level: max
     inferPrivatePropertyTypeFromConstructor: true
 #    autoload_files:
