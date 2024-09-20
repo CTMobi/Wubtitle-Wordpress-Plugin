@@ -56,12 +56,13 @@ class SyncAttachments {
 			// phpcs:disable
 			$translations       = $wpdb->get_results( $translations_query );
 			// phpcs:enable
-			$args  = array(
+			$args = array(
 				'post_type'      => 'transcript',
 				'posts_per_page' => 1,
 				'meta_key'       => 'wubtitle_transcript',
 				'meta_value'     => $meta_value,
 			);
+			// @phpstan-ignore-next-line
 			$posts = get_posts( $args );
 			foreach ( $translations as $translation ) {
 				if ( $translation->element_id !== (string) $meta_value ) {
