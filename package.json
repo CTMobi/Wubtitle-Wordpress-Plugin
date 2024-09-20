@@ -36,7 +36,7 @@
     "test:unit": "wp-scripts test-unit-js",
     "fixjs": "eslint --fix ./src",
     "lint:js:src": "wp-scripts lint-js ./src",
-    "fix:js:src": "wp-scripts lint-js --fix ./src",
+    "fix:js:src": "wp-scripts lint-js ./src --fix",
     "csslint": "node_modules/.bin/csslint src/ || return 0",
     "postinstall": "[ \"$NODE_ENV\" != production ] && husky || true"
   },
