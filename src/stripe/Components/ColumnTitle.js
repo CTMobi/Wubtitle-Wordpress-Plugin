@@ -11,7 +11,7 @@ const ColumnTitle = (props) => {
 				: `${__('Subscribe to', 'wubtitle')} ${name} ${__(
 						'plan',
 						'wubtitle'
-				  )}`}
+					)}`}
 		</p>
 	);
 };

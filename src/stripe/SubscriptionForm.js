@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import CheckoutForm from './Components/CheckoutForm';
 import InvoiceForm from './Components/InvoiceForm';
 import InvoiceSummary from './Components/InvoiceSummary';
@@ -226,5 +226,7 @@ function App() {
 	);
 }
 if (document.getElementById('root')) {
-	ReactDOM.render(<App />, document.getElementById('root'));
+	const container = document.getElementById('root');
+	const root = createRoot(container);
+	root.render(<App />);
 }
