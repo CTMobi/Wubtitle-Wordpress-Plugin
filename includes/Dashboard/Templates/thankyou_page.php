@@ -25,6 +25,10 @@
 		<p class="paragraph-center"><?php esc_html_e( 'Update Wubtitle settings page on your site backoffice to view the changes or click on the button below', 'wubtitle' ); ?></p>
 		<button class="thank-button" id="success-button"><?php esc_html_e( 'BACK TO WUBTITLE', 'wubtitle' ); ?></button>
 	</div>
-	<?php wp_footer(); ?>
+	<?php
+	// @phpstan-ignore-next-line
+	wp_enqueue_block_template_skip_link();
+	wp_footer();
+	?>
 </body>
 </html>
