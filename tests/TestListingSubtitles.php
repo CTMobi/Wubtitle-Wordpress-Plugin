@@ -10,6 +10,9 @@ use Wubtitle\MediaLibrary\ListingSubtitles;
  * Test ListingSubtitle.
  */
 class TestListingSubtitles extends WP_UnitTestCase {
+
+    private $instance;
+    
     /**
      * Setup function.
      */

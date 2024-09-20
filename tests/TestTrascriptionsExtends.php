@@ -10,6 +10,9 @@ use Wubtitle\MediaLibrary\TrascriptionsExtends;
  * Test TrascriptionsExtends.
  */
 class TestTrascriptionsExtends extends WP_UnitTestCase {
+
+    private $instance;
+    
     /**
      * Setup function.
      */
