@@ -20,6 +20,10 @@
 </head>
 <body>
 	<div id="root"></div>
-	<?php wp_footer(); ?>
+	<?php
+	// @phpstan-ignore-next-line
+	wp_enqueue_block_template_skip_link();
+	wp_footer();
+	?>
 </body>
 </html>

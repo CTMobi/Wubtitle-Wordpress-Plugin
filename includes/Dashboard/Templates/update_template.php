@@ -29,6 +29,10 @@ wp_cache_delete( 'wubtitle_is_first_month', 'options' );
 </head>
 <body>
 	<div id="update-form"></div>
-	<?php wp_footer(); ?>
+	<?php
+	// @phpstan-ignore-next-line
+	wp_enqueue_block_template_skip_link();
+	wp_footer();
+	?>
 </body>
 </html>
