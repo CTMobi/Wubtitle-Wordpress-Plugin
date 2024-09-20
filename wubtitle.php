@@ -27,8 +27,8 @@ if ( defined( 'WP_WUBTITLE_ENV' ) && 'development' === WP_WUBTITLE_ENV ) {
 	$endpoint = 'https://dev.api.wubtitle.com/';
 }
 define( 'WUBTITLE_ENDPOINT', $endpoint );
-if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
-	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
 }
 
 if ( class_exists( 'Wubtitle\\Loader' ) ) {
