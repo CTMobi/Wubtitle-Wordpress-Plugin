@@ -26,8 +26,10 @@
 		<button class="thank-button" id="success-button"><?php esc_html_e( 'BACK TO WUBTITLE', 'wubtitle' ); ?></button>
 	</div>
 	<?php
-	// @phpstan-ignore-next-line
-	wp_enqueue_block_template_skip_link();
+	if ( function_exists( 'wp_enqueue_block_template_skip_link' ) ) {
+		// @phpstan-ignore-next-line
+		wp_enqueue_block_template_skip_link();
+	}
 	wp_footer();
 	?>
 </body>
