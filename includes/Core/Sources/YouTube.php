@@ -165,6 +165,14 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 	 * @return array<mixed>
 	 */
 	public function get_transcript( $id_video, $video_title, $from, $subtitle ) {
+
+		if ( empty( $subtitle ) ) {
+			return array(
+				'success' => false,
+				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
+			);
+		}
+
 		$response      = $this->send_job_to_backend( $id_video );
 		$response_code = wp_remote_retrieve_response_code( $response );
 
@@ -182,12 +190,6 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			);
 		}
 
-		if ( empty( $subtitle ) ) {
-			return array(
-				'success' => false,
-				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
-			);
-		}
 		$subtitle = $subtitle . '&fmt=json3';
 		$response = wp_remote_get( $subtitle );
 		if ( is_wp_error( $response ) ) {
