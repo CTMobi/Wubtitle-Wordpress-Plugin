@@ -155,6 +155,28 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 	}
 
 	/**
+	 * Upload video transcription to S3.
+	 *
+	 * @param string $presigned_url S3 presigned URL.
+	 * @param string $text transcription content.
+	 *
+	 * @return int|string
+	 */
+	private function upload_transcription_to_s3( $presigned_url, $text ) {
+		$args = array(
+			'method'  => 'PUT',
+			'body'    => $text,
+			'headers' => array(
+				'Content-Type'   => 'text/plain',
+				'Content-Length' => strlen( $text ),
+			),
+		);
+
+		$response = wp_remote_request( $presigned_url, $args );
+		return wp_remote_retrieve_response_code( $response );
+	}
+
+	/**
 	 * Get transcript video.
 	 *
 	 * @param string $id_video id video.
@@ -190,6 +212,8 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 			);
 		}
 
+		$backend_response_body = json_decode( wp_remote_retrieve_body( $response ) );
+
 		$subtitle = $subtitle . '&fmt=json3';
 		$response = wp_remote_get( $subtitle );
 		if ( is_wp_error( $response ) ) {
@@ -224,6 +248,11 @@ class YouTube implements \Wubtitle\Core\VideoSource {
 				'message' => __( 'Transcript not avaiable for this video.', 'wubtitle' ),
 			);
 		}
+
+		if ( ! empty( $backend_response_body->data->presignedUrl ) ) {
+			$this->upload_transcription_to_s3( $backend_response_body->data->presignedUrl, $text );
+		}
+
 		return array(
 			'success' => true,
 			'data'    => $transcript,
