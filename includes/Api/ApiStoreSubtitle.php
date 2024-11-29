@@ -30,17 +30,18 @@ class ApiStoreSubtitle {
 	 * @return void
 	 */
 	public function run() {
-		add_action( 'rest_api_init', array( $this, 'register_store_subtitle_route' ) );
-		add_action( 'rest_api_init', array( $this, 'register_error_jobs_route' ) );
+		add_action( 'rest_api_init', array( $this, 'register_subtitle_routes' ) );
 		$this->helpers = new Helpers();
 	}
 
 	/**
-	 * Creates new REST route.
+	 * Creates new REST routes.
 	 *
 	 * @return void
 	 */
-	public function register_store_subtitle_route() {
+	public function register_subtitle_routes() {
+
+		// Endpoint to store the subtitles and the transcription.
 		register_rest_route(
 			'wubtitle/v1',
 			'/store-subtitle',
@@ -50,6 +51,17 @@ class ApiStoreSubtitle {
 				'permission_callback' => function ( $request ) {
 					return $this->helpers->authorizer( $request );
 				},
+			)
+		);
+
+		// Endpoint to manage failed jobs.
+		register_rest_route(
+			'wubtitle/v1',
+			'/error-jobs',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'get_jobs_failed' ),
+				'permission_callback' => '__return_true',
 			)
 		);
 	}
@@ -168,22 +180,6 @@ class ApiStoreSubtitle {
 		wp_insert_post( $trascript_post );
 	}
 
-	/**
-	 * Creates a new endpoint to manage filed jobs.
-	 *
-	 * @return void
-	 */
-	public function register_error_jobs_route() {
-		register_rest_route(
-			'wubtitle/v1',
-			'/error-jobs',
-			array(
-				'methods'             => 'POST',
-				'callback'            => array( $this, 'get_jobs_failed' ),
-				'permission_callback' => '__return_true',
-			)
-		);
-	}
 	/**
 	 * Gets failed jobs.
 	 *
