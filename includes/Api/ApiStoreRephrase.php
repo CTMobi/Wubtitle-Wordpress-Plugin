@@ -82,6 +82,22 @@ class ApiStoreRephrase {
 		$rephrase_response = wp_remote_get( $rephrase_url );
 		$rephrase          = wp_remote_retrieve_body( $rephrase_response );
 
+		if ( empty( $rephrase ) ) {
+			$error = array(
+				'errors' => array(
+					'status' => '404',
+					'title'  => 'Invalid URL content',
+					'source' => 'Invalid URL content',
+				),
+			);
+
+			$response = new WP_REST_Response( $error );
+
+			$response->set_status( 404 );
+
+			return $response;
+		}
+
 		// Internal Video.
 		if ( isset( $params['attachmentId'] ) && ! empty( $params['attachmentId'] ) && ! empty( get_post( $params['attachmentId'] ) ) ) {
 			return $this->save_post_rephrase( $rephrase, $params['attachmentId'] );
