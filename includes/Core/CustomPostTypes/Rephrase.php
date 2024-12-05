@@ -9,7 +9,7 @@
 
 namespace Wubtitle\Core\CustomPostTypes;
 
-use Wubtitle\Core\Sources\YouTube;
+use Wubtitle\Core\Rephrase as RephraseCPT;
 
 /**
  * This class handle the rephrase custom post type methods.
@@ -22,6 +22,7 @@ class Rephrase {
 	 */
 	public function run() {
 		add_action( 'init', array( $this, 'register_rephrase_cpt' ) );
+		add_action( 'before_delete_post', array( $this, 'delete_related_rephrase_info' ), 10, 2 );
 	}
 
 	/**
@@ -78,5 +79,34 @@ class Rephrase {
 		}
 
 		register_post_type( 'rephrase', $args );
+	}
+
+	/**
+	 * Delete rephrase informations when a rephrase post is permanently deleted.
+	 *
+	 * @param int      $post_id the id of the deleted rephrase post.
+	 * @param \WP_Post $post post object.
+	 * @return void
+	 */
+	public function delete_related_rephrase_info( $post_id, $post ) {
+
+		if ( 'rephrase' !== $post->post_type ) {
+			return;
+		}
+
+		$id_video = get_post_meta( $post_id, 'wubtitle_rephrase', true );
+
+		if ( empty( $id_video ) ) {
+			return;
+		}
+
+		$rephrase_helper = new RephraseCPT();
+		$rephrase_info   = $rephrase_helper->get_rephrase_info( $id_video );
+
+		if ( empty( $rephrase_info ) ) {
+			return;
+		}
+
+		$rephrase_helper->delete_rephrase_info( $id_video );
 	}
 }
