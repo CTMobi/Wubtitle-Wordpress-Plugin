@@ -6,9 +6,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Wubtitle-"
 "Wordpress-Plugin\n"
 "POT-Creation-Date: 2024-11-29T08:36:49+00:00\n"
-"PO-Revision-Date: 2021-01-25 09:29+0100\n"
+"PO-Revision-Date: 2024-12-05 16:05+0000\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Italiano\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,16 +228,16 @@ msgstr ", video rimasti"
 #: includes/Core/CustomPostTypes/Rephrase.php:36
 #: includes/Core/CustomPostTypes/Rephrase.php:65
 msgid "Rephrases"
-msgstr ""
+msgstr "Rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:35
 #: includes/Core/CustomPostTypes/Rephrase.php:55
 msgid "Rephrase"
-msgstr ""
+msgstr "Rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:37
 msgid "All rephrases"
-msgstr ""
+msgstr "Tutti i rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:38
 #: includes/Core/CustomPostTypes/Transcript.php:102
@@ -246,35 +246,35 @@ msgstr "Aggiungi nuovo"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:39
 msgid "Add new rephrase"
-msgstr ""
+msgstr "Aggiungi nuovo rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:40
 msgid "Edit rephrase"
-msgstr ""
+msgstr "Modifica il rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:41
 msgid "New rephrase"
-msgstr ""
+msgstr "Nuovo rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:42
 msgid "View rephrase"
-msgstr ""
+msgstr "Vedi rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:43
 msgid "View rephrases"
-msgstr ""
+msgstr "Vedi rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:44
 msgid "Search rephrases"
-msgstr ""
+msgstr "Cerca rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:45
 msgid "No Rephrases found"
-msgstr ""
+msgstr "Nessun rephrase trovato"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:46
 msgid "No Rephrases found in trash"
-msgstr ""
+msgstr "Nessun rephrase trovato nel cestino"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:47
 #: includes/Core/CustomPostTypes/Rephrase.php:61
@@ -283,11 +283,11 @@ msgstr ""
 
 #: includes/Core/CustomPostTypes/Rephrase.php:48
 msgid "Rephrase archives"
-msgstr ""
+msgstr "Archivio rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:49
 msgid "Insert into Rephrase"
-msgstr ""
+msgstr "Inserisci nel rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:50
 msgid "Upload to this Rephrase"
@@ -295,43 +295,43 @@ msgstr ""
 
 #: includes/Core/CustomPostTypes/Rephrase.php:51
 msgid "Filter Rephrases list"
-msgstr ""
+msgstr "Filtra lista rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:52
 msgid "Rephrases list navigation"
-msgstr ""
+msgstr "Lista navigazione rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:53
 msgid "Rephrases list"
-msgstr ""
+msgstr "Lista rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:54
 msgid "Rephrases attributes"
-msgstr ""
+msgstr "Attributi rephrase"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:56
 msgid "Rephrase published"
-msgstr ""
+msgstr "Rephrase pubblicato"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:57
 msgid "Rephrase published privately."
-msgstr ""
+msgstr "Rephrase pubblicato privatamente."
 
 #: includes/Core/CustomPostTypes/Rephrase.php:58
 msgid "Rephrase reverted to draft."
-msgstr ""
+msgstr "Rephrase ripristinato in bozza."
 
 #: includes/Core/CustomPostTypes/Rephrase.php:59
 msgid "Rephrase scheduled"
-msgstr ""
+msgstr "Rephrase pianificato"
 
 #: includes/Core/CustomPostTypes/Rephrase.php:60
 msgid "Rephrase updated."
-msgstr ""
+msgstr "Rephrase aggiornato."
 
 #: includes/Core/CustomPostTypes/Rephrase.php:67
 msgid "Video Rephrases"
-msgstr ""
+msgstr "Rephrase video"
 
 #: includes/Core/CustomPostTypes/Transcript.php:39
 msgid "Shortcode"
