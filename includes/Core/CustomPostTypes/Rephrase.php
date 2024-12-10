@@ -9,8 +9,6 @@
 
 namespace Wubtitle\Core\CustomPostTypes;
 
-use Wubtitle\Core\Sources\YouTube;
-
 /**
  * This class handle the rephrase custom post type methods.
  */
