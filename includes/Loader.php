@@ -33,6 +33,7 @@ class Loader {
 			'custom_media_library'   => MediaLibrary\ListingSubtitles::class,
 			'subtitle'               => Core\Subtitle::class,
 			'store_subtitle'         => Api\ApiStoreSubtitle::class,
+			'store_rephrase'         => Api\ApiStoreRephrase::class,
 			'extented_media_library' => MediaLibrary\MediaLibraryExtented::class,
 			'send_pricing_plan'      => Api\ApiPricingPlan::class,
 			'payment_template'       => Dashboard\PaymentTemplate::class,
