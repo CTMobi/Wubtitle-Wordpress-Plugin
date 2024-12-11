@@ -45,7 +45,7 @@ class ApiStoreRephrase {
 			'/store-rephrase',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( $this, 'get_rephrase' ),
+				'callback'            => array( $this, 'store_rephrase_text' ),
 				'permission_callback' => function ( $request ) {
 					return $this->helpers->authorizer( $request );
 				},
@@ -59,7 +59,7 @@ class ApiStoreRephrase {
 	 * @param \WP_REST_Request $request request values.
 	 * @return WP_REST_Response
 	 */
-	public function get_rephrase( $request ) {
+	public function store_rephrase_text( $request ) {
 		$params       = $request->get_param( 'data' );
 		$rephrase_url = $params['url'] ?? '';
 

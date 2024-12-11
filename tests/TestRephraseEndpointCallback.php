@@ -73,7 +73,7 @@ class TestRephraseEndpointCallback extends WP_UnitTestCase {
 		);
 		$request      = new WP_REST_Request();
 		$request->set_default_params( $request_data );
-		$response          = $this->instance->get_rephrase( $request );
+		$response          = $this->instance->store_rephrase_text( $request );
 		$response_data     = $response->get_data();
 		$expected_response = array(
 			'message' => array(
@@ -98,7 +98,7 @@ class TestRephraseEndpointCallback extends WP_UnitTestCase {
 		);
 		$request      = new WP_REST_Request();
 		$request->set_default_params( $request_data );
-		$response          = $this->instance->get_rephrase( $request );
+		$response          = $this->instance->store_rephrase_text( $request );
 		$response_data     = $response->get_data();
 		$expected_response = array(
 			'message' => array(
@@ -123,7 +123,7 @@ class TestRephraseEndpointCallback extends WP_UnitTestCase {
 		);
 		$request      = new WP_REST_Request();
 		$request->set_default_params( $request_data );
-		$response          = $this->instance->get_rephrase( $request );
+		$response          = $this->instance->store_rephrase_text( $request );
 		$response_data     = $response->get_data();
 		$expected_response = array(
 			'errors' => array(
@@ -148,7 +148,7 @@ class TestRephraseEndpointCallback extends WP_UnitTestCase {
 		);
 		$request      = new WP_REST_Request();
 		$request->set_default_params( $request_data );
-		$response          = $this->instance->get_rephrase( $request );
+		$response          = $this->instance->store_rephrase_text( $request );
 		$response_data     = $response->get_data();
 		$expected_response = array(
 			'errors' => array(
@@ -173,7 +173,7 @@ class TestRephraseEndpointCallback extends WP_UnitTestCase {
 		);
 		$request      = new WP_REST_Request();
 		$request->set_default_params( $request_data );
-		$response          = $this->instance->get_rephrase( $request );
+		$response          = $this->instance->store_rephrase_text( $request );
 		$response_data     = $response->get_data();
 		$expected_response = array(
 			'errors' => array(
