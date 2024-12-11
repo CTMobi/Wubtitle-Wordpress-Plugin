@@ -42,7 +42,7 @@ class TestRephraseEndpointCallback extends WP_UnitTestCase {
 				'post_status' => 'publish',
 				'post_type'   => 'rephrase',
 				'meta_input'  => array(
-					'wubtitle_rephrase_id'     => $this->attachment_id,
+					'wubtitle_rephrase_id_video'     => $this->attachment_id,
 					'wubtitle_rephrase_status' => 'pending',
 				),
 			)
@@ -53,7 +53,7 @@ class TestRephraseEndpointCallback extends WP_UnitTestCase {
 				'post_status' => 'publish',
 				'post_type'   => 'rephrase',
 				'meta_input'  => array(
-					'wubtitle_rephrase_id'     => '5s32d1q1c3av16s',
+					'wubtitle_rephrase_id_video'     => '5s32d1q1c3av16s',
 					'wubtitle_rephrase_status' => 'pending',
 				),
 			)

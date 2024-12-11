@@ -134,7 +134,7 @@ class ApiStoreRephrase {
 		$args = array(
 			'post_type'              => 'rephrase',
 			'posts_per_page'         => 1,
-			'meta_key'               => 'wubtitle_rephrase_id',
+			'meta_key'               => 'wubtitle_rephrase_id_video',
 			'meta_value'             => $id_video,
 			'no_found_rows'          => true,
 			'update_post_term_cache' => false,
