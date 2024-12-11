@@ -5,10 +5,10 @@ msgstr ""
 "Project-Id-Version: Wubtitle 1.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Wubtitle-"
 "Wordpress-Plugin\n"
-"POT-Creation-Date: 2021-01-25T09:25:06+01:00\n"
-"PO-Revision-Date: 2021-01-25 09:29+0100\n"
+"POT-Creation-Date: 2024-11-29T08:36:49+00:00\n"
+"PO-Revision-Date: 2024-12-05 16:05+0000\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Italiano\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: includes/Api/ApiGetTranscript.php:38 includes/Api/ApiGetTranscript.php:82
 #: includes/Api/ApiGetTranscript.php:112 includes/Api/ApiPricingPlan.php:121
 #: includes/Core/Sources/Vimeo.php:88 includes/Core/Sources/Vimeo.php:89
-#: includes/Core/Sources/YouTube.php:133 includes/Core/Sources/YouTube.php:134
+#: includes/Core/Sources/YouTube.php:202 includes/Core/Sources/YouTube.php:203
 msgid ""
 "An error occurred while creating the transcriptions. Please try again in a "
 "few minutes"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Url not a valid youtube or vimeo url"
 msgstr "Url youtube o vimeo non valida"
 
-#: includes/Api/ApiGetTranscript.php:129
+#: includes/Api/ApiGetTranscript.php:130
 msgid ""
 "Error: this video doesn't have subtitles yet. It is necessary to generate "
 "them to obtain the transcription"
@@ -106,10 +106,10 @@ msgstr ""
 #: includes/Api/ApiPricingPlan.php:257 includes/Api/ApiPricingPlan.php:310
 #: includes/Api/ApiPricingPlan.php:329 includes/Dashboard/CancelPage.php:33
 #: includes/Dashboard/PaymentTemplate.php:52
-#: includes/Dashboard/PaymentTemplate.php:104
-#: includes/Dashboard/PaymentTemplate.php:138
-#: includes/Dashboard/PaymentTemplate.php:183
-#: includes/Dashboard/PaymentTemplate.php:232
+#: includes/Dashboard/PaymentTemplate.php:106
+#: includes/Dashboard/PaymentTemplate.php:140
+#: includes/Dashboard/PaymentTemplate.php:185
+#: includes/Dashboard/PaymentTemplate.php:234
 #: includes/Utils/InvoiceHelper.php:35 includes/Utils/InvoiceHelper.php:95
 #: includes/Utils/InvoiceHelper.php:264
 msgid "An error occurred. Please try again in a few minutes."
@@ -144,7 +144,7 @@ msgstr "Accesso negato"
 #: includes/Api/ApiPricingPlan.php:289 includes/Api/ApiPricingPlan.php:377
 #: includes/Api/ApiPricingPlan.php:378 includes/Api/ApiRequest.php:112
 #: includes/Core/Sources/Vimeo.php:91 includes/Core/Sources/Vimeo.php:156
-#: includes/Core/Sources/Vimeo.php:157 includes/Core/Sources/YouTube.php:136
+#: includes/Core/Sources/Vimeo.php:157 includes/Core/Sources/YouTube.php:205
 #: includes/Utils/InvoiceHelper.php:77 includes/Utils/InvoiceHelper.php:78
 #: includes/Utils/InvoiceHelper.php:298 includes/Utils/InvoiceHelper.php:299
 msgid "Could not contact the server"
@@ -197,7 +197,7 @@ msgstr ""
 "Impossibile creare i sottotitoli. La  licenza del prodotto non è valida"
 
 #: includes/Api/ApiRequest.php:213 includes/Core/Sources/Vimeo.php:92
-#: includes/Core/Sources/YouTube.php:137
+#: includes/Core/Sources/YouTube.php:206
 msgid "Error, no more video left for your subscription plan"
 msgstr "Errore, non hai più video disponibili per il tuo piano di abbonamento"
 
@@ -207,8 +207,8 @@ msgstr "Errore, lingua non supportata per il tuo piano di abbonamento"
 
 #: includes/Api/ApiRequest.php:215
 #: includes/MediaLibrary/MediaLibraryExtented.php:73
-#: includes/MediaLibrary/MediaLibraryExtented.php:184 build/index.js:896
-#: src/block/WubtitlePanel.js:88
+#: includes/MediaLibrary/MediaLibraryExtented.php:184 build/index.js:552
+#: src/block/WubtitlePanel.js:94
 msgid "Unsupported video format for free plan"
 msgstr "Formato video non supportato per il piano free"
 
@@ -223,6 +223,115 @@ msgstr ""
 #: includes/Api/ApiRequest.php:220
 msgid ", video left"
 msgstr ", video rimasti"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:34
+#: includes/Core/CustomPostTypes/Rephrase.php:36
+#: includes/Core/CustomPostTypes/Rephrase.php:65
+msgid "Rephrases"
+msgstr "Rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:35
+#: includes/Core/CustomPostTypes/Rephrase.php:55
+msgid "Rephrase"
+msgstr "Rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:37
+msgid "All rephrases"
+msgstr "Tutti i rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:38
+#: includes/Core/CustomPostTypes/Transcript.php:102
+msgid "Add new"
+msgstr "Aggiungi nuovo"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:39
+msgid "Add new rephrase"
+msgstr "Aggiungi nuovo rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:40
+msgid "Edit rephrase"
+msgstr "Modifica il rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:41
+msgid "New rephrase"
+msgstr "Nuovo rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:42
+msgid "View rephrase"
+msgstr "Vedi rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:43
+msgid "View rephrases"
+msgstr "Vedi rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:44
+msgid "Search rephrases"
+msgstr "Cerca rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:45
+msgid "No Rephrases found"
+msgstr "Nessun rephrase trovato"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:46
+msgid "No Rephrases found in trash"
+msgstr "Nessun rephrase trovato nel cestino"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:47
+#: includes/Core/CustomPostTypes/Rephrase.php:61
+msgid "Parent rephrase:"
+msgstr ""
+
+#: includes/Core/CustomPostTypes/Rephrase.php:48
+msgid "Rephrase archives"
+msgstr "Archivio rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:49
+msgid "Insert into Rephrase"
+msgstr "Inserisci nel rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:50
+msgid "Upload to this Rephrase"
+msgstr ""
+
+#: includes/Core/CustomPostTypes/Rephrase.php:51
+msgid "Filter Rephrases list"
+msgstr "Filtra lista rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:52
+msgid "Rephrases list navigation"
+msgstr "Lista navigazione rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:53
+msgid "Rephrases list"
+msgstr "Lista rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:54
+msgid "Rephrases attributes"
+msgstr "Attributi rephrase"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:56
+msgid "Rephrase published"
+msgstr "Rephrase pubblicato"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:57
+msgid "Rephrase published privately."
+msgstr "Rephrase pubblicato privatamente."
+
+#: includes/Core/CustomPostTypes/Rephrase.php:58
+msgid "Rephrase reverted to draft."
+msgstr "Rephrase ripristinato in bozza."
+
+#: includes/Core/CustomPostTypes/Rephrase.php:59
+msgid "Rephrase scheduled"
+msgstr "Rephrase pianificato"
+
+#: includes/Core/CustomPostTypes/Rephrase.php:60
+msgid "Rephrase updated."
+msgstr "Rephrase aggiornato."
+
+#: includes/Core/CustomPostTypes/Rephrase.php:67
+msgid "Video Rephrases"
+msgstr "Rephrase video"
 
 #: includes/Core/CustomPostTypes/Transcript.php:39
 msgid "Shortcode"
@@ -242,10 +351,6 @@ msgstr "Trascrizione"
 #: includes/Core/CustomPostTypes/Transcript.php:101
 msgid "All transcripts"
 msgstr "Tutte le trascrizioni"
-
-#: includes/Core/CustomPostTypes/Transcript.php:102
-msgid "Add new"
-msgstr "Aggiungi nuovo"
 
 #: includes/Core/CustomPostTypes/Transcript.php:103
 msgid "Add new transcript"
@@ -336,7 +441,7 @@ msgstr "Trascrizione aggiornata."
 msgid "Video Transcripts"
 msgstr "Trascrizioni video"
 
-#: includes/Core/Sources/Vimeo.php:90 includes/Core/Sources/YouTube.php:135
+#: includes/Core/Sources/Vimeo.php:90 includes/Core/Sources/YouTube.php:204
 msgid "Unable to create transcriptions. Invalid product license"
 msgstr ""
 "Impossibile creare i sottotitoli. La  licenza del prodotto non è valida"
@@ -349,8 +454,8 @@ msgstr ""
 "La trascrizione di questo video non può essere recuperata, formato "
 "sottotitoli non supportato"
 
-#: includes/Core/Sources/Vimeo.php:109 includes/Core/Sources/YouTube.php:149
-#: includes/Core/Sources/YouTube.php:157 includes/Core/Sources/YouTube.php:183
+#: includes/Core/Sources/Vimeo.php:109 includes/Core/Sources/YouTube.php:194
+#: includes/Core/Sources/YouTube.php:222 includes/Core/Sources/YouTube.php:248
 msgid "Transcript not avaiable for this video."
 msgstr "Trascrizione non disponibile per questo video."
 
@@ -358,19 +463,19 @@ msgstr "Trascrizione non disponibile per questo video."
 msgid "License key is missing"
 msgstr "Licenza del prodotto è assente."
 
-#: includes/Core/Sources/YouTube.php:84 includes/Core/Sources/YouTube.php:104
+#: includes/Core/Sources/YouTube.php:84 includes/Core/Sources/YouTube.php:140
 msgid "Url not a valid youtube url"
 msgstr "Url youtube non valida"
 
-#: includes/Dashboard/PaymentTemplate.php:143
+#: includes/Dashboard/PaymentTemplate.php:145
 msgid "Update successfull!"
 msgstr "Aggiornamento riuscito!"
 
-#: includes/Dashboard/PaymentTemplate.php:145
+#: includes/Dashboard/PaymentTemplate.php:147
 msgid "Upgrade successfull!"
 msgstr "Modifica del piano avvenuta con successo"
 
-#: includes/Dashboard/PaymentTemplate.php:147
+#: includes/Dashboard/PaymentTemplate.php:149
 msgid "Downgrade successfull!"
 msgstr "Modifica del piano avvenuta con successo"
 
@@ -437,8 +542,7 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr "Annulla l'iscrizione"
 
-#: includes/Dashboard/Settings.php:205
-#: build_form/index.js:1
+#: includes/Dashboard/Settings.php:205 build_form/index.js:1
 #: src/stripe/Components/ColumnTitle.js:10
 msgid "Update billing or payment details"
 msgstr "Aggiorna dettagli di fatturazione o di pagamento"
@@ -471,7 +575,10 @@ msgid "Could not contact the server."
 msgstr "Impossibile contattare il server."
 
 #: includes/Dashboard/Settings.php:327
-msgid "Upgrade feature temporarily disabled due to an error loading the page or you are using an inaccessible domain. If your domain is accessible reload the page and try again."
+msgid ""
+"Upgrade feature temporarily disabled due to an error loading the page or you "
+"are using an inaccessible domain. If your domain is accessible reload the "
+"page and try again."
 msgstr ""
 "Impossibile effettuare l'upgrade del piano di abbonamento a causa di un "
 "errore durante il caricamento della pagina o stai usando un dominio non "
@@ -503,7 +610,7 @@ msgid "Please enter the license key you received after successful checkout"
 msgstr ""
 "Inserisci la chiave di licenza ricevuta dopo aver effettuato il checkout"
 
-#: includes/Dashboard/Settings.php:395
+#: includes/Dashboard/Settings.php:397
 msgid "now!"
 msgstr " "
 
@@ -709,132 +816,132 @@ msgstr "Data di scadenza: "
 msgid "Upgrade Now"
 msgstr "Modifica piano"
 
-#: includes/Helpers.php:112 includes/MediaLibrary/MediaLibraryExtented.php:352
-#: build/index.js:1068 src/block/labels.js:38
+#: includes/Helpers.php:116 includes/MediaLibrary/MediaLibraryExtented.php:352
+#: build/index.js:706 src/block/labels.js:38 build/index.js:707
 msgid "Italian"
 msgstr "Italiano"
 
-#: includes/Helpers.php:113
+#: includes/Helpers.php:117
 msgid "US English"
 msgstr "Inglese (US)"
 
-#: includes/Helpers.php:114 includes/MediaLibrary/MediaLibraryExtented.php:354
-#: build/index.js:1070 src/block/labels.js:40
+#: includes/Helpers.php:118 includes/MediaLibrary/MediaLibraryExtented.php:354
+#: build/index.js:708 src/block/labels.js:40 build/index.js:709
 msgid "Spanish"
 msgstr "Spagnolo"
 
-#: includes/Helpers.php:115 includes/MediaLibrary/MediaLibraryExtented.php:355
-#: build/index.js:1071 src/block/labels.js:41
+#: includes/Helpers.php:119 includes/MediaLibrary/MediaLibraryExtented.php:355
+#: build/index.js:709 src/block/labels.js:41 build/index.js:710
 msgid "German"
 msgstr "Tedesco"
 
-#: includes/Helpers.php:116 includes/MediaLibrary/MediaLibraryExtented.php:356
-#: build/index.js:1072 src/block/labels.js:42
+#: includes/Helpers.php:120 includes/MediaLibrary/MediaLibraryExtented.php:356
+#: build/index.js:710 src/block/labels.js:42 build/index.js:711
 msgid "Chinese"
 msgstr "Cinese"
 
-#: includes/Helpers.php:117 includes/MediaLibrary/MediaLibraryExtented.php:357
-#: build/index.js:1073 src/block/labels.js:43
+#: includes/Helpers.php:121 includes/MediaLibrary/MediaLibraryExtented.php:357
+#: build/index.js:711 src/block/labels.js:43 build/index.js:712
 msgid "French"
 msgstr "Francese"
 
-#: includes/Helpers.php:118
+#: includes/Helpers.php:122
 msgid "Gulf Arabic"
 msgstr "Golfo Arabo"
 
-#: includes/Helpers.php:119
+#: includes/Helpers.php:123
 msgid "Modern Standard Arabic"
 msgstr "Arabo Moderno"
 
-#: includes/Helpers.php:120
+#: includes/Helpers.php:124
 msgid "Dutch"
 msgstr "Olandese"
 
-#: includes/Helpers.php:121
+#: includes/Helpers.php:125
 msgid "Australian English"
 msgstr "Inglese Australiano"
 
-#: includes/Helpers.php:122
+#: includes/Helpers.php:126
 msgid "Welsh English"
 msgstr "Inglese Gallese"
 
-#: includes/Helpers.php:123
+#: includes/Helpers.php:127
 msgid "US Spanish"
 msgstr "Spagnolo (US)"
 
-#: includes/Helpers.php:124
+#: includes/Helpers.php:128
 msgid "Canadian French"
 msgstr "Francese Canadese"
 
-#: includes/Helpers.php:125 includes/Utils/VimeoHelper.php:68
+#: includes/Helpers.php:129 includes/Utils/VimeoHelper.php:68
 msgid "Farsi"
 msgstr "Farsi"
 
-#: includes/Helpers.php:126
+#: includes/Helpers.php:130
 msgid "Swiss German"
 msgstr "Tedesco Svizzero"
 
-#: includes/Helpers.php:127 includes/Utils/VimeoHelper.php:84
+#: includes/Helpers.php:131 includes/Utils/VimeoHelper.php:84
 msgid "Hebrew"
 msgstr "Ebraico"
 
-#: includes/Helpers.php:128
+#: includes/Helpers.php:132
 msgid "Indian Hindi"
 msgstr "Indiano Hindi"
 
-#: includes/Helpers.php:129 includes/Utils/VimeoHelper.php:87
+#: includes/Helpers.php:133 includes/Utils/VimeoHelper.php:87
 msgid "Indonesian"
 msgstr "Indonesiano"
 
-#: includes/Helpers.php:130 includes/Utils/VimeoHelper.php:91
+#: includes/Helpers.php:134 includes/Utils/VimeoHelper.php:91
 msgid "Japanese"
 msgstr "Giapponese"
 
-#: includes/Helpers.php:131
+#: includes/Helpers.php:135
 msgid "Korean"
 msgstr "Coreano"
 
-#: includes/Helpers.php:132
+#: includes/Helpers.php:136
 msgid "Malay"
 msgstr "Malese"
 
-#: includes/Helpers.php:133
+#: includes/Helpers.php:137
 msgid "Portuguese"
 msgstr "Portoghese"
 
-#: includes/Helpers.php:134 includes/Utils/VimeoHelper.php:110
+#: includes/Helpers.php:138 includes/Utils/VimeoHelper.php:110
 msgid "Russian"
 msgstr "Russo"
 
-#: includes/Helpers.php:135
+#: includes/Helpers.php:139
 msgid "Tamil"
 msgstr "Tamil"
 
-#: includes/Helpers.php:136
+#: includes/Helpers.php:140
 msgid "Telugu"
 msgstr "Telugu"
 
-#: includes/Helpers.php:137 includes/Utils/VimeoHelper.php:139
+#: includes/Helpers.php:141 includes/Utils/VimeoHelper.php:139
 msgid "Turkish"
 msgstr "Turco"
 
-#: includes/Helpers.php:138
+#: includes/Helpers.php:142
 msgid "Indian English"
 msgstr "Inglese Indiano"
 
-#: includes/Helpers.php:139
+#: includes/Helpers.php:143
 msgid "Irish English"
 msgstr "Inglese Irlandese"
 
-#: includes/Helpers.php:140
+#: includes/Helpers.php:144
 msgid "Scottish English"
 msgstr "Inglese Scozzese"
 
-#: includes/Helpers.php:141
+#: includes/Helpers.php:145
 msgid "British English"
 msgstr "Inglese (UK)"
 
-#: includes/Helpers.php:142
+#: includes/Helpers.php:146
 msgid "Brazilian Portuguese"
 msgstr "Portoghese Brasiliano"
 
@@ -846,8 +953,8 @@ msgstr "Sottotitoli"
 
 #: includes/MediaLibrary/ListingSubtitles.php:49
 #: includes/MediaLibrary/MediaLibraryExtented.php:56
-#: includes/MediaLibrary/MediaLibraryExtented.php:171 build/index.js:1032
-#: src/block/labels.js:7
+#: includes/MediaLibrary/MediaLibraryExtented.php:171 build/index.js:678
+#: src/block/labels.js:7 build/index.js:676
 msgid "Generating"
 msgstr "In Creazione"
 
@@ -855,8 +962,8 @@ msgstr "In Creazione"
 #: includes/MediaLibrary/MediaLibraryExtented.php:57
 #: includes/MediaLibrary/MediaLibraryExtented.php:124
 #: includes/MediaLibrary/MediaLibraryExtented.php:172
-#: includes/MediaLibrary/MediaLibraryExtented.php:248 build/index.js:1033
-#: src/block/labels.js:8
+#: includes/MediaLibrary/MediaLibraryExtented.php:248 build/index.js:679
+#: src/block/labels.js:8 build/index.js:677
 msgid "Draft"
 msgstr "In bozza"
 
@@ -864,23 +971,24 @@ msgstr "In bozza"
 #: includes/MediaLibrary/MediaLibraryExtented.php:58
 #: includes/MediaLibrary/MediaLibraryExtented.php:123
 #: includes/MediaLibrary/MediaLibraryExtented.php:173
-#: includes/MediaLibrary/MediaLibraryExtented.php:247 build/index.js:625
-#: src/block/SubtitleControl.js:73
+#: includes/MediaLibrary/MediaLibraryExtented.php:247 build/index.js:327
+#: src/block/SubtitleControl.js:74 build/index.js:312
 msgid "Published"
 msgstr "Pubblicati"
 
 #: includes/MediaLibrary/ListingSubtitles.php:53
 #: includes/MediaLibrary/MediaLibraryExtented.php:60
-#: includes/MediaLibrary/MediaLibraryExtented.php:174 build/index.js:353
-#: build/index.js:878 build/index.js:1035 src/block/EmbedControlPanel.js:11
-#: src/block/labels.js:10 src/block/WubtitlePanel.js:60
+#: includes/MediaLibrary/MediaLibraryExtented.php:174 build/index.js:95
+#: build/index.js:536 build/index.js:681 src/block/EmbedControlPanel.js:12
+#: src/block/labels.js:10 src/block/WubtitlePanel.js:66 build/index.js:64
+#: build/index.js:524 build/index.js:679
 msgid "None"
 msgstr "Nessuno"
 
 #: includes/MediaLibrary/ListingSubtitles.php:54
 #: includes/MediaLibrary/MediaLibraryExtented.php:59
-#: includes/MediaLibrary/MediaLibraryExtented.php:175 build/index.js:878
-#: src/block/WubtitlePanel.js:59
+#: includes/MediaLibrary/MediaLibraryExtented.php:175 build/index.js:536
+#: src/block/WubtitlePanel.js:65 build/index.js:523
 msgid "Error"
 msgstr "Errore"
 
@@ -892,8 +1000,8 @@ msgid "Language"
 msgstr "Lingua"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:104
-#: includes/MediaLibrary/MediaLibraryExtented.php:276 build/index.js:892
-#: src/block/WubtitlePanel.js:79
+#: includes/MediaLibrary/MediaLibraryExtented.php:276 build/index.js:550
+#: src/block/WubtitlePanel.js:85 build/index.js:543
 msgid "GENERATE SUBTITLES"
 msgstr "GENERA SOTTOTITOLI"
 
@@ -914,7 +1022,8 @@ msgstr ""
 "il prima possibile"
 
 #: includes/MediaLibrary/MediaLibraryExtented.php:353
-#: includes/Utils/VimeoHelper.php:56 build/index.js:1069 src/block/labels.js:39
+#: includes/Utils/VimeoHelper.php:56 build/index.js:707 src/block/labels.js:39
+#: build/index.js:708
 msgid "English"
 msgstr "Inglese"
 
@@ -1410,8 +1519,8 @@ msgstr "Errore, lingua non selezionata"
 #: assets/editor/transcriptionModalScript.js:112
 #: assets/editor/transcriptionModalScript.js:147
 #: assets/editor/transcriptionModalScript.js:168
-#: assets/editor/transcriptionModalScript.js:192 build/index.js:457
-#: src/block/EmbedControlPanel.js:96
+#: assets/editor/transcriptionModalScript.js:192 build/index.js:173
+#: src/block/EmbedControlPanel.js:103 build/index.js:155
 msgid "Select language"
 msgstr "Seleziona la lingua"
 
@@ -1427,76 +1536,80 @@ msgstr ""
 msgid "Language of trascription"
 msgstr "Lingua della trascrizione"
 
-#: build/index.js:418 src/block/EmbedControlPanel.js:54
+#: build/index.js:131 src/block/EmbedControlPanel.js:56 build/index.js:108
 msgid "Created"
 msgstr "Creata"
 
-#: build/index.js:437 src/block/EmbedControlPanel.js:77
+#: build/index.js:150 src/block/EmbedControlPanel.js:80 build/index.js:132
 msgid "Subtitles not available for this video"
 msgstr "Sottotitoli non disponibili per questo video"
 
-#: build/index.js:478 src/block/EmbedControlPanel.js:115
+#: build/index.js:192 src/block/EmbedControlPanel.js:122 build/index.js:174
 msgid "Transcript status:"
 msgstr "Stato trascrizione:"
 
-#: build/index.js:483 src/block/EmbedControlPanel.js:124
+#: build/index.js:197 src/block/EmbedControlPanel.js:131 build/index.js:183
 msgid "Select transcript language"
 msgstr "Selezione la lingua della trascrizione"
 
-#: build/index.js:484 build/index.js:880 src/block/EmbedControlPanel.js:131
-#: src/block/WubtitlePanel.js:65
+#: build/index.js:198 build/index.js:538 src/block/EmbedControlPanel.js:138
+#: src/block/WubtitlePanel.js:71 build/index.js:190 build/index.js:529
 msgid "Select the video language"
 msgstr "Seleziona la lingua del video"
 
-#: build/index.js:497 build/index.js:635 src/block/EmbedControlPanel.js:150
-#: src/block/SubtitleControl.js:80
+#: build/index.js:211 build/index.js:337 src/block/EmbedControlPanel.js:157
+#: src/block/SubtitleControl.js:81 build/index.js:209 build/index.js:319
 msgid "Get Transcribe"
 msgstr "Ottieni trascrizione"
 
-#: build/index.js:526 build/index.js:620 build/index.js:879
-#: src/block/PendingSubtitle.js:7 src/block/SubtitleControl.js:67
-#: src/block/WubtitlePanel.js:63
+#: build/index.js:241 build/index.js:322 build/index.js:537
+#: src/block/PendingSubtitle.js:8 src/block/SubtitleControl.js:68
+#: src/block/WubtitlePanel.js:69 build/index.js:229 build/index.js:306
+#: build/index.js:527
 msgid "Status:"
 msgstr "Stato:"
 
-#: build/index.js:526 build/index.js:624 src/block/PendingSubtitle.js:8
-#: src/block/SubtitleControl.js:70
+#: build/index.js:241 build/index.js:326 src/block/PendingSubtitle.js:11
+#: src/block/SubtitleControl.js:71 build/index.js:232 build/index.js:309
 msgid "Language:"
 msgstr "Lingua:"
 
-#: build/index.js:589 src/block/SubtitleControl.js:29
+#: build/index.js:292 src/block/SubtitleControl.js:29 build/index.js:267
 msgid "Getting transcript…"
 msgstr "Generazione trascrizione..."
 
-#: build/index.js:774 src/block/TranscriptionEditBlock.js:108
+#: build/index.js:451 src/block/TranscriptionEditBlock.js:112
+#: build/index.js:439
 msgid "Wubtitle transcriptions"
 msgstr "Trascrizioni Wubtitle"
 
-#: build/index.js:780 src/block/TranscriptionEditBlock.js:112
+#: build/index.js:455 src/block/TranscriptionEditBlock.js:116
+#: build/index.js:443
 msgid "Insert transcriptions"
 msgstr "Inserisci trascrizioni"
 
-#: build/index.js:787 src/block/TranscriptionEditBlock.js:117
+#: build/index.js:460 src/block/TranscriptionEditBlock.js:121
+#: build/index.js:448
 msgid "Enter the title of the video you want to transcribe"
 msgstr "Scrivi il titolo del video del quale vuoi inserire la trascrizione"
 
-#: build/index.js:914 src/block/WubtitlePanel.js:110
+#: build/index.js:569 src/block/WubtitlePanel.js:118 build/index.js:576
 msgid "Subtitle creation successfully started"
 msgstr "Creazione dei sottotitoli avviata con successo"
 
-#: build/index.js:1034 src/block/labels.js:9
+#: build/index.js:680 src/block/labels.js:9 build/index.js:678
 msgid "Enabled"
 msgstr "Attivati"
 
-#: build/index.js:1063 src/block/labels.js:32
+#: build/index.js:700 src/block/labels.js:32 build/index.js:701
 msgid "(Pro Only)"
 msgstr "(solo Pro)"
 
-#: build/index.js:1096 src/block/trascriptionBlock.js:6
+#: build/index.js:732 src/block/trascriptionBlock.js:6 build/index.js:728
 msgid "Trascription"
 msgstr "Trascrizione"
 
-#: build/index.js:1098 src/block/trascriptionBlock.js:8
+#: build/index.js:734 src/block/trascriptionBlock.js:8 build/index.js:730
 msgid "Enter the transcript of your video"
 msgstr "Inserisci la trascrizione del tuo video"
 
@@ -1504,176 +1617,176 @@ msgstr "Inserisci la trascrizione del tuo video"
 msgid "Card details"
 msgstr "Dettagli carta"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:31
-#: src/stripe/Components/InvoiceForm.js:17
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:33
+#: src/stripe/Components/InvoiceForm.js:12
 msgid "Required"
 msgstr "Obbligat"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:38
-#: src/stripe/Components/InvoiceForm.js:44
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:40
+#: src/stripe/Components/InvoiceForm.js:39
 msgid "Invalid email"
 msgstr "Email non valida"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:88
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:90
 msgid "Coupon"
 msgstr ""
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:95
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:97
 msgid "Discount Code"
 msgstr "Codice Sconto"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:114
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:116
 msgid "Apply Coupon"
 msgstr "Applica Coupon"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:120
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:122
 msgid "Payment Details"
 msgstr "Dettagli di pagamento"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:125
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:127
 msgid "editing enabled"
 msgstr "modalità modifica attivata"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:126
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:128
 msgid "editing disabled"
 msgstr "modalità modifica disattivata"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:144
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:146
 #: src/stripe/Components/InvoiceSummary.js:40
 msgid "Email"
 msgstr ""
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:148
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:150
 msgid "Card Details"
 msgstr "Dettagli carta"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:154
-#: src/stripe/Components/CheckoutForm.js:197
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:156
+#: src/stripe/Components/CheckoutForm.js:199
 msgid "Card Holder"
 msgstr "Titolare della carta"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:158
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:160
 msgid "Expires"
 msgstr "Scadenza"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:217
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:219
 msgid "Back"
 msgstr "Indietro"
 
-#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:226
+#: build_form/index.js:1 src/stripe/Components/CheckoutForm.js:228
 msgid "Subscribe"
 msgstr "Iscrizione"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:48
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:43
 msgid "Telephone number required"
 msgstr "Numero di telefono richiesto"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:49
-#: src/stripe/Components/InvoiceForm.js:73
-#: src/stripe/Components/InvoiceForm.js:96
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:44
+#: src/stripe/Components/InvoiceForm.js:68
+#: src/stripe/Components/InvoiceForm.js:91
 msgid "Only numbers"
 msgstr "Solo numeri"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:51
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:46
 msgid "Prefix required"
 msgstr "Prefisso obbligatorio"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:54
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:49
 msgid "Prefix is only numbers"
 msgstr "Prefisso: solo numeri"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:56
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:51
 msgid "Prefix must be max 3 numbers"
 msgstr "Il prefisso ha massimo 3 numeri"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:71
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:66
 msgid "Vat Code must be exactly 11 characters"
 msgstr "La partita iva deve essere esattamente di 11 caratteri"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:81
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:76
 msgid "Fiscal Code must be exactly 16 characters"
 msgstr "Il codice fiscale deve essere esattamente di 16 caratteri"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:85
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:80
 msgid "Invalid Fiscal Code"
 msgstr "Codice fiscale non valido"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:94
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:89
 msgid "Postal Code must be exactly 5 characters"
 msgstr "Il codice postale deve essere esattamente di 5 caratteri"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:100
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:95
 msgid "Destination Code must be exactly 7 characters"
 msgstr "Codice di destinazioni deve essere esattamente di 7 caratteri"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:151
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:146
 msgid "Billing Details"
 msgstr "Dettagli fatturazione"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:164
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:159
 #: src/stripe/Components/InvoiceSummary.js:36
 msgid "Name"
 msgstr "Nome"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:177
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:172
 #: src/stripe/Components/InvoiceSummary.js:72
 msgid "Lastname"
 msgstr "Cognome"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:197
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:192
 #: src/stripe/Components/InvoiceSummary.js:77
 msgid "Company Name"
 msgstr "Nome azienda"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:209
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:204
 #: src/stripe/Components/InvoiceSummary.js:44
 msgid "Country"
 msgstr "Nazione"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:233
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:228
 #: src/stripe/Components/InvoiceSummary.js:86
 msgid "Province"
 msgstr "Provincia"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:253
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:248
 #: src/stripe/Components/InvoiceSummary.js:94
 msgid "City"
 msgstr "Città"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:262
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:257
 #: src/stripe/Components/InvoiceSummary.js:56
 msgid "Address"
 msgstr "Indirizzo"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:275
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:270
 #: src/stripe/Components/InvoiceSummary.js:49
 msgid "Postal Code"
 msgstr "Codice postale"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:291
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:286
 msgid "Vat Code"
 msgstr "Partita iva"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:313
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:308
 #: src/stripe/Components/InvoiceSummary.js:100
 msgid "Fiscal Code"
 msgstr "Codice fiscale"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:325
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:320
 #: src/stripe/Components/InvoiceSummary.js:62
 msgid "Telephone"
 msgstr "Numero di telefono"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:355
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:350
 #: src/stripe/Components/InvoiceSummary.js:120
 msgid "Destination Code"
 msgstr "Codice di destinazione"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:372
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:367
 msgid "Cancel"
 msgstr "Annulla"
 
-#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:378
+#: build_form/index.js:1 src/stripe/Components/InvoiceForm.js:373
 msgid "Next"
 msgstr "Avanti"
 
@@ -1738,17 +1851,13 @@ msgstr "Iscrizione a"
 msgid "plan"
 msgstr "piano"
 
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:49
-msgid " per month"
-msgstr "per mese"
-
-#: build_form/index.js:1 src/stripe/Components/PlanTable.js:55
-msgid "Automatic renewal"
-msgstr "Rinnovo automatico: "
-
-#: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:23
+#: src/stripe/Components/PlanTable.js:48
 msgid "per month"
 msgstr "per mese"
+
+#: build_form/index.js:1 src/stripe/Components/PlanTable.js:53
+msgid "Automatic renewal"
+msgstr "Rinnovo automatico: "
 
 #: build_form/index.js:1 src/stripe/Components/InfoPriceColumn.js:26
 msgid "for this month*"
